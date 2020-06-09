@@ -1,0 +1,5945 @@
+<DB>
+    <Tbl name="DBBase" RowCount="1">
+        <Row No="0">
+<DM name="IFInfo" val="01010100040000000212C4010000440200004403000044040000"/>
+        </Row>
+    </Tbl>
+    <Tbl name="ETH" RowCount="4">
+        <Row No="0">
+            <DM name="ViewName" val="DEV.ETH.IF1"/>
+            <DM name="TR098ViewName" val="IGD.LD1.ETH1"/>
+            <DM name="Enable" val="1"/>
+            <DM name="SupportType" val="2"/>
+            <DM name="CurrType" val="0"/>
+            <DM name="SupportBitRate" val="1"/>
+            <DM name="MaxBitRate" val="3"/>
+            <DM name="DuplexMode" val="2"/>
+            <DM name="IsPortIsolate" val="0"/>
+            <DM name="IsFlowCtl" val="1"/>
+            <DM name="MDIXEnable" val="1"/>
+            <DM name="IFName" val="eth0"/>
+            <DM name="AliasName" val="LAN1"/>
+        </Row>
+        <Row No="1">
+            <DM name="ViewName" val="DEV.ETH.IF2"/>
+            <DM name="TR098ViewName" val="IGD.LD1.ETH2"/>
+            <DM name="Enable" val="1"/>
+            <DM name="SupportType" val="0"/>
+            <DM name="CurrType" val="0"/>
+            <DM name="SupportBitRate" val="1"/>
+            <DM name="MaxBitRate" val="3"/>
+            <DM name="DuplexMode" val="2"/>
+            <DM name="IsPortIsolate" val="0"/>
+            <DM name="IsFlowCtl" val="1"/>
+            <DM name="MDIXEnable" val="1"/>
+            <DM name="IFName" val="eth1"/>
+            <DM name="AliasName" val="LAN2"/>
+        </Row>
+        <Row No="2">
+            <DM name="ViewName" val="DEV.ETH.IF3"/>
+            <DM name="TR098ViewName" val="IGD.LD1.ETH3"/>
+            <DM name="Enable" val="1"/>
+            <DM name="SupportType" val="0"/>
+            <DM name="CurrType" val="0"/>
+            <DM name="SupportBitRate" val="1"/>
+            <DM name="MaxBitRate" val="3"/>
+            <DM name="DuplexMode" val="2"/>
+            <DM name="IsPortIsolate" val="0"/>
+            <DM name="IsFlowCtl" val="1"/>
+            <DM name="MDIXEnable" val="1"/>
+            <DM name="IFName" val="eth2"/>
+            <DM name="AliasName" val="LAN3"/>
+        </Row>
+        <Row No="3">
+            <DM name="ViewName" val="DEV.ETH.IF4"/>
+            <DM name="TR098ViewName" val="IGD.LD1.ETH4"/>
+            <DM name="Enable" val="1"/>
+            <DM name="SupportType" val="0"/>
+            <DM name="CurrType" val="0"/>
+            <DM name="SupportBitRate" val="1"/>
+            <DM name="MaxBitRate" val="3"/>
+            <DM name="DuplexMode" val="2"/>
+            <DM name="IsPortIsolate" val="0"/>
+            <DM name="IsFlowCtl" val="1"/>
+            <DM name="MDIXEnable" val="1"/>
+            <DM name="IFName" val="eth3"/>
+            <DM name="AliasName" val="LAN4"/>
+        </Row>
+    </Tbl>
+    <Tbl name="WAND" RowCount="2">
+        <Row No="0">
+            <DM name="ViewName" val="IGD.WD1"/>
+            <DM name="WANDType" val="0"/>
+            <DM name="WANCDCapcity" val="1"/>
+            <DM name="TriggerEnable" val="1"/>
+            <DM name="DSLChannel" val="DEV.DSL.CHL1"/>
+            <DM name="DSLLine" val="DEV.DSL.LINE1"/>
+            <DM name="EthInterface" val=""/>
+            <DM name="POTSInterface" val=""/>
+        </Row>
+        <Row No="1">
+            <DM name="ViewName" val="IGD.WD2"/>
+            <DM name="WANDType" val="1"/>
+            <DM name="WANCDCapcity" val="1"/>
+            <DM name="TriggerEnable" val="1"/>
+            <DM name="DSLChannel" val=""/>
+            <DM name="DSLLine" val=""/>
+            <DM name="EthInterface" val="DEV.ETH.IF1"/>
+            <DM name="POTSInterface" val=""/>
+        </Row>
+    </Tbl>
+  <Tbl name="MultiUplink" RowCount="2">
+    <Row No="0">
+      <DM name="ViewName" val="IGD.MULTIUP1"/>
+      <DM name="IF_ID" val="DEV.ETH.IF1"/>
+      <DM name="IsBakup" val="0"/>
+      <DM name="Priority" val="0"/>
+      <DM name="NeedPowerOp" val="1"/>
+      <DM name="UpCondition" val="2"/>
+      <DM name="DownCondition" val="2"/>
+      <DM name="DelayUpTime" val="10"/>
+    </Row>
+    <Row No="1">
+      <DM name="ViewName" val="IGD.MULTIUP2"/>
+      <DM name="IF_ID" val="DEV.DSL.LINE"/>
+      <DM name="IsBakup" val="0"/>
+      <DM name="Priority" val="0"/>
+      <DM name="NeedPowerOp" val="1"/>
+      <DM name="UpCondition" val="2"/>
+      <DM name="DownCondition" val="2"/>
+      <DM name="DelayUpTime" val="10"/>
+    </Row>
+  </Tbl>
+    <Tbl name="WANDCommCfg" RowCount="2">
+        <Row No="0">
+            <DM name="ViewName" val="IGD.WD1.WDCommCfg"/>
+            <DM name="WDViewName" val="IGD.WD1"/>
+            <DM name="EnabledForInternet" val="1"/>
+        </Row>
+        <Row No="1">
+            <DM name="ViewName" val="IGD.WD2.WDCommCfg"/>
+            <DM name="WDViewName" val="IGD.WD2"/>
+            <DM name="EnabledForInternet" val="1"/>
+        </Row>
+    </Tbl>
+  <Tbl name="DSLLine" RowCount="1">
+        <Row No="0">
+      <DM name="ViewName" val="DEV.DSL.LINE1"/>
+      <DM name="TR098ViewName" val="IGD.WD1.WDCfg"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Alias" val="DSL.LINE1"/>
+      <DM name="Name" val="DEV.DSL.LINE1"/>
+      <DM name="ModulationTypeSet" val="33554622"/>
+      <DM name="StandardsSupported" val="234890430"/>
+      <DM name="Profiles" val="127"/>
+      <DM name="BitSwapEnable" val="1"/>
+      <DM name="SRAEnable" val="1"/>
+      <DM name="US0Mask" val="1"/>
+      <DM name="VectorEnable" val="1"/>      
+      <DM name="Upstream" val="1"/>
+    </Row>
+  </Tbl>
+  <Tbl name="DSLChannel" RowCount="1">
+    <Row No="0">
+      <DM name="ViewName" val="DEV.DSL.CHL1"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Alias" val="DSL.CHL1"/>
+      <DM name="Name" val="DEV.DSL.CHL1"/>
+      <DM name="LowerLayers" val="DEV.DSL.LINE1"/>
+      <DM name="LinkEncapsulationUsed" val="5"/>
+            <DM name="LinkEncapsulationSupported" val="9"/>
+    </Row>
+  </Tbl>
+  <Tbl name="PTMLink" RowCount="1">
+    <Row No="0">
+      <DM name="ViewName" val="DEV.PTM.LINK1"/>
+      <DM name="TR098ViewName" val="IGD.WD1.WCD1"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="0"/>
+      <DM name="Alias" val="PTM_LINK1"/>
+      <DM name="Name" val="DEV.PTM.LINK1"/>
+      <DM name="LowerLayers" val="DEV.DSL.CHL1"/>
+    </Row>
+  </Tbl>
+<Tbl name="WANCD" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANDViewName" val="IGD.WD1"/>
+<DM name="WANCCapcity" val="16"/>
+<DM name="LinkType" val="1"/>
+<DM name="Enabled" val="0"/>
+<DM name="EthInterface" val=""/>
+<DM name="ATMLink" val=""/>
+<DM name="PTMLink" val="DEV.PTM.LINK1"/>
+<DM name="POTSInterface" val=""/>
+<DM name="WIFISta" val=""/>
+<DM name="PONOptical" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANDViewName" val="IGD.WD1"/>
+<DM name="WANCCapcity" val="0"/>
+<DM name="LinkType" val="0"/>
+<DM name="Enabled" val="0"/>
+<DM name="EthInterface" val=""/>
+<DM name="ATMLink" val="DEV.ATM.LINK1"/>
+<DM name="PTMLink" val=""/>
+<DM name="POTSInterface" val=""/>
+<DM name="WIFISta" val=""/>
+<DM name="PONOptical" val=""/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.WD1.WCD3"/>
+<DM name="WANDViewName" val="IGD.WD1"/>
+<DM name="WANCCapcity" val="0"/>
+<DM name="LinkType" val="0"/>
+<DM name="Enabled" val="0"/>
+<DM name="EthInterface" val=""/>
+<DM name="ATMLink" val="DEV.ATM.LINK2"/>
+<DM name="PTMLink" val=""/>
+<DM name="POTSInterface" val=""/>
+<DM name="WIFISta" val=""/>
+<DM name="PONOptical" val=""/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.WD2.WCD1"/>
+<DM name="WANDViewName" val="IGD.WD2"/>
+<DM name="WANCCapcity" val="0"/>
+<DM name="LinkType" val="1"/>
+<DM name="Enabled" val="0"/>
+<DM name="EthInterface" val="DEV.ETH.IF1"/>
+<DM name="ATMLink" val=""/>
+<DM name="PTMLink" val=""/>
+<DM name="POTSInterface" val=""/>
+<DM name="WIFISta" val=""/>
+<DM name="PONOptical" val=""/>
+</Row>
+</Tbl>
+  <Tbl name="ATMF5Loopback" RowCount="1">
+    <Row No="0">
+      <DM name="ViewName" val="DEV.ATM.DIAG.FLB"/>
+      <DM name="Interface" val=""/>
+    </Row>
+    </Tbl>
+    <Tbl name="WANC" RowCount="0">
+    </Tbl>  
+<Tbl name="WANCPPP" RowCount="21">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP1"/>
+<DM name="EnablePassThrough" val="1"/>
+<DM name="PassThroughViewName" val="IGD.WD1.WCD1.WCPPP2"/>
+<DM name="HideListView" val="0"/>
+<DM name="WANCName" val="PTM_DSL"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF4"/>
+<DM name="PPPInterface" val="DEV.PPP.IF2"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN1"/>
+<DM name="EthLink" val="DEV.ETH.LINK3"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP2"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val="ptb_PTM_DSL"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="4"/>
+<DM name="IPInterface" val=""/>
+<DM name="PPPInterface" val=""/>
+<DM name="EthVlan" val=""/>
+<DM name="EthLink" val=""/>
+<DM name="Brport" val="DEV.BRIDGING.BR1.BRPORT10"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP3"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="0"/>
+<DM name="WANCName" val="PTM_OTETV"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="4"/>
+<DM name="IPInterface" val=""/>
+<DM name="PPPInterface" val=""/>
+<DM name="EthVlan" val=""/>
+<DM name="EthLink" val=""/>
+<DM name="Brport" val="DEV.BRIDGING.BR1.BRPORT12"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP4"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF12"/>
+<DM name="PPPInterface" val="DEV.PPP.IF9"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN9"/>
+<DM name="EthLink" val="DEV.ETH.LINK10"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP5"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF13"/>
+<DM name="PPPInterface" val="DEV.PPP.IF10"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN10"/>
+<DM name="EthLink" val="DEV.ETH.LINK11"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP6"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF14"/>
+<DM name="PPPInterface" val="DEV.PPP.IF11"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN11"/>
+<DM name="EthLink" val="DEV.ETH.LINK12"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP7"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF15"/>
+<DM name="PPPInterface" val="DEV.PPP.IF12"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN12"/>
+<DM name="EthLink" val="DEV.ETH.LINK13"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP8"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF16"/>
+<DM name="PPPInterface" val="DEV.PPP.IF13"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN13"/>
+<DM name="EthLink" val="DEV.ETH.LINK14"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP9"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF17"/>
+<DM name="PPPInterface" val="DEV.PPP.IF14"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN14"/>
+<DM name="EthLink" val="DEV.ETH.LINK15"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="IGD.WD1.WCD2.WCPPP1"/>
+<DM name="EnablePassThrough" val="1"/>
+<DM name="PassThroughViewName" val="IGD.WD1.WCD2.WCPPP2"/>
+<DM name="HideListView" val="0"/>
+<DM name="WANCName" val="ATM_DSL"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF3"/>
+<DM name="PPPInterface" val="DEV.PPP.IF1"/>
+<DM name="EthVlan" val=""/>
+<DM name="EthLink" val="DEV.ETH.LINK2"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="IGD.WD1.WCD2.WCPPP2"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val="ptb_ATM_DSL"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="4"/>
+<DM name="IPInterface" val=""/>
+<DM name="PPPInterface" val=""/>
+<DM name="EthVlan" val=""/>
+<DM name="EthLink" val=""/>
+<DM name="Brport" val="DEV.BRIDGING.BR1.BRPORT9"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="IGD.WD1.WCD2.WCPPP3"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF6"/>
+<DM name="PPPInterface" val="DEV.PPP.IF3"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN3"/>
+<DM name="EthLink" val="DEV.ETH.LINK4"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="IGD.WD1.WCD2.WCPPP4"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF7"/>
+<DM name="PPPInterface" val="DEV.PPP.IF4"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN4"/>
+<DM name="EthLink" val="DEV.ETH.LINK5"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="IGD.WD1.WCD2.WCPPP5"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF8"/>
+<DM name="PPPInterface" val="DEV.PPP.IF5"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN5"/>
+<DM name="EthLink" val="DEV.ETH.LINK6"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="IGD.WD1.WCD2.WCPPP6"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF9"/>
+<DM name="PPPInterface" val="DEV.PPP.IF6"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN6"/>
+<DM name="EthLink" val="DEV.ETH.LINK7"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="15">
+<DM name="ViewName" val="IGD.WD1.WCD2.WCPPP7"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF10"/>
+<DM name="PPPInterface" val="DEV.PPP.IF7"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN7"/>
+<DM name="EthLink" val="DEV.ETH.LINK8"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="16">
+<DM name="ViewName" val="IGD.WD1.WCD2.WCPPP8"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val=""/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD2"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF11"/>
+<DM name="PPPInterface" val="DEV.PPP.IF8"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN8"/>
+<DM name="EthLink" val="DEV.ETH.LINK9"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="17">
+<DM name="ViewName" val="IGD.WD1.WCD3.WCPPP1"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="0"/>
+<DM name="WANCName" val="ATM_OTETV"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD3"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="4"/>
+<DM name="IPInterface" val=""/>
+<DM name="PPPInterface" val=""/>
+<DM name="EthVlan" val=""/>
+<DM name="EthLink" val=""/>
+<DM name="Brport" val="DEV.BRIDGING.BR1.BRPORT11"/>
+</Row>
+<Row No="18">
+<DM name="ViewName" val="IGD.WD2.WCD1.WCPPP1"/>
+<DM name="EnablePassThrough" val="1"/>
+<DM name="PassThroughViewName" val="IGD.WD2.WCD1.WCPPP2"/>
+<DM name="HideListView" val="0"/>
+<DM name="WANCName" val="ETH"/>
+<DM name="WANCDViewName" val="IGD.WD2.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF18"/>
+<DM name="PPPInterface" val="DEV.PPP.IF15"/>
+<DM name="EthVlan" val="DEV.ETH.VLAN15"/>
+<DM name="EthLink" val="DEV.ETH.LINK16"/>
+<DM name="Brport" val=""/>
+</Row>
+<Row No="19">
+<DM name="ViewName" val="IGD.WD2.WCD1.WCPPP2"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="1"/>
+<DM name="WANCName" val="ptb_ETH"/>
+<DM name="WANCDViewName" val="IGD.WD2.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="4"/>
+<DM name="IPInterface" val=""/>
+<DM name="PPPInterface" val=""/>
+<DM name="EthVlan" val=""/>
+<DM name="EthLink" val=""/>
+<DM name="Brport" val="DEV.BRIDGING.BR1.BRPORT13"/>
+</Row>
+<Row No="20">
+<DM name="ViewName" val="IGD.WD2.WCD1.WCPPP3"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="HideListView" val="0"/>
+<DM name="WANCName" val="ETH_OTETV"/>
+<DM name="WANCDViewName" val="IGD.WD2.WCD1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="4"/>
+<DM name="IPInterface" val=""/>
+<DM name="PPPInterface" val=""/>
+<DM name="EthVlan" val=""/>
+<DM name="EthLink" val=""/>
+<DM name="Brport" val="DEV.BRIDGING.BR1.BRPORT14"/>
+</Row>
+</Tbl>
+<Tbl name="WANCPPPComm" RowCount="1">
+<Row No="0">
+<DM name="Priority" val="7"/>
+</Row>
+</Tbl>
+  <Tbl name="WANCIP" RowCount="0">
+  </Tbl> 
+<Tbl name="WLANBase" RowCount="1">
+<Row No="0">
+<DM name="CountryCode" val="7"/>
+<DM name="QosType" val="2"/>
+<DM name="BandWidth" val="1"/>
+<DM name="WlanEDThresh" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="WLANCfg" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="DEV.WIFI.AP1"/>
+<DM name="LANDViewName" val="DEV.WIFI"/>
+<DM name="ValidIf" val="1"/>
+<DM name="InstExist" val="1"/>
+<DM name="Enable" val="1"/>
+<DM name="ESSID" val="SSID1"/>
+<DM name="ESSIDPrefix" val=""/>
+<DM name="Priority" val="0"/>
+<DM name="ACLPolicy" val="0"/>
+<DM name="BeaconType" val="6"/>
+<DM name="MACAddressControlEnabled" val="0"/>
+<DM name="ESSIDHideEnable" val="0"/>
+<DM name="BeaconEnabled" val="1"/>
+<DM name="WEPAuthMode" val="1"/>
+<DM name="WEPLevel" val="1"/>
+<DM name="WEPKeyIndex" val="1"/>
+<DM name="WPAEncryptType" val="2"/>
+<DM name="WPAAuthMode" val="0"/>
+<DM name="11iEncryptType" val="2"/>
+<DM name="11iAuthMode" val="0"/>
+<DM name="WPAGroupRekey" val="0"/>
+<DM name="WPAEAPServerIp" val="0.0.0.0"/>
+<DM name="WPAEAPSecret" val=""/>
+<DM name="MaxUserNum" val="32"/>
+<DM name="VapIsolationEnable" val="0"/>
+<DM name="BasicEncryptionModes" val="0"/>
+<DM name="LocalSetEnable" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.WIFI.AP2"/>
+<DM name="LANDViewName" val="DEV.WIFI"/>
+<DM name="ValidIf" val="1"/>
+<DM name="InstExist" val="1"/>
+<DM name="Enable" val="0"/>
+<DM name="ESSID" val="OTE WiFi Fon"/>
+<DM name="ESSIDPrefix" val=""/>
+<DM name="Priority" val="0"/>
+<DM name="ACLPolicy" val="0"/>
+<DM name="BeaconType" val="0"/>
+<DM name="MACAddressControlEnabled" val="0"/>
+<DM name="ESSIDHideEnable" val="0"/>
+<DM name="BeaconEnabled" val="1"/>
+<DM name="WEPAuthMode" val="1"/>
+<DM name="WEPLevel" val="1"/>
+<DM name="WEPKeyIndex" val="1"/>
+<DM name="WPAEncryptType" val="2"/>
+<DM name="WPAAuthMode" val="0"/>
+<DM name="11iEncryptType" val="2"/>
+<DM name="11iAuthMode" val="0"/>
+<DM name="WPAGroupRekey" val="0"/>
+<DM name="WPAEAPServerIp" val="0.0.0.0"/>
+<DM name="WPAEAPSecret" val=""/>
+<DM name="MaxUserNum" val="10"/>
+<DM name="VapIsolationEnable" val="1"/>
+<DM name="BasicEncryptionModes" val="0"/>
+<DM name="LocalSetEnable" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.WIFI.AP3"/>
+<DM name="LANDViewName" val="DEV.WIFI"/>
+<DM name="ValidIf" val="1"/>
+<DM name="InstExist" val="1"/>
+<DM name="Enable" val="0"/>
+<DM name="ESSID" val="SSID3"/>
+<DM name="ESSIDPrefix" val=""/>
+<DM name="Priority" val="0"/>
+<DM name="ACLPolicy" val="0"/>
+<DM name="BeaconType" val="6"/>
+<DM name="MACAddressControlEnabled" val="0"/>
+<DM name="ESSIDHideEnable" val="0"/>
+<DM name="BeaconEnabled" val="1"/>
+<DM name="WEPAuthMode" val="1"/>
+<DM name="WEPLevel" val="1"/>
+<DM name="WEPKeyIndex" val="1"/>
+<DM name="WPAEncryptType" val="2"/>
+<DM name="WPAAuthMode" val="0"/>
+<DM name="11iEncryptType" val="2"/>
+<DM name="11iAuthMode" val="0"/>
+<DM name="WPAGroupRekey" val="0"/>
+<DM name="WPAEAPServerIp" val="0.0.0.0"/>
+<DM name="WPAEAPSecret" val=""/>
+<DM name="MaxUserNum" val="32"/>
+<DM name="VapIsolationEnable" val="0"/>
+<DM name="BasicEncryptionModes" val="0"/>
+<DM name="LocalSetEnable" val="1"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.WIFI.AP4"/>
+<DM name="LANDViewName" val="DEV.WIFI"/>
+<DM name="ValidIf" val="1"/>
+<DM name="InstExist" val="1"/>
+<DM name="Enable" val="0"/>
+<DM name="ESSID" val="SSID4"/>
+<DM name="ESSIDPrefix" val=""/>
+<DM name="Priority" val="0"/>
+<DM name="ACLPolicy" val="0"/>
+<DM name="BeaconType" val="6"/>
+<DM name="MACAddressControlEnabled" val="0"/>
+<DM name="ESSIDHideEnable" val="0"/>
+<DM name="BeaconEnabled" val="1"/>
+<DM name="WEPAuthMode" val="1"/>
+<DM name="WEPLevel" val="1"/>
+<DM name="WEPKeyIndex" val="1"/>
+<DM name="WPAEncryptType" val="2"/>
+<DM name="WPAAuthMode" val="0"/>
+<DM name="11iEncryptType" val="2"/>
+<DM name="11iAuthMode" val="0"/>
+<DM name="WPAGroupRekey" val="0"/>
+<DM name="WPAEAPServerIp" val="0.0.0.0"/>
+<DM name="WPAEAPSecret" val=""/>
+<DM name="MaxUserNum" val="32"/>
+<DM name="VapIsolationEnable" val="0"/>
+<DM name="BasicEncryptionModes" val="0"/>
+<DM name="LocalSetEnable" val="1"/>
+</Row>
+</Tbl> 
+<Tbl name="WLANWEP" RowCount="16">
+<Row No="0">
+<DM name="ViewName" val="DEV.WIFI.AP1.WEP1"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP1"/>
+<DM name="Key" val="1111111111111"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.WIFI.AP1.WEP2"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP1"/>
+<DM name="Key" val="2222222222222"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.WIFI.AP1.WEP3"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP1"/>
+<DM name="Key" val="3333333333333"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.WIFI.AP1.WEP4"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP1"/>
+<DM name="Key" val="4444444444444"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.WIFI.AP2.WEP1"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP2"/>
+<DM name="Key" val="1111111111111"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.WIFI.AP2.WEP2"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP2"/>
+<DM name="Key" val="2222222222222"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.WIFI.AP2.WEP3"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP2"/>
+<DM name="Key" val="3333333333333"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="DEV.WIFI.AP2.WEP4"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP2"/>
+<DM name="Key" val="4444444444444"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="DEV.WIFI.AP3.WEP1"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP3"/>
+<DM name="Key" val="1111111111111"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="DEV.WIFI.AP3.WEP2"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP3"/>
+<DM name="Key" val="2222222222222"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="DEV.WIFI.AP3.WEP3"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP3"/>
+<DM name="Key" val="3333333333333"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="DEV.WIFI.AP3.WEP4"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP3"/>
+<DM name="Key" val="4444444444444"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="DEV.WIFI.AP4.WEP1"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP4"/>
+<DM name="Key" val="1111111111111"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="DEV.WIFI.AP4.WEP2"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP4"/>
+<DM name="Key" val="2222222222222"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="DEV.WIFI.AP4.WEP3"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP4"/>
+<DM name="Key" val="3333333333333"/>
+</Row>
+<Row No="15">
+<DM name="ViewName" val="DEV.WIFI.AP4.WEP4"/>
+<DM name="WLANViewName" val="DEV.WIFI.AP4"/>
+<DM name="Key" val="4444444444444"/>
+</Row>
+</Tbl>
+<Tbl name="WLANWPS" RowCount="4">
+<Row No="0">
+<DM name="Enable" val="1"/>
+</Row>
+<Row No="1">
+<DM name="Enable" val="0"/>
+</Row>
+<Row No="2">
+<DM name="Enable" val="0"/>
+</Row>
+<Row No="3">
+<DM name="Enable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="TimePolicy" RowCount="3">
+        <Row No="0">
+                <DM name="ViewName" val="IGD.TpCfg0"/>
+                <DM name="AppUser" val="1"/>
+                <DM name="ExeMode" val="1"/>
+                <DM name="Cycle1" val="1"/>
+                <DM name="Cycle2" val="0"/>
+                <DM name="Cycle3" val="0"/>
+                <DM name="DefTime" val="1"/>
+                <DM name="Date" val=""/>
+                <DM name="RelTime1" val="0"/>
+                <DM name="RelTime2" val="360"/>
+                <DM name="ExePolicy" val="1"/>
+        </Row>
+        <Row No="1">
+                <DM name="ViewName" val="IGD.TpCfg1"/>
+                <DM name="AppUser" val="1"/>
+                <DM name="ExeMode" val="1"/>
+                <DM name="Cycle1" val="1"/>
+                <DM name="Cycle2" val="0"/>
+                <DM name="Cycle3" val="0"/>
+                <DM name="DefTime" val="1"/>
+                <DM name="Date" val=""/>
+                <DM name="RelTime1" val="360"/>
+                <DM name="RelTime2" val="1440"/>
+                <DM name="ExePolicy" val="0"/>
+        </Row>
+        <Row No="2">
+                <DM name="ViewName" val="IGD.TpCfg2"/>
+                <DM name="AppUser" val="1"/>
+                <DM name="ExeMode" val="1"/>
+                <DM name="Cycle1" val="1"/>
+                <DM name="Cycle2" val="0"/>
+                <DM name="Cycle3" val="0"/>
+                <DM name="DefTime" val="1"/>
+                <DM name="Date" val=""/>
+                <DM name="RelTime1" val="1440"/>
+                <DM name="RelTime2" val="1440"/>
+                <DM name="ExePolicy" val="1"/>
+        </Row>
+</Tbl>
+    <Tbl name="L2BAvailIF" RowCount="5">
+        <Row No="0">
+            <DM name="ViewName" val="IGD.L2BAvailIF1"/>
+            <DM name="AvailInterfaceKey" val="1"/>
+            <DM name="InterfaceType" val="1"/>
+            <DM name="InterfaceReference" val="IGD.LD1.WLAN1"/>
+            <DM name="X_ZTE_PortAttr" val=""/>
+        </Row>
+        <Row No="1">
+            <DM name="ViewName" val="IGD.L2BAvailIF2"/>
+            <DM name="AvailInterfaceKey" val="2"/>
+            <DM name="InterfaceType" val="0"/>
+            <DM name="InterfaceReference" val="IGD.LD1.ETH1"/>
+            <DM name="X_ZTE_PortAttr" val=""/>
+        </Row>
+        <Row No="2">
+            <DM name="ViewName" val="IGD.L2BAvailIF3"/>
+            <DM name="AvailInterfaceKey" val="3"/>
+            <DM name="InterfaceType" val="0"/>
+            <DM name="InterfaceReference" val="IGD.LD1.ETH2"/>
+            <DM name="X_ZTE_PortAttr" val=""/>
+        </Row>
+        <Row No="3">
+            <DM name="ViewName" val="IGD.L2BAvailIF4"/>
+            <DM name="AvailInterfaceKey" val="4"/>
+            <DM name="InterfaceType" val="0"/>
+            <DM name="InterfaceReference" val="IGD.LD1.ETH3"/>
+            <DM name="X_ZTE_PortAttr" val=""/>
+        </Row>
+        <Row No="4">
+            <DM name="ViewName" val="IGD.L2BAvailIF5"/>
+            <DM name="AvailInterfaceKey" val="5"/>
+            <DM name="InterfaceType" val="0"/>
+            <DM name="InterfaceReference" val="IGD.LD1.ETH4"/>
+            <DM name="X_ZTE_PortAttr" val=""/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPFaxModemRptCtrlCfg" RowCount="1">
+        <Row No="0">
+            <DM name="CNGRpt" val="0"/>
+        </Row>
+    </Tbl>
+     <Tbl name="VoIPFaxT38Cfg" RowCount="1">
+        <Row No="0">
+            <DM name="Enable" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPV152MediaCfg" RowCount="20">
+     <Row No="0">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="1">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+    <Row No="2">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="3">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+     <Row No="4">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="5">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+    <Row No="6">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="7">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+     <Row No="8">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="9">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+    <Row No="10">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="11">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+     <Row No="12">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="13">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+    <Row No="14">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="15">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+     <Row No="16">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="17">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+    <Row No="18">
+      <DM name="MediaVCodec" val="16777217"/>
+      <DM name="MediaVPV" val="102"/>
+      <DM name="MediaVPri" val="1"/>
+    </Row>
+    <Row No="19">
+      <DM name="MediaVCodec" val="16777220"/>
+      <DM name="MediaVPV" val="103"/>
+      <DM name="MediaVPri" val="2"/>
+    </Row>
+  </Tbl>
+    <Tbl name="VoIPVMediaCfg" RowCount="20">
+        <Row No="0">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="1">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="2">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="3">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="4">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="5">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="6">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="7">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="8">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="9">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="10">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="11">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="12">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="13">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="14">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="15">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="16">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="17">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+        <Row No="18">
+            <DM name="MediaVEnable" val="0"/>
+            <DM name="MediaVCodec" val="16"/>
+            <DM name="MediaVPV" val="9"/>
+            <DM name="MediaVPri" val="1"/>
+        </Row>
+        <Row No="19">
+            <DM name="MediaVCodec" val="4"/>
+            <DM name="MediaVPV" val="8"/>
+            <DM name="MediaVPri" val="2"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPFMediaCfg" RowCount="30">
+        <Row No="0">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="1">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="2">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="3">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="4">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="5">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="6">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="7">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="8">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="9">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="10">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="11">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="12">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="13">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="14">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="15">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="16">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="17">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="18">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="19">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="20">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="21">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="22">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="23">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="24">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="25">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="26">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="27">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="6"/>
+            <DM name="MediaFCodec" val="33554432"/>
+            <DM name="MediaFPV" val="255"/>
+            <DM name="MediaFPT" val="4294967295"/>
+        </Row>
+        <Row No="28">
+            <DM name="MediaFEnable" val="0"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="1"/>
+            <DM name="MediaFPV" val="0"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+        <Row No="29">
+            <DM name="MediaFEnable" val="1"/>
+            <DM name="MediaFType" val="1"/>
+            <DM name="MediaFCodec" val="4"/>
+            <DM name="MediaFPV" val="8"/>
+            <DM name="MediaFPT" val="20"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPMMediaCfg" RowCount="20">
+        <Row No="0">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="1">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="2">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="3">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="4">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="5">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="6">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="7">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="8">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="9">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="10">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="11">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="12">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="13">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="14">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="15">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="16">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="17">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="18">
+            <DM name="MediaMEnable" val="0"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="1"/>
+            <DM name="MediaMPV" val="0"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+        <Row No="19">
+            <DM name="MediaMEnable" val="1"/>
+            <DM name="MediaMType" val="1"/>
+            <DM name="MediaMCodec" val="4"/>
+            <DM name="MediaMPV" val="8"/>
+            <DM name="MediaMPT" val="20"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPSRTermination" RowCount="12">
+        <Row No="0">
+            <DM name="SourceTid" val="0"/>
+            <DM name="SrMethod" val="2"/>
+            <DM name="BoudType" val="1"/>
+            <DM name="BoudData" val="1"/>
+            <DM name="DefaultRouteType" val="2"/>
+            <DM name="DefaultRouteData" val="20000"/>
+        </Row>
+        <Row No="1">
+            <DM name="SourceTid" val="1"/>
+            <DM name="SrMethod" val="2"/>
+            <DM name="BoudType" val="1"/>
+            <DM name="BoudData" val="1"/>
+            <DM name="DefaultRouteType" val="2"/>
+            <DM name="DefaultRouteData" val="20001"/>
+        </Row>
+        <Row No="2">
+            <DM name="SourceTid" val="20000"/>
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="3">
+            <DM name="SourceTid" val="20001"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="4">
+            <DM name="SourceTid" val="20002"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="5">
+            <DM name="SourceTid" val="20003"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="6">
+            <DM name="SourceTid" val="20004"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="7">
+            <DM name="SourceTid" val="20005"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="8">
+            <DM name="SourceTid" val="20006"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="9">
+            <DM name="SourceTid" val="20007"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="10">
+            <DM name="SourceTid" val="20008"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+        <Row No="11">
+            <DM name="SourceTid" val="20009"/>  
+            <DM name="SrMethod" val="1"/>
+            <DM name="BoudType" val="2"/>
+            <DM name="BoudData" val="255"/>
+            <DM name="DefaultRouteType" val="1"/>
+            <DM name="DefaultRouteData" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPSROfficePrefix" RowCount="3">
+        <Row No="0">
+            <DM name="Prefix" val=""/>
+            <DM name="Office" val="1"/>
+        </Row>
+        <Row No="1">
+            <DM name="Prefix" val=""/>
+            <DM name="Office" val="2"/>
+        </Row>
+        <Row No="2">
+            <DM name="Prefix" val=""/>
+            <DM name="Office" val="3"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPHook" RowCount="1">
+        <Row No="0">
+            <DM name="Supported" val="1"/>
+            <DM name="ServiceID" val="536870918"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPSLCTIMECfg" RowCount="2">
+        <Row No="0">
+                <DM name="HookLowTime" val="70"/>
+                <DM name="HookHighTime" val="8"/>
+                <DM name="FlashLowMinTime" val="9"/>
+                <DM name="FlashLowMaxTime" val="70"/>
+        </Row>
+        <Row No="1">
+                <DM name="HookLowTime" val="70"/>
+                <DM name="HookHighTime" val="8"/>
+                <DM name="FlashLowMinTime" val="9"/>
+                <DM name="FlashLowMaxTime" val="70"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPSLCINFCfg" RowCount="2">
+        <Row No="0">
+                <DM name="Impe" val="270"/>
+                <DM name="DisablePowerSave" val="1"/>
+        </Row>
+        <Row No="1">
+                <DM name="Impe" val="270"/>
+                <DM name="DisablePowerSave" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPDTMFADVCfg" RowCount="1">
+      <Row No="0">
+             <DM name="DigitOnDura" val="10"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VOIPVPCallFeature" RowCount="10">
+        <Row No="0">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="1">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="2">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="3">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="4">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="5">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="6">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="7">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="8">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="9">
+            <DM name="SoftSwitchOnNoReachable" val="0"/>
+            <DM name="CallHoldFlag" val="1"/>
+            <DM name="3WayTalkingBySelf" val="1"/>
+            <DM name="CallTransfer" val="1"/>
+            <DM name="OneNumber" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPVPNP" RowCount="1">
+        <Row No="0">
+            <DM name="NpFxoPrefix" val=""/>
+            <DM name="DialplanShortMatch" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VOIPCAP" RowCount="1">
+        <Row No="0">
+            <DM name="RelToneControl" val="1"/>
+            <DM name="CWControl" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPSRPhyRefListEnable" RowCount="1">
+        <Row No="0">
+        <DM name="OutBoundType" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPHomeLine" RowCount="2">
+        <Row No="0">
+            <DM name="OutByWanId" val="0"/>
+            <DM name="PhyNumber" val="#*01"/>
+            <DM name="CallList" val="1,2,3,4,5,6,7,8,9,10"/>
+        </Row>
+        <Row No="1">
+            <DM name="OutByWanId" val="0"/>
+            <DM name="PhyNumber" val="#*02"/>
+            <DM name="CallList" val="1,2,3,4,5,6,7,8,9,10"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VOIPPhyInterface" RowCount="2">
+        <Row No="0">
+                <DM name="UnregisterCongesTone" val="1"/>
+        </Row>
+        <Row No="1">
+                <DM name="UnregisterCongesTone" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPSIP" RowCount="1">
+        <Row No="0">
+            <DM name="QueueNum" val="1"/>
+            <DM name="DSCPMark" val="46"/>
+            <DM name="EthernetPriorityMark" val="5"/>
+            <DM name="DNSMode" val="1"/>
+            <DM name="RegisterExpires" val="900"/>
+            <DM name="ImplicitRegistration" val="1"/>
+            <DM name="PEarlyMedia" val="1"/>
+            <DM name="100rel" val="1"/>   
+            <DM name="RegisterRetryInterval" val="180"/>   
+            <DM name="RegisterRetryCount" val="2"/>
+            <DM name="DNSRefresh" val="1"/>
+            <DM name="RegisterCheck" val="1"/>
+            <DM name="UserAgentDoimain" val="ims.otenet.gr"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPRTPCfg" RowCount="1">
+        <Row No="0">
+            <DM name="QueueNum" val="1"/>
+            <DM name="DSCPMark" val="46"/>
+            <DM name="EthernetPriorityMark" val="5"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPVoiceProfile" RowCount="1">
+        <Row No="0">
+            <DM name="DigitMap" val="[134]xxx.T|5xxxxxxxxx.T|7xxxxxxxxx.T|807xxxx.T|00xxxxxxxx.T|xx.#|[268]xxxxxxxxx|9xxxxxxxxx.T|*xx#|#xx#|*xx*xxxxxxxxxx.#|#xx*x.#|*xx*xxxx#|*31*xxxxxxxxxx.T|*xxxxxxxx|xx*x.T|*xx*xxxx*x.#|*xx*x.*x.#|*031*xxxx*xxxx*xxxx#|**xx#|*#xx.#|*521*xxxxxxxxxx#|#521*xxxx*xxxxxxxxxx#"/>
+            <DM name="EmDigitMap" val="100|112|166|197|199|116000|13818|1305|11888|13888"/>
+            <DM name="DigitMapEnable" val="1"/>
+            <DM name="EndRemoveFlag" val="1"/>
+            <DM name="EMCallMode" val="0"/>
+            <DM name="UnMatchOutFlag" val="2"/>
+            <DM name="Name" val="OTE"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPVPService" RowCount="1">
+        <Row No="0">
+            <DM name="CWHookOnServiceType" val="1"/>
+            <DM name="HookOnCWServiceType" val="1"/>
+            <DM name="CWActRelResumeType" val="2"/>
+            <DM name="ActRelCWResumeType" val="2"/>
+            <DM name="DelayHotLineAcNum" val="*53*"/>
+            <DM name="DelayHotLineDeNum" val="#53#"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VOIPPhyCallFeature" RowCount="2">
+        <Row No="0">
+            <DM name="DelayHotLineByselfEnable" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+        <Row No="1">
+            <DM name="DelayHotLineByselfEnable" val="1"/>
+            <DM name="CallWaitingEnable" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VOIPVPSERVICEKEY" RowCount="30">
+    <Row No="0">
+    <DM name="ServFlag" val="1"/>
+    <DM name="ServNumber" val="*44#"/>
+    <DM name="ServType" val="1"/>
+    </Row>
+    <Row No="1">
+    <DM name="ServFlag" val="1"/>
+    <DM name="ServNumber" val="#44#"/>
+    <DM name="ServType" val="8"/>
+    </Row>
+    <Row No="2">
+    </Row>
+    <Row No="3">
+    </Row>
+    <Row No="4">
+    </Row>
+    <Row No="5">
+    </Row>
+    <Row No="6">
+    </Row>
+    <Row No="7">
+    </Row>
+    <Row No="8">
+    </Row>
+    <Row No="9">
+    </Row>
+    <Row No="10">
+    </Row>
+    <Row No="11">
+    </Row>
+    <Row No="12">
+    </Row>
+    <Row No="13">
+    </Row>
+    <Row No="14">
+    </Row>
+    <Row No="15">
+    </Row>
+    <Row No="16">
+    </Row>
+    <Row No="17">
+    </Row>
+    <Row No="18">
+    </Row>
+    <Row No="19">
+    </Row>
+    <Row No="20">
+    </Row>
+    <Row No="21">
+    </Row>
+    <Row No="22">
+    </Row>
+    <Row No="23">
+    </Row>
+    <Row No="24">
+    </Row>
+    <Row No="25">
+    </Row>
+    <Row No="26">
+    </Row>
+    <Row No="27">
+    </Row>
+    <Row No="28">
+    </Row>
+    <Row No="29">
+    </Row>
+    </Tbl>
+    <Tbl name="VoIPSIPServer" RowCount="1">
+        <Row No="0">
+            <DM name="ProxyServer1" val="ims.otenet.gr"/>
+            <DM name="OutboundProxy1" val="ims.otenet.gr"/>
+            <DM name="RegistrarServer1" val="ims.otenet.gr"/>
+            <DM name="ProxyServer2" val="ims.otenet.gr"/>
+            <DM name="OutboundProxy2" val="ims.otenet.gr"/>
+            <DM name="RegistrarServer2" val="ims.otenet.gr"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPVPCodec" RowCount="1">
+        <Row No="0">
+            <DM name="RFC3264" val="1"/>
+            <DM name="NegoOption" val="8"/>
+            <DM name="MediaCfgNego" val="1"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPDMTimerCfg" RowCount="1">
+        <Row No="0">
+            <DM name="StartTimer" val="2000"/>
+            <DM name="ShortTimer" val="400"/>
+            <DM name="LongTimer" val="1000"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPVPCallTimer" RowCount="1">
+        <Row No="0">
+            <DM name="DhlTimer" val="500"/>
+            <DM name="CallWaitingTimer" val="12000"/>
+            <DM name="BusyToneTimer" val="6000"/>
+            <DM name="AlertingTimer" val="12000"/>
+            <DM name="ProceedingTimer" val="18000"/>
+        </Row>
+    </Tbl>
+    <Tbl name="VoIPVPDTMF" RowCount="1">
+        <Row No="0">
+            <DM name="DTMFMethod" val="2"/>
+        </Row>
+	</Tbl>
+    <Tbl name="VoIPTONEPatternCfg" RowCount="240">
+        <Row No="0">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP1"/>
+            <DM name="EntryID" val="1"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="300"/>
+            <DM name="ToneDown" val="300"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="600"/>
+            <DM name="NextEntryID" val="0"/>
+        </Row>
+        <Row No="1">
+        </Row>
+        <Row No="2">
+        </Row>
+        <Row No="3">
+        </Row>
+        <Row No="4">
+        </Row>
+        <Row No="5">
+        </Row>
+        <Row No="6">
+        </Row>
+        <Row No="7">
+        </Row>
+        <Row No="8">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP9"/>
+            <DM name="EntryID" val="9"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="300"/>
+            <DM name="ToneDown" val="300"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="600"/>
+            <DM name="NextEntryID" val="10"/>
+        </Row>
+        <Row No="9">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP10"/>
+            <DM name="EntryID" val="10"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="700"/>
+            <DM name="ToneDown" val="800"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="1500"/>
+            <DM name="NextEntryID" val="0"/>
+        </Row>
+        <Row No="10">
+        </Row>
+        <Row No="11">
+        </Row>
+        <Row No="12">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP13"/>
+            <DM name="EntryID" val="13"/>
+            <DM name="Frequency1" val="900"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="500"/>
+            <DM name="ToneDown" val="500"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="1000"/>
+            <DM name="NextEntryID" val="0"/>
+        </Row>
+        <Row No="13">
+        </Row>
+        <Row No="14">
+        </Row>
+        <Row No="15">
+        </Row>
+        <Row No="16">
+        </Row>
+        <Row No="17">
+        </Row>
+        <Row No="18">
+        </Row>
+        <Row No="19">
+        </Row>
+        <Row No="20">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP21"/>
+            <DM name="EntryID" val="21"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="1000"/>
+            <DM name="ToneDown" val="4000"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="5000"/>
+            <DM name="NextEntryID" val="0"/>
+        </Row>
+        <Row No="21">
+        </Row>
+        <Row No="22">
+        </Row>
+        <Row No="23">
+        </Row>
+        <Row No="24">
+        </Row>
+        <Row No="25">
+        </Row>
+        <Row No="26">
+        </Row>
+        <Row No="27">
+        </Row>
+        <Row No="28">
+        </Row>
+        <Row No="29">
+        </Row>
+        <Row No="30">
+        </Row>
+        <Row No="31">
+        </Row>
+        <Row No="32">
+        </Row>
+        <Row No="33">
+        </Row>
+        <Row No="34">
+        </Row>
+        <Row No="35">
+        </Row>
+        <Row No="36">
+        </Row>
+        <Row No="37">
+        </Row>
+        <Row No="38">
+        </Row>
+        <Row No="39">
+        </Row>
+        <Row No="40">
+        </Row>
+        <Row No="41">
+        </Row>
+        <Row No="42">
+        </Row>
+        <Row No="43">
+        </Row>
+        <Row No="44">
+        </Row>
+        <Row No="45">
+        </Row>
+        <Row No="46">
+        </Row>
+        <Row No="47">
+        </Row>
+        <Row No="48">
+        </Row>
+        <Row No="49">
+        </Row>
+        <Row No="50">
+        </Row>
+        <Row No="51">
+        </Row>
+        <Row No="52">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP53"/>
+            <DM name="EntryID" val="53"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="450"/>
+            <DM name="Power2" val="100"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="200"/>
+            <DM name="ToneDown" val="300"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="500"/>
+            <DM name="NextEntryID" val="54"/>
+        </Row>
+        <Row No="53">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP54"/>
+            <DM name="EntryID" val="54"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="450"/>
+            <DM name="Power2" val="100"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="700"/>
+            <DM name="ToneDown" val="800"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="1500"/>
+            <DM name="NextEntryID" val="0"/>
+        </Row>
+        <Row No="54">
+        </Row>
+        <Row No="55">
+        </Row>
+        <Row No="56">
+        </Row>
+        <Row No="57">
+        </Row>
+        <Row No="58">
+        </Row>
+        <Row No="59">
+        </Row>
+        <Row No="60">
+        </Row>
+        <Row No="61">
+        </Row>
+        <Row No="62">
+        </Row>
+        <Row No="63">
+        </Row>
+        <Row No="64"> 
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP65"/>
+            <DM name="EntryID" val="65"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="150"/>
+            <DM name="ToneDown" val="150"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="300"/>
+            <DM name="NextEntryID" val="0"/>
+        </Row>
+        <Row No="65">
+        </Row>
+        <Row No="66">
+        </Row>
+        <Row No="67">
+        </Row>
+        <Row No="68">
+        </Row>
+        <Row No="69">
+        </Row>
+        <Row No="70">
+        </Row>
+        <Row No="71">
+        </Row>
+        <Row No="72">
+        </Row>
+        <Row No="73">
+        </Row>
+        <Row No="74">
+        </Row>
+        <Row No="75">
+        </Row>
+        <Row No="76">
+        </Row>
+        <Row No="77">
+        </Row>
+        <Row No="78">
+        </Row>
+        <Row No="79">
+        </Row>
+        <Row No="80">
+        </Row>
+        <Row No="81">
+        </Row>
+        <Row No="82">
+        </Row>
+        <Row No="83">
+        </Row>
+        <Row No="84">
+        </Row>
+        <Row No="85">
+        </Row>
+        <Row No="86">
+        </Row>
+        <Row No="87">
+        </Row>
+        <Row No="88">
+        </Row>
+        <Row No="89">
+        </Row>
+        <Row No="90">
+        </Row>
+        <Row No="91">
+        </Row>
+        <Row No="92">
+        </Row>
+        <Row No="93">
+        </Row>
+        <Row No="94">
+        </Row>
+        <Row No="95">
+        </Row>
+        <Row No="96">
+        </Row>
+        <Row No="97">
+        </Row>
+        <Row No="98">
+        </Row>
+        <Row No="99">
+        </Row>
+        <Row No="100">
+        </Row>
+        <Row No="101">
+        </Row>
+        <Row No="102">
+        </Row>
+        <Row No="103">
+        </Row>
+        <Row No="104">
+        </Row>
+        <Row No="105">
+        </Row>
+        <Row No="106">
+        </Row>
+        <Row No="107">
+        </Row>
+        <Row No="108">
+        </Row>
+        <Row No="109">
+        </Row>
+        <Row No="110">
+        </Row>
+        <Row No="111">
+        </Row>
+        <Row No="112">
+        </Row>
+        <Row No="113">
+        </Row>
+        <Row No="114">
+        </Row>
+        <Row No="115">
+        </Row>
+        <Row No="116">
+        </Row>
+        <Row No="117">
+        </Row>
+        <Row No="118">
+        </Row>
+        <Row No="119">
+        </Row>
+        <Row No="120">
+        </Row>
+        <Row No="121">
+        </Row>
+        <Row No="122">
+        </Row>
+        <Row No="123">
+        </Row>
+        <Row No="124">
+        </Row>
+        <Row No="125">
+        </Row>
+        <Row No="126">
+        </Row>
+        <Row No="127">
+        </Row>
+        <Row No="128">
+        </Row>
+        <Row No="129">
+        </Row>
+        <Row No="130">
+        </Row>
+        <Row No="131">
+        </Row>
+        <Row No="132">
+        </Row>
+        <Row No="133">
+        </Row>
+        <Row No="134">
+        </Row>
+        <Row No="135">
+        </Row>
+        <Row No="136">
+        </Row>
+        <Row No="137">
+        </Row>
+        <Row No="138">
+        </Row>
+        <Row No="139">
+        </Row>
+        <Row No="140">
+        </Row>
+        <Row No="141">
+        </Row>
+        <Row No="142">
+        </Row>
+        <Row No="143">
+        </Row>
+        <Row No="144">
+        </Row>
+        <Row No="145">
+        </Row>
+        <Row No="146">
+        </Row>
+        <Row No="147">
+        </Row>
+        <Row No="148">
+        </Row>
+        <Row No="149">
+        </Row>
+        <Row No="150">
+        </Row>
+        <Row No="151">
+        </Row>
+        <Row No="152">
+        </Row>
+        <Row No="153">
+        </Row>
+        <Row No="154">
+        </Row>
+        <Row No="155">
+        </Row>
+        <Row No="156">
+        </Row>
+        <Row No="157">
+        </Row>
+        <Row No="158">
+        </Row>
+        <Row No="159">
+        </Row>
+        <Row No="160">
+        </Row>
+        <Row No="161">
+        </Row>
+        <Row No="162">
+        </Row>
+        <Row No="163">
+        </Row>
+        <Row No="164">
+        </Row>
+        <Row No="165">
+        </Row>
+        <Row No="166">
+        </Row>
+        <Row No="167">
+        </Row>
+        <Row No="168">
+        </Row>
+        <Row No="169">
+        </Row>
+        <Row No="170">
+        </Row>
+        <Row No="171">
+        </Row>
+        <Row No="172">
+        </Row>
+        <Row No="173">
+        </Row>
+        <Row No="174">
+        </Row>
+        <Row No="175">
+        </Row>
+        <Row No="176">
+        </Row>
+        <Row No="177">
+        </Row>
+        <Row No="178">
+        </Row>
+        <Row No="179">
+        </Row>
+        <Row No="180">
+        </Row>
+        <Row No="181">
+        </Row>
+        <Row No="182">
+        </Row>
+        <Row No="183">
+        </Row>
+        <Row No="184">
+        </Row>
+        <Row No="185">
+        </Row>
+        <Row No="186">
+        </Row>
+        <Row No="187">
+        </Row>
+        <Row No="188">
+        </Row>
+        <Row No="189">
+        </Row>
+        <Row No="190">
+        </Row>
+        <Row No="191">
+        </Row>
+        <Row No="192">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP193"/>
+            <DM name="EntryID" val="193"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="200"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="200"/>
+            <DM name="ToneDown" val="600"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="800"/>
+            <DM name="NextEntryID" val="194"/>
+        </Row>
+        <Row No="193">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP194"/>
+            <DM name="EntryID" val="194"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="200"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="200"/>
+            <DM name="ToneDown" val="5000"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="5200"/>
+            <DM name="NextEntryID" val="0"/>
+        </Row>
+        <Row No="194">
+        </Row>
+        <Row No="195">
+        </Row>
+        <Row No="196">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP197"/>
+            <DM name="EntryID" val="197"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="300"/>
+            <DM name="ToneDown" val="300"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="600"/>
+            <DM name="NextEntryID" val="198"/>
+        </Row>
+        <Row No="197">
+            <DM name="ViewName" val="IGD.SV.VS1.VP1.VT.TP198"/>
+            <DM name="EntryID" val="198"/>
+            <DM name="Frequency1" val="425"/>
+            <DM name="Power1" val="100"/>
+            <DM name="Frequency2" val="0"/>
+            <DM name="Power2" val="0"/>
+            <DM name="Frequency3" val="0"/>
+            <DM name="Power3" val="0"/>
+            <DM name="Frequency4" val="0"/>
+            <DM name="Power4" val="0"/>
+            <DM name="ToneUp" val="700"/>
+            <DM name="ToneDown" val="800"/>
+            <DM name="ReptitionCount" val="1"/>
+            <DM name="Duration" val="1500"/>
+            <DM name="NextEntryID" val="0"/>
+        </Row>
+        <Row No="198">
+        </Row>
+        <Row No="199">
+        </Row>
+        <Row No="200">
+        </Row>
+        <Row No="201">
+        </Row>
+        <Row No="202">
+        </Row>
+        <Row No="203">
+        </Row>
+        <Row No="204">
+        </Row>
+        <Row No="205">
+        </Row>
+        <Row No="206">
+        </Row>
+        <Row No="207">
+        </Row>
+        <Row No="208">
+        </Row>
+        <Row No="209">
+        </Row>
+        <Row No="210">
+        </Row>
+        <Row No="211">
+        </Row>
+        <Row No="212">
+        </Row>
+        <Row No="213">
+        </Row>
+        <Row No="214">
+        </Row>
+        <Row No="215">
+        </Row>
+        <Row No="216">
+        </Row>
+        <Row No="217">
+        </Row>
+        <Row No="218">
+        </Row>
+        <Row No="219">
+        </Row>
+        <Row No="220">
+        </Row>
+        <Row No="221">
+        </Row>
+        <Row No="222">
+        </Row>
+        <Row No="223">
+        </Row>
+        <Row No="224">
+        </Row>
+        <Row No="225">
+        </Row>
+        <Row No="226">
+        </Row>
+        <Row No="227">
+        </Row>
+        <Row No="228">
+        </Row>
+        <Row No="229">
+        </Row>
+        <Row No="230">
+        </Row>
+        <Row No="231">
+        </Row>
+        <Row No="232">
+        </Row>
+        <Row No="233">
+        </Row>
+        <Row No="234">
+        </Row>
+        <Row No="235">
+        </Row>
+        <Row No="236">
+        </Row>
+        <Row No="237">
+        </Row>
+        <Row No="238">
+        </Row>
+        <Row No="239">
+        </Row>
+    </Tbl>
+    <Tbl name="QOSPolicer" RowCount="0">
+    </Tbl>
+  <Tbl name="MgtServer" RowCount="1">
+    <Row No="0">
+      <DM name="URL" val="http://remanage.otenet.gr"/>
+      <DM name="UserName" val="otenet@otenet.gr"/>
+      <DM name="Password" val="otenet"/>
+      <DM name="PeriodicInformInterval" val="300"/>
+      <DM name="ConnectionRequestURL" val="7547"/>
+      <DM name="ConnectionRequestUsername" val=""/>
+      <DM name="ConnectionRequestPassword" val=""/>
+      <DM name="SessionRetryTimes" val=""/>
+      <DM name="DataModule" val="0"/>
+    </Row>
+  </Tbl>
+
+  <Tbl name="DevInfo" RowCount="1">
+    <Row No="0">
+      <DM name="CfgLable" val="H268NV1.0_OTE_Default_01"/>
+    </Row>
+  </Tbl>
+<Tbl name="Log" RowCount="1">
+<Row No="0">
+<DM name="LogEnable" val="1"/>
+<DM name="LogLevel" val="6"/>
+<DM name="SerialEnable" val="0"/>
+</Row>
+</Tbl>
+  <Tbl name="WDInfo" RowCount="1">
+    <Row No="0">
+      <DM name="WDType" val="1"/>
+      <DM name="BackupWDType" val="2"/>
+      <DM name="MultiWDMode" val="1"/>
+      <DM name="Reserve2" val="0"/>
+    </Row>
+  </Tbl>
+  <Tbl name="MultiWD" RowCount="2">
+    <Row No="0">
+      <DM name="ViewName" val="DEV.WDInfo1"/>
+      <DM name="WDType" val="0"/>
+    </Row>
+    <Row No="1">
+      <DM name="ViewName" val="DEV.WDInfo2"/>
+      <DM name="WDType" val="1"/>
+    </Row>
+  </Tbl>
+  <Tbl name="TR064Cfg" RowCount="1">
+    <Row No="0">
+      <DM name="EnableTR064IGD" val="0"/>
+    </Row>
+  </Tbl>
+<Tbl name="EthLink" RowCount="16">
+<Row No="0">
+<DM name="ViewName" val="DEV.ETH.LINK1"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="LAN_LINK"/>
+<DM name="Name" val="DEV.ETH.LINK1"/>
+<DM name="LowerLayers" val="DEV.BRIDGING.BR1.BRPORT1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="2"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.ETH.LINK2"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK2"/>
+<DM name="Name" val="DEV.ETH.LINK2"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.ETH.LINK3"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK3"/>
+<DM name="Name" val="DEV.ETH.LINK3"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.ETH.LINK4"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK4"/>
+<DM name="Name" val="DEV.ETH.LINK4"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.ETH.LINK5"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK5"/>
+<DM name="Name" val="DEV.ETH.LINK5"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.ETH.LINK6"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK6"/>
+<DM name="Name" val="DEV.ETH.LINK6"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.ETH.LINK7"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK7"/>
+<DM name="Name" val="DEV.ETH.LINK7"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="DEV.ETH.LINK8"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK8"/>
+<DM name="Name" val="DEV.ETH.LINK8"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="DEV.ETH.LINK9"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK9"/>
+<DM name="Name" val="DEV.ETH.LINK9"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="DEV.ETH.LINK10"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK10"/>
+<DM name="Name" val="DEV.ETH.LINK10"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="DEV.ETH.LINK11"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK11"/>
+<DM name="Name" val="DEV.ETH.LINK11"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="DEV.ETH.LINK12"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK12"/>
+<DM name="Name" val="DEV.ETH.LINK12"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="DEV.ETH.LINK13"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK13"/>
+<DM name="Name" val="DEV.ETH.LINK13"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="DEV.ETH.LINK14"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK14"/>
+<DM name="Name" val="DEV.ETH.LINK14"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="DEV.ETH.LINK15"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK15"/>
+<DM name="Name" val="DEV.ETH.LINK15"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="15">
+<DM name="ViewName" val="DEV.ETH.LINK16"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_LINK16"/>
+<DM name="Name" val="DEV.ETH.LINK16"/>
+<DM name="LowerLayers" val="DEV.ETH.IF1"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="EthVlan" RowCount="14">
+<Row No="0">
+<DM name="ViewName" val="DEV.ETH.VLAN1"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN1"/>
+<DM name="Name" val="DEV.ETH.VLAN1"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK3"/>
+<DM name="VLANID" val="835"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.ETH.VLAN3"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN3"/>
+<DM name="Name" val="DEV.ETH.VLAN3"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK4"/>
+<DM name="VLANID" val="0"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.ETH.VLAN4"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN4"/>
+<DM name="Name" val="DEV.ETH.VLAN4"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK5"/>
+<DM name="VLANID" val="0"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.ETH.VLAN5"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN5"/>
+<DM name="Name" val="DEV.ETH.VLAN5"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK6"/>
+<DM name="VLANID" val="0"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.ETH.VLAN6"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN6"/>
+<DM name="Name" val="DEV.ETH.VLAN6"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK7"/>
+<DM name="VLANID" val="0"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.ETH.VLAN7"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN7"/>
+<DM name="Name" val="DEV.ETH.VLAN7"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK8"/>
+<DM name="VLANID" val="0"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.ETH.VLAN8"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN8"/>
+<DM name="Name" val="DEV.ETH.VLAN8"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK9"/>
+<DM name="VLANID" val="0"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="DEV.ETH.VLAN9"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN9"/>
+<DM name="Name" val="DEV.ETH.VLAN9"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK10"/>
+<DM name="VLANID" val="835"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="DEV.ETH.VLAN10"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN10"/>
+<DM name="Name" val="DEV.ETH.VLAN10"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK11"/>
+<DM name="VLANID" val="835"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="DEV.ETH.VLAN11"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN11"/>
+<DM name="Name" val="DEV.ETH.VLAN11"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK12"/>
+<DM name="VLANID" val="835"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="DEV.ETH.VLAN12"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN12"/>
+<DM name="Name" val="DEV.ETH.VLAN12"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK13"/>
+<DM name="VLANID" val="835"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="DEV.ETH.VLAN13"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN13"/>
+<DM name="Name" val="DEV.ETH.VLAN13"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK14"/>
+<DM name="VLANID" val="835"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="DEV.ETH.VLAN14"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN14"/>
+<DM name="Name" val="DEV.ETH.VLAN14"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK15"/>
+<DM name="VLANID" val="835"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="1"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="DEV.ETH.VLAN15"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="ETH_VLAN15"/>
+<DM name="Name" val="DEV.ETH.VLAN15"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK16"/>
+<DM name="VLANID" val="835"/>
+<DM name="WBMode" val="0"/>
+<DM name="VlanEnable" val="0"/>
+<DM name="8021Priority" val="0"/>
+</Row>
+</Tbl>
+  <Tbl name="Dslite" RowCount="1">
+        <Row No="0">
+      <DM name="Enable" val="1"/>
+    </Row>  
+  </Tbl>
+  <Tbl name="6rd" RowCount="1">
+        <Row No="0">
+      <DM name="Enable" val="1"/>
+    </Row>  
+  </Tbl>
+  <Tbl name="Router" RowCount="1">
+    <Row No="0">
+      <DM name="ViewName" val="DEV.ROUTING.RT1"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="CSP_Router"/>
+    </Row>
+  </Tbl>
+  <Tbl name="Bridge" RowCount="1">
+    <Row No="0">
+      <DM name="ViewName" val="DEV.BRIDGING.BR1"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="LAN"/>
+      <DM name="Standard" val="0"/>
+      <DM name="StpEnable" val="0"/>
+      <DM name="WanWanIsolate" val="1"/>
+      <DM name="WanLocalIsolate" val="1"/>        
+    </Row>
+  </Tbl>
+<Tbl name="Brport" RowCount="14">
+<Row No="0">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT1"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="M_BRPORT1"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT1"/>
+<DM name="LowerLayers" val=""/>
+<DM name="ManagementPort" val="1"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="0"/>
+<DM name="WanName" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT2"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="LAN1"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT2"/>
+<DM name="LowerLayers" val="DEV.ETH.IF1"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="0"/>
+<DM name="WanName" val=""/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT3"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="LAN2"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT3"/>
+<DM name="LowerLayers" val="DEV.ETH.IF2"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="0"/>
+<DM name="WanName" val=""/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT4"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="LAN3"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT4"/>
+<DM name="LowerLayers" val="DEV.ETH.IF3"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="0"/>
+<DM name="WanName" val=""/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT5"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="LAN4"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT5"/>
+<DM name="LowerLayers" val="DEV.ETH.IF4"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="0"/>
+<DM name="WanName" val=""/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT6"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="SSID1"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT6"/>
+<DM name="LowerLayers" val="DEV.WIFI.SSID1"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="0"/>
+<DM name="WanName" val=""/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT7"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="SSID3"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT7"/>
+<DM name="LowerLayers" val="DEV.WIFI.SSID3"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="0"/>
+<DM name="WanName" val=""/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT8"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="SSID4"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT8"/>
+<DM name="LowerLayers" val="DEV.WIFI.SSID4"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="0"/>
+<DM name="WanName" val=""/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT9"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="BRIDGING_BR1_BRPORT9"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT9"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK1"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="1"/>
+<DM name="WanName" val="ptb_ATM_DSL"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT10"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="BRIDGING_BR1_BRPORT10"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT10"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="1"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="835"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="1"/>
+<DM name="WanName" val="ptb_PTM_DSL"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT11"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="BRIDGING_BR1_BRPORT11"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT11"/>
+<DM name="LowerLayers" val="DEV.ATM.LINK2"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="0"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="0"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="1"/>
+<DM name="WanName" val="ATM_OTETV"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT12"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="BRIDGING_BR1_BRPORT12"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT12"/>
+<DM name="LowerLayers" val="DEV.PTM.LINK1"/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="1"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="836"/>
+<DM name="WanPortPri" val="3"/>
+<DM name="ServList" val="1"/>
+<DM name="WanName" val="PTM_OTETV"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT13"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="BRIDGING_BR1_BRPORT13"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT13"/>
+<DM name="LowerLayers" val=""/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="1"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="835"/>
+<DM name="WanPortPri" val="0"/>
+<DM name="ServList" val="1"/>
+<DM name="WanName" val="ptb_ETH"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="DEV.BRIDGING.BR1.BRPORT14"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="BRIDGING_BR1_BRPORT14"/>
+<DM name="Name" val="DEV.BRIDGING.BR1.BRPORT14"/>
+<DM name="LowerLayers" val=""/>
+<DM name="ManagementPort" val="0"/>
+<DM name="DefaultUserPriority" val="0"/>
+<DM name="PriorityRegeneration" val="0,1,2,3,4,5,6,7"/>
+<DM name="PVID" val="1"/>
+<DM name="AcceptableFrameTypes" val="0"/>
+<DM name="IngressFiltering" val="0"/>
+<DM name="PriorityTagging" val="0"/>
+<DM name="WanPortVlanEnable" val="1"/>
+<DM name="WanPortVlanMode" val="0"/>
+<DM name="WanPortVlanID" val="836"/>
+<DM name="WanPortPri" val="3"/>
+<DM name="ServList" val="1"/>
+<DM name="WanName" val="ETH_OTETV"/>
+</Row>
+</Tbl>
+  <Tbl name="BrFilter" RowCount="8">
+    <Row No="0">
+      <DM name="ViewName" val="DEV.BRIDGING.FILTER1"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="FILTER1"/>
+      <DM name="Bridge" val="DEV.BRIDGING.BR1"/>
+      <DM name="Order" val="1"/>
+      <DM name="Interface" val="DEV.BRIDGING.BR1.BRPORT1"/>
+      <DM name="EtherTypeList" val=""/>
+      <DM name="EtherTypeExclude" val="1"/>
+      <DM name="SrcMACList" val=""/>
+      <DM name="SrcMACExclude" val="1"/>
+      <DM name="DstMACList" val=""/>
+      <DM name="DstMACExclude" val="1"/>
+    </Row>
+    <Row No="1">
+      <DM name="ViewName" val="DEV.BRIDGING.FILTER2"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="FILTER2"/>
+      <DM name="Bridge" val="DEV.BRIDGING.BR1"/>
+      <DM name="Order" val="2"/>
+      <DM name="Interface" val="DEV.BRIDGING.BR1.BRPORT2"/>
+      <DM name="EtherTypeList" val=""/>
+      <DM name="EtherTypeExclude" val="1"/>
+      <DM name="SrcMACList" val=""/>
+      <DM name="SrcMACExclude" val="1"/>
+      <DM name="DstMACList" val=""/>
+      <DM name="DstMACExclude" val="1"/>
+    </Row>
+    <Row No="2">
+      <DM name="ViewName" val="DEV.BRIDGING.FILTER3"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="FILTER3"/>
+      <DM name="Bridge" val="DEV.BRIDGING.BR1"/>
+      <DM name="Order" val="3"/>
+      <DM name="Interface" val="DEV.BRIDGING.BR1.BRPORT3"/>
+      <DM name="EtherTypeList" val=""/>
+      <DM name="EtherTypeExclude" val="1"/>
+      <DM name="SrcMACList" val=""/>
+      <DM name="SrcMACExclude" val="1"/>
+      <DM name="DstMACList" val=""/>
+      <DM name="DstMACExclude" val="1"/>
+    </Row>
+    <Row No="3">
+      <DM name="ViewName" val="DEV.BRIDGING.FILTER4"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="FILTER4"/>
+      <DM name="Bridge" val="DEV.BRIDGING.BR1"/>
+      <DM name="Order" val="4"/>
+      <DM name="Interface" val="DEV.BRIDGING.BR1.BRPORT4"/>
+      <DM name="EtherTypeList" val=""/>
+      <DM name="EtherTypeExclude" val="1"/>
+      <DM name="SrcMACList" val=""/>
+      <DM name="SrcMACExclude" val="1"/>
+      <DM name="DstMACList" val=""/>
+      <DM name="DstMACExclude" val="1"/>
+    </Row>
+    <Row No="4">
+      <DM name="ViewName" val="DEV.BRIDGING.FILTER5"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="FILTER5"/>
+      <DM name="Bridge" val="DEV.BRIDGING.BR1"/>
+      <DM name="Order" val="5"/>
+      <DM name="Interface" val="DEV.BRIDGING.BR1.BRPORT5"/>
+      <DM name="EtherTypeList" val=""/>
+      <DM name="EtherTypeExclude" val="1"/>
+      <DM name="SrcMACList" val=""/>
+      <DM name="SrcMACExclude" val="1"/>
+      <DM name="DstMACList" val=""/>
+      <DM name="DstMACExclude" val="1"/>
+    </Row>
+    <Row No="5">
+      <DM name="ViewName" val="DEV.BRIDGING.FILTER6"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="FILTER6"/>
+      <DM name="Bridge" val="DEV.BRIDGING.BR1"/>
+      <DM name="Order" val="6"/>
+      <DM name="Interface" val="DEV.BRIDGING.BR1.BRPORT6"/>
+      <DM name="EtherTypeList" val=""/>
+      <DM name="EtherTypeExclude" val="1"/>
+      <DM name="SrcMACList" val=""/>
+      <DM name="SrcMACExclude" val="1"/>
+      <DM name="DstMACList" val=""/>
+      <DM name="DstMACExclude" val="1"/>
+    </Row>
+    <Row No="6">
+      <DM name="ViewName" val="DEV.BRIDGING.FILTER7"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="FILTER7"/>
+      <DM name="Bridge" val="DEV.BRIDGING.BR1"/>
+      <DM name="Order" val="7"/>
+      <DM name="Interface" val="DEV.BRIDGING.BR1.BRPORT7"/>
+      <DM name="EtherTypeList" val=""/>
+      <DM name="EtherTypeExclude" val="1"/>
+      <DM name="SrcMACList" val=""/>
+      <DM name="SrcMACExclude" val="1"/>
+      <DM name="DstMACList" val=""/>
+      <DM name="DstMACExclude" val="1"/>
+    </Row>
+    <Row No="7">
+      <DM name="ViewName" val="DEV.BRIDGING.FILTER8"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="FILTER8"/>
+      <DM name="Bridge" val="DEV.BRIDGING.BR1"/>
+      <DM name="Order" val="8"/>
+      <DM name="Interface" val="DEV.BRIDGING.BR1.BRPORT8"/>
+      <DM name="EtherTypeList" val=""/>
+      <DM name="EtherTypeExclude" val="1"/>
+      <DM name="SrcMACList" val=""/>
+      <DM name="SrcMACExclude" val="1"/>
+      <DM name="DstMACList" val=""/>
+      <DM name="DstMACExclude" val="1"/>
+    </Row>
+  </Tbl>
+<Tbl name="PPPIF" RowCount="15">
+<Row No="0">
+<DM name="ViewName" val="DEV.PPP.IF1"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="PPP_IF1"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK2"/>
+<DM name="Name" val="DEV.PPP.IF1"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val="otenet@otenet.gr"/>
+<DM name="Password" val="otenet"/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="1"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.PPP.IF2"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="PPP_IF2"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN1"/>
+<DM name="Name" val="DEV.PPP.IF2"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val="otenet@otenet.gr"/>
+<DM name="Password" val="otenet"/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="1"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.PPP.IF3"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF3"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN3"/>
+<DM name="Name" val="DEV.PPP.IF3"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.PPP.IF4"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF4"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN4"/>
+<DM name="Name" val="DEV.PPP.IF4"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.PPP.IF5"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF5"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN5"/>
+<DM name="Name" val="DEV.PPP.IF5"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.PPP.IF6"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF6"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN6"/>
+<DM name="Name" val="DEV.PPP.IF6"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.PPP.IF7"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF7"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN7"/>
+<DM name="Name" val="DEV.PPP.IF7"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="DEV.PPP.IF8"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF8"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN8"/>
+<DM name="Name" val="DEV.PPP.IF8"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="DEV.PPP.IF9"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF9"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN9"/>
+<DM name="Name" val="DEV.PPP.IF9"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="DEV.PPP.IF10"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF10"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN10"/>
+<DM name="Name" val="DEV.PPP.IF10"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="DEV.PPP.IF11"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF11"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN11"/>
+<DM name="Name" val="DEV.PPP.IF11"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="DEV.PPP.IF12"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF12"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN12"/>
+<DM name="Name" val="DEV.PPP.IF12"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="DEV.PPP.IF13"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF13"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN13"/>
+<DM name="Name" val="DEV.PPP.IF13"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="DEV.PPP.IF14"/>
+<DM name="Enable" val="0"/>
+<DM name="Alias" val="PPP_IF14"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN14"/>
+<DM name="Name" val="DEV.PPP.IF14"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="0"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="DEV.PPP.IF15"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="PPP_IF15"/>
+<DM name="LowerLayers" val="DEV.ETH.VLAN15"/>
+<DM name="Name" val="DEV.PPP.IF15"/>
+<DM name="AutoDisconnectTime" val="0"/>
+<DM name="IdleDisconnectTime" val="1200"/>
+<DM name="WarnDisconnectDelay" val="0"/>
+<DM name="Username" val="otenet@otenet.gr"/>
+<DM name="Password" val="otenet"/>
+<DM name="MaxMRUSize" val="1492"/>
+<DM name="ConnectionTrigger" val="0"/>
+<DM name="IPCPEnable" val="1"/>
+<DM name="IPv6CPEnable" val="1"/>
+<DM name="AuthenticationProtocol" val="0"/>
+<DM name="EchoTime" val="10"/>
+<DM name="EchoRetry" val="6"/>
+<DM name="ACName" val=""/>
+<DM name="ServiceName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="0"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+</Tbl>
+  <Tbl name="IPGlobal" RowCount="1">
+        <Row No="0">
+      <DM name="ViewName" val="DEV.IP"/>
+      <DM name="IPv4Enable" val="1"/>
+      <DM name="IPv6Enable" val="1"/>
+      <DM name="AcceptDad" val="1"/>
+      <DM name="ULAPrefix" val=""/>
+        </Row>
+    </Tbl>
+<Tbl name="IPInterface" RowCount="19">
+<Row No="0">
+<DM name="ViewName" val="DEV.IP.IF1"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="1"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="LAN"/>
+<DM name="Name" val="DEV.IP.IF1"/>
+<DM name="LowerLayers" val="DEV.ETH.LINK1"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1500"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="1"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="0"/>
+<DM name="IsBridge" val="1"/>
+<DM name="tServList" val="0"/>
+<DM name="WanLanPrority" val="2"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val=""/>
+<DM name="DnsOverrideAllowed" val="1"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.IP.IF2"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF2"/>
+<DM name="Name" val="DEV.IP.IF2"/>
+<DM name="LowerLayers" val=""/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1460"/>
+<DM name="Type" val="4"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="1"/>
+<DM name="IsDefGWv6" val="1"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="l2tp_internet"/>
+<DM name="DnsOverrideAllowed" val="1"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="8"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.IP.IF3"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="1"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF3"/>
+<DM name="Name" val="DEV.IP.IF3"/>
+<DM name="LowerLayers" val="DEV.PPP.IF1"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="1"/>
+<DM name="IsDefGWv6" val="1"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="7"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="ATM_DSL"/>
+<DM name="DnsOverrideAllowed" val="1"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.IP.IF4"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="1"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF4"/>
+<DM name="Name" val="DEV.IP.IF4"/>
+<DM name="LowerLayers" val="DEV.PPP.IF2"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="1"/>
+<DM name="IsDefGWv6" val="1"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="7"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="PTM_DSL"/>
+<DM name="DnsOverrideAllowed" val="1"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.IP.IF5"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="FON_LAN"/>
+<DM name="Name" val="DEV.IP.IF5"/>
+<DM name="LowerLayers" val="DEV.WIFI.SSID2"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1500"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="0"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="0"/>
+<DM name="WanLanPrority" val="2"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val=""/>
+<DM name="DnsOverrideAllowed" val="1"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.IP.IF6"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF6"/>
+<DM name="Name" val="DEV.IP.IF6"/>
+<DM name="LowerLayers" val=""/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1460"/>
+<DM name="Type" val="4"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="l2tp_fon1"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="8"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.IP.IF7"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF7"/>
+<DM name="Name" val="DEV.IP.IF7"/>
+<DM name="LowerLayers" val=""/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1460"/>
+<DM name="Type" val="4"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="l2tp_fon2"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="8"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="DEV.IP.IF8"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF8"/>
+<DM name="Name" val="DEV.IP.IF8"/>
+<DM name="LowerLayers" val=""/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1460"/>
+<DM name="Type" val="4"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="l2tp_fon3"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="8"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="DEV.IP.IF9"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF9"/>
+<DM name="Name" val="DEV.IP.IF9"/>
+<DM name="LowerLayers" val=""/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1460"/>
+<DM name="Type" val="4"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="l2tp_fon4"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="8"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="DEV.IP.IF10"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF10"/>
+<DM name="Name" val="DEV.IP.IF10"/>
+<DM name="LowerLayers" val=""/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1460"/>
+<DM name="Type" val="4"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="0"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="l2tp_fon5"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="8"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="DEV.IP.IF11"/>
+<DM name="Enable" val="0"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF11"/>
+<DM name="Name" val="DEV.IP.IF11"/>
+<DM name="LowerLayers" val="DEV.PPP.IF8"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="8"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="ADSL_OTEFON6"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="DEV.IP.IF12"/>
+<DM name="Enable" val="0"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF12"/>
+<DM name="Name" val="DEV.IP.IF12"/>
+<DM name="LowerLayers" val="DEV.PPP.IF9"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="8"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="VDSL_OTEFON1"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="DEV.IP.IF13"/>
+<DM name="Enable" val="0"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF13"/>
+<DM name="Name" val="DEV.IP.IF13"/>
+<DM name="LowerLayers" val="DEV.PPP.IF10"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="8"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="VDSL_OTEFON2"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="DEV.IP.IF14"/>
+<DM name="Enable" val="0"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF14"/>
+<DM name="Name" val="DEV.IP.IF14"/>
+<DM name="LowerLayers" val="DEV.PPP.IF11"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="8"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="VDSL_OTEFON3"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="DEV.IP.IF15"/>
+<DM name="Enable" val="0"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF15"/>
+<DM name="Name" val="DEV.IP.IF15"/>
+<DM name="LowerLayers" val="DEV.PPP.IF12"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="8"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="VDSL_OTEFON4"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="15">
+<DM name="ViewName" val="DEV.IP.IF16"/>
+<DM name="Enable" val="0"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF16"/>
+<DM name="Name" val="DEV.IP.IF16"/>
+<DM name="LowerLayers" val="DEV.PPP.IF13"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="8"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="VDSL_OTEFON5"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="16">
+<DM name="ViewName" val="DEV.IP.IF17"/>
+<DM name="Enable" val="0"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF17"/>
+<DM name="Name" val="DEV.IP.IF17"/>
+<DM name="LowerLayers" val="DEV.PPP.IF14"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="0"/>
+<DM name="IsDefGWv6" val="0"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="8"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="0"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="VDSL_OTEFON6"/>
+<DM name="DnsOverrideAllowed" val="0"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="17">
+<DM name="ViewName" val="DEV.IP.IF18"/>
+<DM name="Enable" val="1"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="1"/>
+<DM name="ULAEnable" val="0"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="IP_IF18"/>
+<DM name="Name" val="DEV.IP.IF18"/>
+<DM name="LowerLayers" val="DEV.PPP.IF15"/>
+<DM name="Router" val=""/>
+<DM name="MaxMTUSize" val="1492"/>
+<DM name="Type" val="1"/>
+<DM name="Loopback" val="0"/>
+<DM name="AutoIPEnable" val="0"/>
+<DM name="IsForwardv4" val="1"/>
+<DM name="IsForwardv6" val="0"/>
+<DM name="IsDefGWv4" val="1"/>
+<DM name="IsDefGWv6" val="1"/>
+<DM name="IsNat" val="1"/>
+<DM name="IsBridge" val="0"/>
+<DM name="tServList" val="7"/>
+<DM name="WanLanPrority" val="1"/>
+<DM name="IPv6AcquireMode" val="1"/>
+<DM name="SlaacSwitcher" val="1"/>
+<DM name="IsGUAFromPD" val="1"/>
+<DM name="PDConfigGUAExpried" val="10"/>
+<DM name="GataWay6" val="::"/>
+<DM name="WanName" val="ETH"/>
+<DM name="DnsOverrideAllowed" val="1"/>
+<DM name="DnsEnabled" val="1"/>
+<DM name="OverridedDNS1" val="0.0.0.0"/>
+<DM name="OverridedDNS2" val="0.0.0.0"/>
+<DM name="OverridedDNS3" val="0.0.0.0"/>
+<DM name="DnsOverrideAllowedv6" val="1"/>
+<DM name="OverridedDNS61" val="::"/>
+<DM name="OverridedDNS62" val="::"/>
+<DM name="OverridedDNS63" val="::"/>
+<DM name="TunnelType" val="1"/>
+</Row>
+<Row No="18">
+		<DM name="ViewName" val="DEV.IP.IF19"/>
+		<DM name="Enable" val="1"/>
+		<DM name="IPv4Enable" val="1"/>
+		<DM name="IPv6Enable" val="0"/>
+		<DM name="IsSendOpt96" val="1"/>
+		<DM name="ULAEnable" val="0"/>
+		<DM name="Status" val="1"/>
+		<DM name="Alias" val="IP_IF19"/>
+		<DM name="Name" val="DEV.IP.IF19"/>
+		<DM name="LastChange" val="0"/>
+		<DM name="LowerLayers" val=""/>
+		<DM name="Router" val=""/>
+		<DM name="MaxMTUSize" val="1400"/>
+		<DM name="Type" val="4"/>
+		<DM name="Loopback" val="0"/>
+		<DM name="AutoIPEnable" val="0"/>
+		<DM name="IsForwardv4" val="1"/>
+		<DM name="IsForwardv6" val="0"/>
+		<DM name="IsDefGWv4" val="1"/>
+		<DM name="IsDefGWv6" val="1"/>
+		<DM name="IsNat" val="1"/>
+		<DM name="IsBridge" val="0"/>
+		<DM name="tServList" val="1"/>
+		<DM name="WanLanPrority" val="1"/>
+		<DM name="V4Status" val="0"/>
+		<DM name="V6Status" val="0"/>
+		<DM name="IPv6AcquireMode" val="1"/>
+		<DM name="SlaacSwitcher" val="1"/>
+		<DM name="Unnumbered" val="0"/>
+		<DM name="IsGUAFromPD" val="0"/>
+		<DM name="PDConfigGUAExpried" val="10"/>
+		<DM name="GataWay6" val="::"/>
+		<DM name="WanName" val="LW4o6"/>
+		<DM name="DnsOverrideAllowed" val="1"/>
+		<DM name="DnsEnabled" val="1"/>
+		<DM name="OverridedDNS1" val="0.0.0.0"/>
+		<DM name="OverridedDNS2" val="0.0.0.0"/>
+		<DM name="OverridedDNS3" val="0.0.0.0"/>
+		<DM name="DnsOverrideAllowedv6" val="1"/>
+		<DM name="OverridedDNS61" val="::"/>
+		<DM name="OverridedDNS62" val="::"/>
+		<DM name="OverridedDNS63" val="::"/>
+		<DM name="TunnelType" val="32"/>
+		<DM name="GataWay6Status" val="::"/>
+	</Row>
+</Tbl>
+<Tbl name="NatIfSetting" RowCount="17">
+<Row No="0">
+<DM name="ViewName" val="DEV.NAT.IfSetting1"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting1"/>
+<DM name="Interface" val="DEV.IP.IF3"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.NAT.IfSetting2"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting2"/>
+<DM name="Interface" val="DEV.IP.IF4"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.NAT.IfSetting3"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting3"/>
+<DM name="Interface" val="DEV.IP.IF6"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.NAT.IfSetting4"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting4"/>
+<DM name="Interface" val="DEV.IP.IF7"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.NAT.IfSetting5"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting5"/>
+<DM name="Interface" val="DEV.IP.IF8"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.NAT.IfSetting6"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting6"/>
+<DM name="Interface" val="DEV.IP.IF9"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.NAT.IfSetting7"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting7"/>
+<DM name="Interface" val="DEV.IP.IF10"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="DEV.NAT.IfSetting8"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting8"/>
+<DM name="Interface" val="DEV.IP.IF11"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="DEV.NAT.IfSetting9"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting9"/>
+<DM name="Interface" val="DEV.IP.IF12"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="DEV.NAT.IfSetting10"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting10"/>
+<DM name="Interface" val="DEV.IP.IF13"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="DEV.NAT.IfSetting11"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting11"/>
+<DM name="Interface" val="DEV.IP.IF14"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="DEV.NAT.IfSetting12"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting12"/>
+<DM name="Interface" val="DEV.IP.IF15"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="DEV.NAT.IfSetting13"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting13"/>
+<DM name="Interface" val="DEV.IP.IF16"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="DEV.NAT.IfSetting14"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting14"/>
+<DM name="Interface" val="DEV.IP.IF17"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="DEV.NAT.IfSetting15"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting15"/>
+<DM name="Interface" val="DEV.IP.IF18"/>
+</Row>
+	<Row No="15">
+		<DM name="ViewName" val="DEV.NAT.IfSetting16"/>
+		<DM name="Enable" val="1"/>
+		<DM name="Status" val="Enabled_PortMappingDisabled"/>
+		<DM name="Alias" val="DEV.NAT.IfSetting16"/>
+		<DM name="Interface" val="DEV.IP.IF19"/>
+	</Row>
+<Row No="16">
+<DM name="ViewName" val="DEV.NAT.IfSetting17"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="Enabled_PortMappingDisabled"/>
+<DM name="Alias" val="DEV.NAT.IfSetting17"/>
+<DM name="Interface" val="DEV.IP.IF2"/>
+</Row>
+</Tbl>
+<Tbl name="NatIfWhiteList" RowCount="3">
+<Row No="0">
+<DM name="ViewName" val="DEV.NAT.IfWhiteList1"/>
+<DM name="Enable" val="1"/>
+<DM name="IPAddress" val="0.0.0.0"/>
+<DM name="SubMaskLen" val="0"/>
+<DM name="Interface" val="DEV.IP.IF3"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.NAT.IfWhiteList2"/>
+<DM name="Enable" val="1"/>
+<DM name="IPAddress" val="0.0.0.0"/>
+<DM name="SubMaskLen" val="0"/>
+<DM name="Interface" val="DEV.IP.IF4"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.NAT.IfWhiteList3"/>
+<DM name="Enable" val="1"/>
+<DM name="IPAddress" val="0.0.0.0"/>
+<DM name="SubMaskLen" val="0"/>
+<DM name="Interface" val="DEV.IP.IF18"/>
+</Row>
+</Tbl>
+<Tbl name="L2tpTunnel" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="DEV.L2TP.TUNNEL1"/>
+<DM name="Enable" val="1"/>
+<DM name="TunnelName" val="l2tp_internet"/>
+<DM name="AppScenaType" val="0"/>
+<DM name="LowIFID" val=""/>
+<DM name="L2tpServer1" val=""/>
+<DM name="L2tpServer2" val=""/>
+<DM name="AuthType" val="0"/>
+<DM name="MaxSession" val="1"/>
+<DM name="LcpEchoInterval" val="0"/>
+<DM name="LcpEchoFail" val="5"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.L2TP.TUNNEL2"/>
+<DM name="Enable" val="1"/>
+<DM name="TunnelName" val="l2tp_fon"/>
+<DM name="AppScenaType" val="2"/>
+<DM name="LowIFID" val=""/>
+<DM name="L2tpServer1" val=""/>
+<DM name="L2tpServer2" val=""/>
+<DM name="AuthType" val="0"/>
+<DM name="MaxSession" val="5"/>
+<DM name="LcpEchoInterval" val="0"/>
+<DM name="LcpEchoFail" val="5"/>
+</Row>
+</Tbl>
+<Tbl name="L2tpSession" RowCount="6">
+<Row No="0">
+<DM name="ViewName" val="DEV.L2TP.TUNNEL1.SESSION1"/>
+<DM name="Enable" val="1"/>
+<DM name="SessionName" val="l2tp_internet"/>
+<DM name="TunnelViewName" val="DEV.L2TP.TUNNEL1"/>
+<DM name="UserName" val=""/>
+<DM name="Password" val=""/>
+<DM name="NATEnable" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF2"/>
+<DM name="OnLineTime" val="0"/>
+<DM name="ConnStatus" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.L2TP.TUNNEL2.SESSION1"/>
+<DM name="Enable" val="1"/>
+<DM name="SessionName" val="l2tp_fon1"/>
+<DM name="TunnelViewName" val="DEV.L2TP.TUNNEL2"/>
+<DM name="UserName" val=""/>
+<DM name="Password" val=""/>
+<DM name="NATEnable" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF6"/>
+<DM name="OnLineTime" val="0"/>
+<DM name="ConnStatus" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.L2TP.TUNNEL2.SESSION2"/>
+<DM name="Enable" val="1"/>
+<DM name="SessionName" val="l2tp_fon2"/>
+<DM name="TunnelViewName" val="DEV.L2TP.TUNNEL2"/>
+<DM name="UserName" val=""/>
+<DM name="Password" val=""/>
+<DM name="NATEnable" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF7"/>
+<DM name="OnLineTime" val="0"/>
+<DM name="ConnStatus" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.L2TP.TUNNEL2.SESSION3"/>
+<DM name="Enable" val="1"/>
+<DM name="SessionName" val="l2tp_fon3"/>
+<DM name="TunnelViewName" val="DEV.L2TP.TUNNEL2"/>
+<DM name="UserName" val=""/>
+<DM name="Password" val=""/>
+<DM name="NATEnable" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF8"/>
+<DM name="OnLineTime" val="0"/>
+<DM name="ConnStatus" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.L2TP.TUNNEL2.SESSION4"/>
+<DM name="Enable" val="1"/>
+<DM name="SessionName" val="l2tp_fon4"/>
+<DM name="TunnelViewName" val="DEV.L2TP.TUNNEL2"/>
+<DM name="UserName" val=""/>
+<DM name="Password" val=""/>
+<DM name="NATEnable" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF9"/>
+<DM name="OnLineTime" val="0"/>
+<DM name="ConnStatus" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.L2TP.TUNNEL2.SESSION5"/>
+<DM name="Enable" val="1"/>
+<DM name="SessionName" val="l2tp_fon5"/>
+<DM name="TunnelViewName" val="DEV.L2TP.TUNNEL2"/>
+<DM name="UserName" val=""/>
+<DM name="Password" val=""/>
+<DM name="NATEnable" val="1"/>
+<DM name="IPInterface" val="DEV.IP.IF10"/>
+<DM name="OnLineTime" val="0"/>
+<DM name="ConnStatus" val="0"/>
+</Row>
+</Tbl>
+    <Tbl name="IPv4Address" RowCount="2">
+        <Row No="0">
+      <DM name="ViewName" val="DEV.IP.IF1.V4ADDR1"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="0"/>
+      <DM name="Alias" val="LAN_IPADDR"/>
+      <DM name="IPAddress" val="192.168.1.1"/>
+      <DM name="SubnetMask" val="255.255.255.0"/>
+      <DM name="Gateway" val="0.0.0.0"/>
+      <DM name="Dns1" val="0.0.0.0"/>
+      <DM name="Dns2" val="0.0.0.0"/>
+      <DM name="Dns3" val="0.0.0.0"/>
+      <DM name="AddressingType" val="1"/>
+        </Row>
+        <Row No="1">
+            <DM name="ViewName" val="DEV.IP.IF5.V4ADDR1"/>
+            <DM name="Enable" val="1"/>
+            <DM name="Status" val="0"/>
+            <DM name="Alias" val="FON_IPADDR"/>
+            <DM name="IPAddress" val="192.168.182.1"/>
+            <DM name="SubnetMask" val="255.255.255.0"/>
+            <DM name="Gateway" val="0.0.0.0"/>
+            <DM name="Dns1" val="0.0.0.0"/>
+            <DM name="Dns2" val="0.0.0.0"/>
+            <DM name="Dns3" val="0.0.0.0"/>
+            <DM name="AddressingType" val="1"/>
+        </Row>
+  </Tbl>
+  <Tbl name="DHCP4CInfo" RowCount="0">
+  </Tbl>
+  <Tbl name="DHCP4sServer" RowCount="1">
+    <Row No="0">
+      <DM name="Enable" val="1"/>
+    </Row>
+  </Tbl>
+    <Tbl name="DHCP4sPool" RowCount="2">
+    <Row No="0">
+      <DM name="ViewName" val="DEV.V4DHCP.Server.Pool1"/>
+      <DM name="Enable" val="1"/>
+      <DM name="Status" val="1"/>
+      <DM name="Alias" val="DefaultPool"/>
+      <DM name="Order" val="0"/>
+      <DM name="Interface" val="DEV.IP.IF1"/>
+      <DM name="ProcFlag" val="0"/>
+      <DM name="IsDefault" val="1"/>
+      <DM name="DnsServerSource" val="0"/>
+      <DM name="VendorClassID" val="*"/>
+      <DM name="ClientID" val=""/>
+      <DM name="UserClassID" val="*"/>
+      <DM name="PoolName" val="DefaultPool"/>
+      <DM name="MinAddress" val="192.168.1.2"/>
+      <DM name="MaxAddress" val="192.168.1.254"/>
+      <DM name="ReservedAddresses" val=""/>
+      <DM name="SubnetMask" val="255.255.255.0"/>
+      <DM name="DNSServers1" val="192.168.1.1"/>
+      <DM name="DNSServers2" val="0.0.0.0"/>
+      <DM name="DNSServers3" val="0.0.0.0"/>
+      <DM name="DomainName" val="ehome"/>
+      <DM name="IPRouters" val="192.168.1.1"/>
+      <DM name="LeaseTime" val="1814400"/>
+    </Row>  
+      <Row No="1">
+            <DM name="ViewName" val="DEV.V4DHCP.Server.Pool2"/>
+            <DM name="Enable" val="1"/>
+            <DM name="Status" val="0"/>
+            <DM name="Alias" val="FonPool"/>
+            <DM name="Order" val="0"/>
+            <DM name="Interface" val="DEV.IP.IF5"/>
+            <DM name="ProcFlag" val="0"/>
+            <DM name="IsDefault" val="1"/>
+            <DM name="DnsServerSource" val="0"/>
+            <DM name="VendorClassID" val="*"/>
+            <DM name="ClientID" val=""/>
+            <DM name="UserClassID" val="*"/>
+            <DM name="PoolName" val="FonPool"/>
+            <DM name="MinAddress" val="192.168.182.2"/>
+            <DM name="MaxAddress" val="192.168.182.254"/>
+            <DM name="ReservedAddresses" val=""/>
+            <DM name="SubnetMask" val="255.255.255.0"/>
+            <DM name="DNSServers1" val="192.168.182.1"/>
+            <DM name="DNSServers2" val="0.0.0.0"/>
+            <DM name="DNSServers3" val="0.0.0.0"/>
+            <DM name="DomainName" val="ehome"/>
+            <DM name="IPRouters" val="192.168.182.1"/>
+            <DM name="LeaseTime" val="900"/>
+      </Row>    
+  </Tbl>
+<Tbl name="DHCP6C" RowCount="3">
+<Row No="0">
+<DM name="ViewName" val="DEV.V6DHCP.Client1"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="V6DHCP_Client1"/>
+<DM name="Interface" val="DEV.IP.IF3"/>
+<DM name="RequestAddresses" val="1"/>
+<DM name="RequestPrefixes" val="1"/>
+<DM name="RequestDNS" val="1"/>
+<DM name="ReqGUACnts" val="1"/>
+<DM name="ReqPDCnts" val="1"/>
+<DM name="ReqDNSCnts" val="1"/>
+<DM name="RapidCommit" val="0"/>
+<DM name="SuggestedT1" val="-1"/>
+<DM name="SuggestedT2" val="-1"/>
+<DM name="SupportedOptions" val="1,2,3,5,7,8,13,14,16,23,25,26"/>
+<DM name="RequestedOptions" val="23"/>
+<DM name="SLAACExpired" val="5"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.V6DHCP.Client2"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="V6DHCP_Client2"/>
+<DM name="Interface" val="DEV.IP.IF4"/>
+<DM name="RequestAddresses" val="1"/>
+<DM name="RequestPrefixes" val="1"/>
+<DM name="RequestDNS" val="1"/>
+<DM name="ReqGUACnts" val="1"/>
+<DM name="ReqPDCnts" val="1"/>
+<DM name="ReqDNSCnts" val="1"/>
+<DM name="RapidCommit" val="0"/>
+<DM name="SuggestedT1" val="-1"/>
+<DM name="SuggestedT2" val="-1"/>
+<DM name="SupportedOptions" val="1,2,3,5,7,8,13,14,16,23,25,26"/>
+<DM name="RequestedOptions" val="23"/>
+<DM name="SLAACExpired" val="5"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.V6DHCP.Client3"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="V6DHCP_Client3"/>
+<DM name="Interface" val="DEV.IP.IF18"/>
+<DM name="RequestAddresses" val="1"/>
+<DM name="RequestPrefixes" val="1"/>
+<DM name="RequestDNS" val="1"/>
+<DM name="ReqGUACnts" val="1"/>
+<DM name="ReqPDCnts" val="1"/>
+<DM name="ReqDNSCnts" val="1"/>
+<DM name="RapidCommit" val="0"/>
+<DM name="SuggestedT1" val="-1"/>
+<DM name="SuggestedT2" val="-1"/>
+<DM name="SupportedOptions" val="1,2,3,5,7,8,13,14,16,23,25,26"/>
+<DM name="RequestedOptions" val="23"/>
+<DM name="SLAACExpired" val="5"/>
+</Row>
+</Tbl>
+<Tbl name="NDIFSet" RowCount="3">
+<Row No="0">
+<DM name="ViewName" val="DEV.ND.IFSET1"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="ND_IFSET1"/>
+<DM name="Interface" val="DEV.IP.IF3"/>
+<DM name="RetransTimer" val="1000"/>
+<DM name="RtrSolicitationInterval" val="4"/>
+<DM name="MaxRtrSolicitations" val="3"/>
+<DM name="NUDEnable" val="0"/>
+<DM name="RSEnable" val="1"/>
+<DM name="MaxAddresses" val="3"/>
+<DM name="RSDelay" val="1"/>
+<DM name="DADTransmits" val="1"/>
+<DM name="AcceptRADefrtr" val="1"/>
+<DM name="AcceptRAPInfo" val="1"/>
+<DM name="AcceptRARtrPref" val="0"/>
+<DM name="AcceptRADNS" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.ND.IFSET2"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="ND_IFSET2"/>
+<DM name="Interface" val="DEV.IP.IF4"/>
+<DM name="RetransTimer" val="1000"/>
+<DM name="RtrSolicitationInterval" val="4"/>
+<DM name="MaxRtrSolicitations" val="3"/>
+<DM name="NUDEnable" val="0"/>
+<DM name="RSEnable" val="1"/>
+<DM name="MaxAddresses" val="3"/>
+<DM name="RSDelay" val="1"/>
+<DM name="DADTransmits" val="1"/>
+<DM name="AcceptRADefrtr" val="1"/>
+<DM name="AcceptRAPInfo" val="1"/>
+<DM name="AcceptRARtrPref" val="0"/>
+<DM name="AcceptRADNS" val="1"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.ND.IFSET3"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="ND_IFSET3"/>
+<DM name="Interface" val="DEV.IP.IF18"/>
+<DM name="RetransTimer" val="1000"/>
+<DM name="RtrSolicitationInterval" val="4"/>
+<DM name="MaxRtrSolicitations" val="3"/>
+<DM name="NUDEnable" val="0"/>
+<DM name="RSEnable" val="1"/>
+<DM name="MaxAddresses" val="3"/>
+<DM name="RSDelay" val="1"/>
+<DM name="DADTransmits" val="1"/>
+<DM name="AcceptRADefrtr" val="1"/>
+<DM name="AcceptRAPInfo" val="1"/>
+<DM name="AcceptRARtrPref" val="0"/>
+<DM name="AcceptRADNS" val="1"/>
+</Row>
+</Tbl>
+  <Tbl name="UserIF" RowCount="1">
+    <Row No="0">
+      <DM name="Timeout" val="5"/>
+      <DM name="Language" val="1"/>
+    </Row>
+  </Tbl>
+<Tbl name="MultiCastSpecialGroup" RowCount="1">
+        <Row No="0">
+                <DM name="ViewName" val="DEV.MCSPECIAL1"/>
+                <DM name="VerFlag" val="0"/>
+                <DM name="V4Group" val="224.0.0.9"/>
+                <DM name="V6Group" val="::"/>
+                <DM name="FwdMode" val="0"/>
+                <DM name="WancID" val=""/>
+        </Row>
+</Tbl>
+<Tbl name="FWLevel" RowCount="1">
+<Row No="0">
+<DM name="Level" val="3"/>
+<DM name="AntiAttack" val="1"/>
+<DM name="Ipv6SpiEnable" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="SNTP" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="1"/>
+<DM name="NtpServer1" val="ntp2.otenet.gr"/>
+<DM name="NtpServer2" val="time.otenet.gr"/>
+<DM name="NtpServer3" val=""/>
+<DM name="NtpServer4" val=""/>
+<DM name="NtpServer5" val=""/>
+<DM name="LocalTimeZone" val="0:00"/>
+<DM name="LocalTimeZoneName" val="Casablanca, Monrovia, Greenwich Mean Time: Dublin, Edinburgh"/>
+<DM name="DaylightSavingsUsed" val="1"/>
+<DM name="DaylightSavingsStart" val=""/>
+<DM name="DaylightSavingsEnd" val=""/>
+<DM name="PollTimeInterval" val="21600"/>
+<DM name="isSynchronized" val="0"/>
+<DM name="SupportAccessRefuse" val="1"/>
+<DM name="Dscp" val="-1"/>
+<DM name="QueueNum" val="-1"/>
+<DM name="iZoneIndex" val="48"/>
+<DM name="sPosixTimeZoneName" val="EET+02:00EEST+01:00:00,M03.5.0/03:00:00,M10.5.0/04:00:00"/>
+</Row>
+</Tbl>
+<Tbl name="IPv4ForwardingRT" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="DEV.ROUTING.RT1.IPV4FWD1"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="DEV.ROUTING.RT1.IPV4FWD1"/>
+<DM name="StaticRoute" val="0"/>
+<DM name="DestIP" val="192.168.1.0"/>
+<DM name="DestIPMask" val="255.255.255.0"/>
+<DM name="ForwardingPolicy" val="-1"/>
+<DM name="GWIP" val="0.0.0.0"/>
+<DM name="Interface" val="DEV.IP.IF1"/>
+<DM name="Origin" val="0"/>
+<DM name="Metric" val="-1"/>
+</Row>
+</Tbl>
+<Tbl name="TelnetCfg" RowCount="1">
+<Row No="0">
+<DM name="TS_Enable" val="0"/>
+<DM name="ProcType" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="UPnPCfg" RowCount="1">
+<Row No="0">
+<DM name="EnableUPnPIGD" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="DDNSService" RowCount="6">
+<Row No="0">
+</Row>
+<Row No="1">
+<DM name="Server" val="http://www.dtdns.org"/>
+</Row>
+<Row No="2">
+</Row>
+<Row No="3">
+</Row>
+<Row No="4">
+</Row>
+<Row No="5">
+</Row>
+</Tbl>
+<Tbl name="PortBinding" RowCount="3">
+<Row No="0">
+<DM name="ViewName" val="IGD.Binding1"/>
+<DM name="WANViewName" val="DEV.BRIDGING.BR1.BRPORT12"/>
+<DM name="LANViewName" val="DEV.BRIDGING.BR1.BRPORT5"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.Binding2"/>
+<DM name="WANViewName" val="DEV.BRIDGING.BR1.BRPORT11"/>
+<DM name="LANViewName" val="DEV.BRIDGING.BR1.BRPORT5"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.Binding3"/>
+<DM name="WANViewName" val="DEV.BRIDGING.BR1.BRPORT14"/>
+<DM name="LANViewName" val="DEV.BRIDGING.BR1.BRPORT5"/>
+</Row>
+</Tbl>
+<Tbl name="RIPIfConf" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="DEV.ROUTING.RIP.RIPIfConf1"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="1"/>
+<DM name="Alias" val="DEV.ROUTING.RIP.RIPIfConf1"/>
+<DM name="Interface" val="DEV.IP.IF1"/>
+<DM name="AcceptRA" val="1"/>
+<DM name="SendRA" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="PrefixCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="DEV.IP.IF1.PrefixCfg1"/>
+<DM name="Interface" val="DEV.IP.IF1"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="DEV.IP.IF1.PrefixCfg1"/>
+<DM name="Prefix" val="fe80::"/>
+<DM name="PrefixLen" val="64"/>
+<DM name="Origin" val="5"/>
+<DM name="StaticType" val="4"/>
+<DM name="ParentPrefix" val=""/>
+<DM name="ChildPrefixBits" val="::"/>
+<DM name="ChildPrefixBitsLen" val="0"/>
+<DM name="OnLink" val="1"/>
+<DM name="Autonomous" val="1"/>
+<DM name="PreferredLifetime" val="4294967295"/>
+<DM name="ValidLifetime" val="4294967295"/>
+</Row>
+</Tbl>
+<Tbl name="ATMLink" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="DEV.ATM.LINK1"/>
+<DM name="TR098ViewName" val="IGD.WD1.WCD2"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="0"/>
+<DM name="Alias" val="ATM_LINK1"/>
+<DM name="Name" val="DEV.ATM.LINK1"/>
+<DM name="LastChange" val="0"/>
+<DM name="LowerLayers" val="DEV.DSL.CHL1"/>
+<DM name="LinkType" val="2"/>
+<DM name="AutoConfig" val="0"/>
+<DM name="DestAddress" val="8/35"/>
+<DM name="ATMEncapsulation" val="1"/>
+<DM name="FCSPreserved" val="0"/>
+<DM name="VCSearchEnable" val="0"/>
+<DM name="VCSearchList" val=""/>
+<DM name="AAL" val="1"/>
+<DM name="QoSClass" val="1"/>
+<DM name="ATMMaxPCR" val="0"/>
+<DM name="ATMPeakCellRate" val="0"/>
+<DM name="ATMSCR" val="0"/>
+<DM name="ATMMCR" val="0"/>
+<DM name="ATMMaxBurstSize" val="0"/>
+<DM name="ATMCDV" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.ATM.LINK2"/>
+<DM name="TR098ViewName" val="IGD.WD1.WCD3"/>
+<DM name="Enable" val="1"/>
+<DM name="Status" val="0"/>
+<DM name="Alias" val="ATM_LINK2"/>
+<DM name="Name" val="DEV.ATM.LINK2"/>
+<DM name="LastChange" val="0"/>
+<DM name="LowerLayers" val="DEV.DSL.CHL1"/>
+<DM name="LinkType" val="2"/>
+<DM name="AutoConfig" val="0"/>
+<DM name="DestAddress" val="8/36"/>
+<DM name="ATMEncapsulation" val="1"/>
+<DM name="FCSPreserved" val="0"/>
+<DM name="VCSearchEnable" val="0"/>
+<DM name="VCSearchList" val=""/>
+<DM name="AAL" val="1"/>
+<DM name="QoSClass" val="1"/>
+<DM name="ATMMaxPCR" val="0"/>
+<DM name="ATMPeakCellRate" val="0"/>
+<DM name="ATMSCR" val="0"/>
+<DM name="ATMMCR" val="0"/>
+<DM name="ATMMaxBurstSize" val="0"/>
+<DM name="ATMCDV" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="MultiCastGlobalConf" RowCount="1">
+<Row No="0">
+<DM name="IgmpMode" val="0"/>
+<DM name="MldMode" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="MultiCastPortConf" RowCount="7">
+<Row No="0">
+<DM name="ViewName" val="DEV.MCPORT1"/>
+<DM name="PortViewName" val="DEV.BRIDGING.BR1.BRPORT2"/>
+<DM name="PortLowLayer" val="DEV.ETH.IF1"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="256"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.MCPORT2"/>
+<DM name="PortViewName" val="DEV.BRIDGING.BR1.BRPORT3"/>
+<DM name="PortLowLayer" val="DEV.ETH.IF2"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="256"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.MCPORT3"/>
+<DM name="PortViewName" val="DEV.BRIDGING.BR1.BRPORT4"/>
+<DM name="PortLowLayer" val="DEV.ETH.IF3"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="256"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.MCPORT4"/>
+<DM name="PortViewName" val="DEV.BRIDGING.BR1.BRPORT5"/>
+<DM name="PortLowLayer" val="DEV.ETH.IF4"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="256"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.MCPORT5"/>
+<DM name="PortViewName" val="DEV.BRIDGING.BR1.BRPORT6"/>
+<DM name="PortLowLayer" val="DEV.WIFI.SSID1"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="256"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.MCPORT6"/>
+<DM name="PortViewName" val="DEV.BRIDGING.BR1.BRPORT7"/>
+<DM name="PortLowLayer" val="DEV.WIFI.SSID3"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="256"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.MCPORT7"/>
+<DM name="PortViewName" val="DEV.BRIDGING.BR1.BRPORT8"/>
+<DM name="PortLowLayer" val="DEV.WIFI.SSID4"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="256"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="Addr6Cfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="DEV.IP.IF1.Addr6Cfg1"/>
+<DM name="Interface" val="DEV.IP.IF1"/>
+<DM name="Enable" val="1"/>
+<DM name="Alias" val="DEV.IP.IF1.Addr6Cfg1"/>
+<DM name="IPAddress" val="fe80::1"/>
+<DM name="Origin" val="5"/>
+<DM name="Prefix" val=""/>
+<DM name="PreferredLifetime" val="4294967295"/>
+<DM name="ValidLifetime" val="4294967295"/>
+<DM name="Anycast" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="Relation" RowCount="21">
+<Row No="0">
+<DM name="ViewName" val="DEV.REL2"/>
+<DM name="Path" val="DEV.ATM.LINK1.DEV.ETH.LINK2.DEV.PPP.IF1.DEV.IP.IF3"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="DEV.REL3"/>
+<DM name="Path" val="DEV.ATM.LINK1.DEV.BRIDGING.BR1.BRPORT9"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="DEV.REL4"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.ETH.LINK3.DEV.ETH.VLAN1.DEV.PPP.IF2.DEV.IP.IF4"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="DEV.REL5"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.BRIDGING.BR1.BRPORT10"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="DEV.REL6"/>
+<DM name="Path" val="DEV.ATM.LINK2.DEV.BRIDGING.BR1.BRPORT11"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="DEV.REL7"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.BRIDGING.BR1.BRPORT12"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="DEV.REL8"/>
+<DM name="Path" val=""/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="DEV.REL9"/>
+<DM name="Path" val=""/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="DEV.REL10"/>
+<DM name="Path" val=""/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="DEV.REL11"/>
+<DM name="Path" val=""/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="DEV.REL12"/>
+<DM name="Path" val=""/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="DEV.REL13"/>
+<DM name="Path" val="DEV.ATM.LINK1.DEV.ETH.LINK9.DEV.ETH.VLAN8.DEV.PPP.IF8.DEV.IP.IF11"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="DEV.REL14"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.ETH.LINK10.DEV.ETH.VLAN9.DEV.PPP.IF9.DEV.IP.IF12"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="DEV.REL15"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.ETH.LINK11.DEV.ETH.VLAN10.DEV.PPP.IF10.DEV.IP.IF13"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="DEV.REL16"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.ETH.LINK12.DEV.ETH.VLAN11.DEV.PPP.IF11.DEV.IP.IF14"/>
+</Row>
+<Row No="15">
+<DM name="ViewName" val="DEV.REL17"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.ETH.LINK13.DEV.ETH.VLAN12.DEV.PPP.IF12.DEV.IP.IF15"/>
+</Row>
+<Row No="16">
+<DM name="ViewName" val="DEV.REL18"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.ETH.LINK14.DEV.ETH.VLAN13.DEV.PPP.IF13.DEV.IP.IF16"/>
+</Row>
+<Row No="17">
+<DM name="ViewName" val="DEV.REL19"/>
+<DM name="Path" val="DEV.PTM.LINK1.DEV.ETH.LINK15.DEV.ETH.VLAN14.DEV.PPP.IF14.DEV.IP.IF17"/>
+</Row>
+<Row No="18">
+<DM name="ViewName" val="DEV.REL20"/>
+<DM name="Path" val="DEV.ETH.IF1.DEV.ETH.LINK16.DEV.ETH.VLAN15.DEV.PPP.IF15.DEV.IP.IF18"/>
+</Row>
+<Row No="19">
+<DM name="ViewName" val="DEV.REL21"/>
+<DM name="Path" val="DEV.ETH.IF1.DEV.BRIDGING.BR1.BRPORT13"/>
+</Row>
+<Row No="20">
+<DM name="ViewName" val="DEV.REL22"/>
+<DM name="Path" val="DEV.ETH.IF1.DEV.BRIDGING.BR1.BRPORT14"/>
+</Row>
+</Tbl>
+<Tbl name="RAIS" RowCount="1">
+<Row No="0">
+<DM name="MinRtrAdvInterval" val="198"/>
+</Row>
+</Tbl>
+<Tbl name="QOSBasic" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="QOSClassification" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="DEV.QOS.QC1"/>
+<DM name="Enable" val="1"/>
+<DM name="Order" val="1"/>
+<DM name="Alias" val="Rule1"/>
+<DM name="DevIn" val="DEV.BRIDGING.BR1.BRPORT5"/>
+<DM name="AllInterface" val="0"/>
+<DM name="VlanPrio" val="-1"/>
+<DM name="VlanID" val="-1"/>
+<DM name="L2Protocol" val=""/>
+<DM name="MACDest" val="00:00:00:00:00:00"/>
+<DM name="MACDestMask" val="00:00:00:00:00:00"/>
+<DM name="MACSrc" val="00:00:00:00:00:00"/>
+<DM name="MACSrcMask" val="00:00:00:00:00:00"/>
+<DM name="IPLengthMax" val="0"/>
+<DM name="IPLengthMin" val="0"/>
+<DM name="DSCPCheck" val="-1"/>
+<DM name="IPv6Dest" val="::"/>
+<DM name="IPv6DestPrefLen" val="-1"/>
+<DM name="IPv6Src" val="::"/>
+<DM name="IPv6SrcPrefLen" val="-1"/>
+<DM name="IPDest" val="0.0.0.0"/>
+<DM name="IPDestMask" val="-1"/>
+<DM name="IPSrc" val="0.0.0.0"/>
+<DM name="IPSrcMask" val="-1"/>
+<DM name="L3ProtocolList" val=""/>
+<DM name="SrcPort" val="-1"/>
+<DM name="SrcPortMax" val="-1"/>
+<DM name="DestPort" val="-1"/>
+<DM name="DestPortMax" val="-1"/>
+<DM name="TcpAck" val="0"/>
+<DM name="VlanPrioMark" val="3"/>
+<DM name="DscpMark" val="26"/>
+<DM name="PolicerQueue" val=""/>
+<DM name="TrafficClass" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="QOSQueue" RowCount="8">
+<Row No="0">
+</Row>
+<Row No="1">
+<DM name="TrafficClasses" val="1"/>
+</Row>
+<Row No="2">
+</Row>
+<Row No="3">
+</Row>
+<Row No="4">
+</Row>
+<Row No="5">
+</Row>
+<Row No="6">
+</Row>
+<Row No="7">
+</Row>
+</Tbl>
+<Tbl name="Tr069Queue" RowCount="1">
+<Row No="0">
+<DM name="QueueNum" val="3"/>
+<DM name="DSCPMark" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="DevAuthInfo" RowCount="6">
+<Row No="0">
+<DM name="Enable" val="0"/>
+<DM name="User" val="Admin"/>
+<DM name="Pass" val="Admin"/>
+</Row>
+<Row No="1">
+<DM name="Enable" val="1"/>
+<DM name="User" val="admin"/>
+<DM name="Pass" val="admin"/>
+</Row>
+<Row No="2">
+<DM name="User" val="admin"/>
+<DM name="Pass" val="admin"/>
+</Row>
+<Row No="3">
+</Row>
+<Row No="4">
+</Row>
+<Row No="5">
+</Row>
+</Tbl>
+<Tbl name="BanPort" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="DEV.BanPort1"/>
+<DM name="Alias" val=""/>
+<DM name="PortID" val="DEV.BRIDGING.BR1.BRPORT5"/>
+<DM name="BanRA" val="1"/>
+<DM name="BanDHCP6S" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="DHCP4sPortFilter" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="DEV.V4DHCP.Server.PortFilter1"/>
+<DM name="ProcFlag" val="1"/>
+<DM name="PortID" val="DEV.BRIDGING.BR1.BRPORT5"/>
+<DM name="Port" val="eth3"/>
+</Row>
+</Tbl>
+<Tbl name="FWCustom" RowCount="12">
+<Row No="0">
+<DM name="ViewName" val="IGD.FWCustom0"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="3"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="AllowPing"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="4"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.FWCustom1"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="LowSPILocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="5"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.FWCustom2"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="LowForbidLocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="6"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.FWCustom3"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="LowAllowForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="7"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.FWCustom4"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="MediumSPILocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="4"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.FWCustom5"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="MediumForbidLocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="5"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.FWCustom6"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="MediumSPIForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="6"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.FWCustom7"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="MediumForbidForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="7"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="IGD.FWCustom8"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="HighSPILocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="4"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="IGD.FWCustom9"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighForbidLocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="5"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="IGD.FWCustom10"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="HighSPIForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="6"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="IGD.FWCustom11"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighForbidForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="7"/>
+</Row>
+</Tbl>
+<Tbl name="FWCustom6" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.FWCustom61"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="5"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="LowAllowPingLocal"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="FWSC" RowCount="3">
+<Row No="0">
+<DM name="ViewName" val="IGD.FWSc.FWSC1"/>
+<DM name="Name" val="icmp1"/>
+<DM name="IPMode" val="1"/>
+<DM name="Enable" val="1"/>
+<DM name="INCViewName" val="IGD.WANIF"/>
+<DM name="INCName" val=""/>
+<DM name="MinSrcIp" val="195.170.0.1"/>
+<DM name="MinSrcMask" val="0.0.0.0"/>
+<DM name="MaxSrcIp" val="195.170.0.254"/>
+<DM name="Prefix" val="::"/>
+<DM name="PrefixLen" val="0"/>
+<DM name="Servise" val="128"/>
+<DM name="FilterTarget" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.FWSc.FWSC2"/>
+<DM name="Name" val="icmp2"/>
+<DM name="IPMode" val="1"/>
+<DM name="Enable" val="1"/>
+<DM name="INCViewName" val="IGD.WANIF"/>
+<DM name="INCName" val=""/>
+<DM name="MinSrcIp" val="79.128.177.1"/>
+<DM name="MinSrcMask" val="0.0.0.0"/>
+<DM name="MaxSrcIp" val="79.128.177.254"/>
+<DM name="Prefix" val="::"/>
+<DM name="PrefixLen" val="0"/>
+<DM name="Servise" val="128"/>
+<DM name="FilterTarget" val="1"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.FWSc.FWSC3"/>
+<DM name="Name" val="icmp3"/>
+<DM name="IPMode" val="1"/>
+<DM name="Enable" val="1"/>
+<DM name="INCViewName" val="IGD.WANIF"/>
+<DM name="INCName" val=""/>
+<DM name="MinSrcIp" val="83.235.78.193"/>
+<DM name="MinSrcMask" val="0.0.0.0"/>
+<DM name="MaxSrcIp" val="83.235.78.222"/>
+<DM name="Prefix" val="::"/>
+<DM name="PrefixLen" val="0"/>
+<DM name="Servise" val="128"/>
+<DM name="FilterTarget" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="SSHCfg" RowCount="1">
+<Row No="0">
+<DM name="SSH_Enable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="FonCfg" RowCount="1">
+<Row No="0">
+<DM name="Device" val="H268N"/>
+<DM name="Version" val="1.0.0"/>
+<DM name="Revision" val="1"/>
+<DM name="FonMinupbw" val="0"/>
+<DM name="FonMaxupbw" val="33"/>
+<DM name="FonMindownbw" val="0"/>
+<DM name="FonMaxdownbw" val="0"/>
+<DM name="HbArch" val="4"/>
+<DM name="FonL2tpEnable" val="1"/>
+<DM name="FonLnsServer1" val="lns1.fon.otenet.gr"/>
+<DM name="FonLnsServer2" val="lns2.fon.otenet.gr"/>
+<DM name="RetransmissionDelay" val="1"/>
+<DM name="MaxStartRetries" val="3"/>
+<DM name="RcServer1" val="a.zteote03.rc.fon.com"/>
+<DM name="RcServer2" val="b.zteote03.rc.fon.com"/>
+<DM name="RcSecret" val="garrafon"/>
+<DM name="RcProfile" val="ZTEOTE03"/>
+<DM name="RcAdminPasswd" val="chillispot"/>
+<DM name="RcPrimaryRetries" val="4"/>
+<DM name="RcSecondayRetries" val="1"/>
+<DM name="RcPeriod" val="86400"/>
+<DM name="RcFastPeriod" val="3600"/>
+<DM name="RcTimeout" val="7"/>
+<DM name="HbSuffix" val="sm.fon.com"/>
+<DM name="HbPeriodOnline" val="3600"/>
+<DM name="HbPeriodOffline" val="3600"/>
+<DM name="HbPeriodFastDetection" val="60"/>
+<DM name="HbTimeOut" val="10"/>
+<DM name="HbHost" val="a.zteote03.hb.fon.com"/>
+<DM name="HbPort" val="53"/>
+<DM name="HbFastDetectionRetries" val="3"/>
+<DM name="FonRegistrationLink" val="https://www.fon.com/login/gateway/sec"/>
+<DM name="FonEnabled" val="0"/>
+<DM name="FonMaxLoggedInusers" val="2"/>
+<DM name="FonKey" val="0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"/>
+<DM name="FonModel" val="14"/>
+<DM name="IPv4Enable" val="1"/>
+<DM name="IPv6Enable" val="0"/>
+<DM name="FonLanIfID" val="DEV.IP.IF5"/>
+<DM name="FonLanIfName" val="wlan1"/>
+<DM name="FonWanIfsID" val="DEV.IP.IF6,DEV.IP.IF7,DEV.IP.IF8,DEV.IP.IF9,DEV.IP.IF10"/>
+<DM name="FonTunnelID" val="DEV.L2TP.TUNNEL2"/>
+<DM name="FonSSIDViewName" val="DEV.WIFI.AP2"/>
+<DM name="FonDHCP4SViewName" val="DEV.V4DHCP.Server.Pool2"/>
+<DM name="CPEIdleTimeout" val="600"/>
+<DM name="LcpEchoInterval" val="30"/>
+<DM name="LcpEchoFailure" val="4"/>
+<DM name="PapRestart" val="7"/>
+<DM name="PapMaxAuthreq" val="2"/>
+<DM name="HelloDelay" val="120"/>
+<DM name="HelloRetransmissionDelay" val="30"/>
+<DM name="L2tpHostname" val="foncpe"/>
+</Row>
+</Tbl>
+<Tbl name="HostNameList" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.HostName1"/>
+<DM name="HostName" val="speedport-entry-2i.ote.gr"/>
+<DM name="type" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="DNSSettings" RowCount="1">
+<Row No="0">
+<DM name="DnsSendMode" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="PPPJumboCfg" RowCount="1">  
+<Row No="0">
+<DM name="Enable" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="Lw4o6" RowCount="1">
+  <Row No="0">
+    <DM name="Enable" val="1"/>
+    <DM name="InterfaceSettingNumberOfEntries" val="1"/>
+  </Row>
+</Tbl>
+<Tbl name="Lw4o6IFSetting" RowCount="1">
+	<Row No="0">
+		<DM name="ViewName" val="DEV.LW4O6.IFSETTING1"/>
+		<DM name="Enable" val="1"/>
+		<DM name="Status" val="0"/>
+		<DM name="Alias" val="LW4o6"/>
+		<DM name="ParmGetType" val="1"/>
+		<DM name="LocalIPv4Addr" val="0.0.0.0"/>
+		<DM name="PortSetID" val="5"/>
+		<DM name="PSIDLen" val="6"/>
+		<DM name="offset" val="0"/>
+		<DM name="LwAFTRAddr" val="::"/>
+		<DM name="TunnelInterface" val="DEV.IP.IF19"/>
+		<DM name="MTU" val="1452"/>
+		<DM name="MSS" val="0"/>
+		<DM name="LowIFSetType" val="1"/>
+		<DM name="LowIFID" val=""/>
+	</Row>
+</Tbl>
+</DB>

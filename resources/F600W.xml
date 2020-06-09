@@ -1,0 +1,5080 @@
+<DB>
+<Tbl name="DBBase" RowCount="1">
+<Row No="0">
+<DM name="IFInfo" val="0101020002000000020A44010000404F0000"/>
+</Row>
+</Tbl>
+<Tbl name="WAND" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1"/>
+<DM name="WANDType" val="4"/>
+<DM name="WANCDCapcity" val="1"/>
+<DM name="TriggerEnable" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WD2"/>
+<DM name="WANDType" val="2"/>
+<DM name="WANCDCapcity" val="1"/>
+<DM name="TriggerEnable" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="WANCD" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1.WCD1"/>
+<DM name="WANDViewName" val="IGD.WD1"/>
+<DM name="WANCCapcity" val="1"/>
+<DM name="LinkType" val="1"/>
+<DM name="Enabled" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WD2.WCD1"/>
+<DM name="WANDViewName" val="IGD.WD2"/>
+<DM name="WANCCapcity" val="1"/>
+<DM name="LinkType" val="6"/>
+<DM name="Enabled" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="WANC" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP1"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="Enable" val="1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="4"/>
+<DM name="TriggerEnable" val="0"/>
+<DM name="LANDViewName" val=""/>
+<DM name="WANCName" val="DEFAULT_BRIDGE"/>
+<DM name="StrServList" val="INTERNET"/>
+<DM name="ServList" val="1"/>
+<DM name="WorkIFMac" val="00:00:00:00:00:00"/>
+<DM name="DNSOverrideAllowed" val="0"/>
+<DM name="DNS1" val="0.0.0.0"/>
+<DM name="DNS2" val="0.0.0.0"/>
+<DM name="DNS3" val="0.0.0.0"/>
+<DM name="IsNAT" val="1"/>
+<DM name="IsForward" val="1"/>
+<DM name="IsDefGW" val="1"/>
+<DM name="DSCP" val="-1"/>
+<DM name="DSCP6" val="-1"/>
+<DM name="TC" val="-1"/>
+<DM name="VLANID" val="0"/>
+<DM name="Priority" val="0"/>
+<DM name="WBDMode" val="0"/>
+<DM name="HideListView" val="1"/>
+<DM name="IPMode" val="1"/>
+<DM name="DNSEnabled" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCIP1"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="Enable" val="1"/>
+<DM name="WANCType" val="1"/>
+<DM name="ConnType" val="1"/>
+<DM name="TriggerEnable" val="0"/>
+<DM name="LANDViewName" val=""/>
+<DM name="WANCName" val="Offload_Traffic"/>
+<DM name="StrServList" val="INTERNET"/>
+<DM name="ServList" val="1"/>
+<DM name="WorkIFMac" val="94:a7:b7:d2:a9:c5"/>
+<DM name="DNSOverrideAllowed" val="0"/>
+<DM name="DNS1" val="0.0.0.0"/>
+<DM name="DNS2" val="0.0.0.0"/>
+<DM name="DNS3" val="0.0.0.0"/>
+<DM name="IsNAT" val="1"/>
+<DM name="IsForward" val="1"/>
+<DM name="IsDefGW" val="0"/>
+<DM name="DSCP" val="-1"/>
+<DM name="DSCP6" val="-1"/>
+<DM name="TC" val="-1"/>
+<DM name="VLANID" val="15"/>
+<DM name="Priority" val="0"/>
+<DM name="WBDMode" val="1"/>
+<DM name="HideListView" val="0"/>
+<DM name="IPMode" val="1"/>
+<DM name="DNSEnabled" val="1"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCIP2"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="Enable" val="1"/>
+<DM name="WANCType" val="1"/>
+<DM name="ConnType" val="1"/>
+<DM name="TriggerEnable" val="0"/>
+<DM name="LANDViewName" val=""/>
+<DM name="WANCName" val="Offload_Signal"/>
+<DM name="StrServList" val="INTERNET"/>
+<DM name="ServList" val="1"/>
+<DM name="WorkIFMac" val="94:a7:b7:d2:a9:c5"/>
+<DM name="DNSOverrideAllowed" val="0"/>
+<DM name="DNS1" val="0.0.0.0"/>
+<DM name="DNS2" val="0.0.0.0"/>
+<DM name="DNS3" val="0.0.0.0"/>
+<DM name="IsNAT" val="0"/>
+<DM name="IsForward" val="1"/>
+<DM name="IsDefGW" val="0"/>
+<DM name="DSCP" val="-1"/>
+<DM name="DSCP6" val="-1"/>
+<DM name="TC" val="-1"/>
+<DM name="VLANID" val="16"/>
+<DM name="Priority" val="0"/>
+<DM name="WBDMode" val="1"/>
+<DM name="HideListView" val="0"/>
+<DM name="IPMode" val="1"/>
+<DM name="DNSEnabled" val="1"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP2"/>
+<DM name="WANCDViewName" val="IGD.WD1.WCD1"/>
+<DM name="Enable" val="1"/>
+<DM name="WANCType" val="0"/>
+<DM name="ConnType" val="1"/>
+<DM name="TriggerEnable" val="0"/>
+<DM name="LANDViewName" val=""/>
+<DM name="WANCName" val="omci_ipv4_pppoe_1"/>
+<DM name="StrServList" val="INTERNET_TR069"/>
+<DM name="ServList" val="3"/>
+<DM name="WorkIFMac" val="94:a7:b7:d2:a9:c5"/>
+<DM name="DNSOverrideAllowed" val="0"/>
+<DM name="DNS1" val="0.0.0.0"/>
+<DM name="DNS2" val="0.0.0.0"/>
+<DM name="DNS3" val="0.0.0.0"/>
+<DM name="IsNAT" val="1"/>
+<DM name="IsForward" val="1"/>
+<DM name="IsDefGW" val="1"/>
+<DM name="DSCP" val="-1"/>
+<DM name="DSCP6" val="-1"/>
+<DM name="TC" val="-1"/>
+<DM name="VLANID" val="11"/>
+<DM name="Priority" val="0"/>
+<DM name="WBDMode" val="1"/>
+<DM name="HideListView" val="0"/>
+<DM name="IPMode" val="3"/>
+<DM name="DNSEnabled" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="WANCServList" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.WANCSL1"/>
+<DM name="WANCViewName" val="IGD.WD1.WCD1.WCPPP1"/>
+<DM name="Application" val="10"/>
+</Row>
+</Tbl>
+<Tbl name="WANCIP" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCIP1"/>
+<DM name="IPAddress" val="0.0.0.0"/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="GateWay" val="0.0.0.0"/>
+<DM name="Addressingtype" val="0"/>
+<DM name="DNS1" val="0.0.0.0"/>
+<DM name="DNS2" val="0.0.0.0"/>
+<DM name="DNS3" val="0.0.0.0"/>
+<DM name="MTU" val="1500"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCIP2"/>
+<DM name="IPAddress" val="0.0.0.0"/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="GateWay" val="0.0.0.0"/>
+<DM name="Addressingtype" val="0"/>
+<DM name="DNS1" val="0.0.0.0"/>
+<DM name="DNS2" val="0.0.0.0"/>
+<DM name="DNS3" val="0.0.0.0"/>
+<DM name="MTU" val="1500"/>
+</Row>
+</Tbl>
+<Tbl name="WANCIPOpts" RowCount="0">
+</Tbl>
+<Tbl name="WANCPPP" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP1"/>
+<DM name="UserName" val=""/>
+<DM name="Password" val=""/>
+<DM name="ConnTrigger" val="0"/>
+<DM name="AuthType" val="0"/>
+<DM name="IdleTime" val="1200"/>
+<DM name="AutoDisconnTime" val="0"/>
+<DM name="WarnDisconnTime" val="0"/>
+<DM name="MaxMRU" val="1400"/>
+<DM name="MTU" val="1400"/>
+<DM name="EchoTime" val="30"/>
+<DM name="EchoRetry" val="20"/>
+<DM name="PPPoEACName" val=""/>
+<DM name="PPPoEServiceName" val=""/>
+<DM name="EnableProxy" val="0"/>
+<DM name="MaxUser" val="4"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="1"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="PPPEncapsType" val="0"/>
+<DM name="EncapsID" val=""/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP2"/>
+<DM name="UserName" val="fiberchungminh0949949049"/>
+<DM name="Password" val="lan123"/>
+<DM name="ConnTrigger" val="0"/>
+<DM name="AuthType" val="0"/>
+<DM name="IdleTime" val="1200"/>
+<DM name="AutoDisconnTime" val="0"/>
+<DM name="WarnDisconnTime" val="0"/>
+<DM name="MaxMRU" val="1492"/>
+<DM name="MTU" val="1492"/>
+<DM name="EchoTime" val="30"/>
+<DM name="EchoRetry" val="20"/>
+<DM name="PPPoEACName" val=""/>
+<DM name="PPPoEServiceName" val=""/>
+<DM name="EnableProxy" val="0"/>
+<DM name="MaxUser" val="4"/>
+<DM name="EnablePassThrough" val="0"/>
+<DM name="PassThroughViewName" val=""/>
+<DM name="ValidWANRx" val="0"/>
+<DM name="ValidLANTx" val="1"/>
+<DM name="HostTrigger" val="1"/>
+<DM name="TtyDialNum" val=""/>
+<DM name="TtyAPN" val=""/>
+<DM name="TtyPDPType" val="0"/>
+<DM name="PPPEncapsType" val="0"/>
+<DM name="EncapsID" val=""/>
+<DM name="GUATrigger" val="0"/>
+<DM name="DNSv6Trigger" val="0"/>
+<DM name="PrefixTrigger" val="0"/>
+<DM name="AFTRTrigger" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="LAND" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1"/>
+<DM name="LANDName" val="LAN"/>
+<DM name="Name" val="br0"/>
+<DM name="Enable" val="1"/>
+<DM name="IPAddr" val="192.168.1.1"/>
+<DM name="NetMask" val="255.255.255.0"/>
+<DM name="IPv6Addr" val="fe80::1"/>
+<DM name="IPv6PrefLen" val="64"/>
+<DM name="IPv6GUAAddr" val="::"/>
+<DM name="IPv6GUAPrefLen" val="128"/>
+<DM name="AddressingType" val="1"/>
+<DM name="lanwlanenable" val="0"/>
+<DM name="HelloTime" val="10"/>
+<DM name="ForwardDelay" val="15"/>
+<DM name="MAXAge" val="20"/>
+<DM name="AgeingTime" val="300"/>
+<DM name="RootPathCost" val="0"/>
+<DM name="MAC" val="94:a7:b7:d2:a9:c5"/>
+<DM name="STPEnable" val="0"/>
+<DM name="IGMPSNPEnable" val="255"/>
+<DM name="IfMtoU" val="255"/>
+<DM name="IfQrySend" val="255"/>
+<DM name="IfSendWan" val="0"/>
+<DM name="UnregisMode" val="255"/>
+<DM name="GrpTimeout" val="99999999"/>
+<DM name="LeaveMode" val="99999999"/>
+<DM name="IgmpQueryVersion" val="99999999"/>
+<DM name="MLDSNPEnable" val="255"/>
+<DM name="IfMLDMtoU" val="255"/>
+<DM name="IfMLDQrySend" val="255"/>
+<DM name="IfMLDSendWan" val="0"/>
+<DM name="UnregisMLDMode" val="255"/>
+<DM name="GrpMLDTimeout" val="99999999"/>
+<DM name="MLDLeaveMode" val="99999999"/>
+<DM name="MLDTblSize" val="64"/>
+<DM name="AutoIpEnable" val="0"/>
+<DM name="ArpStolenEnable" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="BrGrp2ndIP" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="0"/>
+<DM name="IPAddr" val="0.0.0.0"/>
+<DM name="NetMask" val="0.0.0.0"/>
+</Row>
+</Tbl>
+<Tbl name="DHCPSHostCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.HostCfg"/>
+<DM name="LANDViewName" val="IGD.LD1"/>
+<DM name="Configurable" val="1"/>
+<DM name="ServerEnable" val="1"/>
+<DM name="RelayEnable" val="0"/>
+<DM name="PoolName" val="defaultpool"/>
+<DM name="MinAddress" val="192.168.1.2"/>
+<DM name="MaxAddress" val="192.168.1.254"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="255.255.255.0"/>
+<DM name="DnsServerSource" val="0"/>
+<DM name="DNSServers1" val="8.8.8.8"/>
+<DM name="DNSServers2" val="203.162.4.190"/>
+<DM name="DNSServers3" val="203.162.4.191"/>
+<DM name="DomainName" val="zte.com.cn"/>
+<DM name="IPRouters" val="192.168.1.1"/>
+<DM name="LeaseTime" val="7200"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+<DM name="PassthroughCSP_MACAddress" val=""/>
+<DM name="AllowedCSP_MACAddresses" val=""/>
+<DM name="DHCPConditionalServing" val="0"/>
+<DM name="ShortLease" val="60"/>
+</Row>
+</Tbl>
+<Tbl name="DHCPSPool" RowCount="10">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool1"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val="eth0"/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="eth0"/>
+<DM name="MinAddress" val="192.168.1.2"/>
+<DM name="MaxAddress" val="192.168.1.10"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="DNSServers1" val="0.0.0.0"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val=""/>
+<DM name="IPRouters" val="0.0.0.0"/>
+<DM name="LeaseTime" val="0"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool2"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val="eth1"/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="eth1"/>
+<DM name="MinAddress" val="192.168.1.11"/>
+<DM name="MaxAddress" val="192.168.1.20"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="DNSServers1" val="0.0.0.0"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val=""/>
+<DM name="IPRouters" val="0.0.0.0"/>
+<DM name="LeaseTime" val="0"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool3"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val="eth2"/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="eth2"/>
+<DM name="MinAddress" val="192.168.1.21"/>
+<DM name="MaxAddress" val="192.168.1.30"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="DNSServers1" val="0.0.0.0"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val=""/>
+<DM name="IPRouters" val="0.0.0.0"/>
+<DM name="LeaseTime" val="0"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool4"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val="eth3"/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="eth3"/>
+<DM name="MinAddress" val="192.168.1.31"/>
+<DM name="MaxAddress" val="192.168.1.40"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="DNSServers1" val="0.0.0.0"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val=""/>
+<DM name="IPRouters" val="0.0.0.0"/>
+<DM name="LeaseTime" val="0"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool5"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val="wlan0"/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="wlan0"/>
+<DM name="MinAddress" val="192.168.1.41"/>
+<DM name="MaxAddress" val="192.168.1.50"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="DNSServers1" val="0.0.0.0"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val=""/>
+<DM name="IPRouters" val="0.0.0.0"/>
+<DM name="LeaseTime" val="0"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool6"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val="wlan1"/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="wlan1"/>
+<DM name="MinAddress" val="192.168.1.51"/>
+<DM name="MaxAddress" val="192.168.1.60"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="DNSServers1" val="0.0.0.0"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val=""/>
+<DM name="IPRouters" val="0.0.0.0"/>
+<DM name="LeaseTime" val="0"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool7"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val="wlan2"/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="wlan2"/>
+<DM name="MinAddress" val="192.168.1.61"/>
+<DM name="MaxAddress" val="192.168.1.70"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="DNSServers1" val="0.0.0.0"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val=""/>
+<DM name="IPRouters" val="0.0.0.0"/>
+<DM name="LeaseTime" val="0"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool8"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val="wlan3"/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="wlan3"/>
+<DM name="MinAddress" val="192.168.1.71"/>
+<DM name="MaxAddress" val="192.168.1.80"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="0.0.0.0"/>
+<DM name="DNSServers1" val="0.0.0.0"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val=""/>
+<DM name="IPRouters" val="0.0.0.0"/>
+<DM name="LeaseTime" val="0"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool9"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="1"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val=""/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="pppoeproxy1"/>
+<DM name="MinAddress" val="172.168.1.1"/>
+<DM name="MaxAddress" val="172.168.1.254"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="255.255.255.0"/>
+<DM name="DNSServers1" val="192.168.1.1"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val="ehome"/>
+<DM name="IPRouters" val="192.168.1.1"/>
+<DM name="LeaseTime" val="86400"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="IGD.LD1.HostCfg.Pool10"/>
+<DM name="HostCfgViewName" val="IGD.LD1.HostCfg"/>
+<DM name="Enable" val="0"/>
+<DM name="ProcFlag" val="1"/>
+<DM name="PoolOrder" val="0"/>
+<DM name="SourceInterface" val=""/>
+<DM name="VendorClassID" val=""/>
+<DM name="ClientID" val=""/>
+<DM name="UserClassID" val=""/>
+<DM name="Chaddr" val="00:00:00:00:00:00"/>
+<DM name="PoolName" val="pppoeproxy2"/>
+<DM name="MinAddress" val="172.168.2.1"/>
+<DM name="MaxAddress" val="172.168.2.254"/>
+<DM name="ReservedAddresses" val=""/>
+<DM name="SubnetMask" val="255.255.255.0"/>
+<DM name="DNSServers1" val="192.168.1.1"/>
+<DM name="DNSServers2" val="0.0.0.0"/>
+<DM name="DNSServers3" val="0.0.0.0"/>
+<DM name="DomainName" val="ehome"/>
+<DM name="IPRouters" val="192.168.1.1"/>
+<DM name="LeaseTime" val="86400"/>
+<DM name="UseAllocatedWAN" val=""/>
+<DM name="AssociatedConnection" val=""/>
+<DM name="PassthroughLease" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="DHCPSOpts" RowCount="0">
+</Tbl>
+<Tbl name="DHCPSBind" RowCount="0">
+</Tbl>
+<Tbl name="DHCPSComm" RowCount="1">
+<Row No="0">
+<DM name="RebootNakFlag" val="0"/>
+<DM name="AdminFlag" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="DHCPCComm" RowCount="1">
+<Row No="0">
+<DM name="BootpFlag" val="0"/>
+<DM name="Dscp" val="-1"/>
+<DM name="Priority" val="-1"/>
+<DM name="QueueNum" val="15"/>
+<DM name="SendRelease" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="WLANBase" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.WLANBase1"/>
+<DM name="SettingStatus" val="0"/>
+<DM name="DeviceMode" val="0"/>
+<DM name="CardMode" val="1"/>
+<DM name="CardRev" val="0"/>
+<DM name="Class" val="255"/>
+<DM name="PID" val="33169"/>
+<DM name="VID" val="4332"/>
+<DM name="WlanMode" val="0"/>
+<DM name="Band" val="0"/>
+<DM name="BandWidth" val="0"/>
+<DM name="SideBand" val="0"/>
+<DM name="11nMode" val="1"/>
+<DM name="11nRate" val="0"/>
+<DM name="SGIEnabled" val="0"/>
+<DM name="GreenField" val="0"/>
+<DM name="RadioStatus" val="1"/>
+<DM name="Channel" val="1"/>
+<DM name="AutoChannelEnabled" val="1"/>
+<DM name="TxRate" val="0"/>
+<DM name="BeaconInterval" val="100"/>
+<DM name="TxPower" val="1"/>
+<DM name="CountryCode" val="0"/>
+<DM name="RtsCts" val="2347"/>
+<DM name="DTIM" val="1"/>
+<DM name="Fragment" val="2346"/>
+<DM name="QosType" val="2"/>
+<DM name="ApsdEnabled" val="0"/>
+<DM name="BasicDataRates" val="1"/>
+<DM name="OpDataRates" val="3"/>
+<DM name="DistanceFromRoot" val="0"/>
+<DM name="PeerBSSID" val="00:00:00:00:00:00"/>
+<DM name="AutoChannelFrom" val="1"/>
+<DM name="AutoChannelTo" val="11"/>
+<DM name="SSIDIsolationEnable" val="0"/>
+<DM name="WdsMode" val="0"/>
+<DM name="WdsInterface" val="0"/>
+<DM name="AutoRateFallBackEnabled" val="1"/>
+<DM name="CardMaxUserNum" val="128"/>
+<DM name="PowerEnhance" val="1"/>
+<DM name="11acMode" val="0"/>
+<DM name="11acOnly" val="0"/>
+<DM name="LockStatusBase" val="0"/>
+<DM name="PreambleType" val="0"/>
+<DM name="WlanEDThresh" val="0"/>
+<DM name="WorkMode" val="1"/>
+<DM name="Interval" val="3"/>
+<DM name="Traffic" val="256"/>
+<DM name="RssiThd" val="-100"/>
+<DM name="ResetCnt" val="0"/>
+<DM name="AutoChRefreshPeriod" val="600"/>
+</Row>
+</Tbl>
+<Tbl name="WLANCfg" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.WLAN1"/>
+<DM name="LANDViewName" val="IGD.LD1"/>
+<DM name="ValidIf" val="1"/>
+<DM name="InstExist" val="1"/>
+<DM name="Enable" val="1"/>
+<DM name="ESSID" val="ChungMinh"/>
+<DM name="ESSIDPrefix" val=""/>
+<DM name="Priority" val="0"/>
+<DM name="ACLPolicy" val="0"/>
+<DM name="BeaconType" val="6"/>
+<DM name="MACAddressControlEnabled" val="0"/>
+<DM name="ESSIDHideEnable" val="0"/>
+<DM name="BeaconEnabled" val="1"/>
+<DM name="WEPAuthMode" val="2"/>
+<DM name="WEPLevel" val="1"/>
+<DM name="WEPKeyIndex" val="1"/>
+<DM name="WPAEncryptType" val="1"/>
+<DM name="WPAAuthMode" val="0"/>
+<DM name="11iEncryptType" val="1"/>
+<DM name="11iAuthMode" val="0"/>
+<DM name="WPAGroupRekey" val="0"/>
+<DM name="WPAEAPServerIp" val="0.0.0.0"/>
+<DM name="WPAEAPSecret" val=""/>
+<DM name="MaxUserNum" val="32"/>
+<DM name="VapIsolationEnable" val="0"/>
+<DM name="BasicEncryptionModes" val="0"/>
+<DM name="LocalSetEnable" val="1"/>
+<DM name="MasterAuthServerIP" val="192.168.1.1"/>
+<DM name="MasterAuthServerPort" val="1812"/>
+<DM name="MasterAuthServerSecret" val="12345678"/>
+<DM name="MasterAcctServerIP" val="192.168.1.1"/>
+<DM name="MasterAcctServerPort" val="1813"/>
+<DM name="MasterAcctServerSecret" val="12345678"/>
+<DM name="BackupAuthServerIP" val="192.168.1.2"/>
+<DM name="BackupAuthServerPort" val="1812"/>
+<DM name="BackupAuthServerSecret" val="12345678"/>
+<DM name="BackupAcctServerIP" val="192.168.1.2"/>
+<DM name="BackupAcctServerPort" val="1813"/>
+<DM name="BackupAcctServerSecret" val="12345678"/>
+<DM name="ReauthPeriod" val="3600"/>
+<DM name="PreAuth" val="0"/>
+<DM name="EapWanc" val=""/>
+<DM name="LockStatus" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.LD1.WLAN2"/>
+<DM name="LANDViewName" val="IGD.LD1"/>
+<DM name="ValidIf" val="1"/>
+<DM name="InstExist" val="0"/>
+<DM name="Enable" val="0"/>
+<DM name="ESSID" val="SSID2"/>
+<DM name="ESSIDPrefix" val=""/>
+<DM name="Priority" val="0"/>
+<DM name="ACLPolicy" val="0"/>
+<DM name="BeaconType" val="6"/>
+<DM name="MACAddressControlEnabled" val="0"/>
+<DM name="ESSIDHideEnable" val="0"/>
+<DM name="BeaconEnabled" val="1"/>
+<DM name="WEPAuthMode" val="2"/>
+<DM name="WEPLevel" val="1"/>
+<DM name="WEPKeyIndex" val="1"/>
+<DM name="WPAEncryptType" val="1"/>
+<DM name="WPAAuthMode" val="0"/>
+<DM name="11iEncryptType" val="1"/>
+<DM name="11iAuthMode" val="0"/>
+<DM name="WPAGroupRekey" val="0"/>
+<DM name="WPAEAPServerIp" val="0.0.0.0"/>
+<DM name="WPAEAPSecret" val=""/>
+<DM name="MaxUserNum" val="32"/>
+<DM name="VapIsolationEnable" val="0"/>
+<DM name="BasicEncryptionModes" val="0"/>
+<DM name="LocalSetEnable" val="1"/>
+<DM name="MasterAuthServerIP" val="192.168.1.1"/>
+<DM name="MasterAuthServerPort" val="1812"/>
+<DM name="MasterAuthServerSecret" val="12345678"/>
+<DM name="MasterAcctServerIP" val="192.168.1.1"/>
+<DM name="MasterAcctServerPort" val="1813"/>
+<DM name="MasterAcctServerSecret" val="12345678"/>
+<DM name="BackupAuthServerIP" val="192.168.1.2"/>
+<DM name="BackupAuthServerPort" val="1812"/>
+<DM name="BackupAuthServerSecret" val="12345678"/>
+<DM name="BackupAcctServerIP" val="192.168.1.2"/>
+<DM name="BackupAcctServerPort" val="1813"/>
+<DM name="BackupAcctServerSecret" val="12345678"/>
+<DM name="ReauthPeriod" val="3600"/>
+<DM name="PreAuth" val="0"/>
+<DM name="EapWanc" val=""/>
+<DM name="LockStatus" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.LD1.WLAN3"/>
+<DM name="LANDViewName" val="IGD.LD1"/>
+<DM name="ValidIf" val="1"/>
+<DM name="InstExist" val="0"/>
+<DM name="Enable" val="0"/>
+<DM name="ESSID" val="VinaphoneWifi"/>
+<DM name="ESSIDPrefix" val=""/>
+<DM name="Priority" val="0"/>
+<DM name="ACLPolicy" val="0"/>
+<DM name="BeaconType" val="6"/>
+<DM name="MACAddressControlEnabled" val="0"/>
+<DM name="ESSIDHideEnable" val="0"/>
+<DM name="BeaconEnabled" val="1"/>
+<DM name="WEPAuthMode" val="2"/>
+<DM name="WEPLevel" val="1"/>
+<DM name="WEPKeyIndex" val="1"/>
+<DM name="WPAEncryptType" val="1"/>
+<DM name="WPAAuthMode" val="1"/>
+<DM name="11iEncryptType" val="1"/>
+<DM name="11iAuthMode" val="1"/>
+<DM name="WPAGroupRekey" val="0"/>
+<DM name="WPAEAPServerIp" val="0.0.0.0"/>
+<DM name="WPAEAPSecret" val=""/>
+<DM name="MaxUserNum" val="32"/>
+<DM name="VapIsolationEnable" val="0"/>
+<DM name="BasicEncryptionModes" val="0"/>
+<DM name="LocalSetEnable" val="1"/>
+<DM name="MasterAuthServerIP" val="192.168.1.1"/>
+<DM name="MasterAuthServerPort" val="1812"/>
+<DM name="MasterAuthServerSecret" val="12345678"/>
+<DM name="MasterAcctServerIP" val="192.168.1.1"/>
+<DM name="MasterAcctServerPort" val="1813"/>
+<DM name="MasterAcctServerSecret" val="12345678"/>
+<DM name="BackupAuthServerIP" val="192.168.1.2"/>
+<DM name="BackupAuthServerPort" val="1812"/>
+<DM name="BackupAuthServerSecret" val="12345678"/>
+<DM name="BackupAcctServerIP" val="192.168.1.2"/>
+<DM name="BackupAcctServerPort" val="1813"/>
+<DM name="BackupAcctServerSecret" val="12345678"/>
+<DM name="ReauthPeriod" val="3600"/>
+<DM name="PreAuth" val="0"/>
+<DM name="EapWanc" val="IGD.WD1.WCD1.WCIP2"/>
+<DM name="LockStatus" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.LD1.WLAN4"/>
+<DM name="LANDViewName" val="IGD.LD1"/>
+<DM name="ValidIf" val="1"/>
+<DM name="InstExist" val="0"/>
+<DM name="Enable" val="0"/>
+<DM name="ESSID" val="SSID4"/>
+<DM name="ESSIDPrefix" val=""/>
+<DM name="Priority" val="0"/>
+<DM name="ACLPolicy" val="0"/>
+<DM name="BeaconType" val="6"/>
+<DM name="MACAddressControlEnabled" val="0"/>
+<DM name="ESSIDHideEnable" val="0"/>
+<DM name="BeaconEnabled" val="1"/>
+<DM name="WEPAuthMode" val="2"/>
+<DM name="WEPLevel" val="1"/>
+<DM name="WEPKeyIndex" val="1"/>
+<DM name="WPAEncryptType" val="1"/>
+<DM name="WPAAuthMode" val="0"/>
+<DM name="11iEncryptType" val="1"/>
+<DM name="11iAuthMode" val="0"/>
+<DM name="WPAGroupRekey" val="0"/>
+<DM name="WPAEAPServerIp" val="0.0.0.0"/>
+<DM name="WPAEAPSecret" val=""/>
+<DM name="MaxUserNum" val="32"/>
+<DM name="VapIsolationEnable" val="0"/>
+<DM name="BasicEncryptionModes" val="0"/>
+<DM name="LocalSetEnable" val="1"/>
+<DM name="MasterAuthServerIP" val="192.168.1.1"/>
+<DM name="MasterAuthServerPort" val="1812"/>
+<DM name="MasterAuthServerSecret" val="12345678"/>
+<DM name="MasterAcctServerIP" val="192.168.1.1"/>
+<DM name="MasterAcctServerPort" val="1813"/>
+<DM name="MasterAcctServerSecret" val="12345678"/>
+<DM name="BackupAuthServerIP" val="192.168.1.2"/>
+<DM name="BackupAuthServerPort" val="1812"/>
+<DM name="BackupAuthServerSecret" val="12345678"/>
+<DM name="BackupAcctServerIP" val="192.168.1.2"/>
+<DM name="BackupAcctServerPort" val="1813"/>
+<DM name="BackupAcctServerSecret" val="12345678"/>
+<DM name="ReauthPeriod" val="3600"/>
+<DM name="PreAuth" val="0"/>
+<DM name="EapWanc" val=""/>
+<DM name="LockStatus" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="WLANPSK" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.WLAN1.PSK1"/>
+<DM name="WLANViewName" val=""/>
+<DM name="PreSharedKey" val=""/>
+<DM name="KeyPassphrase" val="cbs0941189000"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.LD1.WLAN2.PSK1"/>
+<DM name="WLANViewName" val=""/>
+<DM name="PreSharedKey" val=""/>
+<DM name="KeyPassphrase" val="!@#$%12345"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.LD1.WLAN3.PSK1"/>
+<DM name="WLANViewName" val=""/>
+<DM name="PreSharedKey" val=""/>
+<DM name="KeyPassphrase" val="!@#$%12345"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.LD1.WLAN4.PSK1"/>
+<DM name="WLANViewName" val=""/>
+<DM name="PreSharedKey" val=""/>
+<DM name="KeyPassphrase" val="!@#$%12345"/>
+</Row>
+</Tbl>
+<Tbl name="WLANWEP" RowCount="16">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WEP1"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Key" val="11111"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WEP2"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Key" val="22222"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WEP3"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Key" val="33333"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WEP4"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Key" val="44444"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.LD1.WLAN2.WEP1"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN2"/>
+<DM name="Key" val="11111"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.LD1.WLAN2.WEP2"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN2"/>
+<DM name="Key" val="22222"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.LD1.WLAN2.WEP3"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN2"/>
+<DM name="Key" val="33333"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.LD1.WLAN2.WEP4"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN2"/>
+<DM name="Key" val="44444"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="IGD.LD1.WLAN3.WEP1"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN3"/>
+<DM name="Key" val="11111"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="IGD.LD1.WLAN3.WEP2"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN3"/>
+<DM name="Key" val="22222"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="IGD.LD1.WLAN3.WEP3"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN3"/>
+<DM name="Key" val="33333"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="IGD.LD1.WLAN3.WEP4"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN3"/>
+<DM name="Key" val="44444"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="IGD.LD1.WLAN4.WEP1"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN4"/>
+<DM name="Key" val="11111"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="IGD.LD1.WLAN4.WEP2"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN4"/>
+<DM name="Key" val="22222"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="IGD.LD1.WLAN4.WEP3"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN4"/>
+<DM name="Key" val="33333"/>
+</Row>
+<Row No="15">
+<DM name="ViewName" val="IGD.LD1.WLAN4.WEP4"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN4"/>
+<DM name="Key" val="44444"/>
+</Row>
+</Tbl>
+<Tbl name="WLANWMM" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WMM1"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Type" val="0"/>
+<DM name="AIFSN" val="3"/>
+<DM name="ECWMin" val="4"/>
+<DM name="ECWMax" val="10"/>
+<DM name="TXOP" val="0"/>
+<DM name="Qlength" val="256"/>
+<DM name="SRL" val="7"/>
+<DM name="LRL" val="4"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WMM2"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Type" val="1"/>
+<DM name="AIFSN" val="7"/>
+<DM name="ECWMin" val="4"/>
+<DM name="ECWMax" val="10"/>
+<DM name="TXOP" val="0"/>
+<DM name="Qlength" val="256"/>
+<DM name="SRL" val="7"/>
+<DM name="LRL" val="4"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WMM3"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Type" val="2"/>
+<DM name="AIFSN" val="2"/>
+<DM name="ECWMin" val="3"/>
+<DM name="ECWMax" val="4"/>
+<DM name="TXOP" val="94"/>
+<DM name="Qlength" val="256"/>
+<DM name="SRL" val="7"/>
+<DM name="LRL" val="4"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WMM4"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Type" val="3"/>
+<DM name="AIFSN" val="2"/>
+<DM name="ECWMin" val="2"/>
+<DM name="ECWMax" val="3"/>
+<DM name="TXOP" val="47"/>
+<DM name="Qlength" val="256"/>
+<DM name="SRL" val="7"/>
+<DM name="LRL" val="4"/>
+</Row>
+</Tbl>
+<Tbl name="WLANWPS" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.WLAN1.WPS"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN1"/>
+<DM name="Enable" val="1"/>
+<DM name="WPSMode" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.LD1.WLAN2.WPS"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN2"/>
+<DM name="Enable" val="0"/>
+<DM name="WPSMode" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.LD1.WLAN3.WPS"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN3"/>
+<DM name="Enable" val="0"/>
+<DM name="WPSMode" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.LD1.WLAN4.WPS"/>
+<DM name="WLANViewName" val="IGD.LD1.WLAN4"/>
+<DM name="Enable" val="0"/>
+<DM name="WPSMode" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="WDS" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.WDS1"/>
+<DM name="WDSMac" val="00:00:00:00:00:00"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.LD1.WDS2"/>
+<DM name="WDSMac" val="00:00:00:00:00:00"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.LD1.WDS3"/>
+<DM name="WDSMac" val="00:00:00:00:00:00"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.LD1.WDS4"/>
+<DM name="WDSMac" val="00:00:00:00:00:00"/>
+</Row>
+</Tbl>
+<Tbl name="WlanTimeCfg" RowCount="1">
+<Row No="0">
+<DM name="TimerEnable" val="0"/>
+<DM name="SetEnable" val="1"/>
+<DM name="TimeSetRule" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="WlanTime" RowCount="0">
+</Tbl>
+<Tbl name="IGMPProxy" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="0"/>
+<DM name="WanCID" val=""/>
+<DM name="Dscp" val="-1"/>
+<DM name="Priority" val="-1"/>
+<DM name="QueueNum" val="15"/>
+<DM name="IgmpVersion" val="2"/>
+<DM name="IgmpQueryVersion" val="2"/>
+<DM name="WanServType" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="DevInfo" RowCount="1">
+<Row No="0">
+<DM name="ProvisioningCode" val="TLCO.GRP2"/>
+<DM name="CfgLable" val=""/>
+<DM name="SaveFlag" val="1"/>
+<DM name="FirstUseDate" val="2016-09-15T22:42:31"/>
+<DM name="DomainName" val=""/>
+<DM name="ManuFacturerURL" val="http://www.zte.com"/>
+<DM name="DeviceURL" val="http://www.zte.com"/>
+<DM name="Contact" val=""/>
+<DM name="Location" val=""/>
+<DM name="DeviceSummary" val=""/>
+<DM name="OnuAlias" val=""/>
+</Row>
+</Tbl>
+<Tbl name="UserIF" RowCount="1">
+<Row No="0">
+<DM name="Timeout" val="5"/>
+<DM name="Language" val="1"/>
+<DM name="LanguageCtr" val=""/>
+<DM name="RestoreFlag" val="0"/>
+<DM name="DefaultPass" val=""/>
+<DM name="AdminEnableWAN" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="UserInfo" RowCount="0">
+</Tbl>
+<Tbl name="DevAuthInfo" RowCount="6">
+<Row No="0">
+<DM name="ViewName" val="IGD.AU1"/>
+<DM name="Enable" val="1"/>
+<DM name="AppID" val="1"/>
+<DM name="User" val="Vnpt"/>
+<DM name="Pass" val="Vnpthanoi@7801"/>
+<DM name="Level" val="1"/>
+<DM name="Extra" val=""/>
+<DM name="ExtraInt" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.AU2"/>
+<DM name="Enable" val="1"/>
+<DM name="AppID" val="1"/>
+<DM name="User" val="admin"/>
+<DM name="Pass" val="admin"/>
+<DM name="Level" val="2"/>
+<DM name="Extra" val=""/>
+<DM name="ExtraInt" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.AU3"/>
+<DM name="Enable" val="1"/>
+<DM name="AppID" val="2"/>
+<DM name="User" val="root"/>
+<DM name="Pass" val="public"/>
+<DM name="Level" val="2"/>
+<DM name="Extra" val=""/>
+<DM name="ExtraInt" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.AU4"/>
+<DM name="Enable" val="1"/>
+<DM name="AppID" val="2"/>
+<DM name="User" val=""/>
+<DM name="Pass" val="zte"/>
+<DM name="Level" val="1"/>
+<DM name="Extra" val=""/>
+<DM name="ExtraInt" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.AU5"/>
+<DM name="Enable" val="1"/>
+<DM name="AppID" val="4"/>
+<DM name="User" val="admin"/>
+<DM name="Pass" val="admin"/>
+<DM name="Level" val="1"/>
+<DM name="Extra" val=""/>
+<DM name="ExtraInt" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.AU6"/>
+<DM name="Enable" val="0"/>
+<DM name="AppID" val="5"/>
+<DM name="User" val=""/>
+<DM name="Pass" val="samba"/>
+<DM name="Level" val="1"/>
+<DM name="Extra" val=""/>
+<DM name="ExtraInt" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="AclCfg" RowCount="0">
+</Tbl>
+<Tbl name="FWBase" RowCount="1">
+<Row No="0">
+<DM name="IsWanSrvCntl" val="0"/>
+<DM name="MacFilterEnable" val="0"/>
+<DM name="MacFilterTarget" val="0"/>
+<DM name="IpFilterTarget" val="0"/>
+<DM name="UrlFilterTarget" val="0"/>
+<DM name="UrlFilterEnable" val="0"/>
+<DM name="SrvCntlTarget" val="1"/>
+<DM name="DefaultPolicy" val="0"/>
+<DM name="PCtrlEnable" val="0"/>
+<DM name="IsClockValid" val="0"/>
+<DM name="MultiIpEnable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="FWLevel" RowCount="1">
+<Row No="0">
+<DM name="Level" val="2"/>
+<DM name="AntiAttack" val="0"/>
+<DM name="Ipv6SpiEnable" val="1"/>
+<DM name="NatPower" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="FWCustom" RowCount="15">
+<Row No="0">
+<DM name="ViewName" val="IGD.FWCustom1"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="3"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="AllowPing"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.FWCustom2"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="LowSPILocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="1"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.FWCustom3"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="LowForbidLocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="2"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.FWCustom4"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="LowAllowForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="3"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.FWCustom5"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="MediumSPILocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.FWCustom6"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="MediumForbidLocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="1"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.FWCustom7"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="MediumSPIForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="2"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.FWCustom8"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="MediumForbidForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="3"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="IGD.FWCustom9"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="HighSPILocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="0"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="IGD.FWCustom10"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighForbidLocal"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="1"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="IGD.FWCustom11"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="3"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighAllowPingForw"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="2"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="2"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="IGD.FWCustom12"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="HighSPI"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="2"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="3"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="IGD.FWCustom13"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighDrop"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="2"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="4"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="IGD.FWCustom14"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="HighSPIForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="5"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="IGD.FWCustom15"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighForbidForward"/>
+<DM name="SrcIp" val="0.0.0.0"/>
+<DM name="SrcIpMask" val="0.0.0.0"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="0.0.0.0"/>
+<DM name="DstIpMask" val="0.0.0.0"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="6"/>
+</Row>
+</Tbl>
+<Tbl name="FWCustom6" RowCount="15">
+<Row No="0">
+<DM name="ViewName" val="IGD.FWCustom61"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="5"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="LowAllowPingLocal"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.FWCustom62"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="LowSPILocal"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="1"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.FWCustom63"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="LowForbidLocal"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="2"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.FWCustom64"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="LowAllowForward"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="1"/>
+<DM name="Order" val="3"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.FWCustom65"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="MediumSPILocal"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.FWCustom66"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="MediumForbidLocal"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="1"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.FWCustom67"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="MediumSPIForward"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="2"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.FWCustom68"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="MediumForbidForward"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="2"/>
+<DM name="Order" val="3"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="IGD.FWCustom69"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="HighSPILocal1"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="0"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="IGD.FWCustom610"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighForbidLocal"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="1"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="1"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="IGD.FWCustom611"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="5"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighAllowPingForw"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="2"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="2"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="IGD.FWCustom612"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="HighSPI"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="2"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="3"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="IGD.FWCustom613"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighDrop"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="2"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="4"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="IGD.FWCustom614"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="5"/>
+<DM name="Name" val="HighSPIForward"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="1"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="5"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="IGD.FWCustom615"/>
+<DM name="Enable" val="1"/>
+<DM name="Protocol" val="4"/>
+<DM name="State" val="0"/>
+<DM name="Name" val="HighForbidForward"/>
+<DM name="SrcIp" val="::"/>
+<DM name="SrcPrefixLen" val="128"/>
+<DM name="MinSrcPort" val="0"/>
+<DM name="MaxSrcPort" val="0"/>
+<DM name="DstIp" val="::"/>
+<DM name="DstPrefixLen" val="128"/>
+<DM name="MinDstPort" val="0"/>
+<DM name="MaxDstPort" val="0"/>
+<DM name="FilterTarget" val="0"/>
+<DM name="InOut" val="1"/>
+<DM name="LocalForward" val="2"/>
+<DM name="Level" val="3"/>
+<DM name="Order" val="6"/>
+</Row>
+</Tbl>
+<Tbl name="FWALG" RowCount="1">
+<Row No="0">
+<DM name="IsSIPAlg" val="1"/>
+<DM name="IsFTPAlg" val="1"/>
+<DM name="IsH323Alg" val="1"/>
+<DM name="IsRTSPAlg" val="1"/>
+<DM name="IsL2TPAlg" val="1"/>
+<DM name="IsPPTPAlg" val="1"/>
+<DM name="IsTFTPAlg" val="1"/>
+<DM name="IsSNMPAlg" val="1"/>
+<DM name="IsIPSECAlg" val="1"/>
+<DM name="SIPAlgPort" val="0"/>
+<DM name="FTPAlgPort" val="0"/>
+<DM name="TFTPAlgPort" val="0"/>
+<DM name="RTSPAlgPort" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="FWDMZ" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.FWDMZ.FWDMZ1"/>
+<DM name="Enable" val="0"/>
+<DM name="WANCViewName" val=""/>
+<DM name="WANCName" val=""/>
+<DM name="InternalMacHost" val="00:00:00:00:00:00"/>
+<DM name="MacEnable" val="0"/>
+<DM name="InternalHost" val="0.0.0.0"/>
+<DM name="DevUniqueNum" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="FWDMZ6" RowCount="0">
+</Tbl>
+<Tbl name="FWIP6" RowCount="0">
+</Tbl>
+<Tbl name="FWIP" RowCount="0">
+</Tbl>
+<Tbl name="FWURL" RowCount="0">
+</Tbl>
+<Tbl name="FWSC" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.FWSc.FWSC1"/>
+<DM name="Name" val=""/>
+<DM name="IPMode" val="1"/>
+<DM name="Enable" val="1"/>
+<DM name="INCViewName" val="IGD.LD1"/>
+<DM name="INCName" val="omci_1_sercon"/>
+<DM name="MinSrcIp" val="0.0.0.0"/>
+<DM name="MinSrcMask" val="0.0.0.0"/>
+<DM name="MaxSrcIp" val="0.0.0.0"/>
+<DM name="Prefix" val="::"/>
+<DM name="PrefixLen" val="0"/>
+<DM name="Servise" val="1"/>
+<DM name="FilterTarget" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.FWSc.FWSC2"/>
+<DM name="Name" val=""/>
+<DM name="IPMode" val="1"/>
+<DM name="Enable" val="1"/>
+<DM name="INCViewName" val="IGD.WANIF"/>
+<DM name="INCName" val="omci_2_sercon"/>
+<DM name="MinSrcIp" val="0.0.0.0"/>
+<DM name="MinSrcMask" val="0.0.0.0"/>
+<DM name="MaxSrcIp" val="0.0.0.0"/>
+<DM name="Prefix" val="::"/>
+<DM name="PrefixLen" val="0"/>
+<DM name="Servise" val="1"/>
+<DM name="FilterTarget" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="FWPM" RowCount="0">
+</Tbl>
+<Tbl name="FWPT" RowCount="0">
+</Tbl>
+<Tbl name="FWPURL" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="0"/>
+<DM name="PcUrl" val=""/>
+<DM name="StbUrl" val=""/>
+<DM name="PhoneUrl" val=""/>
+<DM name="OtherUrl" val=""/>
+<DM name="CfgUrl" val="192.168.1.1/wlanlogin.gch"/>
+<DM name="DefaultType" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="FWPMAPP" RowCount="0">
+</Tbl>
+<Tbl name="FWPMDEV" RowCount="0">
+</Tbl>
+<Tbl name="SNTP" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="1"/>
+<DM name="NtpServer1" val="time.nist.gov"/>
+<DM name="NtpServer2" val=""/>
+<DM name="NtpServer3" val=""/>
+<DM name="NtpServer4" val=""/>
+<DM name="NtpServer5" val=""/>
+<DM name="LocalTimeZone" val="0:00"/>
+<DM name="LocalTimeZoneName" val="Casablanca, Monrovia, Greenwich Mean Time: Dublin, Edinburgh"/>
+<DM name="DaylightSavingsUsed" val="0"/>
+<DM name="DaylightSavingsStart" val=""/>
+<DM name="DaylightSavingsEnd" val=""/>
+<DM name="PollTimeInterval" val="86400"/>
+<DM name="isSynchronized" val="1"/>
+<DM name="SyncInfo" val="13387"/>
+<DM name="SupportAccessRefuse" val="1"/>
+<DM name="Dscp" val="-1"/>
+<DM name="QueueNum" val="-1"/>
+<DM name="SntpBindWanName" val=""/>
+<DM name="SntpBindWanPri" val="0"/>
+<DM name="iZoneIndex" val="25"/>
+<DM name="sPosixTimeZoneName" val="SEAST+07:00"/>
+</Row>
+</Tbl>
+<Tbl name="L3Forwarding" RowCount="1">
+<Row No="0">
+<DM name="DefRTInterface" val=""/>
+<DM name="RTSum" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="L3ForwardingRT" RowCount="0">
+</Tbl>
+<Tbl name="MgtServer" RowCount="1">
+<Row No="0">
+<DM name="URL" val="http://255.255.255.255/"/>
+<DM name="UserName" val="fuckufag"/>
+<DM name="Password" val="hgw"/>
+<DM name="PeriodicInformEnable" val="0"/>
+<DM name="PeriodicInformInterval" val="28800"/>
+<DM name="PeriodicInformTime" val="0001-01-01T00:00:00Z"/>
+<DM name="ParameterKey" val=""/>
+<DM name="ConnectionRequestURL" val="58000"/>
+<DM name="ConnectionRequestUsername" val="5cbcb2790b774"/>
+<DM name="ConnectionRequestPassword" val="5cbcb2790b7bf"/>
+<DM name="ConnectionRequestPath" val=""/>
+<DM name="UpgradesManaged" val="0"/>
+<DM name="Event" val=""/>
+<DM name="DefaultWan" val="IGD.WD1.WCD1.WCPPP2"/>
+<DM name="SessionRetryTimes" val="30:60:300:600:3600"/>
+<DM name="SupportCertAuth" val="0"/>
+<DM name="MWSURL" val="http://0.0.0.0:9090"/>
+<DM name="StringPrefix" val=""/>
+<DM name="CertID" val=""/>
+<DM name="tManageableDevNotifyLimit" val="0"/>
+<DM name="BoolMode" val="0"/>
+<DM name="retryMinWaitInterval" val="5"/>
+<DM name="RetryIntervalMultiplier" val="2000"/>
+<DM name="CheckHost" val="0"/>
+<DM name="ACSType" val="1"/>
+<DM name="ACSURLRetry" val="300"/>
+<DM name="ParamTypeCheck" val="0"/>
+<DM name="ActiveState" val="0"/>
+<DM name="VendorParamPrefix" val=""/>
+<DM name="RegType" val="0"/>
+<DM name="LoidCount" val="0"/>
+<DM name="ActivePassword" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="ParamAttr" RowCount="0">
+</Tbl>
+<Tbl name="DNSSettings" RowCount="1">
+<Row No="0">
+<DM name="DnsCMAPIEnabled" val="1"/>
+<DM name="DomainName" val=""/>
+<DM name="SerIPAddress1" val="89.207.131.21"/>
+<DM name="SerIPAddress2" val="8.8.8.8"/>
+<DM name="SerIPAddress3" val="0.0.0.0"/>
+<DM name="SerIPAddress4" val="0.0.0.0"/>
+<DM name="SerIPAddress5" val="0.0.0.0"/>
+<DM name="SerIPv6Address1" val="::"/>
+<DM name="SerIPv6Address2" val="::"/>
+<DM name="SerIPv6Address3" val="::"/>
+<DM name="SerIPv6Address4" val="::"/>
+<DM name="SerIPv6Address5" val="::"/>
+<DM name="WaitModeTimeOut" val="6"/>
+<DM name="NotWaitModeTimeOut" val="6"/>
+<DM name="DnsSendMode" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="DNSHostsList" RowCount="0">
+</Tbl>
+<Tbl name="UPnPCfg" RowCount="1">
+<Row No="0">
+<DM name="EnableUPnPIGD" val="0"/>
+<DM name="WanName" val=""/>
+<DM name="Wanv6Name" val=""/>
+<DM name="LanName" val="IGD.LD1"/>
+<DM name="ADPeriod" val="30"/>
+<DM name="TTL" val="4"/>
+</Row>
+</Tbl>
+<Tbl name="DDNSClient" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.DDNC1"/>
+<DM name="Enable" val="0"/>
+<DM name="Hidden" val="0"/>
+<DM name="LastError" val=""/>
+<DM name="Interface" val="IGD.WD1.WCD1.WCPPP1"/>
+<DM name="DomainName" val=""/>
+<DM name="Service" val=""/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="Offline" val="0"/>
+<DM name="HostNumber" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="DDNSService" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.DDNSS1"/>
+<DM name="Name" val="dipc"/>
+<DM name="Server" val="http://ns.eagleeyes.com.cn/cgi-bin/gdipupdt.cgi"/>
+<DM name="ServerPort" val="80"/>
+<DM name="Request" val=""/>
+<DM name="UpdateInterval" val="86400"/>
+<DM name="RetryInterval" val="60"/>
+<DM name="MaxRetries" val="3"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.DDNSS2"/>
+<DM name="Name" val="dyndns"/>
+<DM name="Server" val="http://www.dyndns.com"/>
+<DM name="ServerPort" val="80"/>
+<DM name="Request" val=""/>
+<DM name="UpdateInterval" val="86400"/>
+<DM name="RetryInterval" val="60"/>
+<DM name="MaxRetries" val="3"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.DDNSS3"/>
+<DM name="Name" val="DtDNS"/>
+<DM name="Server" val="http://www.dtdns.com"/>
+<DM name="ServerPort" val="80"/>
+<DM name="Request" val=""/>
+<DM name="UpdateInterval" val="86400"/>
+<DM name="RetryInterval" val="60"/>
+<DM name="MaxRetries" val="3"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.DDNSS4"/>
+<DM name="Name" val="No-IP"/>
+<DM name="Server" val="http://www.no-ip.com"/>
+<DM name="ServerPort" val="80"/>
+<DM name="Request" val=""/>
+<DM name="UpdateInterval" val="86400"/>
+<DM name="RetryInterval" val="60"/>
+<DM name="MaxRetries" val="3"/>
+</Row>
+</Tbl>
+<Tbl name="DDNSHostname" RowCount="0">
+</Tbl>
+<Tbl name="WANDCommCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1.WDCommCfg"/>
+<DM name="WDViewName" val="IGD.WD1"/>
+<DM name="EnabledForInternet" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WD2.WDCommCfg"/>
+<DM name="WDViewName" val="IGD.WD2"/>
+<DM name="EnabledForInternet" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="Log" RowCount="1">
+<Row No="0">
+<DM name="LogEnable" val="0"/>
+<DM name="LogLevel" val="3"/>
+<DM name="ServiceEnable" val="0"/>
+<DM name="ServicePort" val="514"/>
+<DM name="ServiceIp" val="0.0.0.0"/>
+</Row>
+</Tbl>
+<Tbl name="FTPServerCfg" RowCount="1">
+<Row No="0">
+<DM name="FtpEnable" val="0"/>
+<DM name="ServerPort" val="21"/>
+<DM name="WanIfEnable" val="0"/>
+<DM name="FtpAnon" val="0"/>
+<DM name="WanID0" val=""/>
+<DM name="WanID1" val=""/>
+<DM name="WanID2" val=""/>
+<DM name="WanID3" val=""/>
+<DM name="WanID4" val=""/>
+<DM name="WanID5" val=""/>
+<DM name="WanID6" val=""/>
+<DM name="WanID7" val=""/>
+<DM name="MaxClient" val="5"/>
+<DM name="MaxPerIp" val="5"/>
+<DM name="MaxRate" val="250000"/>
+</Row>
+</Tbl>
+<Tbl name="FTPUser" RowCount="8">
+<Row No="0">
+<DM name="ViewName" val="IGD.FTPUSER0"/>
+<DM name="Username" val="admin"/>
+<DM name="Password" val="admin"/>
+<DM name="Location" val="/mnt"/>
+<DM name="UserRight" val="3"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val=""/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="Location" val=""/>
+<DM name="UserRight" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val=""/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="Location" val=""/>
+<DM name="UserRight" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val=""/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="Location" val=""/>
+<DM name="UserRight" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val=""/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="Location" val=""/>
+<DM name="UserRight" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val=""/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="Location" val=""/>
+<DM name="UserRight" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val=""/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="Location" val=""/>
+<DM name="UserRight" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val=""/>
+<DM name="Username" val=""/>
+<DM name="Password" val=""/>
+<DM name="Location" val=""/>
+<DM name="UserRight" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="TelnetCfg" RowCount="1">
+<Row No="0">
+<DM name="TS_Enable" val="1"/>
+<DM name="Wan_Enable" val="0"/>
+<DM name="Lan_Enable" val="0"/>
+<DM name="TS_Port" val="23"/>
+<DM name="TS_UName" val="root"/>
+<DM name="TS_UPwd" val="ZTEGC0AA9B31"/>
+<DM name="Max_Con_Num" val="5"/>
+<DM name="ProcType" val="0"/>
+<DM name="Lan_EnableAfterOlt" val="1"/>
+<DM name="ProcFlag" val="0"/>
+<DM name="ProcPonLinkUpFlag" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="RouteSYSRT" RowCount="1">
+<Row No="0">
+<DM name="Display" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="PortBinding" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.Binding1"/>
+<DM name="WANViewName" val="IGD.WD1.WCD1.WCIP1"/>
+<DM name="LANViewName" val="IGD.LD1.WLAN3"/>
+</Row>
+</Tbl>
+<Tbl name="WDWWANCfg" RowCount="0">
+</Tbl>
+<Tbl name="WDWWANInfo" RowCount="1">
+<Row No="0">
+<DM name="3GEnable" val="1"/>
+<DM name="AutoTransTime" val="30"/>
+</Row>
+</Tbl>
+<Tbl name="PortControl" RowCount="8">
+<Row No="0">
+<DM name="ViewName" val="IGD.PortControl1"/>
+<DM name="PortValue" val="80"/>
+<DM name="IPv6PortValue" val="0"/>
+<DM name="PortEnable" val="0"/>
+<DM name="RedirectPort" val="0"/>
+<DM name="ServName" val="WEB"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.PortControl2"/>
+<DM name="PortValue" val="21"/>
+<DM name="IPv6PortValue" val="0"/>
+<DM name="PortEnable" val="0"/>
+<DM name="RedirectPort" val="0"/>
+<DM name="ServName" val="FTP"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.PortControl3"/>
+<DM name="PortValue" val="22"/>
+<DM name="IPv6PortValue" val="0"/>
+<DM name="PortEnable" val="1"/>
+<DM name="RedirectPort" val="0"/>
+<DM name="ServName" val="SSH"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.PortControl4"/>
+<DM name="PortValue" val="23"/>
+<DM name="IPv6PortValue" val="0"/>
+<DM name="PortEnable" val="0"/>
+<DM name="RedirectPort" val="0"/>
+<DM name="ServName" val="TELNET"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.PortControl5"/>
+<DM name="PortValue" val="443"/>
+<DM name="IPv6PortValue" val="0"/>
+<DM name="PortEnable" val="0"/>
+<DM name="RedirectPort" val="0"/>
+<DM name="ServName" val="HTTPS"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.PortControl6"/>
+<DM name="PortValue" val="161"/>
+<DM name="IPv6PortValue" val="0"/>
+<DM name="PortEnable" val="1"/>
+<DM name="RedirectPort" val="0"/>
+<DM name="ServName" val="SNMP"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.PortControl7"/>
+<DM name="PortValue" val="58000"/>
+<DM name="IPv6PortValue" val="0"/>
+<DM name="PortEnable" val="1"/>
+<DM name="RedirectPort" val="0"/>
+<DM name="ServName" val="Tr069"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="0"/>
+<DM name="PortValue" val="0"/>
+<DM name="IPv6PortValue" val="0"/>
+<DM name="PortEnable" val="0"/>
+<DM name="RedirectPort" val="0"/>
+<DM name="ServName" val=""/>
+</Row>
+</Tbl>
+<Tbl name="Upgrade" RowCount="1">
+<Row No="0">
+<DM name="RemoteUserCfgUrl" val=""/>
+<DM name="RemoteFirmwareUrl" val=""/>
+<DM name="UpgradeUserCfgEn" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="MacFilter" RowCount="0">
+</Tbl>
+<Tbl name="UsbBakRst" RowCount="1">
+<Row No="0">
+<DM name="RstEnable" val="0"/>
+<DM name="BakDir" val="CfgBak"/>
+<DM name="BakFileName" val="usbbak.cfg"/>
+</Row>
+</Tbl>
+<Tbl name="APPList" RowCount="0">
+</Tbl>
+<Tbl name="PRoute" RowCount="0">
+</Tbl>
+<Tbl name="WDInfo" RowCount="1">
+<Row No="0">
+<DM name="WDType" val="13"/>
+<DM name="BackupWDType" val="2"/>
+<DM name="MultiWDMode" val="3"/>
+<DM name="Reserve1" val="0"/>
+<DM name="Reserve2" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="MultiWD" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.WDInfo1"/>
+<DM name="WDType" val="4"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.WDInfo2"/>
+<DM name="WDType" val="2"/>
+</Row>
+</Tbl>
+<Tbl name="AttrInfo" RowCount="0">
+</Tbl>
+<Tbl name="VoIPPortCfg" RowCount="1">
+<Row No="0">
+<DM name="FxsNum" val="2"/>
+<DM name="FxoNum" val="0"/>
+<DM name="VoipNum" val="2"/>
+<DM name="DxsNum" val="0"/>
+<DM name="DxoNum" val="0"/>
+<DM name="DspChanNum" val="2"/>
+<DM name="SIPLanNum" val="4"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVMediaCfg" RowCount="8">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CL1"/>
+<DM name="MediaVEnable" val="1"/>
+<DM name="MediaVType" val="1"/>
+<DM name="MediaVCodec" val="1"/>
+<DM name="MediaVPV" val="0"/>
+<DM name="MediaVPT" val="20"/>
+<DM name="MediaVCR" val="8000"/>
+<DM name="MediaVPri" val="2"/>
+<DM name="MediaSSuprs" val="0"/>
+<DM name="MediaVRSSuprs" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CL2"/>
+<DM name="MediaVEnable" val="1"/>
+<DM name="MediaVType" val="1"/>
+<DM name="MediaVCodec" val="4"/>
+<DM name="MediaVPV" val="8"/>
+<DM name="MediaVPT" val="20"/>
+<DM name="MediaVCR" val="8000"/>
+<DM name="MediaVPri" val="1"/>
+<DM name="MediaSSuprs" val="0"/>
+<DM name="MediaVRSSuprs" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CL3"/>
+<DM name="MediaVEnable" val="1"/>
+<DM name="MediaVType" val="1"/>
+<DM name="MediaVCodec" val="8"/>
+<DM name="MediaVPV" val="18"/>
+<DM name="MediaVPT" val="20"/>
+<DM name="MediaVCR" val="8000"/>
+<DM name="MediaVPri" val="3"/>
+<DM name="MediaSSuprs" val="0"/>
+<DM name="MediaVRSSuprs" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CL4"/>
+<DM name="MediaVEnable" val="1"/>
+<DM name="MediaVType" val="1"/>
+<DM name="MediaVCodec" val="16"/>
+<DM name="MediaVPV" val="9"/>
+<DM name="MediaVPT" val="20"/>
+<DM name="MediaVCR" val="8000"/>
+<DM name="MediaVPri" val="4"/>
+<DM name="MediaSSuprs" val="0"/>
+<DM name="MediaVRSSuprs" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CL1"/>
+<DM name="MediaVEnable" val="1"/>
+<DM name="MediaVType" val="1"/>
+<DM name="MediaVCodec" val="1"/>
+<DM name="MediaVPV" val="0"/>
+<DM name="MediaVPT" val="20"/>
+<DM name="MediaVCR" val="8000"/>
+<DM name="MediaVPri" val="2"/>
+<DM name="MediaSSuprs" val="0"/>
+<DM name="MediaVRSSuprs" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CL2"/>
+<DM name="MediaVEnable" val="1"/>
+<DM name="MediaVType" val="1"/>
+<DM name="MediaVCodec" val="4"/>
+<DM name="MediaVPV" val="8"/>
+<DM name="MediaVPT" val="20"/>
+<DM name="MediaVCR" val="8000"/>
+<DM name="MediaVPri" val="1"/>
+<DM name="MediaSSuprs" val="0"/>
+<DM name="MediaVRSSuprs" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CL3"/>
+<DM name="MediaVEnable" val="1"/>
+<DM name="MediaVType" val="1"/>
+<DM name="MediaVCodec" val="8"/>
+<DM name="MediaVPV" val="18"/>
+<DM name="MediaVPT" val="20"/>
+<DM name="MediaVCR" val="8000"/>
+<DM name="MediaVPri" val="3"/>
+<DM name="MediaSSuprs" val="0"/>
+<DM name="MediaVRSSuprs" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CL4"/>
+<DM name="MediaVEnable" val="1"/>
+<DM name="MediaVType" val="1"/>
+<DM name="MediaVCodec" val="16"/>
+<DM name="MediaVPV" val="9"/>
+<DM name="MediaVPT" val="20"/>
+<DM name="MediaVCR" val="8000"/>
+<DM name="MediaVPri" val="4"/>
+<DM name="MediaSSuprs" val="0"/>
+<DM name="MediaVRSSuprs" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPFMediaCfg" RowCount="6">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CFL1"/>
+<DM name="MediaFEnable" val="1"/>
+<DM name="MediaFType" val="6"/>
+<DM name="MediaFCodec" val="33554432"/>
+<DM name="MediaFPV" val="255"/>
+<DM name="MediaFPT" val="4294967295"/>
+<DM name="MediaFCR" val="8000"/>
+<DM name="MediaFPri" val="1"/>
+<DM name="MediaFSSuprs" val="0"/>
+<DM name="MediaFRSSuprs" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CFL2"/>
+<DM name="MediaFEnable" val="0"/>
+<DM name="MediaFType" val="1"/>
+<DM name="MediaFCodec" val="1"/>
+<DM name="MediaFPV" val="0"/>
+<DM name="MediaFPT" val="20"/>
+<DM name="MediaFCR" val="8000"/>
+<DM name="MediaFPri" val="1"/>
+<DM name="MediaFSSuprs" val="0"/>
+<DM name="MediaFRSSuprs" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CFL3"/>
+<DM name="MediaFEnable" val="1"/>
+<DM name="MediaFType" val="1"/>
+<DM name="MediaFCodec" val="4"/>
+<DM name="MediaFPV" val="8"/>
+<DM name="MediaFPT" val="20"/>
+<DM name="MediaFCR" val="8000"/>
+<DM name="MediaFPri" val="1"/>
+<DM name="MediaFSSuprs" val="0"/>
+<DM name="MediaFRSSuprs" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CFL1"/>
+<DM name="MediaFEnable" val="1"/>
+<DM name="MediaFType" val="6"/>
+<DM name="MediaFCodec" val="33554432"/>
+<DM name="MediaFPV" val="255"/>
+<DM name="MediaFPT" val="4294967295"/>
+<DM name="MediaFCR" val="8000"/>
+<DM name="MediaFPri" val="1"/>
+<DM name="MediaFSSuprs" val="0"/>
+<DM name="MediaFRSSuprs" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CFL2"/>
+<DM name="MediaFEnable" val="0"/>
+<DM name="MediaFType" val="1"/>
+<DM name="MediaFCodec" val="1"/>
+<DM name="MediaFPV" val="0"/>
+<DM name="MediaFPT" val="20"/>
+<DM name="MediaFCR" val="8000"/>
+<DM name="MediaFPri" val="1"/>
+<DM name="MediaFSSuprs" val="0"/>
+<DM name="MediaFRSSuprs" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CFL3"/>
+<DM name="MediaFEnable" val="1"/>
+<DM name="MediaFType" val="1"/>
+<DM name="MediaFCodec" val="4"/>
+<DM name="MediaFPV" val="8"/>
+<DM name="MediaFPT" val="20"/>
+<DM name="MediaFCR" val="8000"/>
+<DM name="MediaFPri" val="1"/>
+<DM name="MediaFSSuprs" val="0"/>
+<DM name="MediaFRSSuprs" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPMMediaCfg" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CML1"/>
+<DM name="MediaMEnable" val="1"/>
+<DM name="MediaMType" val="1"/>
+<DM name="MediaMCodec" val="4"/>
+<DM name="MediaMPV" val="8"/>
+<DM name="MediaMPT" val="20"/>
+<DM name="MediaMCR" val="8000"/>
+<DM name="MediaMPri" val="1"/>
+<DM name="MediaMSSuprs" val="0"/>
+<DM name="MediaMRSSuprs" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC.CML2"/>
+<DM name="MediaMEnable" val="1"/>
+<DM name="MediaMType" val="1"/>
+<DM name="MediaMCodec" val="1"/>
+<DM name="MediaMPV" val="0"/>
+<DM name="MediaMPT" val="20"/>
+<DM name="MediaMCR" val="8000"/>
+<DM name="MediaMPri" val="1"/>
+<DM name="MediaMSSuprs" val="0"/>
+<DM name="MediaMRSSuprs" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CML1"/>
+<DM name="MediaMEnable" val="1"/>
+<DM name="MediaMType" val="1"/>
+<DM name="MediaMCodec" val="4"/>
+<DM name="MediaMPV" val="8"/>
+<DM name="MediaMPT" val="20"/>
+<DM name="MediaMCR" val="8000"/>
+<DM name="MediaMPri" val="1"/>
+<DM name="MediaMSSuprs" val="0"/>
+<DM name="MediaMRSSuprs" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC.CML2"/>
+<DM name="MediaMEnable" val="1"/>
+<DM name="MediaMType" val="1"/>
+<DM name="MediaMCodec" val="1"/>
+<DM name="MediaMPV" val="0"/>
+<DM name="MediaMPT" val="20"/>
+<DM name="MediaMCR" val="8000"/>
+<DM name="MediaMPri" val="1"/>
+<DM name="MediaMSSuprs" val="0"/>
+<DM name="MediaMRSSuprs" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPPhyNumCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.PNC"/>
+<DM name="PhyNumLen" val="2"/>
+<DM name="PhyNumPre" val=""/>
+<DM name="PhyNumFlag" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPBearInfo" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.BI"/>
+<DM name="WanConn" val=""/>
+<DM name="MediaWanConn" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSIP" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.PS"/>
+<DM name="UserAgentDoimain" val="0.0.0.0"/>
+<DM name="UserAgentPort" val="5060"/>
+<DM name="UserAgentTransport" val="UDP"/>
+<DM name="100rel" val="1"/>
+<DM name="Precondition" val="0"/>
+<DM name="EarlySession" val="0"/>
+<DM name="Timer" val="0"/>
+<DM name="Replace" val="0"/>
+<DM name="Path" val="0"/>
+<DM name="DNSRetryInterval" val="30"/>
+<DM name="RegisterExpires" val="3600"/>
+<DM name="RegistrationRatio" val="500"/>
+<DM name="DeRegister" val="0"/>
+<DM name="LinkTest" val="0"/>
+<DM name="LinkTestInterval" val="20"/>
+<DM name="LinkTestCount" val="3"/>
+<DM name="LineDownTime" val="600"/>
+<DM name="PeerCall" val="0"/>
+<DM name="RemotePartyID" val="0"/>
+<DM name="PPreferredID" val="0"/>
+<DM name="PAssertedID" val="0"/>
+<DM name="PEarlyMedia" val="0"/>
+<DM name="AlertInfo" val="0"/>
+<DM name="TelUrl" val="0"/>
+<DM name="Filter" val="0"/>
+<DM name="DNSMode" val="0"/>
+<DM name="Escaped" val="0"/>
+<DM name="Organization" val=""/>
+<DM name="InviteExpires" val="1800"/>
+<DM name="ReInviteExpires" val="1800"/>
+<DM name="RegistersMinExpires" val="1800"/>
+<DM name="RegisterRetryInterval" val="60"/>
+<DM name="SubscribeRetryInterval" val="3600"/>
+<DM name="InboundAuth" val="Digest"/>
+<DM name="DSCPMark" val="0"/>
+<DM name="VLANIDMark" val="-1"/>
+<DM name="EthernetPriorityMark" val="-1"/>
+<DM name="QueueNum" val="15"/>
+<DM name="EventSubscribeNumber" val="1"/>
+<DM name="DNSRefresh" val="0"/>
+<DM name="Queued" val="0"/>
+<DM name="TimeSync" val="0"/>
+<DM name="TimeZone" val="0"/>
+<DM name="Authorization" val="0"/>
+<DM name="SubScribeEnable" val="0"/>
+<DM name="AuthUserNameAndURISwop" val="0"/>
+<DM name="InboundAuthUsername" val=""/>
+<DM name="InboundAuthPassword" val=""/>
+<DM name="SIPResMapNumOfElem" val="0"/>
+<DM name="DNSANoCache" val="0"/>
+<DM name="NotifyMode" val="0"/>
+<DM name="NotifyServMask" val="65535"/>
+<DM name="RequestlineParam" val="1"/>
+<DM name="FromParam" val="0"/>
+<DM name="InfoReport" val="0"/>
+<DM name="CseqChecked" val="0"/>
+<DM name="RegisterCheck" val="0"/>
+<DM name="CheckInterval" val="600"/>
+<DM name="NoRegRetryErrCode" val=""/>
+<DM name="InviteSwitch" val="1"/>
+<DM name="AuthorizationWithDomain" val="0"/>
+<DM name="ReregisterAfterRsp" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSLCTIMECfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VY1.YS"/>
+<DM name="HookLowTime" val="40"/>
+<DM name="HookHighTime" val="40"/>
+<DM name="FlashLowMinTime" val="5"/>
+<DM name="FlashLowMaxTime" val="30"/>
+<DM name="FlashHighFixTime" val="25"/>
+<DM name="PulseDialHighMinTime" val="2"/>
+<DM name="PulseDialHighMaxTime" val="10"/>
+<DM name="PulseDialLowMinTime" val="2"/>
+<DM name="PulseDialLowMaxTime" val="10"/>
+<DM name="RingCeaseFixTime" val="500"/>
+<DM name="PreHookHighTime" val="6"/>
+<DM name="RingQueueBufferTime" val="10"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VY2.YS"/>
+<DM name="HookLowTime" val="40"/>
+<DM name="HookHighTime" val="40"/>
+<DM name="FlashLowMinTime" val="5"/>
+<DM name="FlashLowMaxTime" val="30"/>
+<DM name="FlashHighFixTime" val="25"/>
+<DM name="PulseDialHighMinTime" val="2"/>
+<DM name="PulseDialHighMaxTime" val="10"/>
+<DM name="PulseDialLowMinTime" val="2"/>
+<DM name="PulseDialLowMaxTime" val="10"/>
+<DM name="RingCeaseFixTime" val="500"/>
+<DM name="PreHookHighTime" val="6"/>
+<DM name="RingQueueBufferTime" val="10"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSLCINFCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VY1.YS"/>
+<DM name="PortVoltage" val="48"/>
+<DM name="PortCurrent" val="20"/>
+<DM name="RingVoltage" val="70"/>
+<DM name="Scenes" val="3"/>
+<DM name="LineOpen100msEn" val="0"/>
+<DM name="RingDCVoltageOverlapped" val="0"/>
+<DM name="DisablePowerSave" val="0"/>
+<DM name="Impe" val="680"/>
+<DM name="Rxgain" val="-7"/>
+<DM name="Txgain" val="0"/>
+<DM name="LastOffReport" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VY2.YS"/>
+<DM name="PortVoltage" val="48"/>
+<DM name="PortCurrent" val="20"/>
+<DM name="RingVoltage" val="70"/>
+<DM name="Scenes" val="3"/>
+<DM name="LineOpen100msEn" val="0"/>
+<DM name="RingDCVoltageOverlapped" val="0"/>
+<DM name="DisablePowerSave" val="0"/>
+<DM name="Impe" val="680"/>
+<DM name="Rxgain" val="-7"/>
+<DM name="Txgain" val="0"/>
+<DM name="LastOffReport" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSLC112TESTCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VR1"/>
+<DM name="DialToneMakeTime" val="2"/>
+<DM name="DialToneBreakTime" val="3"/>
+<DM name="DialToneMakeDB" val="-10"/>
+<DM name="DialToneBreakDB" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VR2"/>
+<DM name="DialToneMakeTime" val="2"/>
+<DM name="DialToneBreakTime" val="3"/>
+<DM name="DialToneMakeDB" val="-10"/>
+<DM name="DialToneBreakDB" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVoiceProfile" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="Enable" val="2"/>
+<DM name="Name" val=""/>
+<DM name="DigitMap" val="X*.X.#|#X.*.X.##|#X.*.X.T|#X.*.X.#T|X*.X.T|**.X.*.X.*.X.##|**.X.*.X.*.X.#T"/>
+<DM name="DigitMapEnable" val="1"/>
+<DM name="LedKey" val="1"/>
+<DM name="PstnFailOver" val="0"/>
+<DM name="EndRemoveFlag" val="0"/>
+<DM name="TimeEnable" val="1"/>
+<DM name="ExactDigitMap" val=""/>
+<DM name="DigitMapLongMatch" val="0"/>
+<DM name="ShortMatchExtend" val="0"/>
+<DM name="DotTransferEnable" val="0"/>
+<DM name="SpecialServPriority" val="1"/>
+<DM name="ExactDigitMapEnable" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVPCallTimer" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.CT"/>
+<DM name="CfnrTimer" val="2000"/>
+<DM name="AlertingTimer" val="6000"/>
+<DM name="CallWaitingTimer" val="1500"/>
+<DM name="ProceedingTimer" val="25000"/>
+<DM name="BusyToneTimer" val="4000"/>
+<DM name="HaulToneTimer" val="6000"/>
+<DM name="DhlTimer" val="1000"/>
+<DM name="CallerTimer" val="3200"/>
+<DM name="VoiceMessageTimer" val="500"/>
+<DM name="SipDelayHookonTimer" val="6000"/>
+<DM name="ReAlertingTimer" val="6000"/>
+<DM name="SpecialToneTimer" val="6000"/>
+<DM name="VMIToneTimer" val="1300"/>
+<DM name="VMDialToneTimer" val="300"/>
+<DM name="CallWaitHookOnRemindTimer" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVPService" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="ECTDigit" val="4"/>
+<DM name="SCTDigit" val="*1#"/>
+<DM name="VMDigit" val="321"/>
+<DM name="MCIDDigit" val="*33#"/>
+<DM name="IMSConfType" val="0"/>
+<DM name="CWCallInFlashType" val="0"/>
+<DM name="CHCallOutFlashType" val="2"/>
+<DM name="FlashType" val="0"/>
+<DM name="FlashCWType" val="0"/>
+<DM name="TRIFlashType" val="0"/>
+<DM name="CWHookOnServiceType" val="0"/>
+<DM name="CHHookOnServiceType" val="0"/>
+<DM name="HookOnServiceType" val="0"/>
+<DM name="HookOnCWServiceType" val="0"/>
+<DM name="TRIHookOnServiceType" val="0"/>
+<DM name="RelWaitDigit" val="0"/>
+<DM name="RelActiveDigit" val="1"/>
+<DM name="SwitchDigit" val="2"/>
+<DM name="3WSelfDigit" val="3"/>
+<DM name="3WSSDigit" val="3"/>
+<DM name="CallInKeyType" val="7"/>
+<DM name="CallOutKeyType" val="2"/>
+<DM name="CWHKeyType" val="7"/>
+<DM name="3WayKeyType" val="7"/>
+<DM name="HoldFailType" val="0"/>
+<DM name="CWActRelResumeType" val="7"/>
+<DM name="ActRelCWResumeType" val="7"/>
+<DM name="ActRelResumeType" val="7"/>
+<DM name="RelPrimaryDigit" val="5"/>
+<DM name="RelSecondaryDigit" val="7"/>
+<DM name="SwitchToPrimaryDigit" val="8"/>
+<DM name="SwitchToSecondaryDigit" val="9"/>
+<DM name="AuthProcessFlag" val="0"/>
+<DM name="SLIDDigit" val=""/>
+<DM name="SLIDRelDigit" val=""/>
+<DM name="SLIDQueryDigit" val=""/>
+<DM name="SLIDPredailDigit" val=""/>
+<DM name="DialToneFlag" val="0"/>
+<DM name="CHCollectNoMatchType" val="1"/>
+<DM name="SuspendEnable" val="1"/>
+<DM name="SuspendCWEnable" val="1"/>
+<DM name="TriSuspendEnable" val="1"/>
+<DM name="MCIDMode" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVPCodec" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="G726Type" val="1024"/>
+<DM name="G711Fax" val="0"/>
+<DM name="Afax" val="1"/>
+<DM name="AT38Fax" val="0"/>
+<DM name="RFC3264" val="0"/>
+<DM name="MediaDest" val="0"/>
+<DM name="BandWidth" val="0"/>
+<DM name="G726_32Type" val="0"/>
+<DM name="G726DPT" val="100"/>
+<DM name="MaxPTime" val="0"/>
+<DM name="RFC3108Voice" val="0"/>
+<DM name="RFC3108Fax" val="0"/>
+<DM name="G723Rate" val="1"/>
+<DM name="RTPPT" val="255"/>
+<DM name="NegoOption" val="0"/>
+<DM name="ModemMediaFlag" val="3"/>
+<DM name="3WayCodec" val=""/>
+<DM name="NegoLocPri" val="0"/>
+<DM name="T38Pri" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVPDTMF" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="DTMFMethod" val="2"/>
+<DM name="DTMFRedEnable" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVPLine" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1"/>
+<DM name="TermID" val="20000"/>
+<DM name="Enable" val="2"/>
+<DM name="PhyList" val=""/>
+<DM name="DirectoryNumber" val=""/>
+<DM name="PBXPrefixEnable" val="0"/>
+<DM name="PBXPrefix" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2"/>
+<DM name="TermID" val="20001"/>
+<DM name="Enable" val="2"/>
+<DM name="PhyList" val=""/>
+<DM name="DirectoryNumber" val=""/>
+<DM name="PBXPrefixEnable" val="0"/>
+<DM name="PBXPrefix" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VoIPCSLine" RowCount="0">
+</Tbl>
+<Tbl name="VoIPSIPServer" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.PS"/>
+<DM name="ProxyServer1" val="0.0.0.0"/>
+<DM name="ProxyServer2" val="0.0.0.0"/>
+<DM name="ProxyServerPort1" val="5060"/>
+<DM name="ProxyServerPort2" val="5060"/>
+<DM name="ProxyServerTransport1" val="UDP"/>
+<DM name="ProxyServerTransport2" val="UDP"/>
+<DM name="OutboundProxy1" val="0.0.0.0"/>
+<DM name="OutboundProxy2" val="0.0.0.0"/>
+<DM name="OutboundProxyPort1" val="5060"/>
+<DM name="OutboundProxyPort2" val="5060"/>
+<DM name="RegistrarServer1" val="0.0.0.0"/>
+<DM name="RegistrarServer2" val="0.0.0.0"/>
+<DM name="RegistrarServerPort1" val="5060"/>
+<DM name="RegistrarServerPort2" val="5060"/>
+<DM name="RegistrarServerTransport1" val="UDP"/>
+<DM name="RegistrarServerTransport2" val="UDP"/>
+<DM name="PublishServer" val="0.0.0.0"/>
+<DM name="PortVisible" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSIPTimer" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.PS"/>
+<DM name="TimerT1" val="500"/>
+<DM name="TimerT2" val="4000"/>
+<DM name="TimerT4" val="5000"/>
+<DM name="TimerA" val="500"/>
+<DM name="TimerB" val="32000"/>
+<DM name="TimerC" val="180000"/>
+<DM name="TimerD" val="32000"/>
+<DM name="TimerE" val="500"/>
+<DM name="TimerF" val="32000"/>
+<DM name="TimerG" val="500"/>
+<DM name="TimerH" val="32000"/>
+<DM name="TimerI" val="5000"/>
+<DM name="TimerJ" val="32000"/>
+<DM name="TimerK" val="5000"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSIPLan" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.LAS"/>
+<DM name="ServerPort" val="5060"/>
+<DM name="RtpPortMin" val="1024"/>
+<DM name="RtpPortMax" val="1087"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPDTMFADVCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="DigitOnDura" val="10"/>
+<DM name="DigitOffDura" val="40"/>
+<DM name="OOBDtmfDura" val="100"/>
+<DM name="InbandDTMF" val="1"/>
+<DM name="DTMFMethodG711" val="1"/>
+<DM name="RFC2833EncryptEnable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPFaxModemRptCtrlCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="MGInteract" val="2"/>
+<DM name="CNGRpt" val="0"/>
+<DM name="CEDRpt" val="1"/>
+<DM name="V21Rpt" val="0"/>
+<DM name="CNGCtrl" val="0"/>
+<DM name="ModemToneRpt" val="1"/>
+<DM name="NetDcnDet" val="0"/>
+<DM name="HighModemEC" val="0"/>
+<DM name="LowModemEC" val="1"/>
+<DM name="ModemPktToPcmDGain" val="140"/>
+<DM name="ModemPcmToPktDGain" val="140"/>
+<DM name="FaxEC" val="1"/>
+<DM name="FaxPktToPcmDGain" val="140"/>
+<DM name="FaxPcmToPktDGain" val="140"/>
+<DM name="ANSReportDelayTimer" val="0"/>
+<DM name="AutoVbdCodecSwitch" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPDSPCIDCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="Type2CIDTimer" val="220"/>
+<DM name="CIDFrameType" val="0"/>
+<DM name="CIDMoDType" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPBGWCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="NotifyBGW" val="1"/>
+<DM name="BGWRefreshInterval" val="10000"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPDSPMISCCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="IPFilter" val="1"/>
+<DM name="Region" val="1"/>
+<DM name="ECAutoDisable" val="1"/>
+<DM name="IVRLanguage" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPRTPADVCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VR"/>
+<DM name="JitMode" val="1"/>
+<DM name="FixedJitLen" val="20"/>
+<DM name="AdaptJitMin" val="20"/>
+<DM name="AdaptJitMax" val="200"/>
+<DM name="SupppressRTPOnSilence" val="1"/>
+<DM name="G726Endian" val="0"/>
+<DM name="711NRedundance" val="0"/>
+<DM name="711NRedundancePT" val="96"/>
+<DM name="DTMFDetSensitivity" val="0"/>
+<DM name="EchoCancellationEnhanced" val="0"/>
+<DM name="RFC2833VolumeAdjust" val="0"/>
+<DM name="MediaPriSignal" val="1"/>
+<DM name="PcmType" val="0"/>
+<DM name="2833DelResidual" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPRTCPADVCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VR.RC"/>
+<DM name="TxRepeatInterval" val="5000"/>
+<DM name="CompoundFlag" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPRTPREDCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VR.RR"/>
+<DM name="FaxAndModemRedundancy" val="1"/>
+<DM name="PayloadType" val="96"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPT38ADVCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VF"/>
+<DM name="ECMDisable" val="1"/>
+<DM name="FaxDataPktRate" val="10"/>
+<DM name="FaxMode" val="1"/>
+<DM name="V21Seg" val="1"/>
+<DM name="T1Timer" val="35"/>
+<DM name="JitBufLen" val="4"/>
+<DM name="NSFFlag" val="1"/>
+<DM name="NSFFill" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVoiceProcCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LV"/>
+<DM name="ReceiveGain" val="140"/>
+<DM name="TransmitGain" val="140"/>
+<DM name="EchoCancellationTail" val="32"/>
+<DM name="EchoCancellationEnable" val="1"/>
+<DM name="DCFDisable" val="0"/>
+<DM name="FixedTransmitGain" val="0"/>
+<DM name="ReceiveToneGain" val="140"/>
+<DM name="TransmitToneGain" val="140"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LV"/>
+<DM name="ReceiveGain" val="140"/>
+<DM name="TransmitGain" val="140"/>
+<DM name="EchoCancellationTail" val="32"/>
+<DM name="EchoCancellationEnable" val="1"/>
+<DM name="DCFDisable" val="0"/>
+<DM name="FixedTransmitGain" val="0"/>
+<DM name="ReceiveToneGain" val="140"/>
+<DM name="TransmitToneGain" val="140"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSIPEventSubscribe" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.PS.SE1"/>
+<DM name="Event" val="message-summary"/>
+<DM name="Notifier" val="0.0.0.0"/>
+<DM name="NotifierPort" val="5060"/>
+<DM name="NotifierTransport" val="UDP"/>
+<DM name="ExpireTime" val="86400"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSIPLine" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LS"/>
+<DM name="Enable" val="1"/>
+<DM name="AuthUserName" val=""/>
+<DM name="AuthPassword" val=""/>
+<DM name="DigestUserName" val=""/>
+<DM name="DisplayName" val=""/>
+<DM name="Tr069UNChange" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LS"/>
+<DM name="Enable" val="1"/>
+<DM name="AuthUserName" val=""/>
+<DM name="AuthPassword" val=""/>
+<DM name="DigestUserName" val=""/>
+<DM name="DisplayName" val=""/>
+<DM name="Tr069UNChange" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSRTermination" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.RT.ST1"/>
+<DM name="SourceTid" val="0"/>
+<DM name="SrMethod" val="2"/>
+<DM name="BoudType" val="1"/>
+<DM name="BoudData" val="1"/>
+<DM name="DefaultRouteType" val="2"/>
+<DM name="DefaultRouteData" val="20000"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.RT.ST2"/>
+<DM name="SourceTid" val="1"/>
+<DM name="SrMethod" val="2"/>
+<DM name="BoudType" val="1"/>
+<DM name="BoudData" val="1"/>
+<DM name="DefaultRouteType" val="2"/>
+<DM name="DefaultRouteData" val="20001"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.RT.ST3"/>
+<DM name="SourceTid" val="20000"/>
+<DM name="SrMethod" val="1"/>
+<DM name="BoudType" val="2"/>
+<DM name="BoudData" val="0"/>
+<DM name="DefaultRouteType" val="1"/>
+<DM name="DefaultRouteData" val="1"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.RT.ST4"/>
+<DM name="SourceTid" val="20001"/>
+<DM name="SrMethod" val="1"/>
+<DM name="BoudType" val="2"/>
+<DM name="BoudData" val="1"/>
+<DM name="DefaultRouteType" val="1"/>
+<DM name="DefaultRouteData" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSRDigitCollect" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC"/>
+<DM name="DialTwiceFlag" val="0"/>
+<DM name="IPAccessCode" val=""/>
+<DM name="PstnPrefixDigitMap" val=""/>
+<DM name="ColDgtType" val="3"/>
+<DM name="PstnNoPreifx" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSROfficeGroupPrefix" RowCount="3">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OG1"/>
+<DM name="Prefix" val=""/>
+<DM name="Group" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OG2"/>
+<DM name="Prefix" val=""/>
+<DM name="Group" val=""/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OG3"/>
+<DM name="Prefix" val=""/>
+<DM name="Group" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSROfficePrefix" RowCount="3">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OP1"/>
+<DM name="Prefix" val=""/>
+<DM name="Office" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OP2"/>
+<DM name="Prefix" val=""/>
+<DM name="Office" val="2"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OP3"/>
+<DM name="Prefix" val=""/>
+<DM name="Office" val="3"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSROfficeDigitMap" RowCount="12">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM1"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM2"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM3"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM4"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM5"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM6"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM7"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM8"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM9"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM10"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM11"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.OM12"/>
+<DM name="Tid" val="0"/>
+<DM name="Office" val="1"/>
+<DM name="Digitmap" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSRRouteDigitMap" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.RM1"/>
+<DM name="Tid" val="0"/>
+<DM name="Route" val="0"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.RM2"/>
+<DM name="Tid" val="0"/>
+<DM name="Route" val="0"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.RM3"/>
+<DM name="Tid" val="0"/>
+<DM name="Route" val="0"/>
+<DM name="Digitmap" val=""/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.RT.DC.RM4"/>
+<DM name="Tid" val="0"/>
+<DM name="Route" val="0"/>
+<DM name="Digitmap" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSRBwList" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.RT.BW1"/>
+<DM name="Tid" val="0"/>
+<DM name="Type" val="0"/>
+<DM name="DataTyp" val="0"/>
+<DM name="Data" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.RT.BW2"/>
+<DM name="Tid" val="0"/>
+<DM name="Type" val="0"/>
+<DM name="DataTyp" val="0"/>
+<DM name="Data" val=""/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.RT.BW3"/>
+<DM name="Tid" val="0"/>
+<DM name="Type" val="0"/>
+<DM name="DataTyp" val="0"/>
+<DM name="Data" val=""/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.RT.BW4"/>
+<DM name="Tid" val="0"/>
+<DM name="Type" val="0"/>
+<DM name="DataTyp" val="0"/>
+<DM name="Data" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSRPhyRefListEnable" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.RT"/>
+<DM name="PhyListEnable" val="0"/>
+<DM name="OutBoundType" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPLineCodec" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LC"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LC"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPDMTimerCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.DM"/>
+<DM name="StartTimer" val="1500"/>
+<DM name="ShortTimer" val="400"/>
+<DM name="LongTimer" val="500"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPRTPCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VR"/>
+<DM name="LocalPortMin" val="4000"/>
+<DM name="LocalPortMax" val="4010"/>
+<DM name="TelephoneEventPT" val="97"/>
+<DM name="VLANIDMark" val="-1"/>
+<DM name="DSCPMark" val="0"/>
+<DM name="EthernetPriorityMark" val="-1"/>
+<DM name="QueueNum" val="-1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPRTCPCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VR.RC"/>
+<DM name="Enable" val="1"/>
+<DM name="RtcpSummaryTimer" val="5"/>
+<DM name="RtcpSummaryKey" val="0"/>
+<DM name="RTCPSDP" val="0"/>
+<DM name="RTCPXR" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSRTPCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VR.RS"/>
+<DM name="Enable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPFaxT38Cfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VF"/>
+<DM name="Enable" val="0"/>
+<DM name="PLC" val="0"/>
+<DM name="HighSpeedRedundancy" val="1"/>
+<DM name="LowSpeedRedundancy" val="3"/>
+<DM name="BitRate" val="4"/>
+<DM name="TCFMethod" val="0"/>
+<DM name="NumOfFEC" val="0"/>
+<DM name="NumOfIFP" val="0"/>
+<DM name="ERM" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPFaxVBDCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VVBD"/>
+<DM name="Codec" val="0"/>
+<DM name="PT" val="8"/>
+<DM name="PI" val="0"/>
+<DM name="EC" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPModemVBDCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VMD"/>
+<DM name="Codec" val="0"/>
+<DM name="PT" val="8"/>
+<DM name="PI" val="0"/>
+<DM name="EC" val="0"/>
+<DM name="RC" val="1"/>
+<DM name="SwtichMode" val="2"/>
+<DM name="SigDelayRpt" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSessionCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LE"/>
+<DM name="SessionStartTime" val="0"/>
+<DM name="SessionDuration" val="0"/>
+<DM name="FarEndIPAddress" val="0.0.0.0"/>
+<DM name="FarEndUDPPort" val="0"/>
+<DM name="LocalUDPPort" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LE"/>
+<DM name="SessionStartTime" val="0"/>
+<DM name="SessionDuration" val="0"/>
+<DM name="FarEndIPAddress" val="0.0.0.0"/>
+<DM name="FarEndUDPPort" val="0"/>
+<DM name="LocalUDPPort" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPLastSessionCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LV"/>
+<DM name="SessionStartTime" val="0"/>
+<DM name="SessionDuration" val="0"/>
+<DM name="FarEndIPAddress" val="0.0.0.0"/>
+<DM name="FarEndUDPPort" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LV"/>
+<DM name="SessionStartTime" val="0"/>
+<DM name="SessionDuration" val="0"/>
+<DM name="FarEndIPAddress" val="0.0.0.0"/>
+<DM name="FarEndUDPPort" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPLineCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LX"/>
+<DM name="ResetStatistics" val="0"/>
+<DM name="PacketsSent" val="0"/>
+<DM name="PacketsReceived" val="0"/>
+<DM name="BytesSent" val="0"/>
+<DM name="BytesReceived" val="0"/>
+<DM name="PacketsLost" val="0"/>
+<DM name="IncomingCallsReceived" val="0"/>
+<DM name="IncomingCallsAnswered" val="0"/>
+<DM name="IncomingCallsConnected" val="0"/>
+<DM name="IncomingCallsFailed" val="0"/>
+<DM name="OutgoingCallsAttempted" val="0"/>
+<DM name="OutgoingCallsAnswered" val="0"/>
+<DM name="OutgoingCallsConnected" val="0"/>
+<DM name="OutgoingCallsFailed" val="0"/>
+<DM name="TotalCallTime" val="0"/>
+<DM name="TotalCallCounts" val="0"/>
+<DM name="CurrentCallTime" val="0"/>
+<DM name="CallState" val="0"/>
+<DM name="Overruns" val="0"/>
+<DM name="Underruns" val="0"/>
+<DM name="CallsDropped" val="0"/>
+<DM name="ServerDownTime" val="0"/>
+<DM name="ReceivePacketLossRate" val="0"/>
+<DM name="FarEndPacketLossRate" val="0"/>
+<DM name="ReceiveInterarrivalJitter" val="0"/>
+<DM name="FarEndInterarrivalJitter" val="0"/>
+<DM name="RoundTripDelay" val="0"/>
+<DM name="AverageReceiveInterarrivalJitter" val="0"/>
+<DM name="AverageFarEndInterarrivalJitter" val="0"/>
+<DM name="AverageRoundTripDelay" val="0"/>
+<DM name="CallRole" val="0"/>
+<DM name="FarEndCID" val="0"/>
+<DM name="FarEndNumber" val=""/>
+<DM name="RoundTripDelayPeak" val="0"/>
+<DM name="ReceiveInterarrivalJitterPeak" val="0"/>
+<DM name="FarEndInterarrivalJitterPeak" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LX"/>
+<DM name="ResetStatistics" val="0"/>
+<DM name="PacketsSent" val="0"/>
+<DM name="PacketsReceived" val="0"/>
+<DM name="BytesSent" val="0"/>
+<DM name="BytesReceived" val="0"/>
+<DM name="PacketsLost" val="0"/>
+<DM name="IncomingCallsReceived" val="0"/>
+<DM name="IncomingCallsAnswered" val="0"/>
+<DM name="IncomingCallsConnected" val="0"/>
+<DM name="IncomingCallsFailed" val="0"/>
+<DM name="OutgoingCallsAttempted" val="0"/>
+<DM name="OutgoingCallsAnswered" val="0"/>
+<DM name="OutgoingCallsConnected" val="0"/>
+<DM name="OutgoingCallsFailed" val="0"/>
+<DM name="TotalCallTime" val="0"/>
+<DM name="TotalCallCounts" val="0"/>
+<DM name="CurrentCallTime" val="0"/>
+<DM name="CallState" val="0"/>
+<DM name="Overruns" val="0"/>
+<DM name="Underruns" val="0"/>
+<DM name="CallsDropped" val="0"/>
+<DM name="ServerDownTime" val="0"/>
+<DM name="ReceivePacketLossRate" val="0"/>
+<DM name="FarEndPacketLossRate" val="0"/>
+<DM name="ReceiveInterarrivalJitter" val="0"/>
+<DM name="FarEndInterarrivalJitter" val="0"/>
+<DM name="RoundTripDelay" val="0"/>
+<DM name="AverageReceiveInterarrivalJitter" val="0"/>
+<DM name="AverageFarEndInterarrivalJitter" val="0"/>
+<DM name="AverageRoundTripDelay" val="0"/>
+<DM name="CallRole" val="0"/>
+<DM name="FarEndCID" val="0"/>
+<DM name="FarEndNumber" val=""/>
+<DM name="RoundTripDelayPeak" val="0"/>
+<DM name="ReceiveInterarrivalJitterPeak" val="0"/>
+<DM name="FarEndInterarrivalJitterPeak" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPLineHistoryCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LX"/>
+<DM name="ReceivePacketLossRate" val="0"/>
+<DM name="FarPacketLossRate" val="0"/>
+<DM name="RoundTripDelay" val="0"/>
+<DM name="RoundTripDelayPeak" val="0"/>
+<DM name="ReceiveInterarrivalJitter" val="0"/>
+<DM name="FarEndInterarrivalJitter" val="0"/>
+<DM name="ReceiveInterarrivalJitterPeak" val="0"/>
+<DM name="FarEndInterarrivalJitterPeak" val="0"/>
+<DM name="TotalCallCounts" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LX"/>
+<DM name="ReceivePacketLossRate" val="0"/>
+<DM name="FarPacketLossRate" val="0"/>
+<DM name="RoundTripDelay" val="0"/>
+<DM name="RoundTripDelayPeak" val="0"/>
+<DM name="ReceiveInterarrivalJitter" val="0"/>
+<DM name="FarEndInterarrivalJitter" val="0"/>
+<DM name="ReceiveInterarrivalJitterPeak" val="0"/>
+<DM name="FarEndInterarrivalJitterPeak" val="0"/>
+<DM name="TotalCallCounts" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPLineLastCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LW"/>
+<DM name="CallRole" val="0"/>
+<DM name="FarEndNumber" val=""/>
+<DM name="FarEndCID" val=""/>
+<DM name="ReceivePacketLossRate" val="0"/>
+<DM name="FarEndPacketLossRate" val="0"/>
+<DM name="RoundTripDelay" val="0"/>
+<DM name="RoundTripDelayPeak" val="0"/>
+<DM name="ReceiveInterarrivalJitter" val="0"/>
+<DM name="FarEndInterarrivalJitter" val="0"/>
+<DM name="ReceiveInterarrivalJitterPeak" val="0"/>
+<DM name="FarEndInterarrivalJitterPeak" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LW"/>
+<DM name="CallRole" val="0"/>
+<DM name="FarEndNumber" val=""/>
+<DM name="FarEndCID" val=""/>
+<DM name="ReceivePacketLossRate" val="0"/>
+<DM name="FarEndPacketLossRate" val="0"/>
+<DM name="RoundTripDelay" val="0"/>
+<DM name="RoundTripDelayPeak" val="0"/>
+<DM name="ReceiveInterarrivalJitter" val="0"/>
+<DM name="FarEndInterarrivalJitter" val="0"/>
+<DM name="ReceiveInterarrivalJitterPeak" val="0"/>
+<DM name="FarEndInterarrivalJitterPeak" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPHook" RowCount="5">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.HK1"/>
+<DM name="Supported" val="0"/>
+<DM name="ServiceID" val="536870912"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.HK2"/>
+<DM name="Supported" val="0"/>
+<DM name="ServiceID" val="536870912"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.HK3"/>
+<DM name="Supported" val="0"/>
+<DM name="ServiceID" val="536870912"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.HK4"/>
+<DM name="Supported" val="0"/>
+<DM name="ServiceID" val="536870912"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.SV.VS1.HK5"/>
+<DM name="Supported" val="0"/>
+<DM name="ServiceID" val="536870912"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPHookVPCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="DiffRing" val="0"/>
+<DM name="UnAccessTone" val="0"/>
+<DM name="IVRAccessCode" val="*#*"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPIVRPsd" RowCount="5">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.IVR1"/>
+<DM name="IVRPassword" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.IVR2"/>
+<DM name="IVRPassword" val=""/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.IVR3"/>
+<DM name="IVRPassword" val=""/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.IVR4"/>
+<DM name="IVRPassword" val=""/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.SV.VS1.IVR5"/>
+<DM name="IVRPassword" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVPNP" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VN"/>
+<DM name="NpMinDigit" val="1"/>
+<DM name="NpMaxDigit" val="40"/>
+<DM name="NpStdTimer" val="10000"/>
+<DM name="NpOpnTimer" val="5000"/>
+<DM name="NpFxoPrefix" val="*01*"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPVPNPPrefix" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val=""/>
+<DM name="Range" val="0-9"/>
+<DM name="MinNum" val="1"/>
+<DM name="MaxNum" val="30"/>
+<DM name="NumRem" val="0"/>
+<DM name="PosRem" val="0"/>
+<DM name="DefPort" val="2"/>
+<DM name="BakPort" val="0"/>
+<DM name="FacilityAction" val="0"/>
+<DM name="FacilityActionArgument" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VOIPVPNUMBERPROC" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1"/>
+<DM name="MatchNullStrFlag" val="0"/>
+<DM name="AddPrefix" val=""/>
+<DM name="AddPrefixNum" val=""/>
+<DM name="AddSuffix" val=""/>
+<DM name="AddSuffixNum" val=""/>
+<DM name="StripPrefix" val=""/>
+<DM name="StripPrefixNum" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VOIPVPSPEEDDIAL" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSD1"/>
+<DM name="AdFlag" val="0"/>
+<DM name="AdLittle" val=""/>
+<DM name="AdBig" val=""/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSD2"/>
+<DM name="AdFlag" val="0"/>
+<DM name="AdLittle" val=""/>
+<DM name="AdBig" val=""/>
+</Row>
+</Tbl>
+<Tbl name="VOIPVPCallFeature" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LF"/>
+<DM name="CallWaitingEnable" val="0"/>
+<DM name="AntiPole" val="1"/>
+<DM name="CallForwardUnconditionalEnable" val="0"/>
+<DM name="CallForwardUnconditionalNumber" val=""/>
+<DM name="CallForwardOnBusyEnable" val="0"/>
+<DM name="CallForwardOnBusyNumber" val=""/>
+<DM name="CallForwardOnNoAnswerEnable" val="0"/>
+<DM name="CallForwardOnNoAnswerNumber" val=""/>
+<DM name="CallForwardOnNoAnswerRingCount" val="0"/>
+<DM name="SoftSwitchUnconditionalEnable" val="0"/>
+<DM name="SoftSwitchOnBusyEnable" val="0"/>
+<DM name="SoftSwitchOnNoReachable" val="0"/>
+<DM name="OneNumber" val="0"/>
+<DM name="CidDisplayEnable" val="1"/>
+<DM name="CallerIDEnable" val="1"/>
+<DM name="CallerIDNameEnable" val="1"/>
+<DM name="CallerIDName" val="0"/>
+<DM name="MWIEnable" val="1"/>
+<DM name="MessageWaiting" val="0"/>
+<DM name="MCIDEnable" val="0"/>
+<DM name="CallHoldFlag" val="0"/>
+<DM name="CallTransfer" val="0"/>
+<DM name="3WayTalkingBySelf" val="0"/>
+<DM name="3WayTalkingBySS" val="0"/>
+<DM name="DoNotDisturbEnable" val="0"/>
+<DM name="AnonymousCallBlockEnable" val="0"/>
+<DM name="TTYDevice" val="0"/>
+<DM name="HotLine" val="0"/>
+<DM name="HLNumber" val=""/>
+<DM name="ConfUri" val=""/>
+<DM name="DialTonePattern" val="0"/>
+<DM name="CentrixToneFlag" val="0"/>
+<DM name="OffLineTonePattern" val="2"/>
+<DM name="WarningToneFlag" val="0"/>
+<DM name="SipDelayHookonFlag" val="0"/>
+<DM name="ServInfoReport" val="0"/>
+<DM name="SpecBusyToneFlag" val="0"/>
+<DM name="ReAccessIfPeerHookedOn" val="0"/>
+<DM name="ConfQuitTone" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LF"/>
+<DM name="CallWaitingEnable" val="0"/>
+<DM name="AntiPole" val="1"/>
+<DM name="CallForwardUnconditionalEnable" val="0"/>
+<DM name="CallForwardUnconditionalNumber" val=""/>
+<DM name="CallForwardOnBusyEnable" val="0"/>
+<DM name="CallForwardOnBusyNumber" val=""/>
+<DM name="CallForwardOnNoAnswerEnable" val="0"/>
+<DM name="CallForwardOnNoAnswerNumber" val=""/>
+<DM name="CallForwardOnNoAnswerRingCount" val="0"/>
+<DM name="SoftSwitchUnconditionalEnable" val="0"/>
+<DM name="SoftSwitchOnBusyEnable" val="0"/>
+<DM name="SoftSwitchOnNoReachable" val="0"/>
+<DM name="OneNumber" val="0"/>
+<DM name="CidDisplayEnable" val="1"/>
+<DM name="CallerIDEnable" val="1"/>
+<DM name="CallerIDNameEnable" val="1"/>
+<DM name="CallerIDName" val="0"/>
+<DM name="MWIEnable" val="1"/>
+<DM name="MessageWaiting" val="0"/>
+<DM name="MCIDEnable" val="0"/>
+<DM name="CallHoldFlag" val="0"/>
+<DM name="CallTransfer" val="0"/>
+<DM name="3WayTalkingBySelf" val="0"/>
+<DM name="3WayTalkingBySS" val="0"/>
+<DM name="DoNotDisturbEnable" val="0"/>
+<DM name="AnonymousCallBlockEnable" val="0"/>
+<DM name="TTYDevice" val="0"/>
+<DM name="HotLine" val="0"/>
+<DM name="HLNumber" val=""/>
+<DM name="ConfUri" val=""/>
+<DM name="DialTonePattern" val="0"/>
+<DM name="CentrixToneFlag" val="0"/>
+<DM name="OffLineTonePattern" val="2"/>
+<DM name="WarningToneFlag" val="0"/>
+<DM name="SipDelayHookonFlag" val="0"/>
+<DM name="ServInfoReport" val="0"/>
+<DM name="SpecBusyToneFlag" val="0"/>
+<DM name="ReAccessIfPeerHookedOn" val="0"/>
+<DM name="ConfQuitTone" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPVPSERVICEKEY" RowCount="30">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK1"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK2"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK3"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK4"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK5"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK6"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK7"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK8"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="8">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK9"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="9">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK10"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="10">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK11"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="11">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK12"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="12">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK13"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="13">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK14"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="14">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK15"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="15">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK16"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="16">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK17"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="17">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK18"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="18">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK19"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="19">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK20"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="20">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK21"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="21">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK22"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="22">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK23"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="23">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK24"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="24">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK25"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="25">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK26"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="26">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK27"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="27">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK28"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="28">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK29"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+<Row No="29">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VSK30"/>
+<DM name="ServFlag" val="0"/>
+<DM name="ServNumber" val=""/>
+<DM name="ServType" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPSimulateTest" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VY1.PT.PM"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VY2.PT.PM"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPCAP" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VC"/>
+<DM name="NumberingPlan" val="1"/>
+<DM name="DigitMap" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPPhyInterface" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VY1"/>
+<DM name="TermID" val="0"/>
+<DM name="Type" val="0"/>
+<DM name="AntiPoleProCancel" val="0"/>
+<DM name="InterfaceID" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VY2"/>
+<DM name="TermID" val="1"/>
+<DM name="Type" val="0"/>
+<DM name="AntiPoleProCancel" val="0"/>
+<DM name="InterfaceID" val="2"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPPhyCallFeature" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VY1.YC"/>
+<DM name="CallWaitingEnable" val="0"/>
+<DM name="CallForwardUnconditionalEnable" val="0"/>
+<DM name="CallForwardUnconditionalNumber" val=""/>
+<DM name="CallForwardOnBusyEnable" val="0"/>
+<DM name="CallForwardOnBusyNumber" val=""/>
+<DM name="CallForwardOnNoReachableEnable" val="0"/>
+<DM name="CallForwardOnNoReachableNumber" val=""/>
+<DM name="CallForwardOnNoAnswerEnable" val="0"/>
+<DM name="CallForwardOnNoAnswerNumber" val=""/>
+<DM name="CallForwardingOnNoAnswerTimer" val="2000"/>
+<DM name="CallTransferEnable" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VY2.YC"/>
+<DM name="CallWaitingEnable" val="0"/>
+<DM name="CallForwardUnconditionalEnable" val="0"/>
+<DM name="CallForwardUnconditionalNumber" val=""/>
+<DM name="CallForwardOnBusyEnable" val="0"/>
+<DM name="CallForwardOnBusyNumber" val=""/>
+<DM name="CallForwardOnNoReachableEnable" val="0"/>
+<DM name="CallForwardOnNoReachableNumber" val=""/>
+<DM name="CallForwardOnNoAnswerEnable" val="0"/>
+<DM name="CallForwardOnNoAnswerNumber" val=""/>
+<DM name="CallForwardingOnNoAnswerTimer" val="2000"/>
+<DM name="CallTransferEnable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPHomeLine" RowCount="6">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VHL1"/>
+<DM name="TermID" val="0"/>
+<DM name="Type" val="0"/>
+<DM name="Enable" val="1"/>
+<DM name="OutByWanId" val="0"/>
+<DM name="PhyNumber" val="*#00"/>
+<DM name="Password" val=""/>
+<DM name="DigitCache" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VHL2"/>
+<DM name="TermID" val="1"/>
+<DM name="Type" val="0"/>
+<DM name="Enable" val="1"/>
+<DM name="OutByWanId" val="1"/>
+<DM name="PhyNumber" val="*#01"/>
+<DM name="Password" val=""/>
+<DM name="DigitCache" val="1"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.SV.VS1.VHL3"/>
+<DM name="TermID" val="25000"/>
+<DM name="Type" val="2"/>
+<DM name="Enable" val="1"/>
+<DM name="OutByWanId" val="0"/>
+<DM name="PhyNumber" val=""/>
+<DM name="Password" val=""/>
+<DM name="DigitCache" val="1"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.SV.VS1.VHL4"/>
+<DM name="TermID" val="25001"/>
+<DM name="Type" val="2"/>
+<DM name="Enable" val="1"/>
+<DM name="OutByWanId" val="0"/>
+<DM name="PhyNumber" val=""/>
+<DM name="Password" val=""/>
+<DM name="DigitCache" val="1"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.SV.VS1.VHL5"/>
+<DM name="TermID" val="25002"/>
+<DM name="Type" val="2"/>
+<DM name="Enable" val="1"/>
+<DM name="OutByWanId" val="0"/>
+<DM name="PhyNumber" val=""/>
+<DM name="Password" val=""/>
+<DM name="DigitCache" val="1"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.SV.VS1.VHL6"/>
+<DM name="TermID" val="25003"/>
+<DM name="Type" val="2"/>
+<DM name="Enable" val="1"/>
+<DM name="OutByWanId" val="0"/>
+<DM name="PhyNumber" val=""/>
+<DM name="Password" val=""/>
+<DM name="DigitCache" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPVTCCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VTC"/>
+<DM name="DTMFTestTimer" val="200"/>
+<DM name="FXOHookOffTimer" val="200"/>
+<DM name="FXOHookOnTimer" val="200"/>
+<DM name="VTCDigit" val="8"/>
+<DM name="DTMFRepIntvTimer" val="50"/>
+</Row>
+</Tbl>
+<Tbl name="SrmCfg" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="0"/>
+<DM name="CpuLimit" val="95"/>
+<DM name="MemLimit" val="80"/>
+<DM name="Interval" val="500"/>
+<DM name="ContinueTime" val="300"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPH248MainCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VZ"/>
+<DM name="MGMIDType" val="0"/>
+<DM name="MGMID" val=""/>
+<DM name="LocalPort" val="2944"/>
+<DM name="MGCAddr1" val="0.0.0.0"/>
+<DM name="MGCPort1" val="2944"/>
+<DM name="MGCAddr2" val="0.0.0.0"/>
+<DM name="MGCPort2" val="2944"/>
+<DM name="ServiceChangeType" val="0"/>
+<DM name="RestartInterval" val="6000"/>
+<DM name="HeartBeatInterval" val="9000"/>
+<DM name="HeartBeatMessageType" val="2"/>
+<DM name="ThreeHandShake" val="1"/>
+<DM name="LongTimer" val="3000"/>
+<DM name="MaxExecTimer" val="3000"/>
+<DM name="PendingTimerInit" val="50"/>
+<DM name="MaxPendingTimes" val="3"/>
+<DM name="PendingType" val="1"/>
+<DM name="RetranIntervalTimer" val="50"/>
+<DM name="MaxRetranCount" val="6"/>
+<DM name="RetranTimerType" val="2"/>
+<DM name="AuthenticationMethID" val="0"/>
+<DM name="AuthMacFrom" val="0"/>
+<DM name="MD5AuthMGIDType" val="0"/>
+<DM name="MD5AuthMGID" val=""/>
+<DM name="InitPublicKey" val="0123456789ABCDEF"/>
+<DM name="DhPara_P" val="1"/>
+<DM name="DhPara_G" val="0"/>
+<DM name="PhysicalTermIDConfigMethod" val="0"/>
+<DM name="PhysicalTermIDPrefix" val="AG589"/>
+<DM name="PhysicalTermIDAddLen" val="2"/>
+<DM name="PhysicalTermIDStart" val="0"/>
+<DM name="EphemeralTermIDPrefix" val="RTP/"/>
+<DM name="EphemeralTermIDAddLen" val="5"/>
+<DM name="EphemeralTermIDUniform" val="1"/>
+<DM name="EphemeralTermIDStart" val="0"/>
+<DM name="DSCPMark" val="0"/>
+<DM name="QueueNum" val="15"/>
+<DM name="EthernetPriorityMark" val="-1"/>
+<DM name="RTPTIDNum" val="10"/>
+<DM name="RestartIntervalMin" val="1000"/>
+<DM name="RegMsgRetranTimer" val="400"/>
+<DM name="RegMsgRetranCount" val="6"/>
+<DM name="TotalRetranTime" val="2500"/>
+<DM name="RetranType" val="1"/>
+<DM name="ReRegTimerMin" val="100"/>
+<DM name="ReRegTimerMax" val="30000"/>
+<DM name="HeartBeatFailMax" val="1"/>
+<DM name="HeartBeatType" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPH248SubCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VZ"/>
+<DM name="TransPrtl" val="1"/>
+<DM name="Version" val="1"/>
+<DM name="CodecType" val="0"/>
+<DM name="ProfileVersion" val="1"/>
+<DM name="Profile" val="ZTE"/>
+<DM name="MessageAuthenticationMethod" val="0"/>
+<DM name="MessageAuthenticationAHParameter" val=""/>
+<DM name="MessageAuthenticationLen" val="0"/>
+<DM name="RootDefaultEventDes" val="E=0{it/ito{mit = 3000}}"/>
+<DM name="PhyDefaultEventDes" val="E=2000{al/of}"/>
+<DM name="DigitMapStarChar" val="69"/>
+<DM name="DigitMapPoundChar" val="70"/>
+<DM name="DigitMapLongTimer" val="2000"/>
+<DM name="DigitMapShortTimer" val="500"/>
+<DM name="DigitMapStartTimer" val="1000"/>
+<DM name="DigitMapZTimer" val="1000"/>
+<DM name="DefaultDigitmapDes" val="DigitMap = dialplan1{(1xx|10xx|123xx|12[79]x.|13xxxxxxxxx|1[45]Sx.|168xxxxx|17930|186x|19x.|[2-8][1-8]xxxxxx|[2-8]0xSx.|[2-8]9Sx.|9[01]xxxxxx|95xxx|99xx|010xxxSxxxxx|013xxxxxxxxx|02[0-478]xxxSxxxxx|02[59]xxxSxxxx|0[3-9]xxxxxSxxxx|0451xxxSxxxxx|0512xxxSxxxxx|057[147]xxxSxxxxx|0755xxxSxxxxx|0898xxxSxxxxx|00xxSx.|[EF]S[0-9E].F|EFxxF|FF)}"/>
+<DM name="VoiceParameterFrom" val="0"/>
+<DM name="ServiceChangeReasonType" val="1"/>
+<DM name="ServiceChangeTimestampType" val="1"/>
+<DM name="DSType" val="1"/>
+<DM name="RtpProtectType" val="0"/>
+<DM name="SDPO" val="0"/>
+<DM name="SDPS" val="0"/>
+<DM name="SDPT" val="0"/>
+<DM name="DigitMapShortMatch" val="0"/>
+<DM name="InterCtrl" val="0"/>
+<DM name="ActiveMGC" val="255"/>
+<DM name="isHavePortBody" val="1"/>
+<DM name="VerIdInServiceChange" val="1"/>
+<DM name="RegisterFlowType" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VoIPH248LineCfg" RowCount="2">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL1.LZ"/>
+<DM name="PhysicalTermID" val=""/>
+<DM name="RegStatus" val="0"/>
+<DM name="DNSStatus" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.SV.VS1.VP1.VL2.LZ"/>
+<DM name="PhysicalTermID" val=""/>
+<DM name="RegStatus" val="0"/>
+<DM name="DNSStatus" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPSLMTerm" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSLMWAN" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSLMGlobal" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSLMAD" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSLMSeviceKey" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSLMMedia" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSLMFaxMedia" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSLMVOIPCfg" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSrCommonConfigs" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSrTidConfigs" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSrGroupPrefix" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSrOfficeDiMap" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSrRouteDiMap" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSrBwListInf" RowCount="0">
+</Tbl>
+<Tbl name="VOIPCIDCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.CF"/>
+<DM name="CIDMode" val="1"/>
+<DM name="TimeEnable" val="2"/>
+<DM name="TimerDTMFPlay" val="30"/>
+<DM name="TimerDTMFInd" val="20"/>
+<DM name="TimerDTMFPolrev" val="20"/>
+<DM name="DTMFStdFlag" val="1"/>
+<DM name="CallerNameAsCIDNumber" val="0"/>
+<DM name="FskFrameType" val="0"/>
+<DM name="FskWaitForPlay" val="90"/>
+<DM name="RPASWaitForPlayFsk" val="70"/>
+<DM name="RPASWaitForPlayRing" val="30"/>
+<DM name="DTMFFirstCodeForCLI" val="0"/>
+<DM name="MWIWithRingFlag" val="0"/>
+<DM name="MWICacheFlag" val="0"/>
+<DM name="DTMFCIDLevel" val="10"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPDRSLC" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPToneRing" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPT38Fax" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPVoiceGainEc" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPVadCng" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPDTMF" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPTone" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPJitterBuffer" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPFaxModemTone" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPFaxT38More" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPCID" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPFaxModemCtrl" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPFaxVbd" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPModemVbd" RowCount="0">
+</Tbl>
+<Tbl name="VOIPDSPMisc" RowCount="0">
+</Tbl>
+<Tbl name="VOIPRcaCommon" RowCount="1">
+<Row No="0">
+<DM name="StTimer" val="1500"/>
+<DM name="SoTimer" val="400"/>
+<DM name="LoTimer" val="5000"/>
+<DM name="RtcpSummaryTimer" val="5"/>
+<DM name="RtcpSummaryKey" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPSIPWANLine" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSIPLANLine" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSIPTimerCfg" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSIPServerCfg" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSIPCfg" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSIPExtraCfg" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSIPEventCfg" RowCount="0">
+</Tbl>
+<Tbl name="VOIPSIPSupportedCfg" RowCount="1">
+<Row No="0">
+<DM name="SupportedFlag" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPCommTotal" RowCount="0">
+</Tbl>
+<Tbl name="VOIPCommTTY" RowCount="0">
+</Tbl>
+<Tbl name="VOIPCommPort" RowCount="0">
+</Tbl>
+<Tbl name="VOIPExt" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.EXT"/>
+<DM name="Interface" val=""/>
+<DM name="FaxVbdEnable" val="0"/>
+<DM name="ProtocolSet" val="4"/>
+<DM name="VoipAlarmFlag" val="0"/>
+<DM name="Opt120FlagControl" val="0"/>
+<DM name="Filter" val="1"/>
+<DM name="AddDomain" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="VOIPIVRPassword" RowCount="0">
+</Tbl>
+<Tbl name="VOIPHookCfg" RowCount="0">
+</Tbl>
+<Tbl name="PortPriority" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.PortPriority1"/>
+<DM name="Name" val="pt"/>
+<DM name="PortPriority" val="0"/>
+<DM name="Mode" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.PortPriority2"/>
+<DM name="Name" val="portmapp"/>
+<DM name="PortPriority" val="1"/>
+<DM name="Mode" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.PortPriority3"/>
+<DM name="Name" val="upnp"/>
+<DM name="PortPriority" val="2"/>
+<DM name="Mode" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.PortPriority4"/>
+<DM name="Name" val="dmzmapp"/>
+<DM name="PortPriority" val="3"/>
+<DM name="Mode" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="SambaCfg" RowCount="1">
+<Row No="0">
+<DM name="MaxConn" val="3"/>
+<DM name="NetbiosName" val="smbshare"/>
+<DM name="WorkGroup" val="workgroup"/>
+<DM name="AuthType" val="1"/>
+<DM name="UserName" val="samba"/>
+<DM name="PassWord" val="samba"/>
+<DM name="EnableSmb" val="0"/>
+<DM name="AutoRun" val="0"/>
+<DM name="GuestOk" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="TimePolicy" RowCount="3">
+<Row No="0">
+<DM name="ViewName" val="IGD.TpCfg0"/>
+<DM name="AppUser" val="1"/>
+<DM name="ExeMode" val="1"/>
+<DM name="Cycle1" val="1"/>
+<DM name="Cycle2" val="0"/>
+<DM name="Cycle3" val="0"/>
+<DM name="DefTime" val="1"/>
+<DM name="Date" val=""/>
+<DM name="RelTime1" val="0"/>
+<DM name="RelTime2" val="360"/>
+<DM name="ExePolicy" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.TpCfg1"/>
+<DM name="AppUser" val="1"/>
+<DM name="ExeMode" val="1"/>
+<DM name="Cycle1" val="1"/>
+<DM name="Cycle2" val="0"/>
+<DM name="Cycle3" val="0"/>
+<DM name="DefTime" val="1"/>
+<DM name="Date" val=""/>
+<DM name="RelTime1" val="360"/>
+<DM name="RelTime2" val="1440"/>
+<DM name="ExePolicy" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.TpCfg2"/>
+<DM name="AppUser" val="1"/>
+<DM name="ExeMode" val="1"/>
+<DM name="Cycle1" val="1"/>
+<DM name="Cycle2" val="0"/>
+<DM name="Cycle3" val="0"/>
+<DM name="DefTime" val="1"/>
+<DM name="Date" val=""/>
+<DM name="RelTime1" val="1440"/>
+<DM name="RelTime2" val="1440"/>
+<DM name="ExePolicy" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="WWanNet" RowCount="1">
+<Row No="0">
+<DM name="NetModeSelect" val="0"/>
+<DM name="PinRemEnable" val="0"/>
+<DM name="PinValue" val="1234"/>
+</Row>
+</Tbl>
+<Tbl name="DMSCfg" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="0"/>
+<DM name="DmsName" val="Media Server"/>
+<DM name="PathRoot" val="/mnt"/>
+<DM name="ContentList" val="/mnt"/>
+<DM name="RescanTime" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="IGMPWan" RowCount="0">
+</Tbl>
+<Tbl name="DHCP6SHostCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.HostCfg"/>
+<DM name="LANDViewName" val="IGD.LD1"/>
+<DM name="ServerEnable" val="1"/>
+<DM name="DnsRefreshTime" val="86400"/>
+<DM name="Prefer" val="7"/>
+<DM name="ConflictAddrHoldingTime" val="86400"/>
+<DM name="DomainName" val=""/>
+<DM name="EnableULA" val="0"/>
+<DM name="DnsServerSource" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="PrefixCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.PrefixCfg1"/>
+<DM name="Prefix" val="::"/>
+<DM name="PrefixLen" val="0"/>
+<DM name="Autoconf" val="1"/>
+<DM name="Onlink" val="1"/>
+<DM name="PreferLifetime" val="4294967295"/>
+<DM name="ValidLifetime" val="4294967295"/>
+<DM name="Delegation" val="3"/>
+<DM name="WorkIfID" val="IGD.LD1"/>
+<DM name="BindWanCID" val="IGD.WD1.WCD1.WCPPP2"/>
+<DM name="Source" val="2"/>
+<DM name="WanMask" val="0:0:0:1::"/>
+<DM name="WanMaskLen" val="64"/>
+<DM name="LanMask" val="::"/>
+<DM name="LanMaskLen" val="64"/>
+</Row>
+</Tbl>
+<Tbl name="PrefixIfDG" RowCount="0">
+</Tbl>
+<Tbl name="PrefixBanPort" RowCount="0">
+</Tbl>
+<Tbl name="RaCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.LD1.RACFG"/>
+<DM name="szRoutePortID" val="IGD.LD1"/>
+<DM name="dwMinTime" val="198"/>
+<DM name="dwMaxTime" val="600"/>
+<DM name="bMangment" val="0"/>
+<DM name="bOtherCfg" val="1"/>
+<DM name="dwReachTime" val="0"/>
+<DM name="dwRetranTime" val="0"/>
+<DM name="nHopLimit" val="255"/>
+<DM name="wRouteLifeTime" val="1800"/>
+<DM name="bIsVisual" val="1"/>
+<DM name="bState" val="115"/>
+</Row>
+</Tbl>
+<Tbl name="DSSCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.WD1.WCD1.WCPPP2.DSSCfg"/>
+<DM name="WANCViewName" val="IGD.WD1.WCD1.WCPPP2"/>
+<DM name="IsAuto" val="0"/>
+<DM name="GuaSrc" val="0"/>
+<DM name="GuaNum" val="0"/>
+<DM name="Gua1" val="::"/>
+<DM name="GuaPrefixLen" val="0"/>
+<DM name="Gua2" val="::"/>
+<DM name="Gua2PrefixLen" val="0"/>
+<DM name="Gua3" val="::"/>
+<DM name="Gua3PrefixLen" val="0"/>
+<DM name="DnsV6Src" val="3"/>
+<DM name="Dns1V6" val="::"/>
+<DM name="Dns2V6" val="::"/>
+<DM name="Dns3V6" val="::"/>
+<DM name="GatewayV6Src" val="0"/>
+<DM name="GatewayV6" val="::"/>
+<DM name="IsPd" val="0"/>
+<DM name="PdNum" val="0"/>
+<DM name="IsPdAddr" val="1"/>
+<DM name="LLA" val="::"/>
+<DM name="PrefixSrc" val="3"/>
+</Row>
+</Tbl>
+<Tbl name="MLDWan" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.MLDWan1"/>
+<DM name="WanCID" val=""/>
+<DM name="WanType" val="2"/>
+</Row>
+</Tbl>
+<Tbl name="MLDProxyCfg" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="0"/>
+<DM name="WanCID" val="0"/>
+<DM name="MldVersion" val="1"/>
+<DM name="WanServType" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="L3Forwarding6" RowCount="1">
+<Row No="0">
+<DM name="DefRTInterface" val=""/>
+<DM name="RTSum" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="L3ForwardingRT6" RowCount="0">
+</Tbl>
+<Tbl name="DevIPv6Ctrl" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="1"/>
+<DM name="AcceptDad" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="IPV6PRoute" RowCount="0">
+</Tbl>
+<Tbl name="TUNNEL46CFG" RowCount="0">
+</Tbl>
+<Tbl name="TUNNEL64CFG" RowCount="0">
+</Tbl>
+<Tbl name="PINGDiag" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.PINGDIAG.CFG1"/>
+</Row>
+</Tbl>
+<Tbl name="LoopbackGlobalConf" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.LOOPBACK.GLOBAL"/>
+<DM name="DMACAddr" val="ff:ff:ff:ff:ff:ff"/>
+<DM name="EtherType" val="34826"/>
+<DM name="SendInterval" val="250"/>
+<DM name="CheckInterval" val="15"/>
+<DM name="RenewTime" val="60"/>
+</Row>
+</Tbl>
+<Tbl name="LoopbackEthConf" RowCount="5">
+<Row No="0">
+<DM name="ViewName" val="IGD.LOOPBACK.ETH1"/>
+<DM name="PortID" val="IGD.LD1.ETH1"/>
+<DM name="LoopbackEn" val="1"/>
+<DM name="AlarmEn" val="1"/>
+<DM name="PortDisableEn" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.LOOPBACK.ETH2"/>
+<DM name="PortID" val="IGD.LD1.ETH2"/>
+<DM name="LoopbackEn" val="1"/>
+<DM name="AlarmEn" val="1"/>
+<DM name="PortDisableEn" val="1"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.LOOPBACK.ETH3"/>
+<DM name="PortID" val="IGD.LD1.ETH3"/>
+<DM name="LoopbackEn" val="1"/>
+<DM name="AlarmEn" val="1"/>
+<DM name="PortDisableEn" val="1"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.LOOPBACK.ETH4"/>
+<DM name="PortID" val="IGD.LD1.ETH4"/>
+<DM name="LoopbackEn" val="1"/>
+<DM name="AlarmEn" val="1"/>
+<DM name="PortDisableEn" val="1"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.LOOPBACK.ETH5"/>
+<DM name="PortID" val="IGD.LD1.WLAN1"/>
+<DM name="LoopbackEn" val="0"/>
+<DM name="AlarmEn" val="1"/>
+<DM name="PortDisableEn" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="LoopbackVlanConf" RowCount="0">
+</Tbl>
+<Tbl name="PortLocate" RowCount="1">
+<Row No="0">
+<DM name="DhcpEnable" val="0"/>
+<DM name="PppoeEnable" val="0"/>
+<DM name="Dhcpv6Enable" val="0"/>
+<DM name="PortLocateFormat" val="0 0/0/0:0.0 0/0/0/0/0/0/0 0/0/"/>
+<DM name="PortLocatev6Format" val="0 0/0/0:0.0 0/0/0/0/0/0/0 0/0/"/>
+<DM name="VendorInfoPPP" val="00000DE9"/>
+</Row>
+</Tbl>
+<Tbl name="EthLanMatch" RowCount="8">
+<Row No="0">
+<DM name="ViewName" val="IGD.ETH0"/>
+<DM name="EthPortName" val="eth0"/>
+<DM name="LanPortName" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.ETH1"/>
+<DM name="EthPortName" val="eth1"/>
+<DM name="LanPortName" val="2"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.ETH2"/>
+<DM name="EthPortName" val="eth2"/>
+<DM name="LanPortName" val="3"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.ETH3"/>
+<DM name="EthPortName" val="eth3"/>
+<DM name="LanPortName" val="4"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.ETH4"/>
+<DM name="EthPortName" val="eth4"/>
+<DM name="LanPortName" val="5"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.ETH5"/>
+<DM name="EthPortName" val="eth5"/>
+<DM name="LanPortName" val="6"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.ETH6"/>
+<DM name="EthPortName" val="eth6"/>
+<DM name="LanPortName" val="7"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.ETH7"/>
+<DM name="EthPortName" val="eth7"/>
+<DM name="LanPortName" val="8"/>
+</Row>
+</Tbl>
+<Tbl name="MultiCastGlobalConf" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.MCGLOBAL"/>
+<DM name="IgmpMode" val="1"/>
+<DM name="LeaveMode" val="1"/>
+<DM name="AgingTime" val="360"/>
+<DM name="QueryTime" val="100"/>
+<DM name="FloodEnable" val="0"/>
+<DM name="IgmpV1Enable" val="1"/>
+<DM name="IgmpV2Enable" val="1"/>
+<DM name="IgmpV3Enable" val="1"/>
+<DM name="MldV1Enable" val="1"/>
+<DM name="MldV2Enable" val="1"/>
+<DM name="WancID" val=""/>
+<DM name="MldMode" val="1"/>
+<DM name="NonFastLeaveMode" val="1"/>
+<DM name="IfIgmpSendQry" val="1"/>
+<DM name="IfIgmpMtoU" val="1"/>
+<DM name="IgmpQryVer" val="2"/>
+<DM name="IfMldSendQry" val="1"/>
+<DM name="IfMldMtoU" val="1"/>
+<DM name="AddMacVlanMode" val="0"/>
+<DM name="CTCEnalbe" val="0"/>
+<DM name="MulticastMode" val="1"/>
+<DM name="IGMPQryMtoU" val="1"/>
+<DM name="MLDQryMtoU" val="1"/>
+<DM name="Version" val="3005"/>
+<DM name="PccwIgmpLeaveEnable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="MultiCastPortConf" RowCount="8">
+<Row No="0">
+<DM name="ViewName" val="IGD.MCPORT1"/>
+<DM name="PortViewName" val="IGD.LD1.WLAN1"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="IgmpV4PortEnable" val="1"/>
+<DM name="MldV6PortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="1024"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.MCPORT2"/>
+<DM name="PortViewName" val="IGD.LD1.WLAN2"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="IgmpV4PortEnable" val="1"/>
+<DM name="MldV6PortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="1024"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.MCPORT3"/>
+<DM name="PortViewName" val="IGD.LD1.WLAN3"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="IgmpV4PortEnable" val="1"/>
+<DM name="MldV6PortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="1024"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.MCPORT4"/>
+<DM name="PortViewName" val="IGD.LD1.WLAN4"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="IgmpV4PortEnable" val="1"/>
+<DM name="MldV6PortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="1024"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.MCPORT5"/>
+<DM name="PortViewName" val="IGD.LD1.ETH1"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="IgmpV4PortEnable" val="1"/>
+<DM name="MldV6PortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="1024"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.MCPORT6"/>
+<DM name="PortViewName" val="IGD.LD1.ETH2"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="IgmpV4PortEnable" val="1"/>
+<DM name="MldV6PortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="1024"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.MCPORT7"/>
+<DM name="PortViewName" val="IGD.LD1.ETH3"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="IgmpV4PortEnable" val="1"/>
+<DM name="MldV6PortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="1024"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.MCPORT8"/>
+<DM name="PortViewName" val="IGD.LD1.ETH4"/>
+<DM name="IgmpPortEnable" val="1"/>
+<DM name="IgmpV4PortEnable" val="1"/>
+<DM name="MldV6PortEnable" val="1"/>
+<DM name="TagStrip" val="0"/>
+<DM name="MaxNodeNum" val="1024"/>
+<DM name="MaxBandWidth" val="0"/>
+<DM name="TrapUnknowReportEn" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="MultiCastSpecialGroup" RowCount="0">
+</Tbl>
+<Tbl name="MultiCastMvlanConf" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.MCPORT8.MCMVLAN1"/>
+<DM name="PortViewName" val="IGD.LD1.ETH4"/>
+<DM name="MultSrcVid" val="12"/>
+<DM name="MultDstVid" val="12"/>
+<DM name="MediumFlg" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="MultiCastAbility" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.MCABILITY"/>
+<DM name="MaxNodeNum" val="1024"/>
+</Row>
+</Tbl>
+<Tbl name="MultiCastCustomConf" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.MCCUSTOM1"/>
+<DM name="PortName" val="eth0"/>
+<DM name="Mvlan" val="1"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.MCCUSTOM2"/>
+<DM name="PortName" val="eth1"/>
+<DM name="Mvlan" val="2"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.MCCUSTOM3"/>
+<DM name="PortName" val="eth2"/>
+<DM name="Mvlan" val="3"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.MCCUSTOM4"/>
+<DM name="PortName" val="eth3"/>
+<DM name="Mvlan" val="4"/>
+</Row>
+</Tbl>
+<Tbl name="PPPJumboCfg" RowCount="1">
+<Row No="0">
+<DM name="Enable" val="0"/>
+<DM name="MaxPayload" val="1500"/>
+<DM name="ForceEnable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="WebSkinInfo" RowCount="1">
+<Row No="0">
+</Row>
+</Tbl>
+<Tbl name="DownLoadDiag" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.DOWNLOADDIAG.CFG"/>
+</Row>
+</Tbl>
+<Tbl name="UpLoadDiag" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.UPLOADDIAG.CFG"/>
+</Row>
+</Tbl>
+<Tbl name="TimeSynInfo" RowCount="1">
+<Row No="0">
+</Row>
+</Tbl>
+<Tbl name="QuickPPPConf" RowCount="1">
+<Row No="0">
+<DM name="UserName" val=""/>
+<DM name="PassWord" val=""/>
+</Row>
+</Tbl>
+<Tbl name="MultiNat" RowCount="0">
+</Tbl>
+<Tbl name="VoIPSLCCfg" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.SV.VS1.VR"/>
+<DM name="PortVoltage" val="48"/>
+<DM name="PortCurrent" val="25"/>
+<DM name="RingVoltage" val="75"/>
+<DM name="LineOpen100msEn" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="FalsifyDefend" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.FalsifyDefend"/>
+<DM name="CurFalsifyInfo" val="0"/>
+<DM name="PonSetInfoType" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="OPTICAL" RowCount="1">
+<Row No="0">
+<DM name="TempHighAlarm" val="127000"/>
+<DM name="TempLowAlarm" val="-127000"/>
+<DM name="TempHighAlarmResume" val="120000"/>
+<DM name="TempLowAlarmResume" val="-120000"/>
+<DM name="TempHighAlarmCtr" val="0"/>
+<DM name="TempLowAlarmCtr" val="0"/>
+<DM name="comp1" val="0"/>
+<DM name="comp2" val="0"/>
+<DM name="comp3" val="0"/>
+<DM name="comp4" val="0"/>
+<DM name="comp5" val="0"/>
+<DM name="Tcomp1" val="0"/>
+<DM name="Tcomp2" val="0"/>
+<DM name="Tcomp3" val="0"/>
+<DM name="Tcomp4" val="0"/>
+<DM name="Tcomp5" val="0"/>
+<DM name="Rcomp1" val="0"/>
+<DM name="Rcomp2" val="0"/>
+<DM name="Rcomp3" val="0"/>
+<DM name="Rcomp4" val="0"/>
+<DM name="Rcomp5" val="0"/>
+<DM name="OptiCompensateCtrl" val="0"/>
+<DM name="Convenecontrl" val="0"/>
+<DM name="ReadConvenecontrl" val="0"/>
+<DM name="CatvState" val="1"/>
+<DM name="AgcSetting" val="0"/>
+<DM name="Alias" val="cpe-optical"/>
+<DM name="PollingInterval" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="PdtLDAR" RowCount="8">
+<Row No="0">
+<DM name="ViewName" val="IGD.Ldar1"/>
+<DM name="BrPortName" val="eth0"/>
+<DM name="Rule" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.Ldar2"/>
+<DM name="BrPortName" val="eth1"/>
+<DM name="Rule" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.Ldar3"/>
+<DM name="BrPortName" val="eth2"/>
+<DM name="Rule" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.Ldar4"/>
+<DM name="BrPortName" val="eth3"/>
+<DM name="Rule" val="2"/>
+</Row>
+<Row No="4">
+<DM name="ViewName" val="IGD.Ldar5"/>
+<DM name="BrPortName" val="wlan0"/>
+<DM name="Rule" val="0"/>
+</Row>
+<Row No="5">
+<DM name="ViewName" val="IGD.Ldar6"/>
+<DM name="BrPortName" val="wlan1"/>
+<DM name="Rule" val="0"/>
+</Row>
+<Row No="6">
+<DM name="ViewName" val="IGD.Ldar7"/>
+<DM name="BrPortName" val="wlan2"/>
+<DM name="Rule" val="0"/>
+</Row>
+<Row No="7">
+<DM name="ViewName" val="IGD.Ldar8"/>
+<DM name="BrPortName" val="wlan3"/>
+<DM name="Rule" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="USBPrinterButton" RowCount="1">
+<Row No="0">
+<DM name="UsbPrinterEnable" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="HLTInfo" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.HLTInfo"/>
+<DM name="HLTTime" val="5"/>
+<DM name="RebootCount" val="25"/>
+<DM name="HltCurrent" val="0"/>
+<DM name="LanThreshold" val="3"/>
+<DM name="LanPort" val="1,2,3,4"/>
+<DM name="PotsThreshold" val="3"/>
+<DM name="ResultFlag" val="0"/>
+<DM name="FristFail" val="0"/>
+<DM name="PotsMaxSerialFails" val="0"/>
+<DM name="PotsTestCount" val="0"/>
+<DM name="PotsTestFails" val="0"/>
+<DM name="PotsTestSuccess" val="0"/>
+<DM name="PotsTestBERCount" val="0"/>
+<DM name="PotsTestDropCount" val="0"/>
+<DM name="PotsCountThreshold" val="10"/>
+<DM name="VOIPSuccess" val="0"/>
+<DM name="VOIPAllDrop" val="0"/>
+<DM name="VOIPPartDrop" val="0"/>
+<DM name="LanCountThreshold" val="10"/>
+<DM name="WlanThreshold" val="3"/>
+</Row>
+</Tbl>
+<Tbl name="HLTLanStatInfo" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.HLTLanStatInfo1"/>
+<DM name="LanTestCount" val="0"/>
+<DM name="LanTestSuccess" val="0"/>
+<DM name="LanTestFails" val="0"/>
+<DM name="LanMaxSerialFails" val="0"/>
+<DM name="LanSendPkts" val="0"/>
+<DM name="LanRecvPkts" val="0"/>
+<DM name="LanErrorPkts" val="0"/>
+<DM name="LanDropPkts" val="0"/>
+<DM name="LanSuccess" val="0"/>
+<DM name="LanAllDrop" val="0"/>
+<DM name="LanPartDrop" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.HLTLanStatInfo2"/>
+<DM name="LanTestCount" val="0"/>
+<DM name="LanTestSuccess" val="0"/>
+<DM name="LanTestFails" val="0"/>
+<DM name="LanMaxSerialFails" val="0"/>
+<DM name="LanSendPkts" val="0"/>
+<DM name="LanRecvPkts" val="0"/>
+<DM name="LanErrorPkts" val="0"/>
+<DM name="LanDropPkts" val="0"/>
+<DM name="LanSuccess" val="0"/>
+<DM name="LanAllDrop" val="0"/>
+<DM name="LanPartDrop" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.HLTLanStatInfo3"/>
+<DM name="LanTestCount" val="0"/>
+<DM name="LanTestSuccess" val="0"/>
+<DM name="LanTestFails" val="0"/>
+<DM name="LanMaxSerialFails" val="0"/>
+<DM name="LanSendPkts" val="0"/>
+<DM name="LanRecvPkts" val="0"/>
+<DM name="LanErrorPkts" val="0"/>
+<DM name="LanDropPkts" val="0"/>
+<DM name="LanSuccess" val="0"/>
+<DM name="LanAllDrop" val="0"/>
+<DM name="LanPartDrop" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.HLTLanStatInfo4"/>
+<DM name="LanTestCount" val="0"/>
+<DM name="LanTestSuccess" val="0"/>
+<DM name="LanTestFails" val="0"/>
+<DM name="LanMaxSerialFails" val="0"/>
+<DM name="LanSendPkts" val="0"/>
+<DM name="LanRecvPkts" val="0"/>
+<DM name="LanErrorPkts" val="0"/>
+<DM name="LanDropPkts" val="0"/>
+<DM name="LanSuccess" val="0"/>
+<DM name="LanAllDrop" val="0"/>
+<DM name="LanPartDrop" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="HistoryHLTInfo" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.HistoryHLTInfo"/>
+<DM name="HLTTime" val="0"/>
+<DM name="RebootCount" val="0"/>
+<DM name="HltCurrent" val="0"/>
+<DM name="LanThreshold" val="0"/>
+<DM name="LanPort" val="0"/>
+<DM name="PotsThreshold" val="0"/>
+<DM name="ResultFlag" val="0"/>
+<DM name="FristFail" val="0"/>
+<DM name="PotsMaxSerialFails" val="0"/>
+<DM name="PotsTestCount" val="0"/>
+<DM name="PotsTestFails" val="0"/>
+<DM name="PotsTestSuccess" val="0"/>
+<DM name="PotsTestBERCount" val="0"/>
+<DM name="PotsTestDropCount" val="0"/>
+<DM name="PotsCountThreshold" val="0"/>
+<DM name="VOIPSuccess" val="0"/>
+<DM name="VOIPAllDrop" val="0"/>
+<DM name="VOIPPartDrop" val="0"/>
+<DM name="LanCountThreshold" val="0"/>
+<DM name="WlanThreshold" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="HistoryHLTLanStatInfo" RowCount="4">
+<Row No="0">
+<DM name="ViewName" val="IGD.HistoryHLTLanStatInfo1"/>
+<DM name="LanTestCount" val="0"/>
+<DM name="LanTestSuccess" val="0"/>
+<DM name="LanTestFails" val="0"/>
+<DM name="LanMaxSerialFails" val="0"/>
+<DM name="LanSendPkts" val="0"/>
+<DM name="LanRecvPkts" val="0"/>
+<DM name="LanErrorPkts" val="0"/>
+<DM name="LanDropPkts" val="0"/>
+<DM name="LanSuccess" val="0"/>
+<DM name="LanAllDrop" val="0"/>
+<DM name="LanPartDrop" val="0"/>
+</Row>
+<Row No="1">
+<DM name="ViewName" val="IGD.HistoryHLTLanStatInfo2"/>
+<DM name="LanTestCount" val="0"/>
+<DM name="LanTestSuccess" val="0"/>
+<DM name="LanTestFails" val="0"/>
+<DM name="LanMaxSerialFails" val="0"/>
+<DM name="LanSendPkts" val="0"/>
+<DM name="LanRecvPkts" val="0"/>
+<DM name="LanErrorPkts" val="0"/>
+<DM name="LanDropPkts" val="0"/>
+<DM name="LanSuccess" val="0"/>
+<DM name="LanAllDrop" val="0"/>
+<DM name="LanPartDrop" val="0"/>
+</Row>
+<Row No="2">
+<DM name="ViewName" val="IGD.HistoryHLTLanStatInfo3"/>
+<DM name="LanTestCount" val="0"/>
+<DM name="LanTestSuccess" val="0"/>
+<DM name="LanTestFails" val="0"/>
+<DM name="LanMaxSerialFails" val="0"/>
+<DM name="LanSendPkts" val="0"/>
+<DM name="LanRecvPkts" val="0"/>
+<DM name="LanErrorPkts" val="0"/>
+<DM name="LanDropPkts" val="0"/>
+<DM name="LanSuccess" val="0"/>
+<DM name="LanAllDrop" val="0"/>
+<DM name="LanPartDrop" val="0"/>
+</Row>
+<Row No="3">
+<DM name="ViewName" val="IGD.HistoryHLTLanStatInfo4"/>
+<DM name="LanTestCount" val="0"/>
+<DM name="LanTestSuccess" val="0"/>
+<DM name="LanTestFails" val="0"/>
+<DM name="LanMaxSerialFails" val="0"/>
+<DM name="LanSendPkts" val="0"/>
+<DM name="LanRecvPkts" val="0"/>
+<DM name="LanErrorPkts" val="0"/>
+<DM name="LanDropPkts" val="0"/>
+<DM name="LanSuccess" val="0"/>
+<DM name="LanAllDrop" val="0"/>
+<DM name="LanPartDrop" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="HLTCtl" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.HLTCtl"/>
+<DM name="LANCtl" val="1"/>
+<DM name="VOIPCtl" val="1"/>
+<DM name="WLANCtl" val="1"/>
+</Row>
+</Tbl>
+<Tbl name="GPONCFG" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.GPON"/>
+</Row>
+</Tbl>
+<Tbl name="TCONT" RowCount="9">
+<Row No="0">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+<Row No="1">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+<Row No="2">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+<Row No="3">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+<Row No="4">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+<Row No="5">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+<Row No="6">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+<Row No="7">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+<Row No="8">
+<DM name="Pqinfo" val="0"/>
+<DM name="Policy" val="0"/>
+</Row>
+</Tbl>
+<Tbl name="OMCICFG" RowCount="1">
+<Row No="0">
+<DM name="ViewName" val="IGD.OMCICFG"/>
+<DM name="LogSwitch" val="0"/>
+<DM name="extend1" val="0"/>
+<DM name="extend2" val="0"/>
+<DM name="extend3" val="0"/>
+<DM name="extend4" val="0"/>
+<DM name="extend5" val="0"/>
+<DM name="extend6" val="0"/>
+<DM name="extend7" val="0"/>
+<DM name="continfo1" val="0"/>
+<DM name="continfo2" val="0"/>
+<DM name="continfo3" val="0"/>
+<DM name="continfo4" val="0"/>
+<DM name="continfo5" val="0"/>
+<DM name="continfo6" val="0"/>
+<DM name="continfo7" val="0"/>
+<DM name="continfo8" val="0"/>
+<DM name="extend8" val="0"/>
+<DM name="extend9" val="0"/>
+<DM name="extend10" val="0"/>
+<DM name="extend11" val="0"/>
+<DM name="extend12" val="0"/>
+</Row>
+</Tbl>
+</DB>
