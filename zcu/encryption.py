@@ -2,7 +2,7 @@
 
 import struct
 from io import BytesIO
-from Crypto.Cipher import AES
+from Cryptodome.Cipher import AES
 
 from . import constants
 
@@ -24,7 +24,7 @@ def aes_decrypt(cipher, aes_key):
         if aes_chunk[2] == 0:
             break
     encrypted_data.seek(0)
-    aes_cipher = AES.new(aes_key)
+    aes_cipher = AES.new(aes_key, AES.MODE_ECB)
     decrypted_data = BytesIO()
     decrypted_data.write(aes_cipher.decrypt(encrypted_data.read()))
 
@@ -56,7 +56,7 @@ def aes_encrypt(infile, aes_key, chunk_size):
     if len(data) % 16 > 0:
         data = data + (16 - len(data) % 16)*b'\0'
 
-    encrypted_data = AES.new(aes_key).encrypt(data)
+    encrypted_data = AES.new(aes_key, AES.MODE_ECB).encrypt(data)
     encrypted_data_length = len(encrypted_data)
 
     header = struct.pack('>6I',
