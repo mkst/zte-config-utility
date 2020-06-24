@@ -22,6 +22,8 @@ def main():
                         help='payload type (0=compressed, 2=compressed+encrypted)')
     parser.add_argument('--version', type=int, default=2, choices=[1, 2],
                         help='payload version (1=unknown, 2=unknown)')
+    parser.add_argument('--include-unencrypted-length', action='store_true',
+                        help='include unencrypted length in header (default No)')
 
     args = parser.parse_args()
 
@@ -32,13 +34,14 @@ def main():
     chunk_size = args.chunk_size
     payload_type = args.payload_type
     version = args.version << 16
+    include_unencrypted_length = args.include_unencrypted_length
 
-    payload_data = zcu.compression.compress(infile, chunk_size)
+    data = zcu.compression.compress(infile, chunk_size)
 
     if payload_type == 2:
-        payload_data = zcu.encryption.aes_encrypt(payload_data, key, chunk_size)
+        data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length)
 
-    encoded = zcu.zte.add_header(payload_data, signature, payload_type, version)
+    encoded = zcu.zte.add_header(data, signature, payload_type, version)
     outfile.write(encoded.read())
 
 if __name__ == '__main__':
