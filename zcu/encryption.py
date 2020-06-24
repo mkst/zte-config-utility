@@ -32,7 +32,7 @@ def aes_decrypt(cipher, aes_key):
     return decrypted_data
 
 
-def aes_encrypt(infile, aes_key, chunk_size):
+def aes_encrypt(infile, aes_key, chunk_size, include_unencrypted_length=False):
     """encrypt and add header
 
     A 'block' consists of a 60 byte (15x4-byte INT) header followed by
@@ -41,7 +41,7 @@ def aes_encrypt(infile, aes_key, chunk_size):
     HEADER
         [XXXX] Magic number '0x04030201'
         [XXXX] Payload type, 2 = AES
-        [XXXX] N/A, 0
+        [XXXX] Unencrypted length
         [XXXX] 'block' size (including header)
         [XXXX] Chunk size
         [XXXX....] 40 bytes of padding
@@ -62,7 +62,7 @@ def aes_encrypt(infile, aes_key, chunk_size):
     header = struct.pack('>6I',
                          constants.PAYLOAD_MAGIC,
                          2,  # aes
-                         0,
+                         encrypted_data_length if include_unencrypted_length else 0,
                          encrypted_data_length + 60 + 12,
                          chunk_size,
                          0)

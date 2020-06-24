@@ -10,6 +10,7 @@ def print_payload_info(infile):
     signature = zcu.zte.read_signature(infile)
     payload_header = zcu.zte.read_payload(infile)
     assert payload_header[0] == zcu.constants.PAYLOAD_MAGIC
+    payload_start = infile.tell()
     payload_type = payload_header[1]
     if payload_type == 0:
         payload_type_friendly = "(ZLIB)"
@@ -30,6 +31,7 @@ def print_payload_info(infile):
         print("Signature:         ", signature.decode('utf-8'))
 
     print("Payload Type:      ", payload_type, payload_type_friendly)
+    print("Payload Start:     ", payload_start)
     print("Decompressed size: ", payload_length, "bytes")
     print("2nd last chunk:    ", penultimate_chunk)
     print("Chunk size:        ", payload_chunk_size, "bytes")
