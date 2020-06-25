@@ -34,7 +34,7 @@ class TestEncryptionMethods(unittest.TestCase):
         with open(self.ZXHN_H168N_V31_config, 'rb') as infile:
             infile.seek(215)
             res = zcu.encryption.aes_decrypt(infile, self.ZXHN_H168N_V31_key)
-            self.assertEqual(8704, len(res.read()))
+            self.assertEqual(8672, len(res.read()))
 
     def test_zxhn_h298n_encryption(self):
         with open(self.ZXHN_H298N_zlib, 'rb') as infile:
@@ -68,12 +68,12 @@ class TestEncryptionMethods(unittest.TestCase):
             header = struct.unpack('>15I', data.read(60))
             self.assertEqual(0x01020304, header[0])   # magic
             self.assertEqual(2, header[1])            # aes
-            self.assertEqual(8704, header[2])         # unencrypted size
-            self.assertEqual(8776, header[3])         # payload + header size
+            self.assertEqual(8672, header[2])         # unencrypted size
+            self.assertEqual(8744, header[3])         # payload + header size
             self.assertEqual(65536, header[4])        # block size
             self.assertEqual(0, header[5])            # data crc (n/a)
             self.assertEqual(0, header[6])            # header crc
-            self.assertEqual(8716, len(data.read()))  # payload without header
+            self.assertEqual(8684, len(data.read()))  # payload without header
 
 if __name__ == '__main__':
     unittest.main()
