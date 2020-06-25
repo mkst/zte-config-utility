@@ -427,8 +427,8 @@
 <Tbl name="WANCPPP" RowCount="2">
 <Row No="0">
 <DM name="ViewName" val="IGD.WD1.WCD1.WCPPP1"/>
-<DM name="UserName" val="b.xasapakh7449@tellas.gr"/>
-<DM name="Password" val="2102236378"/>
+<DM name="UserName" val="xxxxxxxxxxxxxx@tellas.gr"/>
+<DM name="Password" val="xxxxxxxxxx"/>
 <DM name="ConnTrigger" val="0"/>
 <DM name="AuthType" val="0"/>
 <DM name="IdleTime" val="1200"/>
@@ -459,8 +459,8 @@
 </Row>
 <Row No="1">
 <DM name="ViewName" val="IGD.WD1.WCD2.WCPPP1"/>
-<DM name="UserName" val="b.xasapakh7449@tellas.gr"/>
-<DM name="Password" val="2102236378"/>
+<DM name="UserName" val="xxxxxxxxxxxxxx@tellas.gr"/>
+<DM name="Password" val="xxxxxxxxxx"/>
 <DM name="ConnTrigger" val="0"/>
 <DM name="AuthType" val="0"/>
 <DM name="IdleTime" val="1200"/>
@@ -1062,7 +1062,7 @@
 <DM name="ViewName" val="IGD.LD1.WLAN1.PSK1"/>
 <DM name="WLANViewName" val=""/>
 <DM name="PreSharedKey" val=""/>
-<DM name="KeyPassphrase" val="d66b66f93f99"/>
+<DM name="KeyPassphrase" val="xxxxxxxxxxxx"/>
 </Row>
 <Row No="1">
 <DM name="ViewName" val="IGD.LD1.WLAN2.PSK1"/>
@@ -1297,7 +1297,7 @@
 <DM name="Enable" val="1"/>
 <DM name="AppID" val="1"/>
 <DM name="User" val="admin"/>
-<DM name="Pass" val="jim39bar"/>
+<DM name="Pass" val="xxxxxxxx"/>
 <DM name="Level" val="2"/>
 <DM name="ChgPwd" val="0"/>
 <DM name="AccessIP" val="192.168.10.1"/>
