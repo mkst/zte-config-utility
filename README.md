@@ -36,6 +36,15 @@ $ md5sum resources/F600W.bin resources/F600W.NEW.bin
 a6ac0e5e04f705b54747c30f80dfd4ba  resources/F600W.bin
 a6ac0e5e04f705b54747c30f80dfd4ba  resources/F600W.NEW.bin
 ```
+### Decode/Encode `config.bin` from a digimobil ZXHN H298A router
+
+You can find the serial number in the web interface of the router, in the
+"Management & Diagnosis" tab.
+
+```sh
+$ python3 examples/decode.py --serial ZTEXXXXXXXXXXXX config.bin config.xml
+$ python3 examples/encode.py --serial ZTEXXXXXXXXXXXX --signature 'ZXHN H298A V1.0' config.xml config.bin
+```
 
 ### Grab 'signature' from a `config.bin`
 ```sh

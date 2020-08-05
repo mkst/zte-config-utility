@@ -13,7 +13,7 @@ def digi_key(serial):
     plain_iv = constants.DIGIMOBIL_BASE_IV + serial
     key = sha256(plain_key.encode('utf-8')).digest()
     iv = sha256(plain_iv.encode('utf-8')).digest()
-    return (key,iv)
+    return (key, iv)
 
 def aes_decrypt(cipher, aes_key, is_digi=False):
     """decrypt a block
