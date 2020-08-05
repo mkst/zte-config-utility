@@ -9,13 +9,13 @@ from . import constants
 
 
 def digi_key(serial):
-    plain_k = constants.BASE_K + serial
-    plain_v = constants.BASE_V + serial
-    k = sha256(plain_k.encode('utf-8')).digest()
-    v = sha256(plain_v.encode('utf-8')).digest()
-    return (k,v)
+    plain_key = constants.DIGIMOBIL_BASE_KEY + serial
+    plain_iv = constants.DIGIMOBIL_BASE_IV + serial
+    key = sha256(plain_key.encode('utf-8')).digest()
+    iv = sha256(plain_iv.encode('utf-8')).digest()
+    return (key,iv)
 
-def aes_decrypt(cipher, aes_key, digi):
+def aes_decrypt(cipher, aes_key, digi=False):
     """decrypt a block
     A 'block' consists of a 12 byte (3x4-byte INT) header and an AES payload
     HEADER
@@ -30,17 +30,14 @@ def aes_decrypt(cipher, aes_key, digi):
         aes_chunk = struct.unpack('>3I', cipher.read(12))
         # aes_chunk[0] -> length not padded
         # aes_chunk[1] -> padded length
-        if digi:
-          chunk_size=aes_chunk[1]
-        else:
-          chunk_size=aes_chunk[0]
+        chunk_size = aes_chunk[1] if digi else aes_chunk[0]
         encrypted_data.write(cipher.read(chunk_size))
         if aes_chunk[2] == 0:
             break
     encrypted_data.seek(0)
     if digi:
-        (k, v) = digi_key(aes_key)
-        aes_cipher = AES.new(k, AES.MODE_CBC, v[:16])
+        (key, iv) = digi_key(aes_key)
+        aes_cipher = AES.new(key, AES.MODE_CBC, iv[:16])
     else:
         aes_cipher = AES.new(aes_key, AES.MODE_ECB)
     decrypted_data = BytesIO()
@@ -50,7 +47,7 @@ def aes_decrypt(cipher, aes_key, digi):
     return decrypted_data
 
 
-def aes_encrypt(infile, aes_key, chunk_size, digi, include_unencrypted_length=False):
+def aes_encrypt(infile, aes_key, chunk_size, digi=False, include_unencrypted_length=False):
     """encrypt and add header
 
     A 'block' consists of a 60 byte (15x4-byte INT) header followed by
@@ -75,8 +72,8 @@ def aes_encrypt(infile, aes_key, chunk_size, digi, include_unencrypted_length=Fa
         data = data + (16 - len(data) % 16)*b'\0'
 
     if digi:
-        (k, v) = digi_key(aes_key)
-        encrypted_data = AES.new(k, AES.MODE_CBC, v[:16]).encrypt(data)
+        (key, iv) = digi_key(aes_key)
+        encrypted_data = AES.new(key, AES.MODE_CBC, iv[:16]).encrypt(data)
     else:
         encrypted_data = AES.new(aes_key, AES.MODE_ECB).encrypt(data)
     encrypted_data_length = len(encrypted_data)

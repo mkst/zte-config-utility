@@ -31,7 +31,7 @@ def main():
     zcu.zte.read_header(infile)
     zcu.zte.read_signature(infile)
     payload_type = zcu.zte.read_payload_type(infile)
-    if payload_type == 2 or payload_type ==4:
+    if payload_type in [2,4]:
         infile = zcu.encryption.aes_decrypt(infile, key, digi)
         payload_type = zcu.zte.read_payload_type(infile)
     res, _ = zcu.compression.decompress(infile)
