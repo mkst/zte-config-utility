@@ -20,10 +20,10 @@ def main():
 
     if args.serial:
         key = args.serial
-        digi = True
+        is_digi = True
     else:
         key = args.key.ljust(16, b'\0')[:16]
-        digi = False
+        is_digi = False
 
     infile = args.infile
     outfile = args.outfile
@@ -32,7 +32,7 @@ def main():
     zcu.zte.read_signature(infile)
     payload_type = zcu.zte.read_payload_type(infile)
     if payload_type in [2,4]:
-        infile = zcu.encryption.aes_decrypt(infile, key, digi)
+        infile = zcu.encryption.aes_decrypt(infile, key, is_digi)
         payload_type = zcu.zte.read_payload_type(infile)
     res, _ = zcu.compression.decompress(infile)
     outfile.write(res.read())

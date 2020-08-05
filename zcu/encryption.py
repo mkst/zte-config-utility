@@ -15,7 +15,7 @@ def digi_key(serial):
     iv = sha256(plain_iv.encode('utf-8')).digest()
     return (key,iv)
 
-def aes_decrypt(cipher, aes_key, digi=False):
+def aes_decrypt(cipher, aes_key, is_digi=False):
     """decrypt a block
     A 'block' consists of a 12 byte (3x4-byte INT) header and an AES payload
     HEADER
@@ -30,12 +30,12 @@ def aes_decrypt(cipher, aes_key, digi=False):
         aes_chunk = struct.unpack('>3I', cipher.read(12))
         # aes_chunk[0] -> length not padded
         # aes_chunk[1] -> padded length
-        chunk_size = aes_chunk[1] if digi else aes_chunk[0]
+        chunk_size = aes_chunk[1] if is_digi else aes_chunk[0]
         encrypted_data.write(cipher.read(chunk_size))
         if aes_chunk[2] == 0:
             break
     encrypted_data.seek(0)
-    if digi:
+    if is_digi:
         (key, iv) = digi_key(aes_key)
         aes_cipher = AES.new(key, AES.MODE_CBC, iv[:16])
     else:
@@ -47,7 +47,7 @@ def aes_decrypt(cipher, aes_key, digi=False):
     return decrypted_data
 
 
-def aes_encrypt(infile, aes_key, chunk_size, digi=False, include_unencrypted_length=False):
+def aes_encrypt(infile, aes_key, chunk_size, include_unencrypted_length=False, is_digi=False):
     """encrypt and add header
 
     A 'block' consists of a 60 byte (15x4-byte INT) header followed by
@@ -71,7 +71,7 @@ def aes_encrypt(infile, aes_key, chunk_size, digi=False, include_unencrypted_len
     if len(data) % 16 > 0:
         data = data + (16 - len(data) % 16)*b'\0'
 
-    if digi:
+    if is_digi:
         (key, iv) = digi_key(aes_key)
         encrypted_data = AES.new(key, AES.MODE_CBC, iv[:16]).encrypt(data)
     else:
@@ -80,10 +80,10 @@ def aes_encrypt(infile, aes_key, chunk_size, digi=False, include_unencrypted_len
 
     header = struct.pack('>6I',
                          constants.PAYLOAD_MAGIC,
-                         4 if digi else 2,  # aes
+                         4 if is_digi else 2,  # aes
                          encrypted_data_length if include_unencrypted_length else 0,
-                         0 if digi else encrypted_data_length + 60 + 12,
-                         0 if digi else chunk_size,
+                         0 if is_digi else encrypted_data_length + 60 + 12,
+                         0 if is_digi else chunk_size,
                          0)
     result = BytesIO()
     result.write(header)

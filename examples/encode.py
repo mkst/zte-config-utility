@@ -34,11 +34,11 @@ def main():
     if args.serial:
         key = args.serial
         payload_type = 4
-        digi = True
+        is_digi = True
     else:
         key = args.key.ljust(16, b'\0')[:16]
         payload_type = args.payload_type
-        digi = False
+        is_digi = False
     signature = args.signature
     chunk_size = args.chunk_size
     version = args.version << 16
@@ -47,7 +47,7 @@ def main():
     data = zcu.compression.compress(infile, chunk_size)
 
     if payload_type in [2,4]:
-        data = zcu.encryption.aes_encrypt(data, key, chunk_size, digi, include_unencrypted_length)
+        data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length, is_digi)
 
     encoded = zcu.zte.add_header(data, signature, payload_type, version)
     outfile.write(encoded.read())
