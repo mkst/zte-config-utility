@@ -46,7 +46,7 @@ def main():
 
     data = zcu.compression.compress(infile, chunk_size)
 
-    if payload_type == 2 or digi:
+    if payload_type in [2,4]:
         data = zcu.encryption.aes_encrypt(data, key, chunk_size, digi, include_unencrypted_length)
 
     encoded = zcu.zte.add_header(data, signature, payload_type, version)
