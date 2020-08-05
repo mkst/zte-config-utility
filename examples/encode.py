@@ -14,6 +14,8 @@ def main():
                         help='Output file')
     parser.add_argument('--key', type=lambda x: x.encode(), default=b'',
                         help="Key for AES encryption")
+    parser.add_argument('--serial', type=str, default='',
+                        help="Serial number for AES encryption (digimobil routers)")
     parser.add_argument('--signature', type=lambda x: x.encode(), default=b'',
                         help='Signature string of device, e.g "ZXHN H298N"')
     parser.add_argument('--chunk-size', type=int, default=65536,
@@ -29,17 +31,23 @@ def main():
 
     infile = args.infile
     outfile = args.outfile
-    key = args.key.ljust(16, b'\0')[:16]
+    if args.serial:
+        key = args.serial
+        payload_type = 4
+        digi = True
+    else:
+        key = args.key.ljust(16, b'\0')[:16]
+        payload_type = args.payload_type
+        digi = False
     signature = args.signature
     chunk_size = args.chunk_size
-    payload_type = args.payload_type
     version = args.version << 16
     include_unencrypted_length = args.include_unencrypted_length
 
     data = zcu.compression.compress(infile, chunk_size)
 
-    if payload_type == 2:
-        data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length)
+    if payload_type == 2 or digi:
+        data = zcu.encryption.aes_encrypt(data, key, chunk_size, digi, include_unencrypted_length)
 
     encoded = zcu.zte.add_header(data, signature, payload_type, version)
     outfile.write(encoded.read())
