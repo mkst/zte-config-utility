@@ -59,7 +59,7 @@ def add_header(payload, signature, payload_type, version):
 
     payload_data = payload.read()
     # check if model is F609
-    if signature is not b'F609':
+    if signature != b'F609':
         if payload_type == 2:
             full_payload_length = len(payload_data)
             if signature_length > 0:
