@@ -58,20 +58,21 @@ def add_header(payload, signature, payload_type, version):
     signature_length = len(signature)
 
     payload_data = payload.read()
-
-    if payload_type == 2:
-        full_payload_length = len(payload_data)
-        if signature_length > 0:
-            full_payload_length += 12 + signature_length
-        full_payload.write(struct.pack('>4I', *constants.ZTE_MAGIC))
-        full_payload.write(struct.pack('>28I', *(0, 0, 4, 0,
-                                                 0, 0, 0, 0,
-                                                 0, 0, 0, 64,
-                                                 version, 128,
-                                                 full_payload_length, 0,
-                                                 0, 0, 0, 0,
-                                                 0, 0, 0, 0,
-                                                 0, 0, 0, 0)))
+    # check if model is F609
+    if signature is not b'F609':
+        if payload_type == 2:
+            full_payload_length = len(payload_data)
+            if signature_length > 0:
+                full_payload_length += 12 + signature_length
+            full_payload.write(struct.pack('>4I', *constants.ZTE_MAGIC))
+            full_payload.write(struct.pack('>28I', *(0, 0, 4, 0,
+                                                     0, 0, 0, 0,
+                                                     0, 0, 0, 64,
+                                                     version, 128,
+                                                     full_payload_length, 0,
+                                                     0, 0, 0, 0,
+                                                     0, 0, 0, 0,
+                                                     0, 0, 0, 0)))
     if signature_length > 0:
         full_payload.write(struct.pack('>3I', *(constants.SIGNATURE_MAGIC,
                                                 0,
