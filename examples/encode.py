@@ -51,6 +51,7 @@ def main():
 
     encoded = zcu.zte.add_header(data, signature, payload_type, version)
     outfile.write(encoded.read())
+    print("Done!")
 
 if __name__ == '__main__':
     main()

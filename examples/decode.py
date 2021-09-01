@@ -42,9 +42,12 @@ def main():
     payload_type = zcu.zte.read_payload_type(infile)
     if payload_type in [2,4]:
         infile = zcu.encryption.aes_decrypt(infile, key, is_digi)
-        payload_type = zcu.zte.read_payload_type(infile)
+        if zcu.zte.read_payload_type(infile, False) == None:
+            error("Malformed decrypted payload, probably used the wrong key!")
+            return
     res, _ = zcu.compression.decompress(infile)
     outfile.write(res.read())
+    print("Success!")
 
 def error(err):
     print(err, file=sys.stderr)

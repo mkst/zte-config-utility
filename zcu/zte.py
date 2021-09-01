@@ -39,17 +39,21 @@ def read_signature(infile):
     return signature
 
 
-def read_payload(infile):
+def read_payload(infile, on_error_raise=True):
     """expects to be at the start of the payload magic"""
     payload_header = struct.unpack('>15I', infile.read(60))
-    assert payload_header[0] == constants.PAYLOAD_MAGIC
+    if payload_header[0] != constants.PAYLOAD_MAGIC:
+        if on_error_raise:
+            raise ValueError("Payload header does not start with the payload magic.")
+        else:
+            return None
     return payload_header
 
 
-def read_payload_type(infile):
+def read_payload_type(infile, on_error_raise=True):
     """expects to be at the start of the payload magic"""
-    payload_header = read_payload(infile)
-    return payload_header[1]
+    payload_header = read_payload(infile, on_error_raise)
+    return payload_header[1] if payload_header != None else None
 
 
 def add_header(payload, signature, payload_type, version):
