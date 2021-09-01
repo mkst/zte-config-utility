@@ -1,4 +1,5 @@
 """Decode config.bin into config.xml"""
+import sys
 import argparse
 
 import zcu
@@ -29,13 +30,24 @@ def main():
     outfile = args.outfile
 
     zcu.zte.read_header(infile)
-    zcu.zte.read_signature(infile)
+    signature = zcu.zte.read_signature(infile).decode()
+    print("Signature: " + signature)
+    if all(b == 0 for b in key):
+        key = zcu.known_keys.find_key(signature)
+        if key:
+            print("Using key: " + key.decode())
+        else:
+            error("No known key for this signature, please specify one.")
+            return
     payload_type = zcu.zte.read_payload_type(infile)
     if payload_type in [2,4]:
         infile = zcu.encryption.aes_decrypt(infile, key, is_digi)
         payload_type = zcu.zte.read_payload_type(infile)
     res, _ = zcu.compression.decompress(infile)
     outfile.write(res.read())
+
+def error(err):
+    print(err, file=sys.stderr)
 
 if __name__ == '__main__':
     main()
