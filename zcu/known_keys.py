@@ -8,7 +8,8 @@ KNOWN_KEYS = [  # 1st element is the key, the rest are the beginnings of the sig
     ["GrWM2Hz&LTvz&f^5",    "zxhn h108n"],
     ["GrWM3Hz&LTvz&f^9",    "zxhn h168n h"],
     ["Renjx%2$CjM",         "zxhn h208n",       "zxhn h201l"],
-    ["tHG@Ti&GVh@ql3XN",    "zxhn h267n"]
+    ["tHG@Ti&GVh@ql3XN",    "zxhn h267n"],
+    ["SDEwOE5WMi41Uk9T"]                                            # not sure, might be related to H108N
 ]
 
 def find_key(signature):
