@@ -19,3 +19,6 @@ def find_key(signature):
             if signature.startswith(sig):
                 return key_info[0].encode().ljust(16, b'\0')[:16]
     return None
+
+def get_all_keys():
+    return list(map(lambda key_info : key_info[0].encode().ljust(16, b'\0')[:16], KNOWN_KEYS))
