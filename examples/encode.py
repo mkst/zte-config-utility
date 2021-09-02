@@ -44,13 +44,19 @@ def main():
     version = args.version << 16
     include_unencrypted_length = args.include_unencrypted_length
 
+    if all(b == 0 for b in signature):
+        print("Warning: no signature provided!")
+
     data = zcu.compression.compress(infile, chunk_size)
 
     if payload_type in [2,4]:
+        if all(b == 0 for b in key):
+            print("Warning: no key provided!")
         data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length, is_digi)
 
     encoded = zcu.zte.add_header(data, signature, payload_type, version)
     outfile.write(encoded.read())
+    print("Done!")
 
 if __name__ == '__main__':
     main()

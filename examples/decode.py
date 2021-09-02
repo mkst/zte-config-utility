@@ -1,4 +1,5 @@
 """Decode config.bin into config.xml"""
+import sys
 import argparse
 
 import zcu
@@ -16,6 +17,8 @@ def main():
                         help="Key for AES decryption")
     parser.add_argument('--serial', type=str, default='',
                         help="Serial number for AES decryption (digimobil routers)")
+    parser.add_argument('--try-all-known-keys', action='store_true',
+                        help='Try decrypting with each known key, until one works (default No)')
     args = parser.parse_args()
 
     if args.serial:
@@ -27,15 +30,45 @@ def main():
 
     infile = args.infile
     outfile = args.outfile
+    try_all_known_keys = args.try_all_known_keys
 
     zcu.zte.read_header(infile)
-    zcu.zte.read_signature(infile)
+    signature = zcu.zte.read_signature(infile).decode()
+    print("Signature: " + signature)
+    if all(b == 0 for b in key) and not try_all_known_keys:
+        key = zcu.known_keys.find_key(signature)
+        if key:
+            print("Using key: " + key.decode())
+        else:
+            error("No known key for this signature, please specify one.")
+            return
     payload_type = zcu.zte.read_payload_type(infile)
     if payload_type in [2,4]:
-        infile = zcu.encryption.aes_decrypt(infile, key, is_digi)
-        payload_type = zcu.zte.read_payload_type(infile)
+        if try_all_known_keys:
+            matched_key = None
+            start_pos = infile.tell()
+            for loop_key in zcu.known_keys.get_all_keys():
+                infile.seek(start_pos)
+                infile_dec = zcu.encryption.aes_decrypt(infile, loop_key, is_digi)
+                if zcu.zte.read_payload_type(infile_dec, False) != None:
+                    infile = infile_dec
+                    matched_key = loop_key
+                    break
+            if matched_key == None:
+                error("No known key matched.")
+            else:
+                print("Matched key: " + matched_key.decode())
+        else:
+            infile = zcu.encryption.aes_decrypt(infile, key, is_digi)
+            if zcu.zte.read_payload_type(infile, False) == None:
+                error("Malformed decrypted payload, probably used the wrong key!")
+                return
     res, _ = zcu.compression.decompress(infile)
     outfile.write(res.read())
+    print("Success!")
+
+def error(err):
+    print(err, file=sys.stderr)
 
 if __name__ == '__main__':
     main()
