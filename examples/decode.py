@@ -35,13 +35,6 @@ def main():
     zcu.zte.read_header(infile)
     signature = zcu.zte.read_signature(infile).decode()
     print("Signature: " + signature)
-    if all(b == 0 for b in key) and not try_all_known_keys:
-        key = zcu.known_keys.find_key(signature)
-        if key:
-            print("Using key: " + key.decode())
-        else:
-            error("No known key for this signature, please specify one.")
-            return
     payload_type = zcu.zte.read_payload_type(infile)
     if payload_type in [2,4]:
         if try_all_known_keys:
@@ -59,6 +52,13 @@ def main():
             else:
                 print("Matched key: " + matched_key.decode())
         else:
+            if all(b == 0 for b in key):
+                key = zcu.known_keys.find_key(signature)
+                if key:
+                    print("Using key: " + key.decode())
+                else:
+                    error("No known key for this signature, please specify one.")
+                    return
             infile = zcu.encryption.aes_decrypt(infile, key, is_digi)
             if zcu.zte.read_payload_type(infile, False) == None:
                 error("Malformed decrypted payload, probably used the wrong key!")
