@@ -2,7 +2,8 @@
 KNOWN_KEYS = [  # 1st element is the key, the rest are the beginnings of the signatures in lower-case
     ["MIK@0STzKpB%qJZe",    "zxhn h118n e"],
     ["MIK@0STzKpB%qJZf",    "zxhn h118n v"],
-    ["402c38de39bed665",    "zxhn h168n v",     "zxhn h267a"],
+    ["402c38de39bed665",    "zxhn h168n v3",     "zxhn h267a"],
+    ["Q#Zxn*x3kVLc",        "zxhn h168n v2"],
     ["Wj",                  "zxhn h298n"],                          # due to bug, orig. is 'Wj%2$CjM'
     ["m8@96&ZG3Nm7N&Iz",    "zxhn h298a"],
     ["GrWM2Hz&LTvz&f^5",    "zxhn h108n"],
