@@ -37,35 +37,51 @@ def main():
     print("Signature: " + signature)
     payload_type = zcu.zte.read_payload_type(infile)
     if payload_type in [2,4]:
-        if try_all_known_keys:
-            matched_key = None
-            start_pos = infile.tell()
-            for loop_key in zcu.known_keys.get_all_keys():
-                infile.seek(start_pos)
-                infile_dec = zcu.encryption.aes_decrypt(infile, loop_key, is_digi)
-                if zcu.zte.read_payload_type(infile_dec, False) != None:
-                    infile = infile_dec
-                    matched_key = loop_key
-                    break
-            if matched_key == None:
-                error("No known key matched.")
-            else:
-                print("Matched key: " + matched_key.decode())
-        else:
-            if all(b == 0 for b in key):
-                key = zcu.known_keys.find_key(signature)
-                if key:
-                    print("Using key: " + key.decode())
+        try:
+            if try_all_known_keys:
+                matched_key = None
+                start_pos = infile.tell()
+                for loop_key in zcu.known_keys.get_all_keys():
+                    infile.seek(start_pos)
+                    infile_dec = zcu.encryption.aes_decrypt(infile, loop_key, is_digi)
+                    if zcu.zte.read_payload_type(infile_dec, False) != None:
+                        infile = infile_dec
+                        matched_key = loop_key
+                        break
+                if matched_key == None:
+                    error("No known key matched.")
                 else:
-                    error("No known key for this signature, please specify one.")
+                    print("Matched key: " + matched_key.decode())
+            else:
+                if all(b == 0 for b in key):
+                    key = zcu.known_keys.find_key(signature)
+                    if key:
+                        print("Using key: " + key.decode())
+                    else:
+                        error("No known key for this signature, please specify one.")
+                        return
+                infile = zcu.encryption.aes_decrypt(infile, key, is_digi)
+                if zcu.zte.read_payload_type(infile, False) == None:
+                    error("Malformed decrypted payload, probably used the wrong key!")
+                    check_type(is_digi, payload_type)
                     return
-            infile = zcu.encryption.aes_decrypt(infile, key, is_digi)
-            if zcu.zte.read_payload_type(infile, False) == None:
-                error("Malformed decrypted payload, probably used the wrong key!")
-                return
+        except ValueError as ex:
+            error("Failed to decrypt payload.")
+            if check_type(is_digi, payload_type):
+                raise ValueError(ex)
+            return
     res, _ = zcu.compression.decompress(infile)
     outfile.write(res.read())
     print("Success!")
+
+def check_type(is_digi, payload_type):
+    if is_digi and payload_type == 2:
+        error("Hint: payload type is 2, might need a key instead of a serial number.")
+    elif not is_digi and payload_type == 4:
+        error("Hint: payload type is 4, might need a serial number instead of a key.")
+    else:
+        return True
+    return False
 
 def error(err):
     print(err, file=sys.stderr)
