@@ -52,7 +52,7 @@ def aes_decrypt(cipher, aes_key, is_digi=False, is_t4_sign=False):
     return decrypted_data
 
 
-def aes_encrypt(infile, aes_key, chunk_size, include_unencrypted_length=False, is_digi=False, is_t4_sign=False):
+def aes_encrypt(infile, aes_key, chunk_size, include_unencrypted_length=False, force_same_data_length=False, is_digi=False, is_t4_sign=False):
     """encrypt and add header
 
     A 'block' consists of a 60 byte (15x4-byte INT) header followed by
@@ -73,9 +73,10 @@ def aes_encrypt(infile, aes_key, chunk_size, include_unencrypted_length=False, i
     """
     is_t4 = is_digi or is_t4_sign
     data = infile.read()
+    unencrypted_data_length = len(data)
     # pad to 16 byte alignment
-    if len(data) % 16 > 0:
-        data = data + (16 - len(data) % 16)*b'\0'
+    if unencrypted_data_length % 16 > 0:
+        data = data + (16 - unencrypted_data_length % 16)*b'\0'
 
     if is_t4:
         (key, iv) = digi_key(aes_key, is_t4_sign)
@@ -95,7 +96,7 @@ def aes_encrypt(infile, aes_key, chunk_size, include_unencrypted_length=False, i
     result.write(header)
     result.write(struct.pack('>9I', *(0, 0, 0, 0, 0, 0, 0, 0, 0)))
     # mini header for aes payload
-    result.write(struct.pack('>3I', *(encrypted_data_length,
+    result.write(struct.pack('>3I', *(encrypted_data_length if force_same_data_length else unencrypted_data_length,
                                       encrypted_data_length,
                                       0)))
     result.write(encrypted_data)

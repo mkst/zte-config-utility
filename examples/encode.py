@@ -59,7 +59,7 @@ def main():
     if payload_type in [2,4]:
         if all(b == 0 for b in key):
             print("Warning: no key provided!")
-        data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length, is_digi, is_t4_sign)
+        data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length, payload_type == 2, is_digi, is_t4_sign)
 
     encoded = zcu.zte.add_header(data, signature, payload_type, version)
     outfile.write(encoded.read())
