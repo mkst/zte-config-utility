@@ -18,6 +18,8 @@ def main():
                         help="Serial number for AES encryption (digimobil routers)")
     parser.add_argument('--signature', type=lambda x: x.encode(), default=b'',
                         help='Signature string of device, e.g "ZXHN H298N"')
+    parser.add_argument('--signature-encryption', type=str, default='',
+                        help='Signature string for encryption. Use this if you used --signature when decoding, or the output of the decoding script said "Using signature: <something>". It has to be the same as the one used when decoding.')
     parser.add_argument('--chunk-size', type=int, default=65536,
                         help='ZLIB chunk sizes (default 65536)')
     parser.add_argument('--payload-type', type=int, default=2, choices=[0, 2],
@@ -31,14 +33,19 @@ def main():
 
     infile = args.infile
     outfile = args.outfile
+    is_digi = False
+    is_t4_sign = False
     if args.serial:
         key = args.serial
         payload_type = 4
         is_digi = True
+    elif args.signature_encryption:
+        key = args.signature_encryption
+        payload_type = 4
+        is_t4_sign = True
     else:
         key = args.key.ljust(16, b'\0')[:16]
         payload_type = args.payload_type
-        is_digi = False
     signature = args.signature
     chunk_size = args.chunk_size
     version = args.version << 16
@@ -52,7 +59,7 @@ def main():
     if payload_type in [2,4]:
         if all(b == 0 for b in key):
             print("Warning: no key provided!")
-        data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length, is_digi)
+        data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length, is_digi, is_t4_sign)
 
     encoded = zcu.zte.add_header(data, signature, payload_type, version)
     outfile.write(encoded.read())
