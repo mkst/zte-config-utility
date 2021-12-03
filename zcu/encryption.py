@@ -59,7 +59,7 @@ def aes_encrypt(infile, aes_key, chunk_size, include_unencrypted_length=False, i
     a single PAYLOAD section.
 
     HEADER
-        [XXXX] Magic number '0x04030201'
+        [XXXX] Magic number '0x01020304'
         [XXXX] Payload type, 2 = AES 4 = digi
         [XXXX] Unencrypted length
         [XXXX] 'block' size (including header)
