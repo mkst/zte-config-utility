@@ -18,6 +18,10 @@ class TestEncryptionMethods(unittest.TestCase):
     ZXHN_H168N_V31_zlib = 'resources/ZXHN_H168N_V3.1.zlib'
     ZXHN_H168N_V31_key = b'GrWM3Hz&LTvz&f^9'
 
+    ZXHN_H168N_V35_config = 'resources/ZXHN_H168N_V3.5.bin'
+    ZXHN_H168N_V35_zlib = 'resources/ZXHN_H168N_V3.5.zlib'
+    ZXHN_H168N_V35_key = 'ZXHNH168NV3.5'
+
     def test_zxhn_h298n_decryption(self):
         with open(self.ZXHN_H298N_config, 'rb') as infile:
             infile.seek(210)
@@ -35,6 +39,12 @@ class TestEncryptionMethods(unittest.TestCase):
             infile.seek(215)
             res = zcu.encryption.aes_decrypt(infile, self.ZXHN_H168N_V31_key)
             self.assertEqual(8672, len(res.read()))
+
+    def test_zxhn_h168n_v35_decryption(self):
+        with open(self.ZXHN_H168N_V35_config, 'rb') as infile:
+            infile.seek(87)
+            res = zcu.encryption.aes_decrypt(infile, self.ZXHN_H168N_V35_key, False, True)
+            self.assertEqual(10768, len(res.read()))
 
     def test_zxhn_h298n_encryption(self):
         with open(self.ZXHN_H298N_zlib, 'rb') as infile:
@@ -74,6 +84,19 @@ class TestEncryptionMethods(unittest.TestCase):
             self.assertEqual(0, header[5])            # data crc (n/a)
             self.assertEqual(0, header[6])            # header crc
             self.assertEqual(8684, len(data.read()))  # payload without header
+
+    def test_zxhn_h168n_v35_encryption(self):
+        with open(self.ZXHN_H168N_V35_zlib, 'rb') as infile:
+            data = zcu.encryption.aes_encrypt(infile, self.ZXHN_H168N_V35_key, 65536, False, False, False, True)
+            header = struct.unpack('>15I', data.read(60))
+            self.assertEqual(0x01020304, header[0])   # magic
+            self.assertEqual(4, header[1])            # aes
+            self.assertEqual(0, header[2])            # unencrypted size
+            self.assertEqual(0, header[3])            # payload + header size
+            self.assertEqual(0, header[4])            # block size
+            self.assertEqual(0, header[5])            # data crc (n/a)
+            self.assertEqual(0, header[6])            # header crc
+            self.assertEqual(10780, len(data.read())) # payload without header
 
 if __name__ == '__main__':
     unittest.main()

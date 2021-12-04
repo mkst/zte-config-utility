@@ -114,8 +114,8 @@ Comprising of:
 
 ### Payload breakdown
 ```
-00004800                                           // (un)encrypted filesize?  / 18432
-00004800                                           // (un)encrypted filesize?  / 18432
+00004800                                           // unencrypted filesize      / 18432
+00004800                                           // encrypted filesize        / 18432
 00000000                                           // padding
 ```
 

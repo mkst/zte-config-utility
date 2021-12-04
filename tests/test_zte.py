@@ -13,6 +13,9 @@ class TestHeaderMethods(unittest.TestCase):
     ZXHN_H108N_V25_config = 'resources/ZXHN_H108N_V2.5.bin'
     ZXHN_H108N_V25_signature = b'ZXHN H108N V2.5'
 
+    ZXHN_H168N_V35_config = 'resources/ZXHN_H168N_V3.5.bin'
+    ZXHN_H168N_V35_signature = b'ZXHN H168N V3.5'
+
     F600W_config = 'resources/F600W.bin'
     F600W_signature = b'F600W'
 
@@ -29,6 +32,11 @@ class TestHeaderMethods(unittest.TestCase):
         with open(self.ZXHN_H108N_V25_config, 'rb') as infile:
             header_length = zcu.zte.read_header(infile)
             self.assertEqual(128, header_length)
+
+    def test_zxhn_h168n_v35_read_header(self):
+        with open(self.ZXHN_H168N_V35_config, 'rb') as infile:
+            header_length = zcu.zte.read_header(infile)
+            self.assertEqual(0, header_length)
 
     def test_f600w_read_header(self):
         with open(self.F600W_config, 'rb') as infile:
@@ -53,6 +61,11 @@ class TestHeaderMethods(unittest.TestCase):
             signature = zcu.zte.read_signature(infile)
             self.assertEqual(self.ZXHN_H108N_V25_signature, signature)
 
+    def test_zxhn_h168n_v35_read_signature(self):
+        with open(self.ZXHN_H168N_V35_config, 'rb') as infile:
+            signature = zcu.zte.read_signature(infile)
+            self.assertEqual(self.ZXHN_H168N_V35_signature, signature)
+
     def test_f600w_read_signature(self):
         with open(self.F600W_config, 'rb') as infile:
             signature = zcu.zte.read_signature(infile)
@@ -75,6 +88,12 @@ class TestHeaderMethods(unittest.TestCase):
             infile.seek(155)
             payload_type = zcu.zte.read_payload_type(infile)
             self.assertEqual(2, payload_type)
+
+    def test_zxhn_h168n_v35_read_payload_type(self):
+        with open(self.ZXHN_H168N_V35_config, 'rb') as infile:
+            infile.seek(27)
+            payload_type = zcu.zte.read_payload_type(infile)
+            self.assertEqual(4, payload_type)
 
     def test_f600w_read_payload_type(self):
         with open(self.F600W_config, 'rb') as infile:

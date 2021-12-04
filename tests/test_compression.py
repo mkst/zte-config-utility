@@ -12,6 +12,9 @@ class TestCompressionMethods(unittest.TestCase):
     ZXHN_H108N_V25_xml = 'resources/ZXHN_H108N_V2.5.xml'
     ZXHN_H108N_V25_zlib = 'resources/ZXHN_H108N_V2.5.zlib'
 
+    ZXHN_H168N_V35_xml = 'resources/ZXHN_H168N_V3.5.xml'
+    ZXHN_H168N_V35_zlib = 'resources/ZXHN_H168N_V3.5.zlib'
+
     F600W_xml = 'resources/F600W.xml'
     F600W_zlib = 'resources/F600W.zlib'
 
@@ -42,6 +45,20 @@ class TestCompressionMethods(unittest.TestCase):
             self.assertEqual(2150787823, stats['crc'])
             self.assertEqual(67332, stats['uncompressed_size'])
             self.assertEqual(5987, stats['compressed_size'])
+
+    def test_zxhn_h168n_v35_compress_helper(self):
+        with open(self.ZXHN_H168N_V35_xml, 'rb') as infile:
+            data, stats = zcu.compression.compress_helper(infile, 65536)
+            header = struct.unpack('>3I', data.read(12))
+
+            self.assertEqual(10703 - 12, len(data.read()))  # exclude first header
+            self.assertEqual(65536, header[0])  # decompressed_size
+            self.assertEqual(7153, header[1])   # compressed_size
+            self.assertEqual(7225, header[2])   # cumulative_length 60 + 12 byte headers
+
+            self.assertEqual(3199045026, stats['crc'])
+            self.assertEqual(100625, stats['uncompressed_size'])
+            self.assertEqual(7225, stats['compressed_size'])
 
     def test_f600w_compress_helper(self):
         with open(self.F600W_xml, 'rb') as infile:
@@ -83,6 +100,19 @@ class TestCompressionMethods(unittest.TestCase):
             self.assertEqual(2609256942, header[6])
             self.assertEqual(6460, len(data.read()))
 
+    def test_zxhn_h168n_v35_compress(self):
+        with open(self.ZXHN_H168N_V35_xml, 'rb') as infile:
+            data = zcu.compression.compress(infile, 65536)
+            header = struct.unpack('>15I', data.read(60))
+            self.assertEqual(0x01020304, header[0])
+            self.assertEqual(0, header[1])
+            self.assertEqual(100625, header[2])
+            self.assertEqual(7225, header[3])
+            self.assertEqual(65536, header[4])
+            self.assertEqual(3199045026, header[5])
+            self.assertEqual(2587078147, header[6])
+            self.assertEqual(10703, len(data.read()))
+
     def test_f600w_compress(self):
         with open(self.F600W_xml, 'rb') as infile:
             data = zcu.compression.compress(infile, 65536)
@@ -111,6 +141,14 @@ class TestCompressionMethods(unittest.TestCase):
             xml = data.read(4)
             self.assertEqual(b'<DB>', xml)
             self.assertEqual(2150787823, crc)
+
+    def test_zxhn_h168n_v35_decompress(self):
+        with open(self.ZXHN_H168N_V35_zlib, 'rb') as infile:
+            infile.seek(60)
+            data, crc = zcu.compression.decompress(infile)
+            xml = data.read(4)
+            self.assertEqual(b'<DB>', xml)
+            self.assertEqual(3199045026, crc)
 
     def test_f600w_decompress(self):
         with open(self.F600W_zlib, 'rb') as infile:
