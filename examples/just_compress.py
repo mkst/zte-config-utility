@@ -21,5 +21,6 @@ def main():
 
     outfile.write(compressed.read())
 
+
 if __name__ == '__main__':
     main()

@@ -1,6 +1,11 @@
-__pycache__
-.coverage
+__pycache__/
+.pytest_cache/
 *.egg-info/
-*.pyc
 build/
 dist/
+html_cov/
+venv/
+resources/*NEW*
+
+*.pyc
+.coverage
