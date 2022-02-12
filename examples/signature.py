@@ -17,5 +17,6 @@ def main():
     signature = zcu.zte.read_signature(args.infile)
     print(signature.decode('utf-8'))
 
+
 if __name__ == '__main__':
     main()

@@ -3,15 +3,17 @@ import argparse
 
 import zcu
 
+from zcu.xcryptors import Xcryptor, T4Xcryptor, DigiXcryptor
+
 
 def main():
     """the main function"""
     parser = argparse.ArgumentParser(description='Encode config.bin for ZTE Routers',
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('infile', type=argparse.FileType('rb'),
-                        help='Raw configuration file (config.xml)')
+                        help='Raw configuration file e.g. config.xml')
     parser.add_argument('outfile', type=argparse.FileType('wb'),
-                        help='Output file')
+                        help='Output file, e.g. config.bin')
     parser.add_argument('--key', type=lambda x: x.encode(), default=b'',
                         help="Key for AES encryption")
     parser.add_argument('--serial', type=str, default='',
@@ -23,47 +25,45 @@ def main():
     parser.add_argument('--chunk-size', type=int, default=65536,
                         help='ZLIB chunk sizes (default 65536)')
     parser.add_argument('--payload-type', type=int, default=2, choices=[0, 2],
-                        help='payload type (0=compressed, 2=compressed+encrypted)')
+                        help='Payload type (0=compressed, 2=compressed+encrypted)')
     parser.add_argument('--version', type=int, default=2, choices=[1, 2],
                         help='payload version (1=unknown, 2=unknown)')
     parser.add_argument('--include-unencrypted-length', action='store_true',
-                        help='include unencrypted length in header (default No)')
+                        help='Include unencrypted length in header (default No)')
 
     args = parser.parse_args()
 
     infile = args.infile
     outfile = args.outfile
-    is_digi = False
-    is_t4_sign = False
     if args.serial:
         key = args.serial
+        encryptor = DigiXcryptor(key, chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length)
         payload_type = 4
-        is_digi = True
     elif args.signature_encryption:
         key = args.signature_encryption
+        encryptor = T4Xcryptor(key, chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length)
         payload_type = 4
-        is_t4_sign = True
     else:
         key = args.key.ljust(16, b'\0')[:16]
+        encryptor = Xcryptor(key, chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length)
         payload_type = args.payload_type
-    signature = args.signature
-    chunk_size = args.chunk_size
-    version = args.version << 16
-    include_unencrypted_length = args.include_unencrypted_length
 
+    signature = args.signature
     if all(b == 0 for b in signature):
         print("Warning: no signature provided!")
 
-    data = zcu.compression.compress(infile, chunk_size)
+    data = zcu.compression.compress(infile, args.chunk_size)
 
-    if payload_type in [2,4]:
+    if payload_type in (2, 4):
         if all(b == 0 for b in key):
             print("Warning: no key provided!")
-        data = zcu.encryption.aes_encrypt(data, key, chunk_size, include_unencrypted_length, payload_type == 2, is_digi, is_t4_sign)
+        data = encryptor.encrypt(data)
 
+    version = args.version << 16
     encoded = zcu.zte.add_header(data, signature, payload_type, version)
     outfile.write(encoded.read())
     print("Done!")
+
 
 if __name__ == '__main__':
     main()

@@ -3,6 +3,8 @@ import argparse
 
 import zcu
 
+from zcu.xcryptors import Xcryptor
+
 
 def main():
     """the main function"""
@@ -24,9 +26,12 @@ def main():
     zcu.zte.read_header(infile)
     zcu.zte.read_signature(infile)
     zcu.zte.read_payload(infile)
-    decrypted = zcu.encryption.aes_decrypt(infile, key)
+
+    decryptor = Xcryptor(key)
+    decrypted = decryptor.decrypt(infile)
 
     outfile.write(decrypted.read())
+
 
 if __name__ == '__main__':
     main()

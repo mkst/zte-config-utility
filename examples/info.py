@@ -49,5 +49,6 @@ def main():
 
     print_payload_info(args.infile)
 
+
 if __name__ == '__main__':
     main()
