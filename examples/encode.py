@@ -30,6 +30,14 @@ def main():
                         help='payload version (1=unknown, 2=unknown)')
     parser.add_argument('--include-unencrypted-length', action='store_true',
                         help='Include unencrypted length in header (default No)')
+    parser.add_argument("--key-prefix", type=str, default="",
+                        help="Override key prefix for Type 4 devices")
+    parser.add_argument("--iv-prefix", type=str, default="",
+                        help="Override iv prefix for Type 4 devices")
+    parser.add_argument("--key-suffix", type=str, default="",
+                        help="Override key suffix for Type 4 devices")
+    parser.add_argument("--iv-suffix", type=str, default="",
+                        help="Override iv suffix for Type 4 devices")
 
     args = parser.parse_args()
 
@@ -41,7 +49,32 @@ def main():
         payload_type = 4
     elif args.signature_encryption:
         key = args.signature_encryption
-        encryptor = T4Xcryptor(key, chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length)
+        use_key_prefix = None
+        use_iv_prefix = None
+        use_key_suffix = None
+        use_iv_suffix = None
+        if args.key_prefix:
+            if args.key_prefix == "NONE":
+                use_key_prefix = ""
+            else:
+                use_key_prefix = args.key_prefix
+
+            print("Using key prefix: %s" % use_key_prefix)
+        if args.iv_prefix:
+            if args.iv_prefix == "NONE":
+                use_iv_prefix = ""
+            else:
+                use_iv_prefix = args.iv_prefix
+
+            print("Using iv prefix: %s" % use_iv_prefix)
+        if args.key_suffix:
+            use_key_suffix = args.key_suffix
+            print("Using key suffix: %s" % use_key_suffix)
+        if args.iv_suffix:
+            use_iv_suffix = args.iv_suffix
+            print("Using iv suffix: %s" % use_iv_suffix)
+        encryptor = T4Xcryptor(key, chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length,
+                               key_prefix=use_key_prefix, iv_prefix=use_iv_prefix, key_suffix=use_key_suffix, iv_suffix=use_iv_suffix)
         payload_type = 4
     else:
         key = args.key.ljust(16, b'\0')[:16]

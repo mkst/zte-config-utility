@@ -27,6 +27,10 @@ def main():
                         help="Override key prefix for Type 4 devices")
     parser.add_argument("--iv-prefix", type=str, default="",
                         help="Override iv prefix for Type 4 devices")
+    parser.add_argument("--key-suffix", type=str, default="",
+                        help="Override key suffix for Type 4 devices")
+    parser.add_argument("--iv-suffix", type=str, default="",
+                        help="Override iv suffix for Type 4 devices")
     args = parser.parse_args()
 
     # TODO: can this be handled differently?
@@ -96,8 +100,34 @@ def main():
                         # remove all spaces
                         key = signature.replace(" ", "")
                         signature_is_key = True
-                        decryptor = T4Xcryptor(key)
                         print("Using signature: %s" % key)
+                        use_key_prefix = None
+                        use_iv_prefix = None
+                        use_key_suffix = None
+                        use_iv_suffix = None
+                        if args.key_prefix:
+                            if args.key_prefix == "NONE":
+                                use_key_prefix = ""
+                            else:
+                                use_key_prefix = args.key_prefix
+
+                            print("Using key prefix: %s" % use_key_prefix)
+                        if args.iv_prefix:
+                            if args.iv_prefix == "NONE":
+                                use_iv_prefix = ""
+                            else:
+                                use_iv_prefix = args.iv_prefix
+
+                            print("Using iv prefix: %s" % use_iv_prefix)
+                        if args.key_suffix:
+                            use_key_suffix = args.key_suffix
+                            print("Using key suffix: %s" % use_key_suffix)
+                        if args.iv_suffix:
+                            use_iv_suffix = args.iv_suffix
+                            print("Using iv suffix: %s" % use_iv_suffix)
+
+                        decryptor = T4Xcryptor(key, key_prefix=use_key_prefix, iv_prefix=use_iv_prefix, key_suffix=use_key_suffix, iv_suffix=use_iv_suffix)
+
                 infile_dec = decryptor.decrypt(infile)
 
                 if zcu.zte.read_payload_type(infile_dec, raise_on_error=False) is None and payload_type == 4 and not signature_is_key:

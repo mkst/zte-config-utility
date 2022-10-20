@@ -14,14 +14,19 @@ class Xcryptor():
 
     default_key_prefix = None
     default_iv_prefix = None
+    default_key_suffix = None
+    default_iv_suffix = None
 
     def __init__(self, aes_key, chunk_size=65536, include_unencrypted_length=False,
-                 key_prefix=None, iv_prefix=None):
+                 key_prefix=None, iv_prefix=None,
+                 key_suffix=None, iv_suffix=None):
         self.chunk_size = chunk_size
         self.include_unencrypted_length = include_unencrypted_length
         # currently unsupported / unused in Xcryptor
-        self.key_prefix = key_prefix if key_prefix else self.default_key_prefix
-        self.iv_prefix = iv_prefix if iv_prefix else self.default_iv_prefix
+        self.key_prefix = key_prefix if key_prefix is not None else self.default_key_prefix
+        self.iv_prefix = iv_prefix if iv_prefix is not None else self.default_iv_prefix
+        self.key_suffix = key_suffix if key_suffix is not None else self.default_key_suffix
+        self.iv_suffix = iv_suffix if iv_suffix is not None else self.default_iv_suffix
 
         self.set_key(aes_key)
 
@@ -33,6 +38,12 @@ class Xcryptor():
 
     def set_key_prefix(self, key_prefix):
         raise Exception("Base Xcryptor does not support 'key_prefix'")
+
+    def set_iv_suffix(self, iv_suffix):
+        raise Exception("Base Xcryptor does not support 'iv_suffix'")
+
+    def set_key_suffix(self, key_suffix):
+        raise Exception("Base Xcryptor does not support 'key_suffix'")
 
     def read_chunks(self, infile):
         """decrypt a block
@@ -128,6 +139,8 @@ class T4Xcryptor(Xcryptor):
     # type 4 encryption, using signature for key/iv
     default_key_prefix = "Key02721401"
     default_iv_prefix = "Iv02721401"
+    default_key_suffix = ""
+    default_iv_suffix = ""
 
     force_same_data_length = False
 
@@ -137,13 +150,19 @@ class T4Xcryptor(Xcryptor):
     def set_iv_prefix(self, iv_prefix):
         self.iv_prefix = iv_prefix
 
+    def set_key_suffix(self, key_suffix):
+        self.key_suffix = key_suffix
+
+    def set_iv_suffix(self, iv_suffix):
+        self.iv_suffix = iv_suffix
+
     def set_key(self, aes_key):
         if isinstance(aes_key, bytes):
             aes_key_str = aes_key.decode("utf8")
         else:
             aes_key_str = aes_key
-        plain_key = self.key_prefix + aes_key_str
-        plain_iv = self.iv_prefix + aes_key_str
+        plain_key = self.key_prefix + aes_key_str + self.key_suffix
+        plain_iv = self.iv_prefix + aes_key_str + self.iv_suffix
         key = sha256(plain_key.encode("utf8")).digest()
         iv = sha256(plain_iv.encode("utf8")).digest()
 
