@@ -12,38 +12,21 @@ class Xcryptor():
     aes_cipher = None
     force_same_data_length = True
 
-    default_key_prefix = None
-    default_iv_prefix = None
-    default_key_suffix = None
-    default_iv_suffix = None
-
-    def __init__(self, aes_key, chunk_size=65536, include_unencrypted_length=False,
-                 key_prefix=None, iv_prefix=None,
-                 key_suffix=None, iv_suffix=None):
+    def __init__(self, aes_key=None, chunk_size=65536, include_unencrypted_length=False):
         self.chunk_size = chunk_size
         self.include_unencrypted_length = include_unencrypted_length
-        # currently unsupported / unused in Xcryptor
-        self.key_prefix = key_prefix if key_prefix is not None else self.default_key_prefix
-        self.iv_prefix = iv_prefix if iv_prefix is not None else self.default_iv_prefix
-        self.key_suffix = key_suffix if key_suffix is not None else self.default_key_suffix
-        self.iv_suffix = iv_suffix if iv_suffix is not None else self.default_iv_suffix
-
         self.set_key(aes_key)
 
     def set_key(self, aes_key):
+        if aes_key is None:
+            self.aes_cipher = None
+            return
+
+        if not isinstance(aes_key, bytes):
+            aes_key = aes_key.encode()
+
+        aes_key = aes_key.ljust(16, b"\0")[:16]
         self.aes_cipher = AES.new(aes_key, AES.MODE_ECB)
-
-    def set_iv_prefix(self, iv_prefix):
-        raise Exception("Base Xcryptor does not support 'iv_prefix'")
-
-    def set_key_prefix(self, key_prefix):
-        raise Exception("Base Xcryptor does not support 'key_prefix'")
-
-    def set_iv_suffix(self, iv_suffix):
-        raise Exception("Base Xcryptor does not support 'iv_suffix'")
-
-    def set_key_suffix(self, key_suffix):
-        raise Exception("Base Xcryptor does not support 'key_suffix'")
 
     def read_chunks(self, infile):
         """decrypt a block
@@ -56,28 +39,37 @@ class Xcryptor():
             [....] ZLIB chunk
         """
         encrypted_data = BytesIO()
-
+        total_dec_size = 0
         while True:
-            chunk_size, _, more_chunks = struct.unpack(">3I", infile.read(12))
+            chunk_size, dec_size, more_chunks = struct.unpack(">3I", infile.read(12))
             encrypted_data.write(infile.read(chunk_size))
+            total_dec_size += dec_size
             if more_chunks == 0:  # "continue" flag not set
                 break
-        encrypted_data.seek(0)
+        encrypted_data.seek(total_dec_size)
         return encrypted_data
 
     def decrypt(self, infile):
         data = self.read_chunks(infile)
+        data_size = data.tell()
+        data.seek(0)
         res = BytesIO()
-        res.write(self.aes_cipher.decrypt(data.read()))
+        res.write(self.aes_cipher.decrypt(data.read())[:data_size])
         res.seek(0)
         return res
 
     def create_header(self):
+        unencrypted_length_to_use = 0
+        if self.include_unencrypted_length:
+            unencrypted_length_to_use = self.unencrypted_data_length
+            if self.force_same_data_length:
+                unencrypted_length_to_use = self.encrypted_data_length;
+
         header = struct.pack(
             ">6I",
             PAYLOAD_MAGIC,
-            2,  # aes in ECB mode
-            self.unencrypted_data_length if self.include_unencrypted_length else 0,
+            2,  # aes128 in ECB mode
+            unencrypted_length_to_use,
             self.encrypted_data_length + 60 + 12,
             self.chunk_size,
             0)
@@ -91,7 +83,7 @@ class Xcryptor():
 
         HEADER
             [XXXX] Magic number '0x01020304'
-            [XXXX] Payload type, 2 = AES 4 = digi
+            [XXXX] Payload type, 2 = AES128ECB, 3 = AES256CBC(IV==Key), 4 = AES256CBC(IV!=Key)
             [XXXX] Unencrypted length
             [XXXX] 'block' size (including header)
             [XXXX] Chunk size
@@ -135,62 +127,52 @@ class Xcryptor():
         return result
 
 
-class T4Xcryptor(Xcryptor):
-    # type 4 encryption, using signature for key/iv
-    default_key_prefix = "Key02721401"
-    default_iv_prefix = "Iv02721401"
-    default_key_suffix = ""
-    default_iv_suffix = ""
-
+class CBCXcryptor(Xcryptor):
+    # type 3/4 encryption, AES256CBC with the key/IV set from SHA256 hashes
     force_same_data_length = False
+    aes_key_str = None
+    aes_iv_str = None
 
-    def set_key_prefix(self, key_prefix):
-        self.key_prefix = key_prefix
+    def set_key(self, aes_key=None, aes_iv=None):
+        if aes_key is None:
+            self.aes_cipher = None
+            return
 
-    def set_iv_prefix(self, iv_prefix):
-        self.iv_prefix = iv_prefix
-
-    def set_key_suffix(self, key_suffix):
-        self.key_suffix = key_suffix
-
-    def set_iv_suffix(self, iv_suffix):
-        self.iv_suffix = iv_suffix
-
-    def set_key(self, aes_key):
         if isinstance(aes_key, bytes):
-            aes_key_str = aes_key.decode("utf8")
+            self.aes_key_str = aes_key.decode()
         else:
-            aes_key_str = aes_key
-        plain_key = self.key_prefix + aes_key_str + self.key_suffix
-        plain_iv = self.iv_prefix + aes_key_str + self.iv_suffix
-        key = sha256(plain_key.encode("utf8")).digest()
-        iv = sha256(plain_iv.encode("utf8")).digest()
+            self.aes_key_str = aes_key
 
+        if aes_iv is None:
+            self.aes_iv_str = self.aes_key_str
+        elif isinstance(aes_iv, bytes):
+            self.aes_iv_str = aes_iv.decode()
+        else:
+            self.aes_iv_str = aes_iv
+
+        key = sha256(self.aes_key_str.encode()).digest()
+        iv = sha256(self.aes_iv_str.encode()).digest()
         self.aes_cipher = AES.new(key, AES.MODE_CBC, iv[:16])
 
     def read_chunks(self, infile):
         encrypted_data = BytesIO()
+        total_dec_size = 0
         while True:
-            _, chunk_size, more_data = struct.unpack(">3I", infile.read(12))
+            dec_size, chunk_size, more_data = struct.unpack(">3I", infile.read(12))
             encrypted_data.write(infile.read(chunk_size))
+            total_dec_size += dec_size
             if more_data == 0:
                 break
-        encrypted_data.seek(0)
+        encrypted_data.seek(total_dec_size)
         return encrypted_data
 
     def create_header(self):
         header = struct.pack(
             ">6I",
             PAYLOAD_MAGIC,
-            4,  # aes in CBC mode
+            3 if (self.aes_key_str == self.aes_iv_str) else 4,  # aes in CBC mode
             self.encrypted_data_length if self.include_unencrypted_length else 0,
             0,
             0,
             0)
         return header
-
-
-class DigiXcryptor(T4Xcryptor):
-    """Type 4 Encryption, using serial for key/iv (digimobil)"""
-    default_key_prefix = "8cc72b05705d5c46"
-    default_iv_prefix = "667b02a85c61c786"
