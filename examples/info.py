@@ -17,7 +17,11 @@ def print_payload_info(infile):
     elif payload_type == 1:
         payload_type_friendly = "(ZLIB+CRC)"
     elif payload_type == 2:
-        payload_type_friendly = "(ZLIB+AES)"
+        payload_type_friendly = "(ZLIB+AES128ECB)"
+    elif payload_type == 3:
+        payload_type_friendly = "(ZLIB+AES256CBCSAMEIV)"
+    elif payload_type == 4:
+        payload_type_friendly = "(ZLIB+AES256CBCDIFFIV)"
     else:
         payload_type_friendly = "(UNKNOWN)"
 

@@ -1,11 +1,11 @@
 """Decode config.bin into config.xml"""
 import sys
 import argparse
-
+from types import SimpleNamespace
 import zcu
 
-from zcu.xcryptors import Xcryptor, T4Xcryptor, DigiXcryptor
-
+from zcu.xcryptors import Xcryptor, CBCXcryptor
+from zcu.known_keys import serial_keygen, signature_keygen
 
 def main():
     """the main function"""
@@ -17,157 +17,177 @@ def main():
                         help="Output file e.g. config.xml")
     parser.add_argument("--key", type=lambda x: x.encode(), default=b"",
                         help="Key for AES decryption")
+    parser.add_argument('--model', type=str, default='',
+                        help="Device model for Type-3 key derivation")
     parser.add_argument("--serial", type=str, default="",
-                        help="Serial number for AES decryption (digimobil routers)")
+                        help="Serial number for Type-4 key generation (digimobil routers)")
     parser.add_argument("--signature", type=str, default="",
-                        help="Custom signature for AES decryption (for certain type 4s, note: spaces will not be removed automatically)")
+                        help="Supply/override signature for Type-4 key generation")
     parser.add_argument("--try-all-known-keys", action="store_true",
-                        help="Try decrypting with all known keys (default No)")
-    parser.add_argument("--key-prefix", type=str, default="",
-                        help="Override key prefix for Type 4 devices")
-    parser.add_argument("--iv-prefix", type=str, default="",
-                        help="Override iv prefix for Type 4 devices")
-    parser.add_argument("--key-suffix", type=str, default="",
-                        help="Override key suffix for Type 4 devices")
-    parser.add_argument("--iv-suffix", type=str, default="",
-                        help="Override iv suffix for Type 4 devices")
+                        help="Try decrypting with all known keys and generators (default No)")
+    parser.add_argument("--key-prefix", type=str, default='',
+                        help="Override Key prefix for Serial based key generation")
+    parser.add_argument("--iv-prefix", type=str, default='',
+                        help="Override IV prefix for Serial based key generation")
+    parser.add_argument("--key-suffix", type=str, default='',
+                        help="Override Key suffix for Signature based key generation")
+    parser.add_argument("--iv-suffix", type=str, default='',
+                        help="Override IV suffix for Signature based key generation")
     args = parser.parse_args()
-
-    # TODO: can this be handled differently?
-    signature_is_key = serial_is_key = False
 
     infile = args.infile
     outfile = args.outfile
 
     zcu.zte.read_header(infile)
     signature = zcu.zte.read_signature(infile).decode()
-    print("Signature: %s" % signature)
+    if signature:
+        print("Detected signature: %s" % signature)
     payload_type = zcu.zte.read_payload_type(infile)
-
-    if args.serial:
-        key = args.serial
-        decryptor = DigiXcryptor(key)
-        serial_is_key = True
-    elif args.signature:
-        key = args.signature
-        decryptor = T4Xcryptor(key)
-        signature_is_key = True
-    else:
-        key = args.key.ljust(16, b"\0")[:16]
-        if payload_type == 2:
-            decryptor = Xcryptor(key)
-        elif payload_type == 4:
-            decryptor = T4Xcryptor(key)
-            if args.key_prefix:
-                decryptor.set_key_prefix(args.key_prefix)
-            if args.iv_prefix:
-                decryptor.set_iv_prefix(args.iv_prefix)
-        else:
-            # no decryption required
-            pass
-
+    print("Detected payload type %d" % payload_type)
     start_pos = infile.tell()
-    if payload_type in (2, 4):
-        try:
-            if args.try_all_known_keys:
-                matched_key = None
-                for loop_key in zcu.known_keys.get_all_keys():
-                    print("Trying key: %s" % loop_key)
-                    # return to start of encrypted section
-                    infile.seek(start_pos)
-                    decryptor.set_key(loop_key)
-                    decrypted = decryptor.decrypt(infile)
-                    if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-                        infile = decrypted
-                        matched_key = loop_key
-                        break
-                if matched_key is None:
-                    error("None of the known keys matched.")
-                    return
-                else:
-                    print("Matched key: %s" % matched_key.decode())
-            else:
-                if all(b == 0 for b in key):
-                    if payload_type == 2:
-                        key = zcu.known_keys.find_key(signature)
-                        if key:
-                            print("Trying key: %s" % key.decode())
-                            decryptor.set_key(key)
-                        else:
-                            error("No known keys for this signature, please specify one.")
-                            return
-                    else:
-                        # remove all spaces
-                        key = signature.replace(" ", "")
-                        signature_is_key = True
-                        print("Using signature: %s" % key)
-                        use_key_prefix = None
-                        use_iv_prefix = None
-                        use_key_suffix = None
-                        use_iv_suffix = None
-                        if args.key_prefix:
-                            if args.key_prefix == "NONE":
-                                use_key_prefix = ""
-                            else:
-                                use_key_prefix = args.key_prefix
 
-                            print("Using key prefix: %s" % use_key_prefix)
-                        if args.iv_prefix:
-                            if args.iv_prefix == "NONE":
-                                use_iv_prefix = ""
-                            else:
-                                use_iv_prefix = args.iv_prefix
-
-                            print("Using iv prefix: %s" % use_iv_prefix)
-                        if args.key_suffix:
-                            use_key_suffix = args.key_suffix
-                            print("Using key suffix: %s" % use_key_suffix)
-                        if args.iv_suffix:
-                            use_iv_suffix = args.iv_suffix
-                            print("Using iv suffix: %s" % use_iv_suffix)
-
-                        decryptor = T4Xcryptor(key, key_prefix=use_key_prefix, iv_prefix=use_iv_prefix, key_suffix=use_key_suffix, iv_suffix=use_iv_suffix)
-
-                infile_dec = decryptor.decrypt(infile)
-
-                if zcu.zte.read_payload_type(infile_dec, raise_on_error=False) is None and payload_type == 4 and not signature_is_key:
-                    # is type 4, but failed and we haven't tried using the signature derived key/iv
-                    key = signature.replace(" ", "")
-                    print("Failed! Trying again, with signature: %s" % key)
-                    decryptor.set_key(key)
-                    infile.seek(start_pos)
-                    infile_dec = decryptor.decrypt(infile)
-
-                # try again
-                infile_dec.seek(0)
-                if zcu.zte.read_payload_type(infile_dec, raise_on_error=False) is None:
-                    error("Malformed decrypted payload, likely you used the wrong key!")
-                    check_type(serial_is_key, signature_is_key, payload_type)
-                    return
-                infile = infile_dec
-        except ValueError as ex:
-            error("Failed to decrypt payload.")
-            if check_type(serial_is_key, signature_is_key, payload_type):
-                raise ValueError(ex)
-            return
+    params = SimpleNamespace()
+    if args.signature:
+        params.signature = args.signature
     else:
-        # no encryption used
+        params.signature = signature
+    
+    if args.key:
+        params.key = args.key
+    if args.model:
+        params.model = args.model
+    if args.serial:
+        params.serial = args.serial
+    if args.key_prefix:
+        params.key_prefix = args.key_prefix if (args.key_prefix != 'NONE') else ''
+    if args.key_suffix:
+        params.key_suffix = args.key_suffix if (args.key_suffix != 'NONE') else ''
+    if args.iv_prefix:
+        params.iv_prefix = args.iv_prefix if (args.iv_prefix != 'NONE') else ''
+    if args.iv_suffix:
+        params.iv_suffix = args.iv_suffix if (args.iv_suffix != 'NONE') else ''
+
+    matched_type = None
+    if payload_type == 3:
+        models = []
+        if hasattr(params, 'model'):
+            models.append(params.model)
+
+        if args.try_all_known_keys:
+            models.extend(zcu.known_keys.get_all_models())
+
+        if not len(models):
+            error("No model argument specified for type 3 decryption and not trying all known keys!")
+            return 1
+
+        for model in models:
+            if len(models) > 1:
+                print("Trying model name: %s" % model)
+            decryptor = CBCXcryptor(model)
+            infile.seek(start_pos)
+            decrypted = decryptor.decrypt(infile)
+            if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
+                matched_type = 'model'
+                matched_model = model
+                infile = decrypted
+                break
+
+        if matched_type is None:
+            error("Failed to decrypt type 3 payload, tried %d model name(s)!" % len(models))
+            return 1
+    elif payload_type == 4:
+        generated = []
+        if args.try_all_known_keys:
+            generated = zcu.known_keys.run_all_keygens(params)
+        else:
+            res = zcu.known_keys.run_keygen(params)
+            if res is not None:
+                generated.append(res)
+
+        if not len(generated):
+            errStr = "No type 4 keygens matched the supplied/detected signature and parameters! Maybe adding --try-all-known-keys "
+            if not hasattr(params,'serial'):
+                errStr += "or --serial "
+            errStr += "would work."
+            error(errStr)
+            return 1
+
+        for genkey in generated:
+            key, iv, source = genkey
+            if len(generated) > 1:
+                print("Trying key: '%s' iv: '%s' generated from %s" % (key, iv, source))
+
+            decryptor = CBCXcryptor()
+            decryptor.set_key(key, iv)
+            infile.seek(start_pos)
+            decrypted = decryptor.decrypt(infile)
+            if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
+                matched_type = source
+                infile = decrypted
+                break
+
+        if matched_type is None:
+            error("Failed to decrypt type 4 payload, tried %d generated key(s)!" % len(generated))
+            return 1
+    elif payload_type == 2:
+        keys = []
+        if hasattr(params, 'key'):
+            keys.append(params.key)
+        elif hasattr(params, 'signature'):
+            found_key = zcu.known_keys.find_key(params.signature)
+            if (found_key is not None) and (found_key not in keys):
+                keys.append(found_key)
+        if args.try_all_known_keys:
+            for key in zcu.known_keys.get_all_keys():
+                if key not in keys:
+                    keys.append(key)
+
+        if not len(keys):
+            error("No --key specified or found via signature, and not trying all known keys!")
+            return 1
+
+        for key in keys:
+            if len(keys) > 1:
+                print("Trying key: %s" % key)
+
+            decryptor = Xcryptor(key)
+            infile.seek(start_pos)
+            decrypted = decryptor.decrypt(infile)
+            if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
+                matched_type = 'key'
+                matched_key = key
+                infile = decrypted
+                break
+
+        if matched_type is None:
+            error("Failed to decrypt type 2 payload, tried %d key(s)!" % len(keys))
+            return 1
+    elif payload_type == 0:
+        # no decryption required
         pass
+    else:
+        error("Unknown payload type %d encountered!" % payload_type)
+        return 1
 
     res, _ = zcu.compression.decompress(infile)
     outfile.write(res.read())
-    print("Successfully decoded!")
 
+    match = None
+    if matched_type == 'key':
+        match = "key: '%s'" % matched_key
+    elif matched_type == 'signature':
+        match = "signature: '%s'" % params.signature
+    elif matched_type == 'serial':
+        match = "serial: '%s'" % params.serial
+    elif matched_type == 'model':
+        match = "model: '%s'" % matched_model
 
-def check_type(serial_is_key, signature_is_key, payload_type):
-    is_t4_method = serial_is_key or signature_is_key
-    if is_t4_method and payload_type == 2:
-        error("Hint: Payload type is 2, might need a key instead of a %s" % ("serial number." if serial_is_key else "signature."))
-    elif not is_t4_method and payload_type == 4:
-        error("Hint: Payload type is 4, might need a serial number instead of a key.")
+    if match is not None:
+        print("Successfully decoded using %s!" % match)
     else:
-        return True
-    return False
+        print("Successfully decoded!")
+
+    return 0
 
 
 def error(err):

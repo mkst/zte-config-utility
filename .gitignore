@@ -6,6 +6,7 @@ dist/
 html_cov/
 venv/
 resources/*NEW*
+.vs/
 
 *.pyc
 .coverage

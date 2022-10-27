@@ -76,6 +76,9 @@ def compress_helper(infile, chunk_size):
         'compressed_size': cumulative_compressed_length,
     }
 
+    if chunk_size < 65536: # want the full compressed size in header in some cases
+        stats['compressed_size'] += len(compressed_chunk) + 12
+
     return (compressed_data, stats)
 
 
