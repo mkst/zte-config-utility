@@ -30,7 +30,7 @@ def find_key(signature):
 def get_all_keys():
     return KNOWN_KEYS.keys()
 
-KNOWN_MODELS = ["H268Q", "H298Q"]
+KNOWN_MODELS = ["H268Q", "H298Q", "H288A"]
 
 def get_all_models():
     return KNOWN_MODELS
@@ -66,7 +66,8 @@ def signature_keygen(params, key_suffix = 'Key02721401', iv_suffix = 'Iv02721401
 KNOWN_KEYGENS = {
     (lambda p : serial_keygen(p)): ["ZXHN H298A"],
     (lambda p : signature_keygen(p)): ["ZXHN H168N V3.5"],
-    (lambda p : signature_keygen(p, key_suffix='Key02710010', iv_suffix='Iv02710010')): ["ZXHN H298Q", "ZXHN H268Q"]
+    (lambda p : signature_keygen(p, key_suffix='Key02710010', iv_suffix='Iv02710010')): ["ZXHN H298Q", "ZXHN H268Q"],
+    (lambda p : signature_keygen(p, key_suffix='Key02710001', iv_suffix='Iv02710001')): ["H288A"]
 }
 
 def run_keygen(params):
