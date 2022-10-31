@@ -1,6 +1,6 @@
 import unittest
 from types import SimpleNamespace
-from zcu.known_keys import find_key, get_all_keys, run_keygen, run_all_keygens
+from zcu.known_keys import find_key, get_all_keys, run_keygen, run_all_keygens, mac_to_str
 
 
 class TestPublicMethods(unittest.TestCase):
@@ -43,8 +43,12 @@ class TestPublicMethods(unittest.TestCase):
     def test_run_all_keygens(self):
         params = SimpleNamespace(signature = "ZXHN H268Q V7.X", serial = "Test")
         res = run_all_keygens(params)
-        goodRes = ("ZXHNH268QV7.XKey02710010", "ZXHNH268QV7.XIv02710010", "signature")
+        goodRes = ("ZXHNH268QV7.XKey02710010", "ZXHNH268QV7.XIv02710010", "signature: 'ZXHN H268Q V7.X'")
         self.assertIn(goodRes, res)
+
+    def test_mac_to_str(self):
+        macStr = '00:1234:56Aa:bB'
+        self.assertEqual(mac_to_str(macStr), "00:12:34:56:aa:bb")
 
 if __name__ == "__main__":
     unittest.main()
