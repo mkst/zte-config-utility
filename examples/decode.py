@@ -20,15 +20,19 @@ def main():
     parser.add_argument('--model', type=str, default='',
                         help="Device model for Type-3 key derivation")
     parser.add_argument("--serial", type=str, default="",
-                        help="Serial number for Type-4 key generation (digimobil routers)")
+                        help="Serial number for Type-4 key generation (digimobil routers/tagparams based)")
+    parser.add_argument("--mac", type=str, default="",
+                        help="MAC address for TagParams-based key generation")
+    parser.add_argument("--longpass", type=str, default="",
+                        help="Long password from TagParams (entry 4100) for key generation")
     parser.add_argument("--signature", type=str, default="",
                         help="Supply/override signature for Type-4 key generation")
     parser.add_argument("--try-all-known-keys", action="store_true",
                         help="Try decrypting with all known keys and generators (default No)")
     parser.add_argument("--key-prefix", type=str, default='',
-                        help="Override Key prefix for Serial based key generation")
+                        help="Override Key prefix for Serial/TagParams based key generation")
     parser.add_argument("--iv-prefix", type=str, default='',
-                        help="Override IV prefix for Serial based key generation")
+                        help="Override IV prefix for Serial/TagParams based key generation")
     parser.add_argument("--key-suffix", type=str, default='',
                         help="Override Key suffix for Signature based key generation")
     parser.add_argument("--iv-suffix", type=str, default='',
@@ -57,7 +61,11 @@ def main():
     if args.model:
         params.model = args.model
     if args.serial:
-        params.serial = args.serial
+        params.serial = args.serial if (args.serial != 'NONE') else ''
+    if args.mac:
+        params.mac = args.mac if (args.mac != 'NONE') else ''
+    if args.longpass:
+        params.longPass = args.longpass if (args.longpass != 'NONE') else ''
     if args.key_prefix:
         params.key_prefix = args.key_prefix if (args.key_prefix != 'NONE') else ''
     if args.key_suffix:
@@ -67,7 +75,7 @@ def main():
     if args.iv_suffix:
         params.iv_suffix = args.iv_suffix if (args.iv_suffix != 'NONE') else ''
 
-    matched_type = None
+    matched = None
     if payload_type == 3:
         models = []
         if hasattr(params, 'model'):
@@ -87,12 +95,11 @@ def main():
             infile.seek(start_pos)
             decrypted = decryptor.decrypt(infile)
             if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-                matched_type = 'model'
-                matched_model = model
+                matched = "model: '%s'" % model
                 infile = decrypted
                 break
 
-        if matched_type is None:
+        if matched is None:
             error("Failed to decrypt type 3 payload, tried %d model name(s)!" % len(models))
             return 1
     elif payload_type == 4:
@@ -122,11 +129,11 @@ def main():
             infile.seek(start_pos)
             decrypted = decryptor.decrypt(infile)
             if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-                matched_type = source
+                matched = source
                 infile = decrypted
                 break
 
-        if matched_type is None:
+        if matched is None:
             error("Failed to decrypt type 4 payload, tried %d generated key(s)!" % len(generated))
             return 1
     elif payload_type == 2:
@@ -154,12 +161,11 @@ def main():
             infile.seek(start_pos)
             decrypted = decryptor.decrypt(infile)
             if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-                matched_type = 'key'
-                matched_key = key
+                matched = "key: '%s'" % key
                 infile = decrypted
                 break
 
-        if matched_type is None:
+        if matched is None:
             error("Failed to decrypt type 2 payload, tried %d key(s)!" % len(keys))
             return 1
     elif payload_type == 0:
@@ -172,18 +178,8 @@ def main():
     res, _ = zcu.compression.decompress(infile)
     outfile.write(res.read())
 
-    match = None
-    if matched_type == 'key':
-        match = "key: '%s'" % matched_key
-    elif matched_type == 'signature':
-        match = "signature: '%s'" % params.signature
-    elif matched_type == 'serial':
-        match = "serial: '%s'" % params.serial
-    elif matched_type == 'model':
-        match = "model: '%s'" % matched_model
-
-    if match is not None:
-        print("Successfully decoded using %s!" % match)
+    if matched is not None:
+        print("Successfully decoded using %s!" % matched)
     else:
         print("Successfully decoded!")
 
