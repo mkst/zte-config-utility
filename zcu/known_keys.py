@@ -95,7 +95,8 @@ KNOWN_KEYGENS = {
     (lambda p : serial_keygen(p)): ["ZXHN H298A"],
     (lambda p : signature_keygen(p)): ["ZXHN H168N V3.5"],
     (lambda p : signature_keygen(p, key_suffix='Key02710010', iv_suffix='Iv02710010')): ["ZXHN H298Q", "ZXHN H268Q"],
-    (lambda p : signature_keygen(p, key_suffix='Key02710001', iv_suffix='Iv02710001')): ["H188A", "H288A"]
+    (lambda p : signature_keygen(p, key_suffix='Key02710001', iv_suffix='Iv02710001')): ["H188A", "H288A"],
+    (lambda p : signature_keygen(p, key_suffix='Key02660004', iv_suffix='Iv02660004')): ["H196Q"],
 }
 
 def run_keygen(params):
