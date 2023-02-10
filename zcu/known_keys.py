@@ -97,6 +97,7 @@ KNOWN_KEYGENS = {
     (lambda p : signature_keygen(p, key_suffix='Key02710010', iv_suffix='Iv02710010')): ["ZXHN H298Q", "ZXHN H268Q"],
     (lambda p : signature_keygen(p, key_suffix='Key02710001', iv_suffix='Iv02710001')): ["H188A", "H288A"],
     (lambda p : signature_keygen(p, key_suffix='Key02660004', iv_suffix='Iv02660004')): ["H196Q"],
+    (lambda p : ('8cc72b05705d5c46f412af8cbed55aa', '667b02a85c61c786def4521b060265e', "signature: '%s'" % p.signature)): ["ZXHN F450(EPON ONU)"],
 }
 
 def run_keygen(params):
