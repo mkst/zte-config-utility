@@ -12,7 +12,10 @@ def read_header(infile):
     header_magic = struct.unpack('>4I', infile.read(16))
     if header_magic == constants.ZTE_MAGIC:
         # 128 byte header
-        header = struct.unpack('>28I', infile.read(112))
+        raw_header = infile.read(112)
+        header = struct.unpack('<28I', raw_header)
+        if header[2] != 4:
+            header = struct.unpack('>28I', raw_header)
         assert header[2] == 4
         header_length = header[13]
         signed_config_size = header[14]
@@ -73,6 +76,20 @@ def add_header(payload, signature, payload_type, version):
                                                      0, 0, 0, 0,
                                                      0, 0, 0, 64,
                                                      version, 128,
+                                                     full_payload_length, 0,
+                                                     0, 0, 0, 0,
+                                                     0, 0, 0, 0,
+                                                     0, 0, 0, 0)))
+    if signature == b'ZXHN F450(EPON ONU)':
+        if payload_type == 4:
+            full_payload_length = len(payload_data)
+            if signature_length > 0:
+                full_payload_length += 12 + signature_length
+            full_payload.write(struct.pack('>4I', *constants.ZTE_MAGIC))
+            full_payload.write(struct.pack('<28I', *(0, 0, 4, 0,
+                                                     0, 0, 0, 0,
+                                                     0, 0, 0, 64,
+                                                     version >> 16, 128,
                                                      full_payload_length, 0,
                                                      0, 0, 0, 0,
                                                      0, 0, 0, 0,
