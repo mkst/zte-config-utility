@@ -112,7 +112,7 @@ class TestHeaderMethods(unittest.TestCase):
         payload = BytesIO()
         payload.write(b'abcdefhi')
         payload.seek(0)
-        data = zcu.zte.add_header(payload, b'TEST', 0, 0)
+        data = zcu.zte.add_header(payload, b'TEST', 0)
 
         signature_header = struct.unpack('>3I', data.read(12))
         self.assertEqual(0x04030201, signature_header[0])
@@ -127,7 +127,7 @@ class TestHeaderMethods(unittest.TestCase):
         payload = BytesIO()
         payload.write(b'abcdefhi')
         payload.seek(0)
-        data = zcu.zte.add_header(payload, b'TEST', 2, 65536)
+        data = zcu.zte.add_header(payload, b'TEST', 65536, include_header=True)
 
         magic = struct.unpack('>4I', data.read(16))
         self.assertEqual(0x99999999, magic[0])

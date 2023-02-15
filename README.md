@@ -17,7 +17,7 @@ NOTE: This project has only been tested against **Python 3.5** and higher.
 
 ```sh
 $ python3 examples/decode.py resources/ZXHN_H298N.bin resources/ZXHN_H298N.xml --key 'Wj'
-$ python3 examples/encode.py resources/ZXHN_H298N.xml resources/ZXHN_H298N.NEW.bin --key 'Wj' --signature 'ZXHN H298N'
+$ python3 examples/encode.py resources/ZXHN_H298N.xml resources/ZXHN_H298N.NEW.bin --key 'Wj' --signature 'ZXHN H298N' --include-header
 $ md5sum resources/ZXHN_H298N.bin resources/ZXHN_H298N.NEW.bin
 8529c1e3d4e3018db508a3b5b5b574cc  resources/ZXHN_H298N.bin
 8529c1e3d4e3018db508a3b5b5b574cc  resources/ZXHN_H298N.NEW.bin
@@ -27,7 +27,7 @@ $ md5sum resources/ZXHN_H298N.bin resources/ZXHN_H298N.NEW.bin
 
 ```sh
 $ python3 examples/decode.py resources/ZXHN_H108N_V2.5.bin resources/ZXHN_H108N_V2.5.xml --key 'GrWM2Hz&LTvz&f^5'
-$ python3 examples/encode.py resources/ZXHN_H108N_V2.5.xml resources/ZXHN_H108N_V2.5.NEW.bin --key 'GrWM2Hz&LTvz&f^5' --signature 'ZXHN H108N V2.5' --version 1
+$ python3 examples/encode.py resources/ZXHN_H108N_V2.5.xml resources/ZXHN_H108N_V2.5.NEW.bin --key 'GrWM2Hz&LTvz&f^5' --signature 'ZXHN H108N V2.5' --version 1 --include-header
 $ md5sum resources/ZXHN_H108N_V2.5.bin resources/ZXHN_H108N_V2.5.NEW.bin
 5dbb537bb8a5bfa51f9bc9e2d48f576d  resources/ZXHN_H108N_V2.5.bin
 5dbb537bb8a5bfa51f9bc9e2d48f576d  resources/ZXHN_H108N_V2.5.NEW.bin
