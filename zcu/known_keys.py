@@ -48,7 +48,7 @@ def mac_to_str(mac):
 
     return "%02x:%02x:%02x:%02x:%02x:%02x" % (mac[0], mac[1], mac[2], mac[3], mac[4], mac[5])
 
-def tagparams_keygen(params, key_prefix = 'Mcd5c46e', iv_prefix = 'G21b667b'):
+def tagparams_keygen(params, key_prefix='Mcd5c46e', iv_prefix='G21b667b'):
     if hasattr(params, 'key_prefix'):
         key_prefix = params.key_prefix
     if hasattr(params, 'iv_prefix'):
@@ -60,9 +60,9 @@ def tagparams_keygen(params, key_prefix = 'Mcd5c46e', iv_prefix = 'G21b667b'):
         iv = iv_prefix + macStr + params.longPass
         return (key, iv, "tagparams: mac='%s', serial='%s', longPass='%s'" % (macStr, params.serial, params.longPass))
     except AttributeError:
-        return ()   
+        return ()
 
-def serial_keygen(params, key_prefix = '8cc72b05705d5c46', iv_prefix = '667b02a85c61c786'):
+def serial_keygen(params, key_prefix='8cc72b05705d5c46', iv_prefix='667b02a85c61c786'):
     if hasattr(params, 'key_prefix'):
         key_prefix = params.key_prefix
     if hasattr(params, 'iv_prefix'):
@@ -73,9 +73,9 @@ def serial_keygen(params, key_prefix = '8cc72b05705d5c46', iv_prefix = '667b02a8
         iv = iv_prefix + params.serial
         return (key, iv, "serial: '%s'" % params.serial)
     except AttributeError:
-        return ()    
+        return ()
 
-def signature_keygen(params, key_suffix = 'Key02721401', iv_suffix = 'Iv02721401'):
+def signature_keygen(params, key_suffix='Key02721401', iv_suffix='Iv02721401'):
     if hasattr(params, 'key_suffix'):
         key_suffix = params.key_suffix
     if hasattr(params, 'iv_suffix'):
@@ -97,6 +97,8 @@ KNOWN_KEYGENS = {
     (lambda p : signature_keygen(p, key_suffix='Key02710010', iv_suffix='Iv02710010')): ["ZXHN H298Q", "ZXHN H268Q"],
     (lambda p : signature_keygen(p, key_suffix='Key02710001', iv_suffix='Iv02710001')): ["H188A", "H288A"],
     (lambda p : signature_keygen(p, key_suffix='Key02660004', iv_suffix='Iv02660004')): ["H196Q"],
+    (lambda p : signature_keygen(p, key_suffix='8cc72b05705d5c46f412af8cbed55aa', iv_suffix='667b02a85c61c786def4521b060265e')): ["ZXHN F450(EPON ONU)"],
+
 }
 
 def run_keygen(params):
@@ -120,7 +122,7 @@ def run_all_keygens(params):
             outArr.append(genResult)
 
     return outArr
-           
+
 def run_any_keygen(params, wanted):
     keygened = run_keygen(params)
     if keygened is not None:
@@ -133,4 +135,4 @@ def run_any_keygen(params, wanted):
             return gen
 
     #should never get here as long as wanted is an existing type
-    return None 
+    return None

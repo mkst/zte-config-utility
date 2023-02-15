@@ -10,10 +10,10 @@ python3 examples/decode.py resources/F600W.bin resources/F600W.xml2
 python3 examples/encode.py --signature "F600W" resources/F600W.xml resources/F600W.bin2
 
 python3 examples/decode.py resources/ZXHN_H108N_V2.5.bin resources/ZXHN_H108N_V2.5.xml2
-python3 examples/encode.py --signature "ZXHN H108N V2.5" --version 1 resources/ZXHN_H108N_V2.5.xml resources/ZXHN_H108N_V2.5.bin2
+python3 examples/encode.py --signature "ZXHN H108N V2.5" --version 1 --include-header resources/ZXHN_H108N_V2.5.xml resources/ZXHN_H108N_V2.5.bin2
 
 python3 examples/decode.py resources/ZXHN_H168N_V3.1.bin resources/ZXHN_H168N_V3.1.xml2
-python3 examples/encode.py --signature "ZXHN H168N V3.1" --include-unencrypted-length resources/ZXHN_H168N_V3.1.xml resources/ZXHN_H168N_V3.1.bin2
+python3 examples/encode.py --signature "ZXHN H168N V3.1" --include-unencrypted-length --include-header resources/ZXHN_H168N_V3.1.xml resources/ZXHN_H168N_V3.1.bin2
 
 python3 examples/decode.py resources/ZXHN_H168N_V3.5.bin resources/ZXHN_H168N_V3.5.xml2
 python3 examples/encode.py --signature "ZXHN H168N V3.5" --use-signature-encryption resources/ZXHN_H168N_V3.5.xml resources/ZXHN_H168N_V3.5.bin2
@@ -22,10 +22,10 @@ python3 examples/decode.py resources/ZXHN_H298Q_C7_config.bin resources/ZXHN_H29
 python3 examples/encode.py --signature "ZXHN H298Q V7.0" --use-signature-encryption resources/ZXHN_H298Q_C7_config.xml resources/ZXHN_H298Q_C7_config.bin2
 
 python3 examples/decode.py resources/ZXHN_H267A.bin resources/ZXHN_H267A.xml2
-python3 examples/encode.py --signature "ZXHN H267A V1.0" resources/ZXHN_H267A.xml resources/ZXHN_H267A.bin2
+python3 examples/encode.py --signature "ZXHN H267A V1.0" --include-header resources/ZXHN_H267A.xml resources/ZXHN_H267A.bin2
 
 python3 examples/decode.py resources/ZXHN_H298N.bin resources/ZXHN_H298N.xml2
-python3 examples/encode.py --signature "ZXHN H298N" resources/ZXHN_H298N.xml resources/ZXHN_H298N.bin2
+python3 examples/encode.py --signature "ZXHN H298N" --include-header resources/ZXHN_H298N.xml resources/ZXHN_H298N.bin2
 
 python3 examples/decode.py resources/ZXV10_H201L_V2.0.bin resources/ZXV10_H201L_V2.0.xml2
-python3 examples/encode.py --signature "ZXV10 H201L V2.0" resources/ZXV10_H201L_V2.0.xml resources/ZXV10_H201L_V2.0.bin2
+python3 examples/encode.py --signature "ZXV10 H201L V2.0" --include-header resources/ZXV10_H201L_V2.0.xml resources/ZXV10_H201L_V2.0.bin2

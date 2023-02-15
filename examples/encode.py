@@ -6,6 +6,7 @@ import zcu
 from zcu.xcryptors import Xcryptor, CBCXcryptor
 from zcu.known_keys import run_any_keygen
 
+
 def main():
     """the main function"""
     parser = argparse.ArgumentParser(description='Encode config.bin for ZTE Routers',
@@ -32,6 +33,10 @@ def main():
                         help='Payload type (0=plain, 2=aes128ecb key encryption, 3=aes256cbc model encryption, 4=aes256cbc signature/serial encryption)')
     parser.add_argument('--version', type=int, default=2, choices=[1, 2],
                         help='Payload version (1=unknown, 2=unknown)')
+    parser.add_argument("--include-header", action="store_true",
+                        help="Include header? (default No)")
+    parser.add_argument("--little-endian-header", action="store_true",
+                        help="Is header little endian? (default No)")
     parser.add_argument('--include-unencrypted-length', action='store_true',
                         help='Include unencrypted length in header (default No)')
     parser.add_argument("--key-prefix", type=str, default='',
@@ -50,10 +55,11 @@ def main():
     key = args.key
     iv = args.iv
     payload_type = args.payload_type
+
     if args.model:
         payload_type = 3
         key = args.model
-        iv = None        
+        iv = None
     elif args.serial:
         payload_type = 4
         params = SimpleNamespace(signature = args.signature, serial = args.serial)
@@ -68,9 +74,9 @@ def main():
     elif args.use_signature_encryption:
         payload_type = 4
         if not args.signature:
-            print("Warning: using signature encryption but no signature provided!")
+            print("Warning: Using signature encryption but no signature provided!")
 
-        params = SimpleNamespace(signature = args.signature)
+        params = SimpleNamespace(signature=args.signature)
         print("Using signature: %s" % params.signature)
         if args.key_suffix:
             params.key_suffix = args.key_suffix if (args.key_suffix != 'NONE') else ''
@@ -94,10 +100,10 @@ def main():
             print("Using key '" + key + "' matching signature '" + signature + "'")
 
     if all(b == 0 for b in signature) and payload_type in (2, 4):
-        print("Warning: no signature provided!")
+        print("Warning: No signature provided!")
 
     if all(b == 0 for b in key) and (payload_type != 0 or signature):
-        print("Warning: no key provided!")
+        print("Warning: No key provided!")
 
     data = zcu.compression.compress(infile, args.chunk_size)
 
@@ -106,13 +112,20 @@ def main():
         data = encryptor.encrypt(data)
     elif payload_type in (3, 4):
         encryptor = CBCXcryptor(chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length)
-        encryptor.set_key(aes_key = key, aes_iv = iv)
+        encryptor.set_key(aes_key=key, aes_iv=iv)
         data = encryptor.encrypt(data)
 
-    version = args.version << 16
-    encoded = zcu.zte.add_header(data, signature.encode(), payload_type, version)
+    version = (args.version >> 16) if args.little_endian_header else (args.version << 16)
+    encoded = zcu.zte.add_header(
+        data,
+        signature.encode("utf8"),
+        version,
+        include_header=args.include_header,
+        little_endian=args.little_endian_header,
+    )
     outfile.write(encoded.read())
     print("Done!")
+
 
 if __name__ == '__main__':
     main()
