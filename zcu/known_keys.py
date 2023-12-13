@@ -1,3 +1,8 @@
+from hashlib import sha256
+
+from zcu.buggy_sha256 import buggy_sha256
+
+
 """Known encryption keys for ZTE router config.bin files"""
 
 # 1st element is the key, everything else is the start of the signature
@@ -48,7 +53,7 @@ def mac_to_str(mac):
 
     return "%02x:%02x:%02x:%02x:%02x:%02x" % (mac[0], mac[1], mac[2], mac[3], mac[4], mac[5])
 
-def tagparams_keygen(params, key_prefix='Mcd5c46e', iv_prefix='G21b667b'):
+def tagparams_keygen(params, key_prefix='Mcd5c46e', iv_prefix='G21b667b', buggy=False):
     if hasattr(params, 'key_prefix'):
         key_prefix = params.key_prefix
     if hasattr(params, 'iv_prefix'):
@@ -56,8 +61,11 @@ def tagparams_keygen(params, key_prefix='Mcd5c46e', iv_prefix='G21b667b'):
 
     try:
         macStr = mac_to_str(params.mac)
-        key = params.longPass + params.serial + key_prefix
-        iv = iv_prefix + macStr + params.longPass
+        hashfunc = buggy_sha256 if buggy else lambda x: sha256(x).digest()
+        key_seed = params.longPass + params.serial + key_prefix
+        key = hashfunc(key_seed.encode('ascii'))
+        iv_seed = iv_prefix + macStr + params.longPass
+        iv = hashfunc(iv_seed.encode('ascii'))
         return (key, iv, "tagparams: mac='%s', serial='%s', longPass='%s'" % (macStr, params.serial, params.longPass))
     except AttributeError:
         return ()
@@ -69,8 +77,10 @@ def serial_keygen(params, key_prefix='8cc72b05705d5c46', iv_prefix='667b02a85c61
         iv_prefix = params.iv_prefix
 
     try:
-        key = key_prefix + params.serial
-        iv = iv_prefix + params.serial
+        key_seed = key_prefix + params.serial
+        key = sha256(key_seed.encode('ascii')).digest()
+        iv_seed = iv_prefix + params.serial
+        iv = sha256(iv_seed.encode('ascii')).digest()
         return (key, iv, "serial: '%s'" % params.serial)
     except AttributeError:
         return ()
@@ -83,8 +93,10 @@ def signature_keygen(params, key_suffix='Key02721401', iv_suffix='Iv02721401'):
 
     try:
         nospaces = params.signature.replace(' ', '')
-        key = nospaces + key_suffix
-        iv = nospaces + iv_suffix
+        key_seed = nospaces + key_suffix
+        key = sha256(key_seed.encode('ascii')).digest()
+        iv_seed = nospaces + iv_suffix
+        iv = sha256(iv_seed.encode('ascii')).digest()
         return (key, iv, "signature: '%s'" % params.signature)
     except AttributeError:
         return ()
@@ -92,6 +104,7 @@ def signature_keygen(params, key_suffix='Key02721401', iv_suffix='Iv02721401'):
 # 1st element is the function generating the key, 2nd is array of possible matching signature starts
 KNOWN_KEYGENS = {
     (lambda p : tagparams_keygen(p)): ["H288A"],
+    (lambda p : tagparams_keygen(p, buggy=True)): ["H3600P"],
     (lambda p : serial_keygen(p)): ["ZXHN H298A"],
     (lambda p : signature_keygen(p)): ["ZXHN H168N V3.5"],
     (lambda p : signature_keygen(p, key_suffix='Key02710010', iv_suffix='Iv02710010')): ["ZXHN H298Q", "ZXHN H268Q"],

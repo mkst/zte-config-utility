@@ -1,6 +1,5 @@
 import struct
 from io import BytesIO
-from hashlib import sha256
 
 from Cryptodome.Cipher import AES
 
@@ -130,29 +129,18 @@ class Xcryptor():
 class CBCXcryptor(Xcryptor):
     # type 3/4 encryption, AES256CBC with the key/IV set from SHA256 hashes
     force_same_data_length = False
-    aes_key_str = None
-    aes_iv_str = None
+    aes_key = None
+    aes_iv = None
 
     def set_key(self, aes_key=None, aes_iv=None):
         if aes_key is None:
             self.aes_cipher = None
             return
 
-        if isinstance(aes_key, bytes):
-            self.aes_key_str = aes_key.decode()
-        else:
-            self.aes_key_str = aes_key
+        self.aes_key = aes_key
+        self.aes_iv = (aes_iv or aes_key)[:16]
 
-        if aes_iv is None:
-            self.aes_iv_str = self.aes_key_str
-        elif isinstance(aes_iv, bytes):
-            self.aes_iv_str = aes_iv.decode()
-        else:
-            self.aes_iv_str = aes_iv
-
-        key = sha256(self.aes_key_str.encode()).digest()
-        iv = sha256(self.aes_iv_str.encode()).digest()
-        self.aes_cipher = AES.new(key, AES.MODE_CBC, iv[:16])
+        self.aes_cipher = AES.new(self.aes_key, AES.MODE_CBC, self.aes_iv)
 
     def read_chunks(self, infile):
         encrypted_data = BytesIO()

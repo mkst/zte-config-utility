@@ -122,7 +122,7 @@ def main():
         for genkey in generated:
             key, iv, source = genkey
             if len(generated) > 1:
-                print("Trying key: '%s' iv: '%s' generated from %s" % (key, iv, source))
+                print("Trying key: '%s' iv: '%s' generated from %s" % (key.hex(), iv.hex(), source))
 
             decryptor = CBCXcryptor()
             decryptor.set_key(key, iv)
