@@ -92,16 +92,18 @@ def signature_keygen(params, key_suffix='Key02721401', iv_suffix='Iv02721401'):
 # 1st element is the function generating the key, 2nd is array of possible matching signature starts
 KNOWN_KEYGENS = {
     (lambda p : tagparams_keygen(p)): ["H288A"],
-    (lambda p : serial_keygen(p)): ["ZXHN H298A"],
+    (lambda p : serial_keygen(p)): ["ZXHN H298A", "ZXHN H267A V1.0"],
     (lambda p : signature_keygen(p)): ["ZXHN H168N V3.5"],
     (lambda p : signature_keygen(p, key_suffix='Key02710010', iv_suffix='Iv02710010')): ["ZXHN H298Q", "ZXHN H268Q"],
     (lambda p : signature_keygen(p, key_suffix='Key02710001', iv_suffix='Iv02710001')): ["H188A", "H288A"],
     (lambda p : signature_keygen(p, key_suffix='Key02660004', iv_suffix='Iv02660004')): ["H196Q"],
     (lambda p : signature_keygen(p, key_suffix='8cc72b05705d5c46f412af8cbed55aa', iv_suffix='667b02a85c61c786def4521b060265e')): ["ZXHN F450(EPON ONU)"],
+    (lambda p : ('8cc72b05705d5c46f412af8cbed55aad', '667b02a85c61c786def4521b060265e8', 'hardcoded key')): ['ZXHN H267A V1.0'],
 
 }
 
-def run_keygen(params):
+def run_keygens(params):
+    outArr = []
     for gen, sigs in KNOWN_KEYGENS.items():
         matching = False
         for sig in sigs:
@@ -111,8 +113,8 @@ def run_keygen(params):
         if matching:
             genResult = gen(params)
             if len(genResult):
-                return genResult
-    return None
+                outArr.append(genResult)
+    return outArr
 
 def run_all_keygens(params):
     outArr = []
@@ -124,9 +126,9 @@ def run_all_keygens(params):
     return outArr
 
 def run_any_keygen(params, wanted):
-    keygened = run_keygen(params)
-    if keygened is not None:
-        return keygened
+    keygened = run_keygens(params)
+    if keygened != []:
+        return keygened[0]
 
     #no match for signature found in keygens, find a generic keygen of wanted type and use that
     allgens = run_all_keygens(params)
@@ -136,3 +138,7 @@ def run_any_keygen(params, wanted):
 
     #should never get here as long as wanted is an existing type
     return None
+
+TYPE_3_KNOWN_KEY_IVS = [
+    ("H267AV1_CZkey", "H267AV1_CZIV", "H267A Czech")
+]
