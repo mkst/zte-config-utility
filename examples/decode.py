@@ -5,7 +5,7 @@ from types import SimpleNamespace
 import zcu
 
 from zcu.xcryptors import Xcryptor, CBCXcryptor
-from zcu.known_keys import serial_keygen, signature_keygen
+from zcu.known_keys import serial_keygen, signature_keygen, TYPE_3_KNOWN_KEY_IVS
 
 def main():
     """the main function"""
@@ -84,18 +84,23 @@ def main():
         if args.try_all_known_keys:
             models.extend(zcu.known_keys.get_all_models())
 
-        if not len(models):
+        key_ivs = [(m, m, f"Model {m}") for m in models]
+        if args.try_all_known_keys:
+            key_ivs.extend(TYPE_3_KNOWN_KEY_IVS)
+
+        if not len(key_ivs):
             error("No model argument specified for type 3 decryption and not trying all known keys!")
             return 1
 
-        for model in models:
+        for (key, iv, name) in key_ivs:
             if len(models) > 1:
-                print("Trying model name: %s" % model)
-            decryptor = CBCXcryptor(model)
+                print("Trying key: %s" % name)
+            decryptor = CBCXcryptor()
+            decryptor.set_key(key, iv)
             infile.seek(start_pos)
             decrypted = decryptor.decrypt(infile)
             if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-                matched = "model: '%s'" % model
+                matched = name
                 infile = decrypted
                 break
 
@@ -107,9 +112,8 @@ def main():
         if args.try_all_known_keys:
             generated = zcu.known_keys.run_all_keygens(params)
         else:
-            res = zcu.known_keys.run_keygen(params)
-            if res is not None:
-                generated.append(res)
+            res = zcu.known_keys.run_keygens(params)
+            generated += res
 
         if not len(generated):
             errStr = "No type 4 keygens matched the supplied/detected signature and parameters! Maybe adding --try-all-known-keys "
@@ -121,8 +125,7 @@ def main():
 
         for genkey in generated:
             key, iv, source = genkey
-            if len(generated) > 1:
-                print("Trying key: '%s' iv: '%s' generated from %s" % (key, iv, source))
+            print("Trying key: '%s' iv: '%s' generated from %s" % (key, iv, source))
 
             decryptor = CBCXcryptor()
             decryptor.set_key(key, iv)

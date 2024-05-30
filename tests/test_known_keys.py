@@ -1,6 +1,6 @@
 import unittest
 from types import SimpleNamespace
-from zcu.known_keys import find_key, get_all_keys, run_keygen, run_all_keygens, mac_to_str
+from zcu.known_keys import find_key, get_all_keys, run_keygens, run_all_keygens, mac_to_str
 
 
 class TestPublicMethods(unittest.TestCase):
@@ -18,25 +18,25 @@ class TestPublicMethods(unittest.TestCase):
 
     def test_run_serial_keygen(self):
         params = SimpleNamespace(signature = "ZXHN H298A V1.0", serial = " HELLO")
-        res = run_keygen(params)
+        res = run_keygens(params)[0]
         self.assertEqual(res[0], "8cc72b05705d5c46 HELLO")
         self.assertEqual(res[1], "667b02a85c61c786 HELLO")
 
     def test_run_serial_keygen_custom(self):
         params = SimpleNamespace(signature = "ZXHN H298A V1.0", key_prefix = "HI", iv_prefix = "HELLO", serial = " THERE")
-        res = run_keygen(params)
+        res = run_keygens(params)[0]
         self.assertEqual(res[0], "HI THERE")
         self.assertEqual(res[1], "HELLO THERE")
 
     def test_run_signature_keygen_h168n(self):
         params = SimpleNamespace(signature = "ZXHN H168N V3.5")
-        res = run_keygen(params)
+        res = run_keygens(params)[0]
         self.assertEqual(res[0], "ZXHNH168NV3.5Key02721401")
         self.assertEqual(res[1], "ZXHNH168NV3.5Iv02721401")
 
     def test_run_signature_keygen_h268q(self):
         params = SimpleNamespace(signature = "ZXHN H268Q V7.0")
-        res = run_keygen(params)
+        res = run_keygens(params)[0]
         self.assertEqual(res[0], "ZXHNH268QV7.0Key02710010")
         self.assertEqual(res[1], "ZXHNH268QV7.0Iv02710010")
 
