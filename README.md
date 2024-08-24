@@ -9,7 +9,7 @@ Creates byte-perfect binaries for the limited number of `config.bin` that have b
 Clone the repo and run `python3 setup.py install --user` to install the `zcu` module.
 You can then use the scripts in the [resources](./resources) directory.
 
-NOTE: This project has only been tested against **Python 3.5** and higher.
+NOTE: This project has only been tested against **Python 3.7** and higher.
 
 ## Examples
 

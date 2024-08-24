@@ -7,12 +7,15 @@ from Cryptodome.Cipher import AES
 from zcu.constants import PAYLOAD_MAGIC
 
 
-class Xcryptor():
+class Xcryptor:
     """Standard Type 2 encryption"""
+
     aes_cipher = None
     force_same_data_length = True
 
-    def __init__(self, aes_key=None, chunk_size=65536, include_unencrypted_length=False):
+    def __init__(
+        self, aes_key=None, chunk_size=65536, include_unencrypted_length=False
+    ):
         self.chunk_size = chunk_size
         self.include_unencrypted_length = include_unencrypted_length
         self.set_key(aes_key)
@@ -63,7 +66,7 @@ class Xcryptor():
         if self.include_unencrypted_length:
             unencrypted_length_to_use = self.unencrypted_data_length
             if self.force_same_data_length:
-                unencrypted_length_to_use = self.encrypted_data_length;
+                unencrypted_length_to_use = self.encrypted_data_length
 
         header = struct.pack(
             ">6I",
@@ -72,7 +75,8 @@ class Xcryptor():
             unencrypted_length_to_use,
             self.encrypted_data_length + 60 + 12,
             self.chunk_size,
-            0)
+            0,
+        )
         return header
 
     def encrypt(self, infile):
@@ -102,7 +106,7 @@ class Xcryptor():
 
         # pad to 16 byte alignment
         if unencrypted_data_length % 16 > 0:
-            data = data + (16 - unencrypted_data_length % 16)*b"\0"
+            data = data + (16 - unencrypted_data_length % 16) * b"\0"
 
         encrypted_data = self.aes_cipher.encrypt(data)
         encrypted_data_length = len(encrypted_data)
@@ -117,9 +121,15 @@ class Xcryptor():
         # mini header for aes payload
         aes_header = struct.pack(
             ">3I",
-            *(encrypted_data_length if self.force_same_data_length else unencrypted_data_length,
-              encrypted_data_length,
-              0)
+            *(
+                (
+                    encrypted_data_length
+                    if self.force_same_data_length
+                    else unencrypted_data_length
+                ),
+                encrypted_data_length,
+                0,
+            )
         )
         result.write(aes_header)
         result.write(encrypted_data)
@@ -174,5 +184,6 @@ class CBCXcryptor(Xcryptor):
             self.encrypted_data_length if self.include_unencrypted_length else 0,
             0,
             0,
-            0)
+            0,
+        )
         return header
