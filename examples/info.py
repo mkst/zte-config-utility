@@ -1,4 +1,5 @@
 """Extract info from config.bin"""
+
 import argparse
 
 import zcu
@@ -9,7 +10,9 @@ def print_payload_info(infile):
     zcu.zte.read_header(infile)
     signature = zcu.zte.read_signature(infile)
     payload_header = zcu.zte.read_payload(infile)
-    assert payload_header[0] == zcu.constants.PAYLOAD_MAGIC, "File does not begin with 0x01020304"
+    assert (
+        payload_header[0] == zcu.constants.PAYLOAD_MAGIC
+    ), "File does not begin with 0x01020304"
     payload_start = infile.tell()
     payload_type = payload_header[1]
     if payload_type == 0:
@@ -32,7 +35,7 @@ def print_payload_info(infile):
     payload_header_crc = payload_header[6]
 
     if len(signature) > 0:
-        print("Signature:         ", signature.decode('utf-8'))
+        print("Signature:         ", signature.decode("utf-8"))
 
     print("Payload Type:      ", payload_type, payload_type_friendly)
     print("Payload Start:     ", payload_start)
@@ -45,14 +48,19 @@ def print_payload_info(infile):
 
 def main():
     """the main function"""
-    parser = argparse.ArgumentParser(description='Read config.bin for ZTE Routers',
-                                     formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('infile', type=argparse.FileType('rb'),
-                        help='Raw configuration file (config.xml)')
+    parser = argparse.ArgumentParser(
+        description="Read config.bin for ZTE Routers",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "infile",
+        type=argparse.FileType("rb"),
+        help="Raw configuration file (config.xml)",
+    )
     args = parser.parse_args()
 
     print_payload_info(args.infile)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
