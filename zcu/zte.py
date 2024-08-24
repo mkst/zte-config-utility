@@ -14,7 +14,7 @@ def read_header(infile, little_endian=False):
         # 128 byte header
         endian = '<' if little_endian else '>'
         header = struct.unpack(endian + '28I', infile.read(112))
-        assert header[2] == 4
+        assert header[2] == 4, "Expected header[2] to be 4, was actually %s" % header[2]
         header_length = header[13]
         signed_config_size = header[14]
         file_size = stat(infile.name).st_size
@@ -26,8 +26,7 @@ def read_header(infile, little_endian=False):
 
 
 def read_signature(infile):
-    """expects to be at the start of the signature magic, returns
-    (signature, bytes read)"""
+    """expects to be at the start of the signature magic, returns signature"""
     signature_header = struct.unpack('>3I', infile.read(12))
     signature = b''
     if signature_header[0] == constants.SIGNATURE_MAGIC:
@@ -71,7 +70,7 @@ def add_header(payload, signature, version, include_header=False, little_endian=
             full_payload_length += 12 + signature_length
         full_payload.write(struct.pack('>4I', *constants.ZTE_MAGIC))
         header = [
-            0, 0, 4, 0,
+            0, 0, 4, 0,  # FIXME: header[2] is not always 4
             0, 0, 0, 0,
             0, 0, 0, 64,
             version, 128, full_payload_length, 0,

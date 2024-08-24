@@ -8,7 +8,7 @@ with open('LICENSE') as f:
     LICENSE = f.read()
 
 with open('VERSION') as f:
-    VERSION = f.read()
+    VERSION = f.read().strip()
 
 with open('requirements.txt') as f:
     REQUIRED = f.read()
@@ -20,7 +20,7 @@ setup(
     long_description=README,
     author='Mark Street',
     author_email='mkst@protonmail.com',
-    url='https://github.com/streetster/zte-config-utility',
+    url='https://github.com/mkst/zte-config-utility',
     license=LICENSE,
     install_requires=REQUIRED,
     packages=find_packages(exclude=('tests', 'docs'))

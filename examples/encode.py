@@ -1,6 +1,7 @@
 """Encode config.xml into config.bin"""
 import argparse
 from types import SimpleNamespace
+
 import zcu
 
 from zcu.xcryptors import Xcryptor, CBCXcryptor
@@ -63,27 +64,27 @@ def main():
     elif args.serial:
         payload_type = 4
         params = SimpleNamespace(signature = args.signature, serial = args.serial)
-        print("Using serial: %s" % params.serial)
+        print(f"Using serial: '{params.serial}'")
         if args.key_prefix:
             params.key_prefix = args.key_prefix if (args.key_prefix != 'NONE') else ''
-            print("Using key prefix: %s" % params.key_prefix)
+            print(f"Using key prefix: '{params.key_prefix}'")
         if args.iv_prefix:
             params.iv_prefix = args.iv_prefix if (args.iv_prefix != 'NONE') else ''
-            print("Using iv prefix: %s" % params.iv_prefix)
+            print(f"Using iv prefix: '{params.iv_prefix}'")
         key, iv = run_any_keygen(params,'serial')[:2]
     elif args.use_signature_encryption:
         payload_type = 4
         if not args.signature:
-            print("Warning: Using signature encryption but no signature provided!")
+            print("Warning: Using signature encryption but --signature not provided!")
 
         params = SimpleNamespace(signature=args.signature)
-        print("Using signature: %s" % params.signature)
+        print(f"Using signature: '{params.signature}'")
         if args.key_suffix:
             params.key_suffix = args.key_suffix if (args.key_suffix != 'NONE') else ''
-            print("Using key suffix: %s" % params.key_suffix)
+            print(f"Using key suffix: '{params.key_suffix}'")
         if args.iv_suffix:
             params.iv_suffix = args.iv_suffix if (args.iv_suffix != 'NONE') else ''
-            print("Using iv suffix: %s" % params.iv_suffix)
+            print(f"Using iv suffix: '{params.iv_suffix}'")
         key, iv = run_any_keygen(params,'signature')[:2]
     elif args.iv:
         payload_type = 4
@@ -97,10 +98,10 @@ def main():
             key = possible_key
             payload_type = 2
         if key:
-            print("Using key '" + key + "' matching signature '" + signature + "'")
+            print(f"Using key '{key}' for signature '{signature}'")
 
     if all(b == 0 for b in signature) and payload_type in (2, 4):
-        print("Warning: No signature provided!")
+        print("Warning: No/empty signature provided!")
 
     if all(b == 0 for b in key) and (payload_type != 0 or signature):
         print("Warning: No key provided!")

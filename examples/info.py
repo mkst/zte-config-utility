@@ -9,7 +9,7 @@ def print_payload_info(infile):
     zcu.zte.read_header(infile)
     signature = zcu.zte.read_signature(infile)
     payload_header = zcu.zte.read_payload(infile)
-    assert payload_header[0] == zcu.constants.PAYLOAD_MAGIC
+    assert payload_header[0] == zcu.constants.PAYLOAD_MAGIC, "File does not begin with 0x01020304"
     payload_start = infile.tell()
     payload_type = payload_header[1]
     if payload_type == 0:

@@ -26,7 +26,7 @@ def decompress(infile):
         compressed_chunk = infile.read(compressed_length)
         crc = zlib.crc32(compressed_chunk, crc)
         decompressed_chunk = zlib.decompress(compressed_chunk)
-        assert decompressed_length == len(decompressed_chunk)
+        assert decompressed_length == len(decompressed_chunk), "header decompressed length mismatch %i vs %i" % (decompressed_length, len(decompressed_chunk))
         decompressed_data.write(decompressed_chunk)
         if aes_header[2] == 0:
             break
