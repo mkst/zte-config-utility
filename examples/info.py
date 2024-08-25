@@ -7,6 +7,14 @@ import zcu
 
 def print_payload_info(infile):
     """expects to be at the start of the payload magic"""
+
+    # check magic
+    header = infile.read(4)
+    if header == b"BAMC":
+        print(f"ERROR: {infile.name} is base64 encoded, please decode and try again.")
+        return 1
+    infile.seek(0)
+
     zcu.zte.read_header(infile)
     signature = zcu.zte.read_signature(infile)
     payload_header = zcu.zte.read_payload(infile)

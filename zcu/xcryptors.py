@@ -20,7 +20,7 @@ class Xcryptor:
         self.include_unencrypted_length = include_unencrypted_length
         self.set_key(aes_key)
 
-    def set_key(self, aes_key):
+    def set_key(self, aes_key, aes_iv=None):
         if aes_key is None:
             self.aes_cipher = None
             return

@@ -17,8 +17,16 @@ def main():
 
     args = parser.parse_args()
 
-    zcu.zte.read_header(args.infile)
-    signature = zcu.zte.read_signature(args.infile)
+    infile = args.infile
+
+    header = infile.read(4)
+    if header == b"BAMC":
+        print(f"ERROR: {infile.name} is base64 encoded, please decode and try again.")
+        return 1
+    infile.seek(0)
+
+    zcu.zte.read_header(infile)
+    signature = zcu.zte.read_signature(infile)
     print(signature.decode("utf-8"))
 
 

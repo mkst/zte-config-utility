@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.5.0
+
+Added `auto.py` which tries all key/iv/signature combinations.
+
 ## 0.4.0
 
 Allow basic support for little-endian header format.

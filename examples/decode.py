@@ -148,6 +148,11 @@ def main():
         "outfile", type=argparse.FileType("wb"), help="Output file e.g. config.xml"
     )
     parser.add_argument(
+        "--little-endian",
+        action="store_true",
+        help="Whether payload is little-endian (defaults to big-endian)",
+    )
+    parser.add_argument(
         "--key", type=lambda x: x.encode(), default=b"", help="Key for AES decryption"
     )
     parser.add_argument(
@@ -211,7 +216,7 @@ def main():
     infile = args.infile
     outfile = args.outfile
 
-    zcu.zte.read_header(infile)
+    zcu.zte.read_header(infile, little_endian=args.little_endian)
 
     signature = zcu.zte.read_signature(infile).decode()
     if signature:
@@ -225,8 +230,6 @@ def main():
         params.signature = args.signature
     else:
         params.signature = signature
-
-    args.fuck = 123
 
     if args.key:
         params.key = args.key
