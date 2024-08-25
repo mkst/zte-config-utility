@@ -9,12 +9,20 @@ from . import constants
 
 def read_header(infile, little_endian=False):
     """expects to be at position 0 of the file, returns size of header"""
-    header_magic = struct.unpack(">4I", infile.read(16))
+    fmt = ">4I"
+    header_magic = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
     if header_magic == constants.ZTE_MAGIC:
         # 128 byte header
-        endian = "<" if little_endian else ">"
-        header = struct.unpack(endian + "28I", infile.read(112))
-        assert header[2] == 4, "Expected header[2] to be 4, was actually %s" % header[2]
+        fmt = f'{"<" if little_endian else ">"}28I'
+        header = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
+        if header[2] == 0x4000000:
+            print("WARNING: Incorrect endianess specified!")
+            infile.seek(0)
+            return read_header(infile, not little_endian)
+
+        assert (
+            header[2] == 4
+        ), f"Expected header[2] to be 0x4, was actually 0x{header[2]:X}"
         header_length = header[13]
         signed_config_size = header[14]
         file_size = stat(infile.name).st_size
@@ -29,7 +37,8 @@ def read_header(infile, little_endian=False):
 
 def read_signature(infile):
     """expects to be at the start of the signature magic, returns signature"""
-    signature_header = struct.unpack(">3I", infile.read(12))
+    fmt = ">3I"
+    signature_header = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
     signature = b""
     if signature_header[0] == constants.SIGNATURE_MAGIC:
         # _ = signature_header[1] # 0 ?
@@ -43,7 +52,8 @@ def read_signature(infile):
 
 def read_payload(infile, raise_on_error=True):
     """expects to be at the start of the payload magic"""
-    payload_header = struct.unpack(">15I", infile.read(60))
+    fmt = ">15I"
+    payload_header = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
     if payload_header[0] != constants.PAYLOAD_MAGIC:
         if raise_on_error:
             raise ValueError("Payload header does not start with the payload magic.")
@@ -75,7 +85,6 @@ def add_header(payload, signature, version, include_header=False, little_endian=
             0,
             0,
             4,
-            0,  # FIXME: header[2] is not always 4
             0,
             0,
             0,
@@ -83,9 +92,10 @@ def add_header(payload, signature, version, include_header=False, little_endian=
             0,
             0,
             0,
-            64,
+            0,
+            64,  # 0x40
             version,
-            128,
+            128,  # 0x80
             full_payload_length,
             0,
             0,
@@ -101,8 +111,8 @@ def add_header(payload, signature, version, include_header=False, little_endian=
             0,
             0,
         ]
-        endian = "<" if little_endian else ">"
-        full_payload.write(struct.pack(endian + "28I", *header))
+        fmt = f'{"<" if little_endian else ">"}28I'
+        full_payload.write(struct.pack(fmt, *header))
 
     if signature_length > 0:
         signature_header = [

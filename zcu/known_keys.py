@@ -17,6 +17,20 @@ KNOWN_KEYS = {
     "SDEwOE5WMi41Uk9T": ["TODO"],
 }
 
+# deprecated
+KNOWN_MODELS = ["H268Q", "H298Q", "H188A", "H288A", "H267AV1_CZ"]
+
+KNOWN_SIGNATURES = [
+    "H188A",
+    "H196Q",
+    "H268Q",
+    "H288A",
+    "H298Q",
+    # "ZXHN H168N V3.5",
+    # "ZXHN H298Q",
+    # "ZXHN H268Q",
+]
+
 
 def find_key(signature):
     signature = signature.lower()
@@ -28,35 +42,30 @@ def find_key(signature):
 
 
 def get_all_keys():
-    return KNOWN_KEYS.keys()
-
-
-KNOWN_MODELS = ["H268Q", "H298Q", "H188A", "H288A"]
+    return list(KNOWN_KEYS.keys())
 
 
 def get_all_models():
     return KNOWN_MODELS
 
 
-def mac_to_str(mac):
-    if not len(mac):
+def mac_to_str(mac, reverse=False, separator=":"):
+    if len(mac) == 0:
         return ""
+
     if not isinstance(mac, bytes):
-        mac = mac.strip().replace(":", "")
+        mac = mac.strip().replace(":", "").replace("-", "")
         if len(mac) != 12:
             raise ValueError("MAC address string has wrong length")
         mac = bytes.fromhex(mac)
+
     if len(mac) != 6:
         raise ValueError("MAC address has wrong length")
 
-    return "%02x:%02x:%02x:%02x:%02x:%02x" % (
-        mac[0],
-        mac[1],
-        mac[2],
-        mac[3],
-        mac[4],
-        mac[5],
-    )
+    if reverse:
+        mac = reversed(mac)
+
+    return separator.join(f"{x:02x}" for x in mac)
 
 
 def tagparams_keygen(params, key_prefix="Mcd5c46e", iv_prefix="G21b667b"):
@@ -111,7 +120,7 @@ def signature_keygen(params, key_suffix="Key02721401", iv_suffix="Iv02721401"):
 # 1st element is the function generating the key, 2nd is array of possible matching signature starts
 KNOWN_KEYGENS = {
     (lambda p: tagparams_keygen(p)): ["H288A"],
-    (lambda p: serial_keygen(p)): ["ZXHN H298A", "ZXHN H267A V1.0"],
+    (lambda p: serial_keygen(p)): ["ZXHN H298A", "ZXHN H267A V1.0", "H298A"],
     (lambda p: signature_keygen(p)): ["ZXHN H168N V3.5"],
     (lambda p: signature_keygen(p, key_suffix="Key02710010", iv_suffix="Iv02710010")): [
         "ZXHN H298Q",
