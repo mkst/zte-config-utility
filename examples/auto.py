@@ -46,6 +46,9 @@ def hardcoded_keypairs(args):
 def signature_keypairs(args):
     keypairs = []
 
+    if args.key and args.iv:
+        keypairs += [(args.key, args.iv)]
+
     signatures = []
     if args.signature:
         signatures += [
@@ -210,6 +213,17 @@ def main():
         "--little-endian",
         action="store_true",
         help="Whether payload is little-endian (defaults to big-endian)",
+    )
+
+    parser.add_argument(
+        "--key",
+        type=str,
+        help="Supply a Key to try",
+    )
+    parser.add_argument(
+        "--iv",
+        type=str,
+        help="Supply a IV to try",
     )
 
     parser.add_argument(
