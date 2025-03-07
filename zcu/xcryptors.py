@@ -143,8 +143,8 @@ class CBCXcryptor(Xcryptor):
     aes_key_str = None
     aes_iv_str = None
 
-    def __init__(self, payload_type=None, *args, **kwargs):
-        self.payload_type = payload_type
+    def __init__(self, *args, **kwargs):
+        self.payload_type = kwargs.pop("payload_type", None)
         super().__init__(*args, **kwargs)
 
     def set_key(self, aes_key=None, aes_iv=None):
