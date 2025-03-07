@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.5.1
+
+Allow the Payload Type to be overridden when encoding a configuration file.
+
 ## 0.5.0
 
 Added `auto.py` which tries all key/iv/signature combinations.
