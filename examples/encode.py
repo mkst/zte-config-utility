@@ -62,7 +62,7 @@ def main():
         "--payload-type",
         type=int,
         default=0,
-        choices=[0, 2, 3, 4],
+        choices=[0, 2, 3, 4, 5, 6],
         help="Payload type (0=plain, 2=aes128ecb key encryption, 3=aes256cbc model encryption, 4=aes256cbc signature/serial encryption)",
     )
     parser.add_argument(
@@ -116,7 +116,8 @@ def main():
     outfile = args.outfile
     key = args.key
     iv = args.iv
-    payload_type = args.payload_type
+
+    payload_type = 0
 
     if args.model:
         payload_type = 3
@@ -169,6 +170,11 @@ def main():
 
     data = zcu.compression.compress(infile, args.chunk_size)
 
+    if args.payload_type is not None:
+        if args.payload_type != payload_type:
+            print(f"Overriding Payload Type: {args.payload_type}")
+        payload_type = args.payload_type
+
     if payload_type == 2:
         encryptor = Xcryptor(
             key,
@@ -176,10 +182,11 @@ def main():
             include_unencrypted_length=args.include_unencrypted_length,
         )
         data = encryptor.encrypt(data)
-    elif payload_type in (3, 4):
+    elif payload_type in (3, 4, 5, 6):
         encryptor = CBCXcryptor(
             chunk_size=args.chunk_size,
             include_unencrypted_length=args.include_unencrypted_length,
+            payload_type=payload_type,
         )
         encryptor.set_key(aes_key=key, aes_iv=iv)
         data = encryptor.encrypt(data)
