@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 
 import zcu
 
@@ -6,6 +7,10 @@ from zcu.known_keys import KNOWN_KEYS, KNOWN_SIGNATURES
 from zcu.xcryptors import Xcryptor, CBCXcryptor
 from zcu.known_keys import mac_to_str
 
+
+KNOWN_KEY_SUFFIXES = [
+    "Wj%2$CjM",  # F680
+]
 
 KNOWN_KEYPAIR_SUFFIXES = [
     ("", ""),  # e.g. type 3
@@ -39,6 +44,11 @@ KNOWN_PASSWORD_KEYPAIR_SUFFIXES = [
 KNOWN_MAC_SERIAL_IVS = [
     "ZTE%FN$GponNJ025",
 ]
+
+
+def md5_to_hex(x):
+    md5 = hashlib.md5(x.encode("utf8")).hexdigest()
+    return bytes(bytearray.fromhex(md5)).hex()[:16]
 
 
 def hardcoded_keypairs(args):
@@ -96,6 +106,25 @@ def serial_keypairs(args):
     return keypairs
 
 
+def mac_keypairs(args):
+    keypairs = []
+
+    if args.mac_address is None:
+        print("To decode any 'mac' payloads, please specify MAC Address, e.g.")
+        print("  --mac 'AA:BB:CC:DD:EE:FF'")
+        return keypairs
+
+    mac = args.mac_address
+
+    for suffix in KNOWN_KEY_SUFFIXES:
+        # AES key: 'three lowest bytes of MAC address' + 'Wj%2$CjM'
+        keypairs += [
+            (md5_to_hex(mac_to_str(mac, separator="")[6:] + suffix), None),
+        ]
+
+    return keypairs
+
+
 def mac_serial_keypairs(args):
     keypairs = []
     if args.mac_address is None or args.serial_number is None:
@@ -120,11 +149,18 @@ def mac_serial_keypairs(args):
             (serial[4:] + mac_to_str(mac, reverse=True, separator=""), iv),
             (serial[4:] + mac_to_str(mac, reverse=False, separator=":"), iv),
             (serial[4:] + mac_to_str(mac, reverse=True, separator=":"), iv),
-            # take last 8 chars, e.g. ZTEGXXXXXXXX
+            # take last 8 chars, e.g. ____XXXXXXXX
             (serial[-8:] + mac_to_str(mac, reverse=False, separator=""), iv),
             (serial[-8:] + mac_to_str(mac, reverse=True, separator=""), iv),
             (serial[-8:] + mac_to_str(mac, reverse=False, separator=":"), iv),
             (serial[-8:] + mac_to_str(mac, reverse=True, separator=":"), iv),
+            # take first 8 chars, e.g. ZTEGXXXX___
+            (serial[:8] + mac_to_str(mac, reverse=False, separator=""), iv),
+            (serial[:8] + mac_to_str(mac, reverse=True, separator=""), iv),
+            (serial[:8] + mac_to_str(mac, reverse=False, separator=":"), iv),
+            (serial[:8] + mac_to_str(mac, reverse=True, separator=":"), iv),
+            # seen in f680 router
+            (md5_to_hex(serial + mac_to_str(mac, reverse=True, separator="")), None),
         ]
 
         # # convert first 8 hex chars to ascii
@@ -188,7 +224,11 @@ def decrypt(infile, decryptor, keypair):
 
 
 HANDLERS = [
+    # key only
     lambda a: (hardcoded_keypairs(a), Xcryptor()),
+    lambda a: (mac_keypairs(a), Xcryptor()),
+    lambda a: (mac_serial_keypairs(a), Xcryptor()),
+    # key + iv
     lambda a: (signature_keypairs(a), CBCXcryptor()),  # requires signature
     lambda a: (serial_keypairs(a), CBCXcryptor()),  # requires serial
     lambda a: (mac_serial_keypairs(a), CBCXcryptor()),  # requires mac, serial

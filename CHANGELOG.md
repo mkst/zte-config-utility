@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.5.2
+
+Add additional keygen for F680 devices
+
 ## 0.5.1
 
 Allow the Payload Type to be overridden when encoding a configuration file.
