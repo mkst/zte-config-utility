@@ -39,11 +39,11 @@ def decompress(infile):
     return (decompressed_data, crc)
 
 
-def compress_helper(infile, chunk_size):
+def compress_helper(infile, chunk_size, incorrect_compressed_size=False):
     """compression helper, consumes chunk_size segments of infile"""
     # cumulative compressed length includes 60-byte payload header
     # it is the cumulative amount of bytes compressed EXCLUDING the last block
-    cumulative_compressed_length = 60
+    cumulative_compressed_length = 15 * 4
     total_uncompressed_length = 0
     crc = 0
 
@@ -63,7 +63,7 @@ def compress_helper(infile, chunk_size):
             more_chunks = 0
         else:
             # increment cumulative length if not last block
-            cumulative_compressed_length += len(compressed_chunk) + 12
+            cumulative_compressed_length += len(compressed_chunk) + 3 * 4
             more_chunks = cumulative_compressed_length
 
         chunk_header = struct.pack(
@@ -74,19 +74,21 @@ def compress_helper(infile, chunk_size):
         compressed_data.write(compressed_chunk)
 
     compressed_data.seek(0)
+
+    if incorrect_compressed_size:
+        # some versions incorrectly add the final chunk size twice
+        cumulative_compressed_length += len(compressed_chunk) + 3 * 4
+
     stats = {
         "crc": crc,
         "uncompressed_size": total_uncompressed_length,
         "compressed_size": cumulative_compressed_length,
     }
 
-    if chunk_size < 65536:  # want the full compressed size in header in some cases
-        stats["compressed_size"] += len(compressed_chunk) + 12
-
     return (compressed_data, stats)
 
 
-def compress(infile, chunk_size):
+def compress(infile, chunk_size, incorrect_compressed_size=False):
     """compress and add header
 
     A 'block' consists of a 60 byte (15x4-byte INT) header followed by
@@ -107,7 +109,9 @@ def compress(infile, chunk_size):
         ZLIB
             variable byte payload
     """
-    compressed_data, stats = compress_helper(infile, chunk_size)
+    compressed_data, stats = compress_helper(
+        infile, chunk_size, incorrect_compressed_size=incorrect_compressed_size
+    )
 
     header = struct.pack(
         ">6I",

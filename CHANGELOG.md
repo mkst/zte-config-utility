@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## 0.5.3
+
+Add additional options to encode.py to support H108N 2.3 devices.
+
 ## 0.5.2
 
-Add additional keygen for F680 devices
+Add additional keygen for F680 devices.
 
 ## 0.5.1
 
