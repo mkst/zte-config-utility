@@ -61,7 +61,7 @@ def main():
     parser.add_argument(
         "--payload-type",
         type=int,
-        default=0,
+        default=None,
         choices=[0, 2, 3, 4, 5, 6],
         help="Payload type (0=plain, 2=aes128ecb key encryption, 3=aes256cbc model encryption, 4=aes256cbc signature/serial encryption)",
     )
@@ -109,6 +109,16 @@ def main():
         default="",
         help="Override IV suffix for Signature based key generation",
     )
+    parser.add_argument(
+        "--force-no-key",
+        action="store_true",
+        help="Don't try to infer AES key from signature",
+    )
+    parser.add_argument(
+        "--incorrect-compressed-size",
+        action="store_true",
+        help="Whether the 'compressed size' header incorrectly includes the final chunk size twice",
+    )
 
     args = parser.parse_args()
 
@@ -155,25 +165,31 @@ def main():
 
     signature = args.signature
     if not key and signature:
-        possible_key = zcu.known_keys.find_key(signature)
-        if possible_key is not None:
-            key = possible_key
-            payload_type = 2
-        if key:
-            print(f"Using key '{key}' for signature '{signature}'")
+        if not args.force_no_key:
+            possible_key = zcu.known_keys.find_key(signature)
+            if possible_key is not None:
+                key = possible_key
+                payload_type = 2
+            if key:
+                print(f"Using key '{key}' for signature '{signature}'")
 
-    if all(b == 0 for b in signature) and payload_type in (2, 4):
-        print("Warning: No/empty signature provided!")
+    incorrect_compressed_size = args.incorrect_compressed_size
 
-    if all(b == 0 for b in key) and (payload_type != 0 or signature):
-        print("Warning: No key provided!")
-
-    data = zcu.compression.compress(infile, args.chunk_size)
+    data = zcu.compression.compress(
+        infile, args.chunk_size, incorrect_compressed_size=incorrect_compressed_size
+    )
 
     if args.payload_type is not None:
         if args.payload_type != payload_type:
             print(f"Overriding Payload Type: {args.payload_type}")
         payload_type = args.payload_type
+
+    if all(b == 0 for b in signature) and payload_type in (2, 4):
+        print("Warning: No/empty signature provided!")
+
+    if all(b == 0 for b in key) and (payload_type != 0 or signature):
+        if not args.force_no_key:
+            print("Warning: No key provided!")
 
     if payload_type == 2:
         encryptor = Xcryptor(
