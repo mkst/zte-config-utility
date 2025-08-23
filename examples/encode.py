@@ -4,9 +4,8 @@ import argparse
 from types import SimpleNamespace
 
 import zcu
-
-from zcu.xcryptors import Xcryptor, CBCXcryptor
 from zcu.known_keys import run_any_keygen
+from zcu.xcryptors import CBCXcryptor, Xcryptor
 
 
 def main():
@@ -17,11 +16,11 @@ def main():
     )
     parser.add_argument(
         "infile",
-        type=argparse.FileType("rb"),
+        type=str,
         help="Raw configuration file e.g. config.xml",
     )
     parser.add_argument(
-        "outfile", type=argparse.FileType("wb"), help="Output file, e.g. config.bin"
+        "outfile", type=str, nargs="?", help="Output file, e.g. config.bin"
     )
     parser.add_argument(
         "--key", type=lambda x: x.encode(), default=b"", help="Key for AES encryption"
@@ -122,8 +121,14 @@ def main():
 
     args = parser.parse_args()
 
-    infile = args.infile
-    outfile = args.outfile
+    infile_name: str = args.infile
+    outfile_name: str = args.outfile
+    if outfile_name is None:
+        outfile_name = infile_name.replace(".bin", ".xml")
+
+    infile = open(infile_name, "rb")
+    outfile = open(outfile_name, "wb")
+
     key = args.key
     iv = args.iv
 

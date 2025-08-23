@@ -13,16 +13,21 @@ def main():
     )
     parser.add_argument(
         "infile",
-        type=argparse.FileType("rb"),
+        type=str,
         help="Raw configuration file (config.xml)",
     )
     parser.add_argument(
-        "outfile", type=argparse.FileType("wb"), help="Output file (config.zlib)"
+        "outfile", type=str, nargs="?", help="Output file (config.zlib)"
     )
     args = parser.parse_args()
 
-    infile = args.infile
-    outfile = args.outfile
+    infile_name: str = args.infile
+    outfile_name: str = args.outfile
+    if outfile_name is None:
+        outfile_name = infile_name.replace(".bin", ".xml")
+
+    infile = open(infile_name, "rb")
+    outfile = open(outfile_name, "wb")
 
     compressed = zcu.compression.compress(infile, 65536)
 

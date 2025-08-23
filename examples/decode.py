@@ -2,28 +2,26 @@
 
 import argparse
 import sys
-
 from types import SimpleNamespace
 
 import zcu
-
-from zcu.xcryptors import Xcryptor, CBCXcryptor
 from zcu.known_keys import TYPE_3_KNOWN_KEY_IVS
+from zcu.xcryptors import CBCXcryptor, Xcryptor
 
 
 def error(msg):
     print(msg, file=sys.stderr)
 
 
-def try_decode_payload_type_0(infile, args, params):
-    print("Trying to decode Type 0 payload...")
+def decode_payload_type_0(infile):
+    print("Decoding type 0 payload...")
 
     # no decryption required
     return (infile, None)
 
 
-def try_decode_payload_type_2(infile, args, params):
-    print("Trying to decode Type 2 payload...")
+def decode_payload_type_2(infile, args, params):
+    print("Decoding type 2 payload...")
 
     keys = set()
 
@@ -40,7 +38,7 @@ def try_decode_payload_type_2(infile, args, params):
 
     if len(keys) == 0:
         error(
-            "No --key specified or found via signature, try again --try-all-known-keys."
+            "No --key specified or found via signature, try again with --try-all-known-keys or specifying the --key."
         )
         return None
 
@@ -62,8 +60,8 @@ def try_decode_payload_type_2(infile, args, params):
     return None
 
 
-def try_decode_payload_type_3(infile, args, params):
-    print("Trying to decode Type 3 payload...")
+def decode_payload_type_3(infile, args, params):
+    print("Decoding type 3 payload...")
 
     models = []
     if hasattr(params, "model"):
@@ -100,8 +98,8 @@ def try_decode_payload_type_3(infile, args, params):
     return None
 
 
-def try_decode_payload_type_4(infile, args, params):
-    print("Trying to decode Type 4 payload...")
+def decode_payload_type_4(infile, args, params):
+    print("Decoding type 4 payload...")
 
     if args.try_all_known_keys:
         key_ivs = zcu.known_keys.run_all_keygens(params)
@@ -133,19 +131,37 @@ def try_decode_payload_type_4(infile, args, params):
     return None
 
 
+def decode_payload(infile, args, params, payload_type):
+    if payload_type == 0:
+        res = decode_payload_type_0(infile)
+    elif payload_type == 2:
+        res = decode_payload_type_2(infile, args, params)
+    elif payload_type == 3:
+        res = decode_payload_type_3(infile, args, params)
+    elif payload_type == 4:
+        res = decode_payload_type_4(infile, args, params)
+    else:
+        error(f"No support for payload type {payload_type}!")
+        return 1
+
+    return res
+
+
 def main():
-    """the main function"""
     parser = argparse.ArgumentParser(
         description="Decode config.bin from ZTE Routers",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
         "infile",
-        type=argparse.FileType("rb"),
+        type=str,
         help="Encoded configuration file e.g. config.bin",
     )
     parser.add_argument(
-        "outfile", type=argparse.FileType("wb"), help="Output file e.g. config.xml"
+        "outfile",
+        type=str,
+        nargs="?",
+        help="Output file e.g. config.xml",
     )
     parser.add_argument(
         "--little-endian",
@@ -153,7 +169,10 @@ def main():
         help="Whether payload is little-endian (defaults to big-endian)",
     )
     parser.add_argument(
-        "--key", type=lambda x: x.encode(), default=b"", help="Key for AES decryption"
+        "--key",
+        type=lambda x: x.encode(),
+        default=b"",
+        help="Key for AES decryption",
     )
     parser.add_argument(
         "--model", type=str, default="", help="Device model for Type-3 key derivation"
@@ -185,7 +204,7 @@ def main():
     parser.add_argument(
         "--try-all-known-keys",
         action="store_true",
-        help="Try decrypting with all known keys and generators (default No)",
+        help="Try decrypting with all known keys and generators (default False)",
     )
     parser.add_argument(
         "--key-prefix",
@@ -213,8 +232,13 @@ def main():
     )
     args = parser.parse_args()
 
-    infile = args.infile
-    outfile = args.outfile
+    _infile: str = args.infile
+    _outfile: str = args.outfile
+    if _outfile is None:
+        _outfile = _infile.replace(".bin", ".xml")
+
+    infile = open(_infile, "rb")
+    outfile = open(_outfile, "wb")
 
     zcu.zte.read_header(infile, little_endian=args.little_endian)
 
@@ -250,18 +274,7 @@ def main():
     if args.iv_suffix:
         params.iv_suffix = args.iv_suffix if (args.iv_suffix != "NONE") else ""
 
-    if payload_type == 0:
-        res = try_decode_payload_type_0(infile, args, params)
-    elif payload_type == 2:
-        res = try_decode_payload_type_2(infile, args, params)
-    elif payload_type == 3:
-        res = try_decode_payload_type_3(infile, args, params)
-    elif payload_type == 4:
-        res = try_decode_payload_type_4(infile, args, params)
-    else:
-        error(f"No support for payload type {payload_type}!")
-        return 1
-
+    res = decode_payload(infile, args, params, payload_type)
     if res is None:
         return 1
 

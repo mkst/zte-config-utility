@@ -3,7 +3,6 @@
 import argparse
 
 import zcu
-
 from zcu.xcryptors import Xcryptor
 
 
@@ -15,12 +14,10 @@ def main():
     )
     parser.add_argument(
         "infile",
-        type=argparse.FileType("rb"),
+        type=str,
         help="Encoded configuration file (config.bin)",
     )
-    parser.add_argument(
-        "outfile", type=argparse.FileType("wb"), help="Output file (config.zlib)"
-    )
+    parser.add_argument("outfile", type=str, help="Output file (config.zlib)")
     parser.add_argument(
         "--key", type=lambda x: x.encode(), default=b"", help="Key for AES decryption"
     )
@@ -28,8 +25,13 @@ def main():
 
     key = args.key.ljust(16, b"\0")[:16]
 
-    infile = args.infile
-    outfile = args.outfile
+    infile_name: str = args.infile
+    outfile_name: str = args.outfile
+    if outfile_name is None:
+        outfile_name = infile_name.replace(".bin", ".xml")
+
+    infile = open(infile_name, "rb")
+    outfile = open(outfile_name, "wb")
 
     zcu.zte.read_header(infile)
     zcu.zte.read_signature(infile)

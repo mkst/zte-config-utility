@@ -2,11 +2,8 @@ import argparse
 import hashlib
 
 import zcu
-
-from zcu.known_keys import KNOWN_KEYS, KNOWN_SIGNATURES
-from zcu.xcryptors import Xcryptor, CBCXcryptor
-from zcu.known_keys import mac_to_str
-
+from zcu.known_keys import KNOWN_KEYS, KNOWN_SIGNATURES, mac_to_str
+from zcu.xcryptors import CBCXcryptor, Xcryptor
 
 KNOWN_KEY_SUFFIXES = [
     "Wj%2$CjM",  # F680
@@ -246,19 +243,20 @@ def main():
 
     parser.add_argument(
         "infile",
-        type=argparse.FileType("rb"),
+        type=str,
         help="Encoded configuration file e.g. config.bin",
     )
     parser.add_argument(
-        "outfile", type=argparse.FileType("wb"), help="Output file e.g. config.xml"
+        "outfile",
+        type=str,
+        nargs="?",
+        help="Output file e.g. config.xml",
     )
-
     parser.add_argument(
         "--little-endian",
         action="store_true",
         help="Whether payload is little-endian (defaults to big-endian)",
     )
-
     parser.add_argument(
         "--key",
         type=str,
@@ -313,7 +311,13 @@ def main():
 
     args = parser.parse_args()
 
-    infile = args.infile
+    infile_name: str = args.infile
+    outfile_name: str = args.outfile
+    if outfile_name is None:
+        outfile_name = infile_name.replace(".bin", ".xml")
+
+    infile = open(infile_name, "rb")
+    outfile = open(outfile_name, "wb")
 
     # check magic
     header = infile.read(4)
@@ -346,12 +350,12 @@ def main():
             return 1
     else:
         decompressed, _ = zcu.compression.decompress(infile)
-        args.outfile.write(decompressed.read())
+        outfile.write(decompressed.read())
         print(f"Successfully decompressed {infile.name}")
         return 0
 
     decompressed, _ = zcu.compression.decompress(decrypted)
-    args.outfile.write(decompressed.read())
+    outfile.write(decompressed.read())
     print(
         f"Successfully decrypted and decompressed {infile.name} using (key, iv): {keypair}"
     )
