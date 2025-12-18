@@ -3,11 +3,12 @@
 import struct
 import zlib
 from io import BytesIO
+from typing import BinaryIO
 
 from . import constants
 
 
-def decompress(infile):
+def decompress(infile: BinaryIO) -> tuple[BytesIO, int]:
     """decompress a block, return data and crc
     A 'block' consists of a 12 byte (3x4-byte INT) header and a ZLIB payload
     HEADER
@@ -39,7 +40,9 @@ def decompress(infile):
     return (decompressed_data, crc)
 
 
-def compress_helper(infile, chunk_size, incorrect_compressed_size=False):
+def compress_helper(
+    infile: BinaryIO, chunk_size: int, incorrect_compressed_size: bool = False
+) -> tuple[BytesIO, dict]:
     """compression helper, consumes chunk_size segments of infile"""
     # cumulative compressed length includes 60-byte payload header
     # it is the cumulative amount of bytes compressed EXCLUDING the last block
@@ -88,7 +91,9 @@ def compress_helper(infile, chunk_size, incorrect_compressed_size=False):
     return (compressed_data, stats)
 
 
-def compress(infile, chunk_size, incorrect_compressed_size=False):
+def compress(
+    infile: BinaryIO, chunk_size: int, incorrect_compressed_size: bool = False
+) -> BytesIO:
     """compress and add header
 
     A 'block' consists of a 60 byte (15x4-byte INT) header followed by

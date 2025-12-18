@@ -1,5 +1,5 @@
-import sys
 import base64
+import sys
 from pathlib import Path
 
 
@@ -29,7 +29,7 @@ def main():
 
     try:
         decoded = base64.b64decode(data)
-    except Exception as e:
+    except Exception:
         print(f"Failed to base64 decode {infile}: e")
         return
 

@@ -1,13 +1,14 @@
 """Various helper functions to read/write zte configuration"""
 
+import struct
 from io import BytesIO
 from os import stat
-import struct
+from typing import BinaryIO, Optional
 
 from . import constants
 
 
-def read_header(infile, little_endian=False):
+def read_header(infile: BinaryIO, little_endian: bool = False) -> int:
     """expects to be at position 0 of the file, returns size of header"""
     fmt = ">4I"
     header_magic = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
@@ -35,7 +36,7 @@ def read_header(infile, little_endian=False):
     return infile.tell()
 
 
-def read_signature(infile):
+def read_signature(infile: BinaryIO) -> bytes:
     """expects to be at the start of the signature magic, returns signature"""
     fmt = ">3I"
     signature_header = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
@@ -50,7 +51,7 @@ def read_signature(infile):
     return signature
 
 
-def read_payload(infile, raise_on_error=True):
+def read_payload(infile: BinaryIO, raise_on_error: bool = True) -> Optional[tuple]:
     """expects to be at the start of the payload magic"""
     fmt = ">15I"
     payload_header = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
@@ -62,14 +63,20 @@ def read_payload(infile, raise_on_error=True):
     return payload_header
 
 
-def read_payload_type(infile, raise_on_error=True):
+def read_payload_type(infile: BinaryIO, raise_on_error: bool = True) -> Optional[int]:
     """expects to be at the start of the payload magic"""
     payload_header = read_payload(infile, raise_on_error)
     return payload_header[1] if payload_header is not None else None
 
 
 # TODO: split out 'add_signature' functionality
-def add_header(payload, signature, version, include_header=False, little_endian=False):
+def add_header(
+    payload: BinaryIO,
+    signature: bytes,
+    version: int,
+    include_header: bool = False,
+    little_endian: bool = False,
+) -> BytesIO:
     """creates a 'full' payload of (header), signature and payload"""
     full_payload = BytesIO()
     signature_length = len(signature)

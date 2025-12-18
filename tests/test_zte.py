@@ -1,6 +1,6 @@
-from io import BytesIO
 import struct
 import unittest
+from io import BytesIO
 
 import zcu
 

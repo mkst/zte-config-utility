@@ -1,7 +1,7 @@
 import struct
 import unittest
 
-from zcu.xcryptors import Xcryptor, CBCXcryptor
+from zcu.xcryptors import CBCXcryptor, Xcryptor
 
 
 class TestXcryptor(unittest.TestCase):
