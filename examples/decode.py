@@ -1,6 +1,7 @@
 """Decode config.bin into config.xml"""
 
 import argparse
+import pathlib
 import sys
 from types import SimpleNamespace
 
@@ -154,12 +155,12 @@ def main():
     )
     parser.add_argument(
         "infile",
-        type=str,
+        type=pathlib.Path,
         help="Encoded configuration file e.g. config.bin",
     )
     parser.add_argument(
         "outfile",
-        type=str,
+        type=pathlib.Path,
         nargs="?",
         help="Output file e.g. config.xml",
     )
@@ -232,13 +233,13 @@ def main():
     )
     args = parser.parse_args()
 
-    _infile: str = args.infile
-    _outfile: str = args.outfile
-    if _outfile is None:
-        _outfile = _infile.replace(".bin", ".xml")
+    infile_path: pathlib.Path = args.infile
+    outfile_path: pathlib.Path = args.outfile
+    if outfile_path is None or not outfile_path.exists():
+        outfile_path = infile_path.with_suffix(".xml")
 
-    infile = open(_infile, "rb")
-    outfile = open(_outfile, "wb")
+    infile = open(infile_path, "rb")
+    outfile = open(outfile_path, "wb")
 
     zcu.zte.read_header(infile, little_endian=args.little_endian)
 

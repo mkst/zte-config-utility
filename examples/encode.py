@@ -1,6 +1,7 @@
 """Encode config.xml into config.bin"""
 
 import argparse
+import pathlib
 from types import SimpleNamespace
 
 import zcu
@@ -16,11 +17,11 @@ def main():
     )
     parser.add_argument(
         "infile",
-        type=str,
+        type=pathlib.Path,
         help="Raw configuration file e.g. config.xml",
     )
     parser.add_argument(
-        "outfile", type=str, nargs="?", help="Output file, e.g. config.bin"
+        "outfile", type=pathlib.Path, nargs="?", help="Output file, e.g. config.bin"
     )
     parser.add_argument(
         "--key", type=lambda x: x.encode(), default=b"", help="Key for AES encryption"
@@ -121,13 +122,13 @@ def main():
 
     args = parser.parse_args()
 
-    infile_name: str = args.infile
-    outfile_name: str = args.outfile
-    if outfile_name is None:
-        outfile_name = infile_name.replace(".bin", ".xml")
+    infile_path: pathlib.Path = args.infile
+    outfile_path: pathlib.Path = args.outfile
+    if outfile_path is None or not outfile_path.exists():
+        outfile_path = infile_path.with_suffix(".xml")
 
-    infile = open(infile_name, "rb")
-    outfile = open(outfile_name, "wb")
+    infile = open(infile_path, "rb")
+    outfile = open(outfile_path, "wb")
 
     key = args.key
     iv = args.iv

@@ -1,5 +1,6 @@
 import argparse
 import hashlib
+import pathlib
 
 import zcu
 from zcu.known_keys import KNOWN_KEYS, KNOWN_SIGNATURES, mac_to_str
@@ -243,12 +244,12 @@ def main():
 
     parser.add_argument(
         "infile",
-        type=str,
+        type=pathlib.Path,
         help="Encoded configuration file e.g. config.bin",
     )
     parser.add_argument(
         "outfile",
-        type=str,
+        type=pathlib.Path,
         nargs="?",
         help="Output file e.g. config.xml",
     )
@@ -311,13 +312,13 @@ def main():
 
     args = parser.parse_args()
 
-    infile_name: str = args.infile
-    outfile_name: str = args.outfile
-    if outfile_name is None:
-        outfile_name = infile_name.replace(".bin", ".xml")
+    infile_path: pathlib.Path = args.infile
+    outfile_path: pathlib.Path = args.outfile
+    if outfile_path is None or not outfile_path.exists():
+        outfile_path = infile_path.with_suffix(".xml")
 
-    infile = open(infile_name, "rb")
-    outfile = open(outfile_name, "wb")
+    infile = open(infile_path, "rb")
+    outfile = open(outfile_path, "wb")
 
     # check magic
     header = infile.read(4)

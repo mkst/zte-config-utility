@@ -1,6 +1,7 @@
 """Compress config.xml into config.zlib"""
 
 import argparse
+import pathlib
 
 import zcu
 
@@ -13,21 +14,21 @@ def main():
     )
     parser.add_argument(
         "infile",
-        type=str,
+        type=pathlib.Path,
         help="Raw configuration file (config.xml)",
     )
     parser.add_argument(
-        "outfile", type=str, nargs="?", help="Output file (config.zlib)"
+        "outfile", type=pathlib.Path, nargs="?", help="Output file (config.zlib)"
     )
     args = parser.parse_args()
 
-    infile_name: str = args.infile
-    outfile_name: str = args.outfile
-    if outfile_name is None:
-        outfile_name = infile_name.replace(".bin", ".xml")
+    infile_path: pathlib.Path = args.infile
+    outfile_path: pathlib.Path = args.outfile
+    if outfile_path is None or not outfile_path.exists():
+        outfile_path = infile_path.with_suffix(".xml")
 
-    infile = open(infile_name, "rb")
-    outfile = open(outfile_name, "wb")
+    infile = open(infile_path, "rb")
+    outfile = open(outfile_path, "wb")
 
     compressed = zcu.compression.compress(infile, 65536)
 
