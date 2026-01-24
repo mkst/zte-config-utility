@@ -125,7 +125,7 @@ def main():
     infile_path: pathlib.Path = args.infile
     outfile_path: pathlib.Path = args.outfile
     if outfile_path is None or not outfile_path.exists():
-        outfile_path = infile_path.with_suffix(".xml")
+        outfile_path = infile_path.with_suffix(".bin")
 
     infile = open(infile_path, "rb")
     outfile = open(outfile_path, "wb")
