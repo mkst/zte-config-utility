@@ -85,6 +85,7 @@ $ python3 examples/encode.py --signature 'ZXHN H168N V3.5' --use-signature-encry
 
 Some Type-4 configs use device-specific TagParams data rather than a static signature-only key.
 For those configs, pass the router signature together with the MAC address, serial number, and long password from TagParams entry `4100`.
+This only works when you know the actual per-device values for that router.
 
 ```sh
 $ python3 examples/decode.py --signature H288A --serial ZTEGC0DE1234 --mac 00:11:22:33:44:55 --longpass deadbeefdeadbeef config.bin config.xml

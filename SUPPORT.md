@@ -14,7 +14,7 @@
 | ZXHN H188A        | **4** | signature-derived Type-4 supported |
 | ZXHN H267A V1.0   | **2** | @samtimber can extract username/password from `config.bin`|
 | ZXHN H268Q        |       |       |
-| ZXHN H288A        | **4** | signature-derived Type-4 and TagParams-based Type-4 supported |
+| ZXHN H288A        | **4** | signature-derived Type-4 and TagParams-based Type-4 supported when the device inputs are known |
 | ZXHN H298A        |       |       |
 | ZXHN H298N        | **2** |       |
 | ZXHN H298Q        | **4** |       |
