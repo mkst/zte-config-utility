@@ -5,6 +5,7 @@ from zcu.known_keys import (
     get_all_keys,
     run_keygens,
     run_all_keygens,
+    run_any_keygen,
     mac_to_str,
 )
 
@@ -50,6 +51,19 @@ class TestPublicMethods(unittest.TestCase):
         res = run_keygens(params)[0]
         self.assertEqual(res[0], "ZXHNH268QV7.0Key02710010")
         self.assertEqual(res[1], "ZXHNH268QV7.0Iv02710010")
+
+    def test_run_tagparams_keygen_h288a(self):
+        params = SimpleNamespace(
+            signature="H288A",
+            serial="A1B2C3D4",
+            mac="00:11:22:33:44:55",
+            longPass="deadbeefdeadbeef",
+        )
+        res = run_any_keygen(params, "tagparams")
+        self.assertEqual(res[0], "deadbeefdeadbeefA1B2C3D4Mcd5c46e")
+        self.assertEqual(
+            res[1], "G21b667b00:11:22:33:44:55deadbeefdeadbeef"
+        )
 
     def test_run_all_keygens(self):
         params = SimpleNamespace(signature="ZXHN H268Q V7.X", serial="Test")

@@ -11,10 +11,10 @@
 | ZXHN H168N V2.2   | **2** |       |
 | ZXHN H168N V3.1   | **2** |       |
 | ZXHN H168N V3.5   | **4** |       |
-| ZXHN H188A        | **4** |       |
+| ZXHN H188A        | **4** | signature-derived Type-4 supported |
 | ZXHN H267A V1.0   | **2** | @samtimber can extract username/password from `config.bin`|
 | ZXHN H268Q        |       |       |
-| ZXHN H288A        | **4** |       |
+| ZXHN H288A        | **4** | signature-derived Type-4 and TagParams-based Type-4 supported |
 | ZXHN H298A        |       |       |
 | ZXHN H298N        | **2** |       |
 | ZXHN H298Q        | **4** |       |
@@ -30,7 +30,6 @@ The table below provides an overview of the various models that people have trie
 | ZTE F670 V1.1         | **2** | :key:          | need more ivs/keys       | [#72](https://github.com/mkst/zte-config-utility/issues/72) |
 | ZTE F670 V2.0 / F680  | **5** | :red_circle:   | `Unknown payload type 5` | [#57](https://github.com/mkst/zte-config-utility/issues/57) |
 | ZTE F760              |   ?   | :question:     | need example config.bin  | [#54](https://github.com/mkst/zte-config-utility/issues/54) |
-| ZTE H188A             |   ?   | :key:          | need more keys           | [#43](https://github.com/mkst/zte-config-utility/issues/43) |
 | ZTE H3600 V9          |   ?   | :question:     | need example config.bin  | [#76](https://github.com/mkst/zte-config-utility/issues/76) |
 | ZTE H388X(F)          |   ?   | :key:          | need more ivs/keys       | [#91](https://github.com/mkst/zte-config-utility/issues/91) |
 | ZTE ZXHN F650         |   ?   | :question:     | need example config.bin  | [#28](https://github.com/mkst/zte-config-utility/issues/28) |
@@ -41,7 +40,6 @@ The table below provides an overview of the various models that people have trie
 | ZTE ZXHN H267A V1.0   |   ?   | :white_circle: | supported?               | [#49](https://github.com/mkst/zte-config-utility/issues/49) |
 | ZTE ZXHN H267N V1.1   |   ?   | :key:          | missing key(s)           | [#9](https://github.com/mkst/zte-config-utility/issues/9)   |
 | ZTE ZXHN H268A V2.0   |   ?   | :red_circle:   | unsupported              | [#12](https://github.com/mkst/zte-config-utility/issues/12) |
-| ZTE ZXHN H288A        |   ?   | :white_circle: | unknown                  | [#32](https://github.com/mkst/zte-config-utility/issues/32) |
 | ZTE ZXHN H298A V1     |   ?   | :question:     | missing key(s)           | [#96](https://github.com/mkst/zte-config-utility/issues/96) |
 | ZTE ZXHN H298A V9     |   ?   | :key:          | need more ivs/keys       | [#31](https://github.com/mkst/zte-config-utility/issues/31) |
 | ZTE ZXHN H367A        |   ?   | :key:          | need more ivs/keys       | [#71](https://github.com/mkst/zte-config-utility/issues/71) |

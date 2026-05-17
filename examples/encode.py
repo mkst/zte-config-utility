@@ -45,6 +45,18 @@ def main():
         help="Generate Key/IV from serial number(DIGImobil routers), implies payload-type 4",
     )
     parser.add_argument(
+        "--mac",
+        type=str,
+        default="",
+        help="MAC address for TagParams-based key generation, implies payload-type 4",
+    )
+    parser.add_argument(
+        "--longpass",
+        type=str,
+        default="",
+        help="Long password from TagParams (entry 4100) for key generation, implies payload-type 4",
+    )
+    parser.add_argument(
         "--signature",
         type=str,
         default="",
@@ -148,6 +160,25 @@ def main():
         payload_type = 3
         key = args.model
         iv = None
+    elif args.mac or args.longpass:
+        payload_type = 4
+        params = SimpleNamespace(
+            signature=args.signature,
+            serial=args.serial if (args.serial != "NONE") else "",
+            mac=args.mac if (args.mac != "NONE") else "",
+            longPass=args.longpass if (args.longpass != "NONE") else "",
+        )
+        print(
+            "Using TagParams inputs: "
+            f"serial='{params.serial}', mac='{params.mac}', longPass='{params.longPass}'"
+        )
+        if args.key_prefix:
+            params.key_prefix = args.key_prefix if (args.key_prefix != "NONE") else ""
+            print(f"Using key prefix: '{params.key_prefix}'")
+        if args.iv_prefix:
+            params.iv_prefix = args.iv_prefix if (args.iv_prefix != "NONE") else ""
+            print(f"Using iv prefix: '{params.iv_prefix}'")
+        key, iv = run_any_keygen(params, "tagparams")[:2]
     elif args.serial:
         payload_type = 4
         params = SimpleNamespace(signature=args.signature, serial=args.serial)
