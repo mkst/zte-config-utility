@@ -229,7 +229,11 @@ def decrypt(infile, decryptor, keypair):
         decrypted.seek(0)
         first_bytes = decrypted.read(4)
         decrypted.seek(0)
-        if first_bytes[:1] == b"<" or first_bytes[:2] in (b"\x78\x9c", b"\x78\xda", b"\x78\x01"):
+        if first_bytes == b"<DB>":
+            # no compression
+            return decrypted
+        if first_bytes[:2] in (b"\x78\x9c", b"\x78\xda", b"\x78\x01"):
+            # compressed
             return decrypted
     return None
 
@@ -376,9 +380,9 @@ def main():
         return 0
 
     decrypted.seek(0)
-    first_byte = decrypted.read(1)
+    first_bytes = decrypted.read(4)
     decrypted.seek(0)
-    if first_byte == b"<":
+    if first_bytes == b"<DB>":
         outfile.write(decrypted.read())
         print(f"Successfully decrypted {infile.name} (raw XML, no ZLIB) using (key, iv): {keypair}")
     else:
