@@ -19,6 +19,7 @@
 | ZXHN H298N        | **2** |       |
 | ZXHN H298Q        | **4** |       |
 | ZXV10 H201L V2.0  | **2** |       |
+| ZXHN F680 V6.0 (RT-GM-5) | **4** | MAC + GPON SN required (`--mac`, `--serial-number`) |
 
 # Unsupported
 
@@ -43,7 +44,6 @@ The table below provides an overview of the various models that people have trie
 | ZTE ZXHN H298A V1     |   ?   | :question:     | missing key(s)           | [#96](https://github.com/mkst/zte-config-utility/issues/96) |
 | ZTE ZXHN H298A V9     |   ?   | :key:          | need more ivs/keys       | [#31](https://github.com/mkst/zte-config-utility/issues/31) |
 | ZTE ZXHN H367A        |   ?   | :key:          | need more ivs/keys       | [#71](https://github.com/mkst/zte-config-utility/issues/71) |
-| RT-GM-5               |   ?   | :key:          | need more ivs/keys       | [#41](https://github.com/mkst/zte-config-utility/issues/41) |
 | Speedport Entry 2i    |   ?   | :white_circle: | externally supported, see [gist](https://gist.github.com/viliampucik/54956df2302362dab281f86178a4b848) | [#13](https://github.com/mkst/zte-config-utility/issues/13) |
 | TIM Smart Hub+, H388X |   ?   | :key:          | need more ivs/keys       | [#24](https://github.com/mkst/zte-config-utility/issues/24) |
 
