@@ -34,6 +34,8 @@ KNOWN_KEYPAIRS = [
     ("L04&Product@5A238dc79b15726d5c06", "ZTE%FN$GponNJ025678b02a85c63c706"),
     #  ZTE F6600P Payload 5
     ("f680v9.0", "ZTE%FN$GponNJ025"),
+    #  AIS ZTE F6107A Payload 5 (AISDefAESCBCKey from firmware dataprotocol)
+    ("H6107AV10Key20102021", "ZTE%FN$GponNJ025"),
 ]
 
 KNOWN_PASSWORD_KEYPAIR_SUFFIXES = [
