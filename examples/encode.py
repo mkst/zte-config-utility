@@ -253,9 +253,7 @@ def main():
         encryptor.set_key(aes_key=key, aes_iv=iv)
         data = encryptor.encrypt(data)
 
-    version = (
-        (args.version >> 16) if args.little_endian_header else (args.version << 16)
-    )
+    version = args.version if args.little_endian_header else (args.version << 16)
     encoded = zcu.zte.add_header(
         data,
         signature.encode("utf8"),
