@@ -18,14 +18,16 @@ KNOWN_KEYS = {
 }
 
 # deprecated
-KNOWN_MODELS = ["H268Q", "H298Q", "H188A", "H288A", "H267AV1_CZ"]
+KNOWN_MODELS = ["H268Q", "H298Q", "H188A", "H288A", "H267AV1_CZ", "H1600", "ZTE H1600"]
 
 KNOWN_SIGNATURES = [
+    "H1600",
     "H188A",
     "H196Q",
     "H268Q",
     "H288A",
     "H298Q",
+    "ZTEH1600",
     # "ZXHN H168N V3.5",
     # "ZXHN H298Q",
     # "ZXHN H268Q",
@@ -132,6 +134,12 @@ KNOWN_KEYGENS = {
     ],
     (lambda p: signature_keygen(p, key_suffix="Key02660004", iv_suffix="Iv02660004")): [
         "H196Q"
+    ],
+    # ZTE H1600 (credit: @CarlosAPSouza, #82)
+    (lambda p: signature_keygen(p, key_suffix="Key02670001", iv_suffix="Iv02670001")): [
+        "ZTE H1600",
+        "ZXHN H1600",
+        "H1600",
     ],
     (
         lambda p: signature_keygen(
