@@ -6,6 +6,7 @@
 |-------------------|:-----:|-------|
 | F600W             | **0** |       |
 | ZTE F670L         |       |  See [gist](https://gist.github.com/zainarbani/723d1387bec9e1559de7a1029d08aa91) "Your key will be the ONT serial number (ZTEGXXXXXXXX, take only the last 8 hex characters in UPPERCASE) + MAC address of your ONT (from right to left)."
+| ZTE H1600         | **4** | signature-derived Type-4 supported (keys found by @CarlosAPSouza, [#82](https://github.com/mkst/zte-config-utility/issues/82)) |
 | ZTE ZXHN H268A V1 | **0** |       |
 | ZXHN H108N V2.5   |       |       |
 | ZXHN H168N V2.2   | **2** |       |
