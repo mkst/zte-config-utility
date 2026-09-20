@@ -164,6 +164,10 @@ def mac_serial_keypairs(args):
             (serial[:8] + mac_to_str(mac, reverse=True, separator=":"), iv),
             # seen in f680 router
             (md5_to_hex(serial + mac_to_str(mac, reverse=True, separator="")), None),
+            (md5_to_hex(serial + mac_to_str(mac, reverse=False, separator="")), None),
+            # seen in RT-GM-5 (Rostelecom ZTE ZXHN F680 HW V6.0)
+            (md5_to_hex(serial[-8:] + mac_to_str(mac, reverse=True, separator="")), None),
+            (md5_to_hex(serial[-8:] + mac_to_str(mac, reverse=False, separator="")), None),
         ]
 
         # # convert first 8 hex chars to ascii
@@ -218,12 +222,22 @@ def decrypt(infile, decryptor, keypair):
         decrypted = decryptor.decrypt(infile)
     except ValueError:
         infile.seek(start_pos)
-        return None
+        return None, None
     infile.seek(start_pos)
     if decrypted is not None:
         if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-            return decrypted
-    return None
+            # compressed
+            return decrypted, True
+        decrypted.seek(0)
+        first_bytes = decrypted.read(4)
+        decrypted.seek(0)
+        if first_bytes == b"<DB>":
+            # no compression
+            return decrypted, False
+        if first_bytes[:2] in (b"\x78\x9c", b"\x78\xda", b"\x78\x01"):
+            # compressed
+            return decrypted, True
+    return None, None
 
 
 HANDLERS = [
@@ -352,7 +366,7 @@ def main():
             keypairs, decryptor = handler(args)
             for keypair in keypairs:
                 # print(f"Trying (key, iv): {keypair}")
-                decrypted = decrypt(infile, decryptor, keypair)
+                decrypted, is_compressed = decrypt(infile, decryptor, keypair)
                 if decrypted is not None:
                     success = True
                     break
@@ -367,11 +381,13 @@ def main():
         print(f"Successfully decompressed {infile.name}")
         return 0
 
-    decompressed, _ = zcu.compression.decompress(decrypted)
-    outfile.write(decompressed.read())
-    print(
-        f"Successfully decrypted and decompressed {infile.name} using (key, iv): {keypair}"
-    )
+    if is_compressed:
+        decompressed, _ = zcu.compression.decompress(decrypted)
+        outfile.write(decompressed.read())
+        print(f"Successfully decrypted and decompressed {infile.name} using (key, iv): {keypair}")
+    else:
+        outfile.write(decrypted.read())
+        print(f"Successfully decrypted {infile.name} (raw XML, no ZLIB) using (key, iv): {keypair}")
     return 0
 
 
