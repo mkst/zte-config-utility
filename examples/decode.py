@@ -3,6 +3,7 @@
 import argparse
 import pathlib
 import sys
+import zlib
 from types import SimpleNamespace
 
 import zcu
@@ -132,6 +133,38 @@ def decode_payload_type_4(infile, args, params):
     return None
 
 
+def decode_payload_type_6(infile, args, params):
+    print("Decoding type 6 payload...")
+
+    if not args.key or not args.iv:
+        error("Payload type 6 requires both --key and --iv.")
+        return None
+
+    decryptor = CBCXcryptor(payload_type=6)
+    decryptor.set_key(args.key, args.iv)
+
+    try:
+        decrypted = decryptor.decrypt(infile)
+        if decrypted is None:
+            error("Failed to decrypt type 6 payload.")
+            return None
+
+        decrypted.seek(0)
+        inner_type = zcu.zte.read_payload_type(
+            decrypted, raise_on_error=False
+        )
+
+        if inner_type is None:
+            error("Invalid inner payload header.")
+            return None
+
+    except (ValueError, EOFError) as exc:
+        error(f"Failed to decrypt type 6 payload: {exc}")
+        return None
+
+    return decrypted, args.key
+
+
 def decode_payload(infile, args, params, payload_type):
     if payload_type == 0:
         res = decode_payload_type_0(infile)
@@ -141,9 +174,11 @@ def decode_payload(infile, args, params, payload_type):
         res = decode_payload_type_3(infile, args, params)
     elif payload_type == 4:
         res = decode_payload_type_4(infile, args, params)
+    elif payload_type == 6:
+        res = decode_payload_type_6(infile, args, params)
     else:
         error(f"No support for payload type {payload_type}!")
-        return 1
+        return None
 
     return res
 
@@ -174,6 +209,12 @@ def main():
         type=lambda x: x.encode(),
         default=b"",
         help="Key for AES decryption",
+    )
+    parser.add_argument(
+        "--iv",
+        type=lambda x: x.encode(),
+        default=b"",
+        help="IV for AES-CBC decryption (SHA256-derived)",
     )
     parser.add_argument(
         "--model", type=str, default="", help="Device model for Type-3 key derivation"
@@ -248,7 +289,6 @@ def main():
                 return
 
     infile = open(infile_path, "rb")
-    outfile = open(outfile_path, "wb")
 
     zcu.zte.read_header(infile, little_endian=args.little_endian)
 
@@ -290,11 +330,19 @@ def main():
 
     decrypted, key = res
 
-    decompressed, _ = zcu.compression.decompress(decrypted)
-    outfile.write(decompressed.read())
+    try:
+        decompressed, _ = zcu.compression.decompress(decrypted)
+        xml_data = decompressed.read()
+    except (ValueError, EOFError, zlib.error) as exc:
+        error(f"Failed to decompress payload: {exc}")
+        return 1
+
+    with open(outfile_path, "wb") as outfile:
+        outfile.write(xml_data)
 
     if key is not None:
-        print(f"Successfully decoded using key: '{key}'")
+        key_text = key.decode() if isinstance(key, bytes) else key
+        print(f"Successfully decoded using key: '{key_text}'")
     else:
         print("Successfully decoded")
 
