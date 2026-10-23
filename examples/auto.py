@@ -37,6 +37,8 @@ KNOWN_KEYPAIRS = [
     ("f680v9.0", "ZTE%FN$GponNJ025"),
     #  AIS ZTE F6107A Payload 5 (AISDefAESCBCKey from firmware dataprotocol)
     ("H6107AV10Key20102021", "ZTE%FN$GponNJ025"),
+    #  ZTE 问天 BE7200 Pro+ / ZXSLC SR7410 Payload 4 (static model key, no signature block)
+    ("SR7410Key80748010", "SR7410Iv80748010"),
 ]
 
 KNOWN_PASSWORD_KEYPAIR_SUFFIXES = [

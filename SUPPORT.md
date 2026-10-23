@@ -21,6 +21,7 @@
 | ZXHN H298Q        | **4** |       |
 | ZXV10 H201L V2.0  | **2** |       |
 | ZXHN F680 V6.0 (RT-GM-5) | **4** | MAC + GPON SN required (`--mac`, `--serial-number`) |
+| ZXSLC SR7410 (BE7200 Pro+) | **4** |       |
 
 # Unsupported
 
