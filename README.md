@@ -1,8 +1,14 @@
+<div align="center">
+
+**English** · [Español](docs/readme/README_es.md)
+
 # zte config utility
 
 The core of the decoding work is taken from a [pastebin](https://pastebin.com/GGxbngtK) dump by 'Felis-Sapien'.
 
 Creates byte-perfect binaries for the limited number of `config.bin` that have been tested.
+
+</div>
 
 ## Quickstart
 
