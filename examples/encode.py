@@ -1,10 +1,12 @@
 """Encode config.xml into config.bin"""
-import argparse
-from types import SimpleNamespace
-import zcu
 
-from zcu.xcryptors import Xcryptor, CBCXcryptor
+import argparse
+import pathlib
+from types import SimpleNamespace
+
+import zcu
 from zcu.known_keys import run_any_keygen
+from zcu.xcryptors import CBCXcryptor, Xcryptor
 
 
 def main():
@@ -50,27 +52,62 @@ def main():
 
     args = parser.parse_args()
 
-    infile = args.infile
-    outfile = args.outfile
+    infile_path: pathlib.Path = args.infile
+    outfile_path: pathlib.Path = args.outfile
+    if outfile_path is None:
+        outfile_path = infile_path.with_suffix(".bin")
+
+        if outfile_path.exists():
+            overwrite = input(f"Output file {outfile_path} exists, overwrite? (y/N) ").lower()
+            while overwrite not in {"y", "n", ""}:
+                overwrite = input(f"Output file {outfile_path} exists, overwrite? (y/N) ").lower()
+
+            if overwrite != "y":
+                print("Not overwriting output, nothing to do!")
+                return
+
+    infile = open(infile_path, "rb")
+    outfile = open(outfile_path, "wb")
+
     key = args.key
     iv = args.iv
-    payload_type = args.payload_type
+
+    payload_type = 0
 
     if args.model:
         payload_type = 3
         key = args.model
         iv = None
+    elif args.mac or args.longpass:
+        payload_type = 4
+        params = SimpleNamespace(
+            signature=args.signature,
+            serial=args.serial if (args.serial != "NONE") else "",
+            mac=args.mac if (args.mac != "NONE") else "",
+            longPass=args.longpass if (args.longpass != "NONE") else "",
+        )
+        print(
+            "Using TagParams inputs: "
+            f"serial='{params.serial}', mac='{params.mac}', longPass='{params.longPass}'"
+        )
+        if args.key_prefix:
+            params.key_prefix = args.key_prefix if (args.key_prefix != "NONE") else ""
+            print(f"Using key prefix: '{params.key_prefix}'")
+        if args.iv_prefix:
+            params.iv_prefix = args.iv_prefix if (args.iv_prefix != "NONE") else ""
+            print(f"Using iv prefix: '{params.iv_prefix}'")
+        key, iv = run_any_keygen(params, "tagparams")[:2]
     elif args.serial:
         payload_type = 4
-        params = SimpleNamespace(signature = args.signature, serial = args.serial)
-        print("Using serial: %s" % params.serial)
+        params = SimpleNamespace(signature=args.signature, serial=args.serial)
+        print(f"Using serial: '{params.serial}'")
         if args.key_prefix:
-            params.key_prefix = args.key_prefix if (args.key_prefix != 'NONE') else ''
-            print("Using key prefix: %s" % params.key_prefix)
+            params.key_prefix = args.key_prefix if (args.key_prefix != "NONE") else ""
+            print(f"Using key prefix: '{params.key_prefix}'")
         if args.iv_prefix:
-            params.iv_prefix = args.iv_prefix if (args.iv_prefix != 'NONE') else ''
-            print("Using iv prefix: %s" % params.iv_prefix)
-        key, iv = run_any_keygen(params,'serial')[:2]
+            params.iv_prefix = args.iv_prefix if (args.iv_prefix != "NONE") else ""
+            print(f"Using iv prefix: '{params.iv_prefix}'")
+        key, iv = run_any_keygen(params, "serial")[:2]
     elif args.use_signature_encryption:
         params = SimpleNamespace(signature=args.signature)
         if not args.signature:
@@ -84,8 +121,8 @@ def main():
             params.iv_prefix = args.iv_prefix if (args.iv_prefix != 'NONE') else ''
             print("Using iv prefix: %s" % params.iv_prefix)
         if args.key_suffix:
-            params.key_suffix = args.key_suffix if (args.key_suffix != 'NONE') else ''
-            print("Using key suffix: %s" % params.key_suffix)
+            params.key_suffix = args.key_suffix if (args.key_suffix != "NONE") else ""
+            print(f"Using key suffix: '{params.key_suffix}'")
         if args.iv_suffix:
             params.iv_suffix = args.iv_suffix if (args.iv_suffix != 'NONE') else ''
             print("Using iv suffix: %s" % params.iv_suffix)
@@ -101,23 +138,38 @@ def main():
 
     signature = args.signature
     if not key and signature:
-        possible_key = zcu.known_keys.find_key(signature)
-        if possible_key is not None:
-            key = possible_key
-            payload_type = 2
-        if key:
-            print("Using key '" + key + "' matching signature '" + signature + "'")
+        if not args.force_no_key:
+            possible_key = zcu.known_keys.find_key(signature)
+            if possible_key is not None:
+                key = possible_key
+                payload_type = 2
+            if key:
+                print(f"Using key '{key}' for signature '{signature}'")
+
+    incorrect_compressed_size = args.incorrect_compressed_size
+
+    data = zcu.compression.compress(
+        infile, args.chunk_size, incorrect_compressed_size=incorrect_compressed_size
+    )
+
+    if args.payload_type is not None:
+        if args.payload_type != payload_type:
+            print(f"Overriding Payload Type: {args.payload_type}")
+        payload_type = args.payload_type
 
     if all(b == 0 for b in signature) and payload_type in (2, 4, 6):
         print("Warning: No signature provided!")
 
     if all(b == 0 for b in key) and (payload_type != 0 or signature):
-        print("Warning: No key provided!")
-
-    data = zcu.compression.compress(infile, args.chunk_size)
+        if not args.force_no_key:
+            print("Warning: No key provided!")
 
     if payload_type == 2:
-        encryptor = Xcryptor(key, chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length)
+        encryptor = Xcryptor(
+            key,
+            chunk_size=args.chunk_size,
+            include_unencrypted_length=args.include_unencrypted_length,
+        )
         data = encryptor.encrypt(data)
     elif payload_type in (3, 4, 6):
         encryptor = CBCXcryptor(chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length, payload_type=payload_type)
@@ -136,5 +188,5 @@ def main():
     print("Done!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

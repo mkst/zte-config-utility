@@ -1,76 +1,153 @@
 """Decode config.bin into config.xml"""
-import sys
+
 import argparse
+import pathlib
+import sys
+import zlib
 from types import SimpleNamespace
+
 import zcu
 from zcu.xcryptors import Xcryptor, CBCXcryptor
 from zcu.known_keys import serial_keygen, signature_keygen
 
 def main():
-    """the main function"""
-    parser = argparse.ArgumentParser(description="Decode config.bin from ZTE Routers",
-                                     formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("infile", type=argparse.FileType("rb"),
-                        help="Encoded configuration file e.g. config.bin")
-    parser.add_argument("outfile", type=argparse.FileType("wb"),
-                        help="Output file e.g. config.xml")
-    parser.add_argument("--key", type=lambda x: x.encode(), default=b"",
-                        help="Key for AES decryption")
-    parser.add_argument('--model', type=str, default='',
-                        help="Device model for Type-3 key derivation")
-    parser.add_argument("--serial", type=str, default="",
-                        help="Serial number for Type-4 key generation (digimobil routers/tagparams based)")
-    parser.add_argument("--mac", type=str, default="",
-                        help="MAC address for TagParams-based key generation")
-    parser.add_argument("--longpass", type=str, default="",
-                        help="Long password from TagParams (entry 4100) for key generation")
-    parser.add_argument("--signature", type=str, default="",
-                        help="Supply/override signature for Type-4 key generation")
-    parser.add_argument("--try-all-known-keys", action="store_true",
-                        help="Try decrypting with all known keys and generators (default No)")
-    parser.add_argument("--key-prefix", type=str, default='',
-                        help="Override Key prefix for Serial/TagParams based key generation")
-    parser.add_argument("--iv-prefix", type=str, default='',
-                        help="Override IV prefix for Serial/TagParams based key generation")
-    parser.add_argument("--key-suffix", type=str, default='',
-                        help="Override Key suffix for Signature based key generation")
-    parser.add_argument("--iv-suffix", type=str, default='',
-                        help="Override IV suffix for Signature based key generation")
+    parser = argparse.ArgumentParser(
+        description="Decode config.bin from ZTE Routers",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
+    parser.add_argument(
+        "infile",
+        type=pathlib.Path,
+        help="Encoded configuration file e.g. config.bin",
+    )
+    parser.add_argument(
+        "outfile",
+        type=pathlib.Path,
+        nargs="?",
+        help="Output file e.g. config.xml",
+    )
+    parser.add_argument(
+        "--little-endian",
+        action="store_true",
+        help="Whether payload is little-endian (defaults to big-endian)",
+    )
+    parser.add_argument(
+        "--key",
+        type=lambda x: x.encode(),
+        default=b"",
+        help="Key for AES decryption",
+    )
+    parser.add_argument(
+        "--iv",
+        type=lambda x: x.encode(),
+        default=b"",
+        help="IV for AES-CBC decryption (SHA256-derived)",
+    )
+    parser.add_argument(
+        "--model", type=str, default="", help="Device model for Type-3 key derivation"
+    )
+    parser.add_argument(
+        "--serial",
+        type=str,
+        default="",
+        help="Serial number for Type-4 key generation (digimobil routers/tagparams based)",
+    )
+    parser.add_argument(
+        "--mac",
+        type=str,
+        default="",
+        help="MAC address for TagParams-based key generation",
+    )
+    parser.add_argument(
+        "--longpass",
+        type=str,
+        default="",
+        help="Long password from TagParams (entry 4100) for key generation",
+    )
+    parser.add_argument(
+        "--signature",
+        type=str,
+        default="",
+        help="Supply/override signature for Type-4 key generation",
+    )
+    parser.add_argument(
+        "--try-all-known-keys",
+        action="store_true",
+        help="Try decrypting with all known keys and generators (default False)",
+    )
+    parser.add_argument(
+        "--key-prefix",
+        type=str,
+        default="",
+        help="Override Key prefix for Serial/TagParams based key generation",
+    )
+    parser.add_argument(
+        "--iv-prefix",
+        type=str,
+        default="",
+        help="Override IV prefix for Serial/TagParams based key generation",
+    )
+    parser.add_argument(
+        "--key-suffix",
+        type=str,
+        default="",
+        help="Override Key suffix for Signature based key generation",
+    )
+    parser.add_argument(
+        "--iv-suffix",
+        type=str,
+        default="",
+        help="Override IV suffix for Signature based key generation",
+    )
     args = parser.parse_args()
 
-    infile = args.infile
-    outfile = args.outfile
+    infile_path: pathlib.Path = args.infile
+    outfile_path: pathlib.Path = args.outfile
+    if outfile_path is None:
+        outfile_path = infile_path.with_suffix(".xml")
 
-    zcu.zte.read_header(infile)
+        if outfile_path.exists():
+            overwrite = input(f"Output file {outfile_path} exists, overwrite? (y/N) ").lower()
+            while overwrite not in {"y", "n", ""}:
+                overwrite = input(f"Output file {outfile_path} exists, overwrite? (y/N) ").lower()
+
+            if overwrite != "y":
+                print("Not overwriting output, nothing to do!")
+                return
+
+    infile = open(infile_path, "rb")
+
+    zcu.zte.read_header(infile, little_endian=args.little_endian)
+
     signature = zcu.zte.read_signature(infile).decode()
     if signature:
-        print("Detected signature: %s" % signature)
+        print(f"Detected signature: {signature}")
+
     payload_type = zcu.zte.read_payload_type(infile)
-    print("Detected payload type %d" % payload_type)
-    start_pos = infile.tell()
+    print(f"Detected payload type {payload_type}")
 
     params = SimpleNamespace()
     if args.signature:
         params.signature = args.signature
     else:
         params.signature = signature
-    
+
     if args.key:
         params.key = args.key
     if args.model:
         params.model = args.model
     if args.serial:
-        params.serial = args.serial if (args.serial != 'NONE') else ''
+        params.serial = args.serial if (args.serial != "NONE") else ""
     if args.mac:
-        params.mac = args.mac if (args.mac != 'NONE') else ''
+        params.mac = args.mac if (args.mac != "NONE") else ""
     if args.longpass:
-        params.longPass = args.longpass if (args.longpass != 'NONE') else ''
+        params.longPass = args.longpass if (args.longpass != "NONE") else ""
     if args.key_prefix:
-        params.key_prefix = args.key_prefix if (args.key_prefix != 'NONE') else ''
+        params.key_prefix = args.key_prefix if (args.key_prefix != "NONE") else ""
     if args.key_suffix:
-        params.key_suffix = args.key_suffix if (args.key_suffix != 'NONE') else ''
+        params.key_suffix = args.key_suffix if (args.key_suffix != "NONE") else ""
     if args.iv_prefix:
-        params.iv_prefix = args.iv_prefix if (args.iv_prefix != 'NONE') else ''
+        params.iv_prefix = args.iv_prefix if (args.iv_prefix != "NONE") else ""
     if args.iv_suffix:
         params.iv_suffix = args.iv_suffix if (args.iv_suffix != 'NONE') else ''
 
@@ -174,19 +251,25 @@ def main():
         error("Unknown payload type %d encountered!" % payload_type)
         return 1
 
-    res, _ = zcu.compression.decompress(infile)
-    outfile.write(res.read())
+    decrypted, key = res
 
-    if matched is not None:
-        print("Successfully decoded using %s!" % matched)
+    try:
+        decompressed, _ = zcu.compression.decompress(decrypted)
+        xml_data = decompressed.read()
+    except (ValueError, EOFError, zlib.error) as exc:
+        error(f"Failed to decompress payload: {exc}")
+        return 1
+
+    with open(outfile_path, "wb") as outfile:
+        outfile.write(xml_data)
+
+    if key is not None:
+        key_text = key.decode() if isinstance(key, bytes) else key
+        print(f"Successfully decoded using key: '{key_text}'")
     else:
-        print("Successfully decoded!")
+        print("Successfully decoded")
 
     return 0
-
-
-def error(err):
-    print(err, file=sys.stderr)
 
 
 if __name__ == "__main__":

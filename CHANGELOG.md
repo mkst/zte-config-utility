@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 0.5.3
+
+Add additional options to encode.py to support H108N 2.3 devices.
+
+## 0.5.2
+
+Add additional keygen for F680 devices.
+
+## 0.5.1
+
+Allow the Payload Type to be overridden when encoding a configuration file.
+
+## 0.5.0
+
+Added `auto.py` which tries all key/iv/signature combinations.
+
 ## 0.4.0
 
 Allow basic support for little-endian header format.

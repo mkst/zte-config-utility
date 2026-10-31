@@ -1,23 +1,30 @@
 import struct
-from io import BytesIO
 from hashlib import sha256
+from io import BytesIO
+from typing import BinaryIO, Optional
 
 from Cryptodome.Cipher import AES
 
 from zcu.constants import PAYLOAD_MAGIC
 
 
-class Xcryptor():
+class Xcryptor:
     """Standard Type 2 encryption"""
+
     aes_cipher = None
     force_same_data_length = True
 
-    def __init__(self, aes_key=None, chunk_size=65536, include_unencrypted_length=False):
+    def __init__(
+        self,
+        aes_key: Optional[bytes] = None,
+        chunk_size: int = 65536,
+        include_unencrypted_length: bool = False,
+    ):
         self.chunk_size = chunk_size
         self.include_unencrypted_length = include_unencrypted_length
         self.set_key(aes_key)
 
-    def set_key(self, aes_key):
+    def set_key(self, aes_key: Optional[bytes], aes_iv: Optional[bytes] = None) -> None:
         if aes_key is None:
             self.aes_cipher = None
             return
@@ -28,7 +35,7 @@ class Xcryptor():
         aes_key = aes_key.ljust(16, b"\0")[:16]
         self.aes_cipher = AES.new(aes_key, AES.MODE_ECB)
 
-    def read_chunks(self, infile):
+    def read_chunks(self, infile: BinaryIO) -> BytesIO:
         """decrypt a block
         A 'block' consists of a 12 byte (3x4-byte INT) header and an AES payload
         HEADER
@@ -49,7 +56,7 @@ class Xcryptor():
         encrypted_data.seek(total_dec_size)
         return encrypted_data
 
-    def decrypt(self, infile):
+    def decrypt(self, infile: BinaryIO) -> BytesIO:
         data = self.read_chunks(infile)
         data_size = data.tell()
         data.seek(0)
@@ -58,12 +65,12 @@ class Xcryptor():
         res.seek(0)
         return res
 
-    def create_header(self):
+    def create_header(self) -> bytes:
         unencrypted_length_to_use = 0
         if self.include_unencrypted_length:
             unencrypted_length_to_use = self.unencrypted_data_length
             if self.force_same_data_length:
-                unencrypted_length_to_use = self.encrypted_data_length;
+                unencrypted_length_to_use = self.encrypted_data_length
 
         header = struct.pack(
             ">6I",
@@ -72,10 +79,11 @@ class Xcryptor():
             unencrypted_length_to_use,
             self.encrypted_data_length + 60 + 12,
             self.chunk_size,
-            0)
+            0,
+        )
         return header
 
-    def encrypt(self, infile):
+    def encrypt(self, infile: BinaryIO) -> BytesIO:
         """encrypt and add header
 
         A 'block' consists of a 60 byte (15x4-byte INT) header followed by
@@ -102,7 +110,7 @@ class Xcryptor():
 
         # pad to 16 byte alignment
         if unencrypted_data_length % 16 > 0:
-            data = data + (16 - unencrypted_data_length % 16)*b"\0"
+            data = data + (16 - unencrypted_data_length % 16) * b"\0"
 
         encrypted_data = self.aes_cipher.encrypt(data)
         encrypted_data_length = len(encrypted_data)
@@ -117,9 +125,15 @@ class Xcryptor():
         # mini header for aes payload
         aes_header = struct.pack(
             ">3I",
-            *(encrypted_data_length if self.force_same_data_length else unencrypted_data_length,
-              encrypted_data_length,
-              0)
+            *(
+                (
+                    encrypted_data_length
+                    if self.force_same_data_length
+                    else unencrypted_data_length
+                ),
+                encrypted_data_length,
+                0,
+            )
         )
         result.write(aes_header)
         result.write(encrypted_data)
@@ -138,7 +152,13 @@ class CBCXcryptor(Xcryptor):
         super().__init__(aes_key, chunk_size, include_unencrypted_length)
         self.payload_type = payload_type
 
-    def set_key(self, aes_key=None, aes_iv=None):
+    def __init__(self, *args, **kwargs):
+        self.payload_type = kwargs.pop("payload_type", None)
+        super().__init__(*args, **kwargs)
+
+    def set_key(
+        self, aes_key: Optional[bytes | str] = None, aes_iv: Optional[bytes | str] = None
+    ) -> None:
         if aes_key is None:
             self.aes_cipher = None
             return
@@ -159,7 +179,7 @@ class CBCXcryptor(Xcryptor):
         iv = sha256(self.aes_iv_str.encode()).digest()
         self.aes_cipher = AES.new(key, AES.MODE_CBC, iv[:16])
 
-    def read_chunks(self, infile):
+    def read_chunks(self, infile: BinaryIO) -> BytesIO:
         encrypted_data = BytesIO()
         total_dec_size = 0
         while True:
@@ -184,5 +204,6 @@ class CBCXcryptor(Xcryptor):
             self.encrypted_data_length if self.include_unencrypted_length else 0,
             0,
             0,
-            0)
+            0,
+        )
         return header
