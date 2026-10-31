@@ -3,7 +3,6 @@ import sys
 import argparse
 from types import SimpleNamespace
 import zcu
-
 from zcu.xcryptors import Xcryptor, CBCXcryptor
 from zcu.known_keys import serial_keygen, signature_keygen
 
@@ -102,7 +101,7 @@ def main():
         if matched is None:
             error("Failed to decrypt type 3 payload, tried %d model name(s)!" % len(models))
             return 1
-    elif payload_type == 4:
+    elif payload_type in (4, 6):
         generated = []
         if args.try_all_known_keys:
             generated = zcu.known_keys.run_all_keygens(params)
@@ -112,7 +111,7 @@ def main():
                 generated.append(res)
 
         if not len(generated):
-            errStr = "No type 4 keygens matched the supplied/detected signature and parameters! Maybe adding --try-all-known-keys "
+            errStr = "No type %d keygens matched the supplied/detected signature and parameters! Maybe adding --try-all-known-keys " % payload_type
             if not hasattr(params,'serial'):
                 errStr += "or --serial "
             errStr += "would work."
@@ -134,7 +133,7 @@ def main():
                 break
 
         if matched is None:
-            error("Failed to decrypt type 4 payload, tried %d generated key(s)!" % len(generated))
+            error("Failed to decrypt type %d payload, tried %d generated key(s)!" % (payload_type, len(generated)))
             return 1
     elif payload_type == 2:
         keys = []

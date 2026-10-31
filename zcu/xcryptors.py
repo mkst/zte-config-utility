@@ -128,10 +128,15 @@ class Xcryptor():
 
 
 class CBCXcryptor(Xcryptor):
-    # type 3/4 encryption, AES256CBC with the key/IV set from SHA256 hashes
+    # type 3/4/6 encryption, AES256CBC with the key/IV set from SHA256 hashes
     force_same_data_length = False
     aes_key_str = None
     aes_iv_str = None
+    payload_type = None
+
+    def __init__(self, aes_key=None, chunk_size=65536, include_unencrypted_length=False, payload_type=None):
+        super().__init__(aes_key, chunk_size, include_unencrypted_length)
+        self.payload_type = payload_type
 
     def set_key(self, aes_key=None, aes_iv=None):
         if aes_key is None:
@@ -167,10 +172,15 @@ class CBCXcryptor(Xcryptor):
         return encrypted_data
 
     def create_header(self):
+        if self.payload_type is not None:
+            pt = self.payload_type
+        else:
+            pt = 3 if (self.aes_key_str == self.aes_iv_str) else 4
+
         header = struct.pack(
             ">6I",
             PAYLOAD_MAGIC,
-            3 if (self.aes_key_str == self.aes_iv_str) else 4,  # aes in CBC mode
+            pt,  # aes in CBC mode
             self.encrypted_data_length if self.include_unencrypted_length else 0,
             0,
             0,

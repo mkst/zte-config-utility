@@ -7,13 +7,26 @@ import struct
 from . import constants
 
 
-def read_header(infile, little_endian=False):
+def read_header(infile, little_endian=None):
     """expects to be at position 0 of the file, returns size of header"""
     header_magic = struct.unpack('>4I', infile.read(16))
     if header_magic == constants.ZTE_MAGIC:
         # 128 byte header
-        endian = '<' if little_endian else '>'
-        header = struct.unpack(endian + '28I', infile.read(112))
+        raw_header = infile.read(112)
+        if little_endian is None:
+            be_header = struct.unpack('>28I', raw_header)
+            if be_header[2] == 4:
+                header = be_header
+            else:
+                le_header = struct.unpack('<28I', raw_header)
+                if le_header[2] == 4:
+                    header = le_header
+                else:
+                    header = be_header
+        else:
+            endian = '<' if little_endian else '>'
+            header = struct.unpack(endian + '28I', raw_header)
+
         assert header[2] == 4
         header_length = header[13]
         signed_config_size = header[14]

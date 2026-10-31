@@ -29,8 +29,8 @@ def main():
                         help='Generate Key/IV from signature, implies payload-type 4. Use this if you used --signature when decoding, or the output of the decoding script said "Using signature: <something>".')
     parser.add_argument('--chunk-size', type=int, default=65536,
                         help='ZLIB chunk sizes (default 65536)')
-    parser.add_argument('--payload-type', type=int, default=0, choices=[0, 2, 3, 4],
-                        help='Payload type (0=plain, 2=aes128ecb key encryption, 3=aes256cbc model encryption, 4=aes256cbc signature/serial encryption)')
+    parser.add_argument('--payload-type', type=int, default=0, choices=[0, 2, 3, 4, 6],
+                        help='Payload type (0=plain, 2=aes128ecb key encryption, 3=aes256cbc model encryption, 4=aes256cbc signature/serial encryption, 6=aes256cbc custom/f6600 encryption)')
     parser.add_argument('--version', type=int, default=2, choices=[1, 2],
                         help='Payload version (1=unknown, 2=unknown)')
     parser.add_argument("--include-header", action="store_true",
@@ -72,12 +72,17 @@ def main():
             print("Using iv prefix: %s" % params.iv_prefix)
         key, iv = run_any_keygen(params,'serial')[:2]
     elif args.use_signature_encryption:
-        payload_type = 4
+        params = SimpleNamespace(signature=args.signature)
         if not args.signature:
             print("Warning: Using signature encryption but no signature provided!")
-
-        params = SimpleNamespace(signature=args.signature)
-        print("Using signature: %s" % params.signature)
+        else:
+            print("Using signature: %s" % params.signature)
+        if args.key_prefix:
+            params.key_prefix = args.key_prefix if (args.key_prefix != 'NONE') else ''
+            print("Using key prefix: %s" % params.key_prefix)
+        if args.iv_prefix:
+            params.iv_prefix = args.iv_prefix if (args.iv_prefix != 'NONE') else ''
+            print("Using iv prefix: %s" % params.iv_prefix)
         if args.key_suffix:
             params.key_suffix = args.key_suffix if (args.key_suffix != 'NONE') else ''
             print("Using key suffix: %s" % params.key_suffix)
@@ -85,6 +90,10 @@ def main():
             params.iv_suffix = args.iv_suffix if (args.iv_suffix != 'NONE') else ''
             print("Using iv suffix: %s" % params.iv_suffix)
         key, iv = run_any_keygen(params,'signature')[:2]
+        if args.signature.startswith("F6600"):
+            payload_type = 6
+        else:
+            payload_type = 4
     elif args.iv:
         payload_type = 4
     elif args.key:
@@ -99,7 +108,7 @@ def main():
         if key:
             print("Using key '" + key + "' matching signature '" + signature + "'")
 
-    if all(b == 0 for b in signature) and payload_type in (2, 4):
+    if all(b == 0 for b in signature) and payload_type in (2, 4, 6):
         print("Warning: No signature provided!")
 
     if all(b == 0 for b in key) and (payload_type != 0 or signature):
@@ -110,12 +119,12 @@ def main():
     if payload_type == 2:
         encryptor = Xcryptor(key, chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length)
         data = encryptor.encrypt(data)
-    elif payload_type in (3, 4):
-        encryptor = CBCXcryptor(chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length)
+    elif payload_type in (3, 4, 6):
+        encryptor = CBCXcryptor(chunk_size=args.chunk_size, include_unencrypted_length=args.include_unencrypted_length, payload_type=payload_type)
         encryptor.set_key(aes_key=key, aes_iv=iv)
         data = encryptor.encrypt(data)
 
-    version = (args.version >> 16) if args.little_endian_header else (args.version << 16)
+    version = args.version if args.little_endian_header else (args.version << 16)
     encoded = zcu.zte.add_header(
         data,
         signature.encode("utf8"),

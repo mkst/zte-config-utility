@@ -75,6 +75,28 @@ def serial_keygen(params, key_prefix='8cc72b05705d5c46', iv_prefix='667b02a85c61
     except AttributeError:
         return ()
 
+def f6600_keygen(params, iv_prefix='ZTE%FN$GponNJ025'):
+    """Key generation for ZTE ZXHN F6600 (Type 6 payload, AES-256-CBC).
+
+    The IV prefix is the ZTE GPON vendor constant (DefAESCBCIV), which is
+    publicly known. The key prefix is device-specific (derived from the ONT
+    MAC address or serial number) and must be supplied via --key-prefix.
+
+    Example:
+        python3 examples/decode.py --key-prefix <device_key> config.bin out.xml
+        python3 examples/encode.py --signature F6600 --use-signature-encryption \\
+            --include-header --little-endian-header \\
+            --key-prefix <device_key> in.xml config.bin
+    """
+    if hasattr(params, 'iv_prefix') and params.iv_prefix:
+        iv_prefix = params.iv_prefix
+
+    if not hasattr(params, 'key_prefix') or not params.key_prefix:
+        return ()
+
+    return (params.key_prefix, iv_prefix, "f6600: key_prefix='%s'" % params.key_prefix)
+
+
 def signature_keygen(params, key_suffix='Key02721401', iv_suffix='Iv02721401'):
     if hasattr(params, 'key_suffix'):
         key_suffix = params.key_suffix
@@ -94,6 +116,7 @@ KNOWN_KEYGENS = {
     (lambda p : tagparams_keygen(p)): ["H288A"],
     (lambda p : serial_keygen(p)): ["ZXHN H298A"],
     (lambda p : signature_keygen(p)): ["ZXHN H168N V3.5"],
+    (lambda p : f6600_keygen(p)): ["F6600"],
     (lambda p : signature_keygen(p, key_suffix='Key02710010', iv_suffix='Iv02710010')): ["ZXHN H298Q", "ZXHN H268Q"],
     (lambda p : signature_keygen(p, key_suffix='Key02710001', iv_suffix='Iv02710001')): ["H188A", "H288A"],
     (lambda p : signature_keygen(p, key_suffix='Key02660004', iv_suffix='Iv02660004')): ["H196Q"],
