@@ -8,22 +8,28 @@ from typing import BinaryIO, Optional
 from . import constants
 
 
-def read_header(infile: BinaryIO, little_endian: bool = False) -> int:
+def read_header(infile, little_endian=None):
     """expects to be at position 0 of the file, returns size of header"""
     fmt = ">4I"
     header_magic = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
     if header_magic == constants.ZTE_MAGIC:
         # 128 byte header
-        fmt = f'{"<" if little_endian else ">"}28I'
-        header = struct.unpack(fmt, infile.read(struct.calcsize(fmt)))
-        if header[2] == 0x4000000:
-            print("WARNING: Incorrect endianess specified!")
-            infile.seek(0)
-            return read_header(infile, not little_endian)
+        raw_header = infile.read(112)
+        if little_endian is None:
+            be_header = struct.unpack('>28I', raw_header)
+            if be_header[2] == 4:
+                header = be_header
+            else:
+                le_header = struct.unpack('<28I', raw_header)
+                if le_header[2] == 4:
+                    header = le_header
+                else:
+                    header = be_header
+        else:
+            endian = '<' if little_endian else '>'
+            header = struct.unpack(endian + '28I', raw_header)
 
-        assert (
-            header[2] == 4
-        ), f"Expected header[2] to be 0x4, was actually 0x{header[2]:X}"
+        assert header[2] == 4
         header_length = header[13]
         signed_config_size = header[14]
         file_size = stat(infile.name).st_size

@@ -10,3 +10,18 @@ resources/*NEW*
 
 *.pyc
 .coverage
+
+# Archivos sueltos de prueba / backups personales de routers (no forman parte del PR)
+config*.bin
+config*.xml
+config*.txt*
+db_*.xml
+db_*.txt
+bob_*
+*.swp
+*.ok
+*:Zone.Identifier
+p7
+saleono
+configdec*.py
+decode.py

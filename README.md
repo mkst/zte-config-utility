@@ -1,5 +1,9 @@
 # zte config utility
 
+> [!TIP]
+> **¿Usas un router ZTE F6600?**  
+> Consulta la guía específica y simplificada en español: [**README_F6600.md**](./README_F6600.md) con scripts directos `./decrypt.sh` y `./encrypt.sh`.
+
 The core of the decoding work is taken from a [pastebin](https://pastebin.com/GGxbngtK) dump by 'Felis-Sapien'.
 
 Creates byte-perfect binaries for the limited number of `config.bin` that have been tested.

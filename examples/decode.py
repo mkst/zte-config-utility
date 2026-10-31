@@ -7,181 +7,8 @@ import zlib
 from types import SimpleNamespace
 
 import zcu
-from zcu.known_keys import TYPE_3_KNOWN_KEY_IVS
-from zcu.xcryptors import CBCXcryptor, Xcryptor
-
-
-def error(msg):
-    print(msg, file=sys.stderr)
-
-
-def decode_payload_type_0(infile):
-    print("Decoding type 0 payload...")
-
-    # no decryption required
-    return (infile, None)
-
-
-def decode_payload_type_2(infile, args, params):
-    print("Decoding type 2 payload...")
-
-    keys = set()
-
-    if hasattr(params, "key"):
-        keys.add(params.key)
-    elif hasattr(params, "signature"):
-        key_for_signature = zcu.known_keys.find_key(params.signature)
-        if key_for_signature is not None:
-            keys.add(key_for_signature)
-
-    if args.try_all_known_keys:
-        for key in zcu.known_keys.get_all_keys():
-            keys.add(key)
-
-    if len(keys) == 0:
-        error(
-            "No --key specified or found via signature, try again with --try-all-known-keys or specifying the --key."
-        )
-        return None
-
-    decryptor = Xcryptor()
-
-    start_pos = infile.tell()
-    for key in keys:
-        infile.seek(start_pos)
-
-        if len(keys) > 1:
-            print(f"Trying key: '{key}'")
-
-        decryptor.set_key(key)
-        decrypted = decryptor.decrypt(infile)
-        if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-            return (decrypted, key)
-
-    error(f"Failed to decrypt payload. Tried {len(keys)} key(s)!")
-    return None
-
-
-def decode_payload_type_3(infile, args, params):
-    print("Decoding type 3 payload...")
-
-    models = []
-    if hasattr(params, "model"):
-        models.append(params.model)
-
-    if args.try_all_known_keys:
-        models.extend(zcu.known_keys.get_all_models())
-
-    key_ivs = [(m, m, f"Model {m}") for m in models]
-    if args.try_all_known_keys:
-        key_ivs.extend(TYPE_3_KNOWN_KEY_IVS)
-
-    if len(key_ivs) == 0:
-        error(
-            "Failed to decrypt payload. No keys found! Try specifying --model and/or --try-all-known-keys and try again."
-        )
-        return None
-
-    decryptor = CBCXcryptor()
-
-    start_pos = infile.tell()
-    for key, iv, name in key_ivs:
-        infile.seek(start_pos)
-
-        if len(models) > 1:
-            print(f"Trying key: {name}")
-
-        decryptor.set_key(key, iv)
-        decrypted = decryptor.decrypt(infile)
-        if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-            return (decrypted, key)
-
-    error(f"Failed to decrypt payload. Tried {len(models)} model name(s)!")
-    return None
-
-
-def decode_payload_type_4(infile, args, params):
-    print("Decoding type 4 payload...")
-
-    if args.try_all_known_keys:
-        key_ivs = zcu.known_keys.run_all_keygens(params)
-    else:
-        key_ivs = zcu.known_keys.run_keygens(params)
-
-    if len(key_ivs) == 0:
-        msg = "No keygens matched the supplied/detected signature and parameters! Try adding --try-all-known-keys"
-        if not hasattr(params, "serial"):
-            msg += " or --serial YOUR_SERIAL_NUMBER"
-        msg += " and try again."
-        error(msg)
-        return None
-
-    decryptor = CBCXcryptor()
-
-    start_pos = infile.tell()
-    for key, iv, source in key_ivs:
-        infile.seek(start_pos)
-
-        print(f"Trying key: '{key}' iv: '{iv}' generated from {source}")
-
-        decryptor.set_key(key, iv)
-        decrypted = decryptor.decrypt(infile)
-        if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
-            return (decrypted, key)
-
-    error(f"Failed to decrypt payload. Tried {len(key_ivs)} generated key(s)!")
-    return None
-
-
-def decode_payload_type_6(infile, args, params):
-    print("Decoding type 6 payload...")
-
-    if not args.key or not args.iv:
-        error("Payload type 6 requires both --key and --iv.")
-        return None
-
-    decryptor = CBCXcryptor(payload_type=6)
-    decryptor.set_key(args.key, args.iv)
-
-    try:
-        decrypted = decryptor.decrypt(infile)
-        if decrypted is None:
-            error("Failed to decrypt type 6 payload.")
-            return None
-
-        decrypted.seek(0)
-        inner_type = zcu.zte.read_payload_type(
-            decrypted, raise_on_error=False
-        )
-
-        if inner_type is None:
-            error("Invalid inner payload header.")
-            return None
-
-    except (ValueError, EOFError) as exc:
-        error(f"Failed to decrypt type 6 payload: {exc}")
-        return None
-
-    return decrypted, args.key
-
-
-def decode_payload(infile, args, params, payload_type):
-    if payload_type == 0:
-        res = decode_payload_type_0(infile)
-    elif payload_type == 2:
-        res = decode_payload_type_2(infile, args, params)
-    elif payload_type == 3:
-        res = decode_payload_type_3(infile, args, params)
-    elif payload_type == 4:
-        res = decode_payload_type_4(infile, args, params)
-    elif payload_type == 6:
-        res = decode_payload_type_6(infile, args, params)
-    else:
-        error(f"No support for payload type {payload_type}!")
-        return None
-
-    return res
-
+from zcu.xcryptors import Xcryptor, CBCXcryptor
+from zcu.known_keys import serial_keygen, signature_keygen
 
 def main():
     parser = argparse.ArgumentParser(
@@ -322,10 +149,106 @@ def main():
     if args.iv_prefix:
         params.iv_prefix = args.iv_prefix if (args.iv_prefix != "NONE") else ""
     if args.iv_suffix:
-        params.iv_suffix = args.iv_suffix if (args.iv_suffix != "NONE") else ""
+        params.iv_suffix = args.iv_suffix if (args.iv_suffix != 'NONE') else ''
 
-    res = decode_payload(infile, args, params, payload_type)
-    if res is None:
+    matched = None
+    if payload_type == 3:
+        models = []
+        if hasattr(params, 'model'):
+            models.append(params.model)
+
+        if args.try_all_known_keys:
+            models.extend(zcu.known_keys.get_all_models())
+
+        if not len(models):
+            error("No model argument specified for type 3 decryption and not trying all known keys!")
+            return 1
+
+        for model in models:
+            if len(models) > 1:
+                print("Trying model name: %s" % model)
+            decryptor = CBCXcryptor(model)
+            infile.seek(start_pos)
+            decrypted = decryptor.decrypt(infile)
+            if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
+                matched = "model: '%s'" % model
+                infile = decrypted
+                break
+
+        if matched is None:
+            error("Failed to decrypt type 3 payload, tried %d model name(s)!" % len(models))
+            return 1
+    elif payload_type in (4, 6):
+        generated = []
+        if args.try_all_known_keys:
+            generated = zcu.known_keys.run_all_keygens(params)
+        else:
+            res = zcu.known_keys.run_keygen(params)
+            if res is not None:
+                generated.append(res)
+
+        if not len(generated):
+            errStr = "No type %d keygens matched the supplied/detected signature and parameters! Maybe adding --try-all-known-keys " % payload_type
+            if not hasattr(params,'serial'):
+                errStr += "or --serial "
+            errStr += "would work."
+            error(errStr)
+            return 1
+
+        for genkey in generated:
+            key, iv, source = genkey
+            if len(generated) > 1:
+                print("Trying key: '%s' iv: '%s' generated from %s" % (key, iv, source))
+
+            decryptor = CBCXcryptor()
+            decryptor.set_key(key, iv)
+            infile.seek(start_pos)
+            decrypted = decryptor.decrypt(infile)
+            if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
+                matched = source
+                infile = decrypted
+                break
+
+        if matched is None:
+            error("Failed to decrypt type %d payload, tried %d generated key(s)!" % (payload_type, len(generated)))
+            return 1
+    elif payload_type == 2:
+        keys = []
+        if hasattr(params, 'key'):
+            keys.append(params.key)
+        elif hasattr(params, 'signature'):
+            found_key = zcu.known_keys.find_key(params.signature)
+            if (found_key is not None) and (found_key not in keys):
+                keys.append(found_key)
+        if args.try_all_known_keys:
+            for key in zcu.known_keys.get_all_keys():
+                if key not in keys:
+                    keys.append(key)
+
+        if not len(keys):
+            error("No --key specified or found via signature, and not trying all known keys!")
+            return 1
+
+        for key in keys:
+            if len(keys) > 1:
+                print("Trying key: %s" % key)
+
+            decryptor = Xcryptor(key)
+            infile.seek(start_pos)
+            decrypted = decryptor.decrypt(infile)
+            if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
+                matched = "key: '%s'" % key
+                infile = decrypted
+                break
+
+        if matched is None:
+            error("Failed to decrypt type 2 payload, tried %d key(s)!" % len(keys))
+            return 1
+    elif payload_type == 0:
+        # no decryption required
+        pass
+    else:
+        error("Unknown payload type %d encountered!" % payload_type)
         return 1
 
     decrypted, key = res
