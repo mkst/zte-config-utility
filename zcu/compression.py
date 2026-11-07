@@ -3,7 +3,7 @@
 import struct
 import zlib
 from io import BytesIO
-from typing import BinaryIO
+from typing import BinaryIO, Optional
 
 from . import constants
 
@@ -135,3 +135,68 @@ def compress(
     payload.seek(0)
 
     return payload
+
+
+def repair_payload_header(data: bytes) -> Optional[bytes]:
+    """Rebuild the 60 byte header of a type-0 (zlib) payload.
+
+    Some type 3/4 payloads are encrypted with a CBC IV that differs from the
+    IV derived from the device parameters.  In that case only the first 16
+    bytes of the decrypted payload are corrupted: that is the beginning of the
+    60 byte header, which contains the magic number.  Every following cipher
+    block and the whole chunk chain are still correct, so the header can be
+    rebuilt and validated from the chunk chain.
+
+    Returns the repaired payload, or ``None`` if it cannot be validated.
+    """
+    if len(data) < 60 + 12:
+        return None
+
+    if data[:4] == struct.pack(">I", constants.PAYLOAD_MAGIC):
+        return data
+
+    offset = 60
+    chunk_size = 0
+    total_decompressed = 0
+    compressed_crc = 0
+    cumulative_compressed = 60
+    chunks = 0
+
+    while True:
+        if offset + 12 > len(data):
+            return None
+        dec_size, comp_size, more = struct.unpack(">3I", data[offset:offset + 12])
+        chunk = data[offset + 12:offset + 12 + comp_size]
+        if len(chunk) != comp_size or dec_size == 0:
+            return None
+        compressed_crc = zlib.crc32(chunk, compressed_crc) & 0xFFFFFFFF
+        total_decompressed += dec_size
+        chunk_size = max(chunk_size, dec_size)
+        chunks += 1
+        if more == 0:
+            break
+        cumulative_compressed += comp_size + 12
+        offset = cumulative_compressed
+        if chunks > 0x100000:
+            return None
+
+    if len(data) < 24:
+        return None
+    stored_compressed_crc = struct.unpack(">I", data[0x14:0x18])[0]
+    stored_header_crc = struct.unpack(">I", data[0x18:0x1C])[0]
+    if compressed_crc != stored_compressed_crc:
+        return None
+
+    header = struct.pack(
+        ">6I",
+        constants.PAYLOAD_MAGIC,
+        0,  # zlib only
+        total_decompressed,
+        cumulative_compressed,
+        chunk_size,
+        compressed_crc,
+    )
+    if zlib.crc32(header) & 0xFFFFFFFF != stored_header_crc:
+        return None
+
+    return header + data[24:]

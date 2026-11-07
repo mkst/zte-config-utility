@@ -4,6 +4,7 @@ import argparse
 import pathlib
 import sys
 import zlib
+from io import BytesIO
 from types import SimpleNamespace
 
 import zcu
@@ -13,6 +14,23 @@ from zcu.xcryptors import CBCXcryptor, Xcryptor
 
 def error(msg):
     print(msg, file=sys.stderr)
+
+
+def repair_payload_after_bad_iv(decrypted):
+    """Rebuild a payload header damaged by an unknown CBC IV.
+
+    Returns a stream positioned at the first chunk header (offset 60) or
+    ``None`` when the payload cannot be validated.
+    """
+    decrypted.seek(0)
+    data = decrypted.read()
+    repaired = zcu.compression.repair_payload_header(data)
+    if repaired is None or repaired == data:
+        return None
+
+    stream = BytesIO(repaired)
+    stream.seek(60)
+    return stream
 
 
 def decode_payload_type_0(infile):
@@ -103,10 +121,43 @@ def decode_payload_type_3(infile, args, params):
 def decode_payload_type_4(infile, args, params):
     print("Decoding type 4 payload...")
 
+    decryptor = CBCXcryptor()
+
+    if getattr(args, "raw_key", None) is not None:
+        if getattr(args, "raw_iv", None) is None:
+            error("--key-hex requires --iv-hex when decoding type 4 payloads.")
+            return None
+
+        print("Using raw AES key/IV from --key-hex/--iv-hex")
+
+        try:
+            decryptor.set_raw_key(args.raw_key, args.raw_iv)
+        except ValueError as exc:
+            error(str(exc))
+            return None
+
+        decrypted = decryptor.decrypt(infile)
+        if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
+            return (decrypted, None)
+
+        repaired = repair_payload_after_bad_iv(decrypted)
+        if repaired is not None:
+            return (repaired, None)
+
+        error("Raw key/IV did not produce a valid payload.")
+        return None
+
     if args.try_all_known_keys:
         key_ivs = zcu.known_keys.run_all_keygens(params)
     else:
         key_ivs = zcu.known_keys.run_keygens(params)
+
+    # Explicit TagParams values are enough to run the tagparams generator even
+    # when the signature is unknown/empty (e.g. a bare payload without header).
+    if all(hasattr(params, attr) for attr in ("mac", "serial", "longPass")):
+        generated = zcu.known_keys.tagparams_keygen(params)
+        if generated and generated not in key_ivs:
+            key_ivs.append(generated)
 
     if len(key_ivs) == 0:
         msg = "No keygens matched the supplied/detected signature and parameters! Try adding --try-all-known-keys"
@@ -115,8 +166,6 @@ def decode_payload_type_4(infile, args, params):
         msg += " and try again."
         error(msg)
         return None
-
-    decryptor = CBCXcryptor()
 
     start_pos = infile.tell()
     for key, iv, source in key_ivs:
@@ -128,6 +177,14 @@ def decode_payload_type_4(infile, args, params):
         decrypted = decryptor.decrypt(infile)
         if zcu.zte.read_payload_type(decrypted, raise_on_error=False) is not None:
             return (decrypted, key)
+
+        repaired = repair_payload_after_bad_iv(decrypted)
+        if repaired is not None:
+            print(
+                "  note: the payload header was corrupted by an unknown CBC IV; "
+                "rebuilt it from the chunk chain"
+            )
+            return (repaired, key)
 
     error(f"Failed to decrypt payload. Tried {len(key_ivs)} generated key(s)!")
     return None
@@ -217,6 +274,24 @@ def main():
         help="IV for AES-CBC decryption (SHA256-derived)",
     )
     parser.add_argument(
+        "--offset",
+        type=lambda x: int(x, 0),
+        default=0,
+        help="Offset of the payload inside a larger dump (e.g. an mtd partition)",
+    )
+    parser.add_argument(
+        "--key-hex",
+        type=str,
+        default="",
+        help="Raw AES key as hex for type 4 payloads (skips key derivation)",
+    )
+    parser.add_argument(
+        "--iv-hex",
+        type=str,
+        default="",
+        help="Raw 16-byte AES IV as hex for type 4 payloads (skips IV derivation)",
+    )
+    parser.add_argument(
         "--model", type=str, default="", help="Device model for Type-3 key derivation"
     )
     parser.add_argument(
@@ -274,6 +349,13 @@ def main():
     )
     args = parser.parse_args()
 
+    try:
+        args.raw_key = bytes.fromhex(args.key_hex) if args.key_hex else None
+        args.raw_iv = bytes.fromhex(args.iv_hex) if args.iv_hex else None
+    except ValueError:
+        error("--key-hex/--iv-hex must be valid hexadecimal strings")
+        return 1
+
     infile_path: pathlib.Path = args.infile
     outfile_path: pathlib.Path = args.outfile
     if outfile_path is None:
@@ -288,7 +370,12 @@ def main():
                 print("Not overwriting output, nothing to do!")
                 return
 
-    infile = open(infile_path, "rb")
+    if args.offset:
+        with open(infile_path, "rb") as raw:
+            raw.seek(args.offset)
+            infile = BytesIO(raw.read())
+    else:
+        infile = open(infile_path, "rb")
 
     zcu.zte.read_header(infile, little_endian=args.little_endian)
 

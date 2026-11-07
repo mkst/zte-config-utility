@@ -1,4 +1,5 @@
 import unittest
+from hashlib import sha256
 from types import SimpleNamespace
 from zcu.known_keys import (
     find_key,
@@ -7,6 +8,7 @@ from zcu.known_keys import (
     run_all_keygens,
     run_any_keygen,
     mac_to_str,
+    tagparams_keygen,
 )
 
 
@@ -70,6 +72,20 @@ class TestPublicMethods(unittest.TestCase):
         self.assertEqual(
             res[1], "G21b667b00:11:22:33:44:55deadbeefdeadbeef"
         )
+
+    def test_run_tagparams_keygen_hv3601p(self):
+        params = SimpleNamespace(
+            signature="",
+            serial="ZTEYH9KQ5900772",
+            mac="c8:98:28:40:58:95",
+            longPass="D6%6%&f9Nxe7^bcRD6dGu^EFHuc$4Tyt",
+        )
+        key, iv, source = tagparams_keygen(params)
+        self.assertEqual(
+            key, "D6%6%&f9Nxe7^bcRD6dGu^EFHuc$4TytZTEYH9KQ5900772Mcd5c46e"
+        )
+        self.assertEqual(sha256(key.encode()).hexdigest(), "6f1210f853bd4c617d8d9c2ef8c510a366eb27dbe404d2c4f19af80fd63c2b3e")
+        self.assertTrue(source.startswith("tagparams:"))
 
     def test_run_all_keygens(self):
         params = SimpleNamespace(signature="ZXHN H268Q V7.X", serial="Test")
