@@ -7,7 +7,7 @@ import zlib
 from types import SimpleNamespace
 
 import zcu
-from zcu.known_keys import TYPE_3_KNOWN_KEY_IVS
+from zcu.known_keys import TYPE_3_KNOWN_KEY_IVS, TYPE_5_KNOWN_KEY_IVS
 from zcu.xcryptors import CBCXcryptor, Xcryptor
 
 
@@ -133,6 +133,69 @@ def decode_payload_type_4(infile, args, params):
     return None
 
 
+def decode_payload_type_5(infile, args, params):
+    print("Decoding type 5 payload...")
+
+    key_ivs = []
+    if args.key and args.iv:
+        key_ivs.append((args.key, args.iv, "User supplied key/iv"))
+
+    # Match signature (e.g. F670, F670L)
+    if hasattr(params, "signature") and params.signature:
+        sig = params.signature.lower()
+        if "f670" in sig:
+            key_ivs.append(
+                (
+                    "L04&Product@5A238dc79b15726d5c06",
+                    "ZTE%FN$GponNJ025678b02a85c63c706",
+                    "ZTE F670 / F670L",
+                )
+            )
+
+    if args.try_all_known_keys or len(key_ivs) == 0:
+        for k, iv, desc in TYPE_5_KNOWN_KEY_IVS:
+            if (k, iv, desc) not in key_ivs:
+                key_ivs.append((k, iv, desc))
+
+    if len(key_ivs) == 0:
+        error(
+            "No key/iv found for payload type 5. Try specifying --key and --iv, or use --try-all-known-keys."
+        )
+        return None
+
+    decryptor = CBCXcryptor(payload_type=5)
+    start_pos = infile.tell()
+
+    for key, iv, desc in key_ivs:
+        infile.seek(start_pos)
+        if len(key_ivs) > 1:
+            print(f"Trying key: '{key}' iv: '{iv}' ({desc})")
+
+        decryptor.set_key(key, iv)
+        try:
+            decrypted = decryptor.decrypt(infile)
+            if decrypted is None:
+                continue
+
+            decrypted.seek(0)
+            inner_type = zcu.zte.read_payload_type(
+                decrypted, raise_on_error=False
+            )
+            if inner_type is None:
+                decrypted.seek(0)
+                if decrypted.read(4) == b"<DB>":
+                    decrypted.seek(0)
+                    return decrypted, key
+                continue
+
+            return decrypted, key
+        except (ValueError, EOFError):
+            continue
+
+    error(f"Failed to decrypt type 5 payload. Tried {len(key_ivs)} keypair(s)!")
+    return None
+
+
 def decode_payload_type_6(infile, args, params):
     print("Decoding type 6 payload...")
 
@@ -174,6 +237,8 @@ def decode_payload(infile, args, params, payload_type):
         res = decode_payload_type_3(infile, args, params)
     elif payload_type == 4:
         res = decode_payload_type_4(infile, args, params)
+    elif payload_type == 5:
+        res = decode_payload_type_5(infile, args, params)
     elif payload_type == 6:
         res = decode_payload_type_6(infile, args, params)
     else:

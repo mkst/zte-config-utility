@@ -1,7 +1,7 @@
 import struct
 from hashlib import sha256
 from io import BytesIO
-from typing import BinaryIO, Optional
+from typing import BinaryIO, Optional, Union
 
 from Cryptodome.Cipher import AES
 
@@ -152,7 +152,9 @@ class CBCXcryptor(Xcryptor):
         super().__init__(*args, **kwargs)
 
     def set_key(
-        self, aes_key: Optional[bytes | str] = None, aes_iv: Optional[bytes | str] = None
+        self,
+        aes_key: Optional[Union[bytes, str]] = None,
+        aes_iv: Optional[Union[bytes, str]] = None,
     ) -> None:
         if aes_key is None:
             self.aes_cipher = None
