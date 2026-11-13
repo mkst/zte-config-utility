@@ -28,6 +28,8 @@ KNOWN_SIGNATURES = [
     "H288A",
     "H298Q",
     "ZTEH1600",
+    "F670L",
+    "ZXHN F670L",
     # "ZXHN H168N V3.5",
     # "ZXHN H298Q",
     # "ZXHN H268Q",
@@ -199,3 +201,21 @@ def run_any_keygen(params, wanted):
 
 
 TYPE_3_KNOWN_KEY_IVS = [("H267AV1_CZkey", "H267AV1_CZIV", "H267A Czech")]
+
+TYPE_5_KNOWN_KEY_IVS = [
+    (
+        "L04&Product@5A238dc79b15726d5c06",
+        "ZTE%FN$GponNJ025678b02a85c63c706",
+        "ZTE F670 / F670L",
+    ),
+    (
+        "f680v9.0",
+        "ZTE%FN$GponNJ025",
+        "ZTE F680 V9.0 / F6600P",
+    ),
+    (
+        "H6107AV10Key20102021",
+        "ZTE%FN$GponNJ025",
+        "AIS ZTE F6107A",
+    ),
+]

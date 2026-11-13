@@ -5,7 +5,7 @@
 | model             | type  | notes |
 |-------------------|:-----:|-------|
 | F600W             | **0** |       |
-| ZTE F670L         |       |  See [gist](https://gist.github.com/zainarbani/723d1387bec9e1559de7a1029d08aa91) "Your key will be the ONT serial number (ZTEGXXXXXXXX, take only the last 8 hex characters in UPPERCASE) + MAC address of your ONT (from right to left)."
+| ZTE F670L         | **5** | Type-5 supported via known keypair (`L04&Product@5A238dc79b15726d5c06` / `ZTE%FN$GponNJ025678b02a85c63c706`), or via ONT serial + MAC derivation for older firmware (see [gist](https://gist.github.com/zainarbani/723d1387bec9e1559de7a1029d08aa91)) |
 | ZTE H1600         | **4** | signature-derived Type-4 supported (keys found by @CarlosAPSouza, [#82](https://github.com/mkst/zte-config-utility/issues/82)) |
 | ZTE ZXHN H268A V1 | **0** |       |
 | ZXHN H108N V2.5   |       |       |
@@ -31,8 +31,8 @@ The table below provides an overview of the various models that people have trie
 | model                 | type  |  support       | status                   | github issue(s) |
 |-----------------------|:-----:|:--------------:|--------------------------|-----------|
 | ZTE F450              |   ?   | :question:     | need example config.bin  | [#69](https://github.com/mkst/zte-config-utility/issues/69) |
-| ZTE F670 V1.1         | **2** | :key:          | need more ivs/keys       | [#72](https://github.com/mkst/zte-config-utility/issues/72) |
-| ZTE F670 V2.0 / F680  | **5** | :red_circle:   | `Unknown payload type 5` | [#57](https://github.com/mkst/zte-config-utility/issues/57) |
+| ZTE F670 V1.1         | **2** / **5** | :white_check_mark: | Payload 5 supported with F670L keypair; Payload 2: [#72](https://github.com/mkst/zte-config-utility/issues/72) |
+| ZTE F670 V2.0 / F680  | **5** | :white_circle: | Type-5 supported in decoder; F680 V9.0 keypair: `f680v9.0` / `ZTE%FN$GponNJ025` | [#57](https://github.com/mkst/zte-config-utility/issues/57) |
 | ZTE F760              |   ?   | :question:     | need example config.bin  | [#54](https://github.com/mkst/zte-config-utility/issues/54) |
 | ZTE H3600 V9          |   ?   | :question:     | need example config.bin  | [#76](https://github.com/mkst/zte-config-utility/issues/76) |
 | ZTE H388X(F)          |   ?   | :key:          | need more ivs/keys       | [#91](https://github.com/mkst/zte-config-utility/issues/91) |
