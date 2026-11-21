@@ -28,6 +28,11 @@ class TestXcryptor(unittest.TestCase):
     ZXHN_H298Q_C7_db_type0 = "resources/ZXHN_H298Q_C7_db_type0.bin"
     ZXHN_H298Q_C7_db_key = "H298Q"
 
+    HV3601P_config = "resources/HV3601P_config.bin"
+    HV3601P_zlib = "resources/HV3601P_config.zlib"
+    HV3601P_key_hex = "6f1210f853bd4c617d8d9c2ef8c510a366eb27dbe404d2c4f19af80fd63c2b3e"
+    HV3601P_iv_hex = "72f513ad0f518b78e405622ae16667a1"
+
     def test_zxhn_h298n_decryption(self):
         with open(self.ZXHN_H298N_config, "rb") as inFile:
             inFile.seek(210)
@@ -168,6 +173,19 @@ class TestXcryptor(unittest.TestCase):
                 goodFile.seek(87)
                 goodData = goodFile.read()
             self.assertEqual(payloadData, goodData)
+
+    def test_hv3601p_raw_key_decryption(self):
+        with open(self.HV3601P_config, "rb") as inFile:
+            inFile.seek(60)
+            xcryptor = CBCXcryptor()
+            xcryptor.set_raw_key(
+                bytes.fromhex(self.HV3601P_key_hex),
+                bytes.fromhex(self.HV3601P_iv_hex),
+            )
+            res = xcryptor.decrypt(inFile)
+            with open(self.HV3601P_zlib, "rb") as goodFile:
+                goodBytes = goodFile.read()
+            self.assertEqual(res.read(), goodBytes)
 
     def test_zxhn_h298q_db_encryption(self):
         with open(self.ZXHN_H298Q_C7_db_type0, "rb") as inFile:

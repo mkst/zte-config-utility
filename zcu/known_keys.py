@@ -135,6 +135,11 @@ KNOWN_KEYGENS = {
     (lambda p: signature_keygen(p, key_suffix="Key02660004", iv_suffix="Iv02660004")): [
         "H196Q"
     ],
+    # H196A V9 uses the same signature derivation as H196Q but with a different
+    # hardware code: "H196AV9Key02660001" / "H196AV9Iv02660001".
+    (lambda p: signature_keygen(p, key_suffix="Key02660001", iv_suffix="Iv02660001")): [
+        "H196A"
+    ],
     # ZTE H1600 (credit: @CarlosAPSouza, #82)
     (lambda p: signature_keygen(p, key_suffix="Key02670001", iv_suffix="Iv02670001")): [
         "ZTE H1600",

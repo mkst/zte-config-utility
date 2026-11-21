@@ -4,6 +4,19 @@ diff >/dev/null resources/db_default_auto_cfg.xml resources/db_default_auto_cfg.
 python3 examples/encode.py --chunk-size 8192 resources/db_default_auto_cfg.xml resources/db_default_auto_cfg.bin2
 diff >/dev/null resources/db_default_auto_cfg.bin resources/db_default_auto_cfg.bin2 || (printf "\n***ENCODE MISMATCH***\n\n" && exit 0)
 
+python3 examples/decode.py resources/HV3601P_config.bin resources/HV3601P_config.xml2 \
+    --key-hex 6f1210f853bd4c617d8d9c2ef8c510a366eb27dbe404d2c4f19af80fd63c2b3e --iv-hex 72f513ad0f518b78e405622ae16667a1
+diff >/dev/null resources/HV3601P_config.xml resources/HV3601P_config.xml2 || (printf "\n***DECODE MISMATCH***\n\n" && exit 1)
+
+python3 examples/encode.py --key-hex 6f1210f853bd4c617d8d9c2ef8c510a366eb27dbe404d2c4f19af80fd63c2b3e --iv-hex 72f513ad0f518b78e405622ae16667a1 resources/HV3601P_config.xml resources/HV3601P_config.bin2
+diff >/dev/null resources/HV3601P_config.bin resources/HV3601P_config.bin2 || (printf "\n***ENCODE MISMATCH***\n\n" && exit 0)
+
+python3 examples/decode.py resources/H196A_config.bin resources/H196A_config.xml2
+diff >/dev/null resources/H196A_config.xml resources/H196A_config.xml2 || (printf "\n***DECODE MISMATCH***\n\n" && exit 1)
+
+python3 examples/encode.py --signature "H196A V9" --use-signature-encryption --include-header --little-endian-header --version 2 resources/H196A_config.xml resources/H196A_config.bin2
+diff >/dev/null resources/H196A_config.bin resources/H196A_config.bin2 || (printf "\n***ENCODE MISMATCH***\n\n" && exit 0)
+
 python3 examples/decode.py resources/ZXHN_H298Q_C7_db_type0.bin resources/ZXHN_H298Q_C7_db.xml2
 diff >/dev/null resources/ZXHN_H298Q_C7_db.xml resources/ZXHN_H298Q_C7_db.xml2 || (printf "\n***DECODE MISMATCH***\n\n" && exit 1)
 

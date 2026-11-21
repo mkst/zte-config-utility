@@ -18,6 +18,10 @@ class TestCompressionMethods(unittest.TestCase):
     F600W_xml = "resources/F600W.xml"
     F600W_zlib = "resources/F600W.zlib"
 
+    HV3601P_config = "resources/HV3601P_config.bin"
+    HV3601P_key_hex = "6f1210f853bd4c617d8d9c2ef8c510a366eb27dbe404d2c4f19af80fd63c2b3e"
+    HV3601P_iv_hex = "72f513ad0f518b78e405622ae16667a1"
+
     def test_zxhn_h298n_compress_helper(self):
         with open(self.ZXHN_H298N_xml, "rb") as infile:
             data, stats = zcu.compression.compress_helper(infile, 65536)
@@ -149,6 +153,26 @@ class TestCompressionMethods(unittest.TestCase):
             xml = data.read(4)
             self.assertEqual(b"<DB>", xml)
             self.assertEqual(3199045026, crc)
+
+    def test_hv3601p_repair_payload_header(self):
+        from zcu.xcryptors import CBCXcryptor
+
+        with open(self.HV3601P_config, "rb") as infile:
+            zcu.zte.read_header(infile)
+            zcu.zte.read_signature(infile)
+            payload_header = zcu.zte.read_payload(infile)
+            self.assertEqual(4, payload_header[1])
+            decryptor = CBCXcryptor()
+            decryptor.set_raw_key(
+                bytes.fromhex(self.HV3601P_key_hex),
+                bytes.fromhex(self.HV3601P_iv_hex),
+            )
+            good = decryptor.decrypt(infile).read()
+
+        # Legacy/unknown CBC IV corrupts only the first 16 bytes; the chunk
+        # chain and the two CRC fields in the header are still intact.
+        damaged = b"\xff" * 16 + good[16:]
+        self.assertEqual(good, zcu.compression.repair_payload_header(damaged))
 
     def test_f600w_decompress(self):
         with open(self.F600W_zlib, "rb") as infile:

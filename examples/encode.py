@@ -33,6 +33,18 @@ def main():
         help="IV for key derivation, switches encryption mode to AES256CBC",
     )
     parser.add_argument(
+        "--key-hex",
+        type=str,
+        default="",
+        help="Raw AES key as hex (skips SHA256 key derivation, implies payload-type 4)",
+    )
+    parser.add_argument(
+        "--iv-hex",
+        type=str,
+        default="",
+        help="Raw 16-byte AES IV as hex (requires --key-hex)",
+    )
+    parser.add_argument(
         "--model",
         type=str,
         default="",
@@ -134,6 +146,13 @@ def main():
 
     args = parser.parse_args()
 
+    try:
+        args.raw_key = bytes.fromhex(args.key_hex) if args.key_hex else None
+        args.raw_iv = bytes.fromhex(args.iv_hex) if args.iv_hex else None
+    except ValueError:
+        print("--key-hex/--iv-hex must be valid hexadecimal strings")
+        return 1
+
     infile_path: pathlib.Path = args.infile
     outfile_path: pathlib.Path = args.outfile
     if outfile_path is None:
@@ -156,7 +175,14 @@ def main():
 
     payload_type = 0
 
-    if args.model:
+    if args.raw_key is not None:
+        if args.raw_iv is None:
+            print("--key-hex requires --iv-hex when encoding type 4 payloads.")
+            return 1
+        print("Using raw AES key/IV from --key-hex/--iv-hex")
+        payload_type = 4
+        key = args.raw_key
+    elif args.model:
         payload_type = 3
         key = args.model
         iv = None
@@ -230,7 +256,7 @@ def main():
             print(f"Overriding Payload Type: {args.payload_type}")
         payload_type = args.payload_type
 
-    if all(b == 0 for b in signature) and payload_type in (2, 4):
+    if all(b == 0 for b in signature) and payload_type in (2, 4) and args.raw_key is None:
         print("Warning: No/empty signature provided!")
 
     if all(b == 0 for b in key) and (payload_type != 0 or signature):
@@ -250,7 +276,10 @@ def main():
             include_unencrypted_length=args.include_unencrypted_length,
             payload_type=payload_type,
         )
-        encryptor.set_key(aes_key=key, aes_iv=iv)
+        if args.raw_key is not None:
+            encryptor.set_raw_key(args.raw_key, args.raw_iv)
+        else:
+            encryptor.set_key(aes_key=key, aes_iv=iv)
         data = encryptor.encrypt(data)
 
     version = args.version if args.little_endian_header else (args.version << 16)

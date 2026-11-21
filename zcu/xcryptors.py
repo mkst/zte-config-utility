@@ -174,6 +174,21 @@ class CBCXcryptor(Xcryptor):
         iv = sha256(self.aes_iv_str.encode()).digest()
         self.aes_cipher = AES.new(key, AES.MODE_CBC, iv[:16])
 
+    def set_raw_key(self, aes_key: bytes, aes_iv: bytes) -> None:
+        """Use an already-derived AES key and IV (no SHA256 string hashing).
+
+        Useful when the IV string is unknown but its 16 byte value is known,
+        or when a payload was produced with a device-specific/legacy IV.
+        """
+        if not isinstance(aes_key, bytes) or len(aes_key) not in (16, 24, 32):
+            raise ValueError("raw AES key must be 16, 24 or 32 bytes")
+        if not isinstance(aes_iv, bytes) or len(aes_iv) != 16:
+            raise ValueError("raw AES IV must be 16 bytes")
+
+        self.aes_key_str = aes_key
+        self.aes_iv_str = aes_iv
+        self.aes_cipher = AES.new(aes_key, AES.MODE_CBC, aes_iv)
+
     def read_chunks(self, infile: BinaryIO) -> BytesIO:
         encrypted_data = BytesIO()
         total_dec_size = 0
