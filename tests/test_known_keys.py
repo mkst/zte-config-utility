@@ -60,6 +60,12 @@ class TestPublicMethods(unittest.TestCase):
         self.assertEqual(res[0], "ZTEH1600Key02670001")
         self.assertEqual(res[1], "ZTEH1600Iv02670001")
 
+    def test_run_signature_keygen_h196a(self):
+        params = SimpleNamespace(signature="H196A V9")
+        res = run_keygens(params)[0]
+        self.assertEqual(res[0], "H196AV9Key02660001")
+        self.assertEqual(res[1], "H196AV9Iv02660001")
+
     def test_run_tagparams_keygen_h288a(self):
         params = SimpleNamespace(
             signature="H288A",
